@@ -9,6 +9,7 @@ import '../components/footer/footer.css';
 import '../components/contact/contact.css';
 
 import '../components/breadcumbs/breadcumbs.css';
+import '../components/rendez/rendez.css';
 
 
 import "@/styles/Home.module.css";

@@ -66,8 +66,8 @@ const Navbar=()=>{
 		</div>
 			
 
- 		  </div><div class="col-lg-2 col-12">			 
-						  <button class="btn  " type="submit">Prendre un Rendez-vous</button>
+ 		  </div><div class="col-lg-2 col-12">	<Link href="/rendez-vous"> 
+						  <button class="btn  " type="submit">Prendre un Rendez-vous</button></Link>		
 </div>
 		</div>
 	  </nav></div> 
