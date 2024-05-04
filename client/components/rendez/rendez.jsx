@@ -1,4 +1,24 @@
+import Select from 'react-select';
+import makeAnimated from 'react-select/animated';
+const animatedComponents = makeAnimated();
+
+import React, { useState } from "react";
+import DatePicker from "react-datepicker";
+
+import "react-datepicker/dist/react-datepicker.css";
+
 const Rendezvous=()=>{
+    const [selectedDate, setSelectedDate] = useState(null);
+
+    const handleChange = (date) => {
+      setSelectedDate(date);
+    };
+    
+    const options = [
+    { value: '1', label: 'Option 1' },
+    { value: '2', label: 'Option 2' },
+    { value: '3', label: 'Option 3' },
+  ];
     return(
         <div>
 <section class="appointment">
@@ -23,12 +43,25 @@ const Rendezvous=()=>{
 								</div>
 								<div class="col-lg-6 col-md-6 col-12">
 									<div class="form-group">
-										<input name="email" type="email" placeholder="Email"/>
-									</div>
+                                    
+                                    <DatePicker
+        selected={selectedDate}
+        onChange={handleChange}
+        dateFormat="dd/MM/yyyy h:mm aa"
+
+        showTimeSelect  
+              timeInputLabel="Heure"
+
+        timeFormat="HH:mm"
+        placeholderText="Select date and time"
+      />									</div>
 								</div>
+
 								<div class="col-lg-6 col-md-6 col-12">
 									<div class="form-group">
-										<input name="phone" type="text" placeholder="Phone"/>
+                                    <Select options={options} closeMenuOnSelect={false} isMulti  
+      components={animatedComponents} placeholder="Services *"
+     />
 									</div>
 								</div>
 								<div class="col-lg-6 col-md-6 col-12">
