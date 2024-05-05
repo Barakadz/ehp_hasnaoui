@@ -15,11 +15,19 @@ import '../components/rendez/rendez.css';
 import "@/styles/Home.module.css";
  
 import { useEffect } from 'react';
-  
+import { AuthProvider } from '../contexts/AuthContext';
+ 
  
 export default function App({ Component, pageProps }) {
   useEffect(() => {
     import('bootstrap/dist/js/bootstrap.min.js');
   }, []);
-  return <Component {...pageProps} />;
+  return (
+  
+    <AuthProvider>
+
+  <Component {...pageProps} />
+  </AuthProvider>
+  
+  ) ;
 }

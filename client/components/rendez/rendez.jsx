@@ -4,16 +4,81 @@ const animatedComponents = makeAnimated();
 
 import React, { useState } from "react";
 import DatePicker from "react-datepicker";
-
 import "react-datepicker/dist/react-datepicker.css";
+import * as Yup from 'yup';
+import {Formik,Form,Field,ErrorMessage} from 'formik';
+import Box from '@mui/material/Box';
+import Stepper from '@mui/material/Stepper';
+import Step from '@mui/material/Step';
+import StepLabel from '@mui/material/StepLabel';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+
+import { useContext } from 'react';
+import AuthContext from '../../contexts/AuthContext';
+import OTPInput from '../otp';
+const steps = ['Les informations personnelles', 'Vérification Mail', 'Confirmation de Rendez vous'];
 
 const Rendezvous=()=>{
-    const [selectedDate, setSelectedDate] = useState(null);
+	const [activeStep, setActiveStep] = React.useState(0);
+  const [skipped, setSkipped] = React.useState(new Set());
 
-    const handleChange = (date) => {
-      setSelectedDate(date);
+  const isStepOptional = (step) => {
+    return step === 1;
+  };
+
+  const isStepSkipped = (step) => {
+    return skipped.has(step);
+  };
+
+  const handleNext = () => {
+    let newSkipped = skipped;
+    if (isStepSkipped(activeStep)) {
+      newSkipped = new Set(newSkipped.values());
+      newSkipped.delete(activeStep);
+    }
+
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    setSkipped(newSkipped);
+  };
+
+  const handleBack = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+  };
+
+  const handleSkip = () => {
+    if (!isStepOptional(activeStep)) {
+      // You probably want to guard against something like this,
+      // it should never occur unless someone's actively trying to break something.
+      throw new Error("You can't skip a step that isn't optional.");
+    }
+
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    setSkipped((prevSkipped) => {
+      const newSkipped = new Set(prevSkipped.values());
+      newSkipped.add(activeStep);
+      return newSkipped;
+    });
+  };
+
+  const handleReset = () => {
+    setActiveStep(0);
+  };
+
+	const {userData}=useContext(AuthContext);
+	const {setUserData}=useContext(AuthContext);
+
+
+    const [datenaissance, setDatenaissance] = useState(null);
+    const [dateRendezVous, setDateRendezvous] = useState(null);
+ 
+    const handleChangeDateNaissance = (date) => {
+		setDatenaissance(date);
+ 		userData.DateNaissance=datenaissance;
     };
-    
+	const handleChangeDateRendezVous = (date) => {
+		setDateRendezvous(date);
+    };
     const options = [
     { value: 'Consultation médecine générale', label: 'Consultation médecine générale' },
     { value: 'gynéco-obstétrique', label: 'gynéco-obstétrique' },
@@ -56,12 +121,59 @@ const Rendezvous=()=>{
 
 
 
-  ];
+  ]; 
+
+  /* formik */
+
+    const initialValues={
+        FirstName:userData.FirstName,
+        LastName:userData.LastName,
+     DateNaissance:userData.DateNaissance,
+        NumeroTel:userData.NumeroTel,
+		Services:userData.Services,
+		DateRendezVous:userData.DateRendezVous,
+		Email:userData.Email,
+		NumeroCni:userData.NumeroCni,
+		NumeroSecuriteSociale:userData.NumeroSecuriteSociale
+
+
+
+
+    }
+    const validationSchema = Yup.object().shape({
+       FirstName:Yup.string().required('Il faut remplir votre Nom'),
+	   Services:Yup.string().required('Il faut remplir votre Service qui vous souhaité consulter'),
+
+       LastName:Yup.string().required('Il faut remplir Votre Prénom'),
+	   DateNaissance:Yup.string().required('Il faut remplir Votre Date de Naissance'),
+	   NumeroCni: Yup.number().typeError('Numéro CNI doit être un nombre').test('len', 'Numéro Cni doit etre un nombre de 18 chiffres', val => val && val.toString().length === 18)
+	   ,
+		NumeroSecuriteSociale:Yup.string().required('Il faut remplir Votre Numéro Sécurité Sociale'),
+
+     Email:Yup.string().email('invalid Mail format').required('Il faut remplir Votre Mail'),
+       NumeroTel:Yup.string()
+        .matches(
+          /^[0-9]{10}$/,
+          'Numéro de téléphone doit étre 10 numbers'
+        )
+        .required('Il faut remplir votre Numéro de Téléphone')
+    })
+
+    const handleOTPChange = (otp) => {
+      console.log('OTP entered:', otp);
+      // You can handle the OTP value here (e.g., validate it against a server, etc.)
+    };
+	const onSubmit=values=>{
+	
+		alert('Data submitted')
+		
+	   }
+
+
+
     return(
-        <div>
-<section class="appointment">
-			<div class="container">
-				<div class="row">
+        <div className='container '>
+			<div class="row my-4">
 					<div class="col-lg-12">
 						<div class="section-title text-center">
 							<h2>Prendre un Rendez-vous
@@ -72,118 +184,179 @@ Prendre un rendez-vous médical en ligne permet de choisir facilement et rapidem
 						</div>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-lg-6 col-md-12 col-12">
-						<form class="form" action="#">
-							<div class="row">
-								<div class="col-lg-6 col-md-6 col-12">
-									<div class="form-group">
-										<input name="name" type="text" placeholder="Nom *"/>
-									</div>
-								</div>
-								<div class="col-lg-6 col-md-6 col-12">
-									<div class="form-group">
-										<input name="name" type="text" placeholder="Prénom *"/>
-									</div>
-								</div>
-								<div class="col-lg-6 col-md-6 col-12">
-									<div class="form-group">
- 										<DatePicker
-        selected={selectedDate}
-        onChange={handleChange}
-        dateFormat="dd/MM/yyyy"
+			 <Box sx={{ width: '100%' }}>
+      <Stepper activeStep={activeStep}>
+        {steps.map((label, index) => {
+          const stepProps = {};
+          const labelProps = {};
+          if (isStepOptional(index)) {
+            labelProps.optional = (
+              <Typography variant="caption">Code OTP</Typography>
+            );
+          }
+          if (isStepSkipped(index)) {
+            stepProps.completed = false;
+          }
+          return (
+            <Step key={label} {...stepProps}>
+              <StepLabel {...labelProps}>{label}</StepLabel>
+            </Step>
+          );
+        })}
+      </Stepper>
+      {activeStep === steps.length ? (
+        <React.Fragment>
+          <Typography sx={{ mt: 2, mb: 1 }}>
+            All steps completed - you&apos;re finished
+          </Typography>
+          <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
+            <Box sx={{ flex: '1 1 auto' }} />
+            <Button onClick={handleReset}>Reset</Button>
+          </Box>
+        </React.Fragment>
+      ) : (
+        <React.Fragment>
+          <Typography sx={{ mt: 2, mb: 1 }}>Step {activeStep + 1}</Typography>
+		  {activeStep === 0 && (
+          <section class="appointment">
+		  <div class="container">
+			  
+			  <div class="row">
+				  <div class="col-lg-6 col-md-12 col-12">
+				  <Formik initialValues={userData} validationSchema={validationSchema} onSubmit={onSubmit} validateOnMount>
+	  <Form >
+						  <div class="row">
+							  <div class="col-lg-6 col-md-6 col-12">
+									   <Field  id="FirstName" name="FirstName"class="forminput"  type="text" placeholder="Nom *"/>
+									  <p style={{color:'red'}}><ErrorMessage name="FirstName" />   </p>
+							   </div>
+							  <div class="col-lg-6 col-md-6 col-12">
+								  <div class="form-group">
+									  <Field id="LastName" name="LastName"class="forminput" type="text" placeholder="Prénom *"/>
+									  <p style={{color:'red'}}><ErrorMessage name="LastName"/></p>
 
-         
-        placeholderText="Dat de naissance"
-      />						
-									</div>
-								</div>
-								<div class="col-lg-6 col-md-6 col-12">
-									<div class="form-group">
-										<input name="name" type="text" placeholder="Prénom"/>
-									</div>
-								</div>
-								<div class="col-lg-6 col-md-6 col-12">
-									<div class="form-group">
-                                    
-                                    <DatePicker
-        selected={selectedDate}
-        onChange={handleChange}
-        dateFormat="dd/MM/yyyy h:mm aa"
+								  </div>
+							  </div>
+							  <div class="col-lg-6 col-md-6 col-12">
+								  <div class="form-group">
+							   
+									   <DatePicker
+									  class="forminput"
+	  selected={datenaissance}
+	  onChange={handleChangeDateNaissance}
+	  dateFormat="dd/MM/yyyy"
+	   
+	  placeholderText="Date de naissance *"
+	/>			
+										<p style={{color:'red'}}><ErrorMessage name="DateNaissance"/></p>
+		  
+								  </div>
+							  </div>
+							  <div class="col-lg-6 col-md-6 col-12">
+								  <div class="form-group">
+								  <Field id="NumeroTel" name="NumeroTel"class="forminput" type="text" placeholder="Numéro de téléphone *"/>
+								  <p style={{color:'red'}}><ErrorMessage name="NumeroTel"/></p>
 
-        showTimeSelect  
-              timeInputLabel="Heure"
+									   
+								  </div>
+							  </div>
+							  <div class="col-lg-6 col-md-6 col-12">
+								  <div class="form-group">
+								  <Select options={options} closeMenuOnSelect={false} isMulti  
+	components={animatedComponents} placeholder="Services *" id="Services" name="Services"class="forminput" 
+   />
+									   <p style={{color:'red'}}><ErrorMessage name="Services"/></p>
 
-        timeFormat="HH:mm"
-        placeholderText="Select date and time"
-      />									</div>
-								</div>
+															</div>
+							  </div>
 
-								<div class="col-lg-6 col-md-6 col-12">
-									<div class="form-group">
-                                    <Select options={options} closeMenuOnSelect={false} isMulti  
-      components={animatedComponents} placeholder="Services *"
-     />
-									</div>
-								</div>
-								<div class="col-lg-6 col-md-6 col-12">
-									<div class="form-group">
-										<div class="nice-select form-control wide" tabindex="0"><span class="current">Department</span>
-											<ul class="list">
-												<li data-value="1" class="option selected ">Department</li>
-												<li data-value="2" class="option">Cardiac Clinic</li>
-												<li data-value="3" class="option">Neurology</li>
-												<li data-value="4" class="option">Dentistry</li>
-												<li data-value="5" class="option">Gastroenterology</li>
-											</ul>
-										</div>
-									</div>
-								</div>
-								<div class="col-lg-6 col-md-6 col-12">
-									<div class="form-group">
-										<div class="nice-select form-control wide" tabindex="0"><span class="current">Doctor</span>
-											<ul class="list">
-												<li data-value="1" class="option selected ">Doctor</li>
-												<li data-value="2" class="option">Dr. Akther Hossain</li>
-												<li data-value="3" class="option">Dr. Dery Alex</li>
-												<li data-value="4" class="option">Dr. Jovis Karon</li>
-											</ul>
-										</div>
-									</div>
-								</div>
-								<div class="col-lg-6 col-md-6 col-12">
-									<div class="form-group">
-										<input type="text" placeholder="Date" id="datepicker"/>
-									</div>
-								</div>
-								<div class="col-lg-12 col-md-12 col-12">
-									<div class="form-group">
-										<textarea name="message" placeholder="Write Your Message Here....."></textarea>
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-lg-5 col-md-4 col-12">
-									<div class="form-group">
-										<div class="button">
-											<button type="submit" class="btn">Book An Appointment</button>
-										</div>
-									</div>
-								</div>
-								<div class="col-lg-7 col-md-8 col-12">
-									<p>( We will be confirm by an Text Message )</p>
-								</div>
-							</div>
-						</form>
-					</div>
-					<div class="col-lg-6 col-md-12 ">
-						<div >
-							<img src="rendez.jfif"  class="appointment-image"  alt="#"/>
-						</div>
-					</div>
-				</div>
+							  <div class="col-lg-6 col-md-6 col-12">
+								  <div class="form-group">
+								  <DatePicker
+	  selected={dateRendezVous}
+	  onChange={handleChangeDateRendezVous}
+	  dateFormat="dd/MM/yyyy h:mm aa"
+
+	  showTimeSelect  
+			timeInputLabel="Heure"
+
+	  timeFormat="HH:mm"
+	  placeholderText="Date et l'heure souhaité *"
+	/>		
+								  </div>
+							  </div>
+							  <div class="col-lg-6 col-md-6 col-12">
+							   <Field id="Email" name="Email"class="forminput" type="text" placeholder="Email "/>
+								  <p style={{color:'red'}}><ErrorMessage name="Email"/></p>
+							   </div>
+							  <div class="col-lg-6 col-md-6 col-12">
+								  <Field id="NumeroCni" name="NumeroCni"class="forminput" type="text" placeholder="Numéro de CNI "/>
+								  <p style={{color:'red'}}><ErrorMessage name="NumeroCni"/></p>
+							   </div>
+							  <div class="col-lg-6 col-md-6 col-12">
+								   <Field id="NumeroSecuriteSociale" name="NumeroSecuriteSociale"class="forminput" type="text" placeholder="Numéro de la Carte Identité *"/>
+								  <p style={{color:'red'}}><ErrorMessage name="NumeroSecuriteSociale"/></p>
+							   </div>
+							  <div class="col-lg-12 col-md-12 col-12">
+								  
+							  </div>
+						  </div>
+						  <div class="row">
+							  <div class="col-lg-5 col-md-4 col-12">
+								  <div class="form-group">
+									  
+								  </div>
+							  </div>
+							   
+						  </div>
+						  </Form></Formik>
+				  </div>
+				  <div class="col-lg-6 col-md-12 ">
+					  <div >
+						  <img src="rendez.jfif"  class="appointment-image"  alt="#"/>
+					  </div>
+				  </div>
+			  </div>
+		  </div>
+	  </section>   
+			 
+
+
+            )}
+
+{activeStep === 1 && (    <div class="row  ">
+<p className='text-center'>Nous allons envoyer un Code OTP à l'email {userData.FirstName}</p>
+	<div class="d-flex "   style={{display:'flex',flexDirection:'row',justifyContent:'center'}}>
+  <OTPInput length={6} onChange={handleOTPChange} />
+  
+
 			</div>
-		</section>
+			</div>
+            )}
+          <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
+            <Button
+              color="inherit"
+              disabled={activeStep === 0}
+              onClick={handleBack}
+              sx={{ mr: 1 }}
+            >
+              Back
+            </Button>
+            <Box sx={{ flex: '1 1 auto' }} />
+            {isStepOptional(activeStep) && (
+              <Button color="inherit" onClick={handleSkip} sx={{ mr: 1 }}>
+                Skip
+              </Button>
+            )}
+
+            <Button onClick={handleNext}>
+              {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+            </Button>
+          </Box>
+        </React.Fragment>
+      )}
+    </Box>
+
         </div>
     )
 }
