@@ -1,59 +1,40 @@
-import React, { useState, useRef } from 'react';
+import React from 'react';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
 
-const OTPInput = ({ length, onChange }) => {
-  const [otp, setOTP] = useState(new Array(length).fill(''));
-  const inputRefs = useRef([]);
-
-  const handleChange = (e, index) => {
-    const newOTP = [...otp];
-    newOTP[index] = e.target.value;
-    setOTP(newOTP);
-
-    // Join the OTP array into a single string and pass it to the onChange callback
-    onChange(newOTP.join(''));
-    
-    // Move focus to the next input field
-    if (e.target.value !== '' && index < length - 1) {
-      inputRefs.current[index + 1].focus();
-    }
-  };
-
-  const handleKeyDown = (e, index) => {
-    // Move focus to the previous input field on backspace
-    if (e.key === 'Backspace' && index > 0 && otp[index] === '') {
-      inputRefs.current[index - 1].focus();
-    }
-  };
-
-  return (
-    <div className='d-flex'>
-      {otp.map((value, index) => (
-        <input
-          key={index}
-          type="text"
-          maxLength="1"
-          value={value}
-          onChange={(e) => handleChange(e, index)}
-          onKeyDown={(e) => handleKeyDown(e, index)}
-          ref={(el) => (inputRefs.current[index] = el)}
-        />
-      ))}
-    </div>
-  );
-};
-
-const App = () => {
-  const handleOTPChange = (otp) => {
-    console.log('OTP entered:', otp);
-    // You can handle the OTP value here (e.g., validate it against a server, etc.)
-  };
-
+const SignupForm = () => {
   return (
     <div>
-      <h1>Enter OTP</h1>
-      <OTPInput length={6} onChange={handleOTPChange} />
+      <h1>Sign Up</h1>
+      <Formik
+        initialValues={{ email: '', password: '' }}
+        validationSchema={Yup.object({
+          email: Yup.string().email('Invalid email address').required('Required'),
+          password: Yup.string()
+            .min(8, 'Password must be at least 8 characters')
+            .required('Required'),
+        })}
+        onSubmit={(values, { setSubmitting }) => {
+          setTimeout(() => {
+            alert(JSON.stringify(values, null, 2));
+            setSubmitting(false);
+          }, 400);
+        }}
+      >
+        <Form>
+          <label htmlFor="email">Email</label>
+          <Field type="email" name="email" />
+          <ErrorMessage name="email" />
+
+          <label htmlFor="password">Password</label>
+          <Field type="password" name="password" />
+          <ErrorMessage name="password" />
+
+          <button type="submit">Submit</button>
+        </Form>
+      </Formik>
     </div>
   );
 };
 
-export default App;
+export default SignupForm;

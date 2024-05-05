@@ -5,7 +5,7 @@ const Footer=()=>{
             <div  >
             <footer id="footer" class="footer wow fadeInUp" data-wow-delay="0.6s" >
 			 
-			<div class="footer-top ">
+			<div class="footer-top mt-2">
 				<div class="container">
 					<div class="row">
 						<div class="col-lg-4 col-md-6 col-12">

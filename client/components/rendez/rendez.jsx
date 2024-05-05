@@ -65,17 +65,16 @@ const Rendezvous=()=>{
     setActiveStep(0);
   };
 
-	const {userData}=useContext(AuthContext);
-	const {setUserData}=useContext(AuthContext);
-
+	const {userData,setUserData}=useContext(AuthContext);
+ 
 
     const [datenaissance, setDatenaissance] = useState(null);
     const [dateRendezVous, setDateRendezvous] = useState(null);
  
     const handleChangeDateNaissance = (date) => {
 		setDatenaissance(date);
- 		userData.DateNaissance=datenaissance;
-    };
+
+  };
 	const handleChangeDateRendezVous = (date) => {
 		setDateRendezvous(date);
     };
@@ -128,7 +127,7 @@ const Rendezvous=()=>{
     const initialValues={
         FirstName:userData.FirstName,
         LastName:userData.LastName,
-     DateNaissance:userData.DateNaissance,
+  /*   DateNaissance:userData.DateNaissance,
         NumeroTel:userData.NumeroTel,
 		Services:userData.Services,
 		DateRendezVous:userData.DateRendezVous,
@@ -136,17 +135,17 @@ const Rendezvous=()=>{
 		NumeroCni:userData.NumeroCni,
 		NumeroSecuriteSociale:userData.NumeroSecuriteSociale
 
-
+*/
 
 
     }
     const validationSchema = Yup.object().shape({
        FirstName:Yup.string().required('Il faut remplir votre Nom'),
-	   Services:Yup.string().required('Il faut remplir votre Service qui vous souhaité consulter'),
+	  // Services:Yup.string().required('Il faut remplir votre Service qui vous souhaité consulter'),
 
        LastName:Yup.string().required('Il faut remplir Votre Prénom'),
-	   DateNaissance:Yup.string().required('Il faut remplir Votre Date de Naissance'),
-	   NumeroCni: Yup.number().typeError('Numéro CNI doit être un nombre').test('len', 'Numéro Cni doit etre un nombre de 18 chiffres', val => val && val.toString().length === 18)
+	 //  DateNaissance:Yup.string().required('Il faut remplir Votre Date de Naissance'),
+	/*   NumeroCni: Yup.number().typeError('Numéro CNI doit être un nombre').test('len', 'Numéro Cni doit etre un nombre de 18 chiffres', val => val && val.toString().length === 18)
 	   ,
 		NumeroSecuriteSociale:Yup.string().required('Il faut remplir Votre Numéro Sécurité Sociale'),
 
@@ -156,20 +155,26 @@ const Rendezvous=()=>{
           /^[0-9]{10}$/,
           'Numéro de téléphone doit étre 10 numbers'
         )
-        .required('Il faut remplir votre Numéro de Téléphone')
+        .required('Il faut remplir votre Numéro de Téléphone')*/
     })
 
     const handleOTPChange = (otp) => {
       console.log('OTP entered:', otp);
       // You can handle the OTP value here (e.g., validate it against a server, etc.)
     };
-	const onSubmit=values=>{
-	
-		alert('Data submitted')
-		
-	   }
+ 
+    const onSubmit = (values) => {
 
-
+      setUserData({FirstName:values.FirstName})
+      
+      setActiveStep(1);
+    };
+const retour=()=>{
+  setActiveStep(0)
+}
+const suivant=()=>{
+  setActiveStep(2)
+}
 
     return(
         <div className='container '>
@@ -207,12 +212,9 @@ Prendre un rendez-vous médical en ligne permet de choisir facilement et rapidem
       {activeStep === steps.length ? (
         <React.Fragment>
           <Typography sx={{ mt: 2, mb: 1 }}>
-            All steps completed - you&apos;re finished
+            <center>Merci </center>
           </Typography>
-          <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
-            <Box sx={{ flex: '1 1 auto' }} />
-            <Button onClick={handleReset}>Reset</Button>
-          </Box>
+           
         </React.Fragment>
       ) : (
         <React.Fragment>
@@ -223,7 +225,7 @@ Prendre un rendez-vous médical en ligne permet de choisir facilement et rapidem
 			  
 			  <div class="row">
 				  <div class="col-lg-6 col-md-12 col-12">
-				  <Formik initialValues={userData} validationSchema={validationSchema} onSubmit={onSubmit} validateOnMount>
+				  <Formik initialValues={userData} validationSchema={validationSchema}   onSubmit={onSubmit} validateOnMount>
 	  <Form >
 						  <div class="row">
 							  <div class="col-lg-6 col-md-6 col-12">
@@ -248,8 +250,7 @@ Prendre un rendez-vous médical en ligne permet de choisir facilement et rapidem
 	   
 	  placeholderText="Date de naissance *"
 	/>			
-										<p style={{color:'red'}}><ErrorMessage name="DateNaissance"/></p>
-		  
+ 		  
 								  </div>
 							  </div>
 							  <div class="col-lg-6 col-md-6 col-12">
@@ -263,9 +264,9 @@ Prendre un rendez-vous médical en ligne permet de choisir facilement et rapidem
 							  <div class="col-lg-6 col-md-6 col-12">
 								  <div class="form-group">
 								  <Select options={options} closeMenuOnSelect={false} isMulti  
-	components={animatedComponents} placeholder="Services *" id="Services" name="Services"class="forminput" 
+	components={animatedComponents} placeholder="Services *" class="forminput" 
    />
-									   <p style={{color:'red'}}><ErrorMessage name="Services"/></p>
+								 
 
 															</div>
 							  </div>
@@ -304,10 +305,10 @@ Prendre un rendez-vous médical en ligne permet de choisir facilement et rapidem
 						  <div class="row">
 							  <div class="col-lg-5 col-md-4 col-12">
 								  <div class="form-group">
-									  
+									  							   <button type='submit'  >Suivant</button>
+
 								  </div>
 							  </div>
-							   
 						  </div>
 						  </Form></Formik>
 				  </div>
@@ -324,35 +325,34 @@ Prendre un rendez-vous médical en ligne permet de choisir facilement et rapidem
 
             )}
 
-{activeStep === 1 && (    <div class="row  ">
-<p className='text-center'>Nous allons envoyer un Code OTP à l'email {userData.FirstName}</p>
+{activeStep === 1 && (    <div class="  ">
+<p className='text-center'>Nous allons envoyer un Code OTP à l'email {userData.Email}</p>
 	<div class="d-flex "   style={{display:'flex',flexDirection:'row',justifyContent:'center'}}>
   <OTPInput length={6} onChange={handleOTPChange} />
-  
 
 			</div>
+            <center className='mt-4'><button className='btn mx-4' onClick={retour}>Retour</button> <button className='btn mx-4' onClick={suivant}>Suivant</button></center>
+
+
 			</div>
-            )}
-          <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
-            <Button
-              color="inherit"
-              disabled={activeStep === 0}
-              onClick={handleBack}
-              sx={{ mr: 1 }}
-            >
-              Back
-            </Button>
-            <Box sx={{ flex: '1 1 auto' }} />
-            {isStepOptional(activeStep) && (
-              <Button color="inherit" onClick={handleSkip} sx={{ mr: 1 }}>
-                Skip
-              </Button>
+
             )}
 
-            <Button onClick={handleNext}>
-              {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
-            </Button>
-          </Box>
+{activeStep === 2 && (    <div style={{display:'flex',flexDirection:'row',justifyContent:'center'}}> 
+
+<p></p>	 
+<Box>
+           
+            
+           
+           <Button onClick={handleNext} className='btn p-2'>
+                {activeStep === steps.length - 1 ? 'Envoyer' : 'Suivant'}
+              </Button> 
+            </Box>
+			</div>
+
+            )}
+         
         </React.Fragment>
       )}
     </Box>
