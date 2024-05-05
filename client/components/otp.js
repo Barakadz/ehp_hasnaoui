@@ -14,6 +14,8 @@ const OTPInput = ({ length, onChange }) => {
     
     // Move focus to the next input field
     if (e.target.value !== '' && index < length - 1) {
+      inputRefs.current[index + 1].disabled = false;
+
       inputRefs.current[index + 1].focus();
     }
   };
@@ -21,6 +23,8 @@ const OTPInput = ({ length, onChange }) => {
   const handleKeyDown = (e, index) => {
     // Move focus to the previous input field on backspace
     if (e.key === 'Backspace' && index > 0 && otp[index] === '') {
+      inputRefs.current[index - 1].disabled = false;
+
       inputRefs.current[index - 1].focus();
     }
   };
@@ -38,8 +42,7 @@ const OTPInput = ({ length, onChange }) => {
           ref={(el) => (inputRefs.current[index] = el)}
           style={{width:'50px'}}
           className='mx-1'
-          disabled={value !== ''}
-
+ disabled={index}
         />
         
         <b className='mt-3'>{index==5 ? '' :'-' }</b>
