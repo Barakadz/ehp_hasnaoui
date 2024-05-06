@@ -73,6 +73,8 @@ const Rendezvous=()=>{
  
     const handleChangeDateNaissance = (date) => {
 		setDatenaissance(date);
+    setUserData({DateNaissance:date});
+    alert(userData.DateNaissance)
 
   };
 	const handleChangeDateRendezVous = (date) => {
@@ -127,25 +129,26 @@ const Rendezvous=()=>{
     const initialValues={
         FirstName:userData.FirstName,
         LastName:userData.LastName,
-  /*   DateNaissance:userData.DateNaissance,
+  DateNaissance:'',
         NumeroTel:userData.NumeroTel,
 		Services:userData.Services,
 		DateRendezVous:userData.DateRendezVous,
 		Email:userData.Email,
 		NumeroCni:userData.NumeroCni,
 		NumeroSecuriteSociale:userData.NumeroSecuriteSociale
-
-*/
+ 
 
 
     }
     const validationSchema = Yup.object().shape({
        FirstName:Yup.string().required('Il faut remplir votre Nom'),
-	  // Services:Yup.string().required('Il faut remplir votre Service qui vous souhaité consulter'),
+	  Services:Yup.string().required('Il faut remplir votre Service qui vous souhaité consulter'),
 
        LastName:Yup.string().required('Il faut remplir Votre Prénom'),
-	 //  DateNaissance:Yup.string().required('Il faut remplir Votre Date de Naissance'),
-	/*   NumeroCni: Yup.number().typeError('Numéro CNI doit être un nombre').test('len', 'Numéro Cni doit etre un nombre de 18 chiffres', val => val && val.toString().length === 18)
+	 DateNaissance:Yup.date().required('Il faut remplir Votre Date de Naissance'),
+   DateRendezVous:Yup.date().required('Il faut remplir Votre Date de rendez vous'),
+
+  NumeroCni: Yup.number().typeError('Numéro CNI doit être un nombre').test('len', 'Numéro Cni doit etre un nombre de 18 chiffres', val => val && val.toString().length === 18)
 	   ,
 		NumeroSecuriteSociale:Yup.string().required('Il faut remplir Votre Numéro Sécurité Sociale'),
 
@@ -155,7 +158,7 @@ const Rendezvous=()=>{
           /^[0-9]{10}$/,
           'Numéro de téléphone doit étre 10 numbers'
         )
-        .required('Il faut remplir votre Numéro de Téléphone')*/
+        .required('Il faut remplir votre Numéro de Téléphone')
     })
 
     const handleOTPChange = (otp) => {
@@ -165,7 +168,7 @@ const Rendezvous=()=>{
  
     const onSubmit = (values) => {
 
-      setUserData({FirstName:values.FirstName})
+      setUserData({FirstName:values.FirstName,LastName:values.LastName,DateNaissance:values.DateNaissance,NumeroTel:values.NumeroTel,Email:values.Email,NumeroCni:values.NumeroCni,NumeroSecuriteSociale:values.NumeroSecuriteSociale,Services:values.Services})
       
       setActiveStep(1);
     };
@@ -241,15 +244,21 @@ Prendre un rendez-vous médical en ligne permet de choisir facilement et rapidem
 							  </div>
 							  <div class="col-lg-6 col-md-6 col-12">
 								  <div class="form-group">
-							   
-									   <DatePicker
-									  class="forminput"
-	  selected={datenaissance}
-	  onChange={handleChangeDateNaissance}
-	  dateFormat="dd/MM/yyyy"
-	   
-	  placeholderText="Date de naissance *"
-	/>			
+                  <Field
+                id="DateNaissance"
+                name="DateNaissance"
+                 
+               type="date"
+              />
+
+                 <p style={{ color: 'red' }}>
+        <ErrorMessage name="DateNaissance" />
+      </p>
+  
+
+ 
+   
+								  
  		  
 								  </div>
 							  </div>
@@ -273,17 +282,12 @@ Prendre un rendez-vous médical en ligne permet de choisir facilement et rapidem
 
 							  <div class="col-lg-6 col-md-6 col-12">
 								  <div class="form-group">
-								  <DatePicker
-	  selected={dateRendezVous}
-	  onChange={handleChangeDateRendezVous}
-	  dateFormat="dd/MM/yyyy h:mm aa"
-
-	  showTimeSelect  
-			timeInputLabel="Heure"
-
-	  timeFormat="HH:mm"
+								  <Field name="DateRendezVous" id="DateRendezVous" type="date"
+	 
+	 
 	  placeholderText="Date et l'heure souhaité *"
-	/>		
+	/>										  <p style={{color:'red'}}><ErrorMessage name="DateRendezVous"/></p>
+
 								  </div>
 							  </div>
 							  <div class="col-lg-6 col-md-6 col-12">
@@ -305,7 +309,7 @@ Prendre un rendez-vous médical en ligne permet de choisir facilement et rapidem
 						  <div class="row">
 							  <div class="col-lg-5 col-md-4 col-12">
 								  <div class="form-group">
-									  							   <button type='submit'  >Suivant</button>
+									  							   <button type='submit' className='btn' >Suivant</button>
 
 								  </div>
 							  </div>
