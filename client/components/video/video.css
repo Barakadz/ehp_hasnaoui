@@ -1,0 +1,27 @@
+
+.video-section {
+	background: url('1I9A1890.JPG') no-repeat fixed center ;
+	background-size: cover;
+	overflow: hidden;
+}
+ 
+ 
+.video-overlay {
+    padding: 200px;
+	background: linear-gradient(to left, rgba(9, 30, 62, .7), rgba(9, 30, 62, .7));
+}
+/* Styles for desktop */
+
+/* Media query for mobile */
+@media (max-width: 900px) {
+    .video-overlay{
+        padding: 5%;
+    }
+  }
+  
+
+video {
+    outline: none;
+   border: 6px solid #66DED4;
+   box-shadow: 0 15px 35px rgba(1, 0.6, 0, 1.25);
+}

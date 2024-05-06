@@ -10,7 +10,11 @@ import '../components/contact/contact.css';
 
 import '../components/breadcumbs/breadcumbs.css';
 import '../components/rendez/rendez.css';
+import '../components/video/video.css';
 
+import '../components/ehphwhy/ehphwhy.css';
+import '../components/apropos/apropos.css';
+import '../components/whyehph/whyehph.css';
 
 import "@/styles/Home.module.css";
  

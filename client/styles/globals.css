@@ -36,6 +36,35 @@ a{
  a:hover{
    color: var(--primarycolor);
  }
+ 
+body {
+	--sb-track-color: white;
+	--sb-thumb-color: #66ded4;
+	--sb-size: 11px;
+  }
+  
+  body::-webkit-scrollbar {
+	width: var(--sb-size)
+  }
+  
+  body::-webkit-scrollbar-track {
+	background: var(--sb-track-color);
+	border-radius: 3px;
+  }
+  
+  body::-webkit-scrollbar-thumb {
+	background: var(--sb-thumb-color);
+	border-radius: 3px;
+	
+  }
+  
+  @supports not selector(::-webkit-scrollbar) {
+	body {
+	  scrollbar-color: var(--sb-thumb-color)
+					   var(--sb-track-color);
+	}
+  }
+
 i{
   font-size: 22px;
   color: var(--primarycolor);

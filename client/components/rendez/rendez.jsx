@@ -131,8 +131,7 @@ const Rendezvous=()=>{
         LastName:userData.LastName,
   DateNaissance:'',
         NumeroTel:userData.NumeroTel,
-		Services:userData.Services,
-		DateRendezVous:userData.DateRendezVous,
+ 		DateRendezVous:userData.DateRendezVous,
 		Email:userData.Email,
 		NumeroCni:userData.NumeroCni,
 		NumeroSecuriteSociale:userData.NumeroSecuriteSociale
@@ -142,8 +141,7 @@ const Rendezvous=()=>{
     }
     const validationSchema = Yup.object().shape({
        FirstName:Yup.string().required('Il faut remplir votre Nom'),
-	  Services:Yup.string().required('Il faut remplir votre Service qui vous souhaité consulter'),
-
+ 
        LastName:Yup.string().required('Il faut remplir Votre Prénom'),
 	 DateNaissance:Yup.date().required('Il faut remplir Votre Date de Naissance'),
    DateRendezVous:Yup.date().required('Il faut remplir Votre Date de rendez vous'),
@@ -230,12 +228,18 @@ Prendre un rendez-vous médical en ligne permet de choisir facilement et rapidem
 				  <div class="col-lg-6 col-md-12 col-12">
 				  <Formik initialValues={userData} validationSchema={validationSchema}   onSubmit={onSubmit} validateOnMount>
 	  <Form >
+
+
 						  <div class="row">
 							  <div class="col-lg-6 col-md-6 col-12">
+                <label>Nom :<b style={{color:'red'}}>*</b></label>
+
 									   <Field  id="FirstName" name="FirstName"class="forminput"  type="text" placeholder="Nom *"/>
 									  <p style={{color:'red'}}><ErrorMessage name="FirstName" />   </p>
 							   </div>
 							  <div class="col-lg-6 col-md-6 col-12">
+                <label>Prénom :<b style={{color:'red'}}>*</b></label>
+
 								  <div class="form-group">
 									  <Field id="LastName" name="LastName"class="forminput" type="text" placeholder="Prénom *"/>
 									  <p style={{color:'red'}}><ErrorMessage name="LastName"/></p>
@@ -244,6 +248,8 @@ Prendre un rendez-vous médical en ligne permet de choisir facilement et rapidem
 							  </div>
 							  <div class="col-lg-6 col-md-6 col-12">
 								  <div class="form-group">
+                  <label>Date de naissance :<b style={{color:'red'}}>*</b></label>
+
                   <Field
                 id="DateNaissance"
                 name="DateNaissance"
@@ -264,6 +270,8 @@ Prendre un rendez-vous médical en ligne permet de choisir facilement et rapidem
 							  </div>
 							  <div class="col-lg-6 col-md-6 col-12">
 								  <div class="form-group">
+                  <label>Numéro de Téléphone :<b style={{color:'red'}}>*</b></label>
+
 								  <Field id="NumeroTel" name="NumeroTel"class="forminput" type="text" placeholder="Numéro de téléphone *"/>
 								  <p style={{color:'red'}}><ErrorMessage name="NumeroTel"/></p>
 
@@ -272,16 +280,20 @@ Prendre un rendez-vous médical en ligne permet de choisir facilement et rapidem
 							  </div>
 							  <div class="col-lg-6 col-md-6 col-12">
 								  <div class="form-group">
-								  <Select options={options} closeMenuOnSelect={false} isMulti  
-	components={animatedComponents} placeholder="Services *" class="forminput" 
-   />
-								 
+                  <label>Services :<b style={{color:'red'}}>*</b></label>
 
+ 								  <Select options={options} closeMenuOnSelect={false}    
+	components={animatedComponents} placeholder="Services *" class="forminput"            required
+
+   /> 
+ 
+ 
 															</div>
 							  </div>
 
 							  <div class="col-lg-6 col-md-6 col-12">
 								  <div class="form-group">
+                    <label>Date de Rendezvous :<b style={{color:'red'}}>*</b></label>
 								  <Field name="DateRendezVous" id="DateRendezVous" type="date"
 	 
 	 
@@ -291,16 +303,29 @@ Prendre un rendez-vous médical en ligne permet de choisir facilement et rapidem
 								  </div>
 							  </div>
 							  <div class="col-lg-6 col-md-6 col-12">
+                <label>Mail :<b style={{color:'red'}}>*</b></label>
+
 							   <Field id="Email" name="Email"class="forminput" type="text" placeholder="Email "/>
 								  <p style={{color:'red'}}><ErrorMessage name="Email"/></p>
 							   </div>
 							  <div class="col-lg-6 col-md-6 col-12">
+                <label>Numero CNI : </label>
+
 								  <Field id="NumeroCni" name="NumeroCni"class="forminput" type="text" placeholder="Numéro de CNI "/>
 								  <p style={{color:'red'}}><ErrorMessage name="NumeroCni"/></p>
 							   </div>
 							  <div class="col-lg-6 col-md-6 col-12">
-								   <Field id="NumeroSecuriteSociale" name="NumeroSecuriteSociale"class="forminput" type="text" placeholder="Numéro de la Carte Identité *"/>
+                <label>Numéro de sécurité sociale :</label>
+
+								   <Field id="NumeroSecuriteSociale" name="NumeroSecuriteSociale"class="forminput" type="text" placeholder="Numéro de sécurité sociale *"/>
 								  <p style={{color:'red'}}><ErrorMessage name="NumeroSecuriteSociale"/></p>
+							   </div>
+
+                 <div class="col-lg-6 col-md-6 col-12">
+                <label>Heure :</label>
+
+								   <Field id="heure" name="heure"class="forminput" type="time" placeholder="Heure *"/>
+								  <p style={{color:'red'}}><ErrorMessage name="heure"/></p>
 							   </div>
 							  <div class="col-lg-12 col-md-12 col-12">
 								  

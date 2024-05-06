@@ -3,6 +3,7 @@
 const Footer=()=>{
     return(
             <div  >
+				 
             <footer id="footer" class="footer wow fadeInUp" data-wow-delay="0.6s" >
 			 
 			<div class="footer-top ">

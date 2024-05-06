@@ -5,6 +5,8 @@ import styles from "@/styles/Home.module.css";
 import Topbar from '../components/topbar/topbar';
 import Navbar from "@/components/navbar/navbar";
 import Footer from "@/components/footer/footer";
+import Video from "@/components/video/video";
+import EhphWhy from "@/components/ehphwhy/ehphwhy";
    
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,6 +23,9 @@ export default function Home() {
  <Topbar/>
 
  <Navbar/>
+
+<EhphWhy/>
+ <Video/>
  <Footer/>
      </main>
 </>
