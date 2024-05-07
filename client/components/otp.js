@@ -10,7 +10,7 @@ const OTPInput = ({ length, onChange }) => {
     setOTP(newOTP);
 
     // Join the OTP array into a single string and pass it to the onChange callback
-    onChange(newOTP.join(''));
+   // onChange(newOTP.join(''));
     
     // Move focus to the next input field
     if (e.target.value !== '' && index < length - 1) {
@@ -40,8 +40,8 @@ const OTPInput = ({ length, onChange }) => {
           onChange={(e) => handleChange(e, index)}
           onKeyDown={(e) => handleKeyDown(e, index)}
           ref={(el) => (inputRefs.current[index] = el)}
-          style={{width:'50px'}}
-          className='mx-1'
+          style={{width:'50px'}} 
+           className='mx-1' id={'otp'+index}
  disabled={index}
         />
         

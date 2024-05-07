@@ -1,7 +1,8 @@
 import Select from 'react-select';
 import makeAnimated from 'react-select/animated';
 const animatedComponents = makeAnimated();
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -13,10 +14,12 @@ import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import axios from "axios";
 
 import { useContext } from 'react';
 import AuthContext from '../../contexts/AuthContext';
 import OTPInput from '../otp';
+ 
 const steps = ['Les informations personnelles', 'Vérification Mail', 'Confirmation de Rendez vous'];
 
 const Rendezvous=()=>{
@@ -124,18 +127,30 @@ const Rendezvous=()=>{
 
   ]; 
 
+ 
+  const [selectedOption, setSelectedOption] = useState(null);
+
+  const handleChange = selectedOption => {
+    setSelectedOption(selectedOption);
+   // setUserData({ Services:selectedOption})
+
+   };
+
+
   /* formik */
 
     const initialValues={
         FirstName:userData.FirstName,
         LastName:userData.LastName,
-  DateNaissance:'',
+  DateNaissance:userData.DateNaissance,
         NumeroTel:userData.NumeroTel,
  		DateRendezVous:userData.DateRendezVous,
 		Email:userData.Email,
 		NumeroCni:userData.NumeroCni,
-		NumeroSecuriteSociale:userData.NumeroSecuriteSociale
- 
+		NumeroSecuriteSociale:userData.NumeroSecuriteSociale,
+    Services:userData.Services,
+
+		Heure:userData.Heure
 
 
     }
@@ -145,6 +160,7 @@ const Rendezvous=()=>{
        LastName:Yup.string().required('Il faut remplir Votre Prénom'),
 	 DateNaissance:Yup.date().required('Il faut remplir Votre Date de Naissance'),
    DateRendezVous:Yup.date().required('Il faut remplir Votre Date de rendez vous'),
+   Heure:Yup.string().required(`Il faut remplir L'Heure de rendezvous`),
 
   NumeroCni: Yup.number().typeError('Numéro CNI doit être un nombre').test('len', 'Numéro Cni doit etre un nombre de 18 chiffres', val => val && val.toString().length === 18)
 	   ,
@@ -161,21 +177,62 @@ const Rendezvous=()=>{
 
     const handleOTPChange = (otp) => {
       console.log('OTP entered:', otp);
+      setUserData({otpuser:otp});
+
+
+
       // You can handle the OTP value here (e.g., validate it against a server, etc.)
     };
  
     const onSubmit = (values) => {
 
-      setUserData({FirstName:values.FirstName,LastName:values.LastName,DateNaissance:values.DateNaissance,NumeroTel:values.NumeroTel,Email:values.Email,NumeroCni:values.NumeroCni,NumeroSecuriteSociale:values.NumeroSecuriteSociale,Services:values.Services})
-      
-      setActiveStep(1);
+
+
+
+      async function fetchData() {
+        try {                
+
+          const response = await axios.get('http://localhost:8800/api/auth/otp'); // Replace the URL with the actual API endpoint you want to request.
+ 
+            setUserData({OTP:response.data,FirstName:values.FirstName,LastName:values.LastName,DateNaissance:values.DateNaissance,NumeroTel:values.NumeroTel,Email:values.Email,NumeroCni:values.NumeroCni,NumeroSecuriteSociale:values.NumeroSecuriteSociale,Services:values.NumeroSecuriteSociale,DateRendezVous:values.DateRendezVous,Heure:values.Heure})
+console.log(userData.OTP)
+          
+           //console.log('Code OTP:', response.data);
+ const apiUrl = 'http://localhost:8800/api/auth/mail';
+       const requestData = {
+        Email: values.Email,
+        Code: response.data
+       };
+       
+       axios.post(apiUrl, requestData)
+         .then(response => {
+          // console.log('POST request successful');
+          // console.log('Response data:', response.data);
+         })
+         .catch(error => {
+          // console.error('An error occurred:', error);
+         });
+        } catch (error) {
+          console.error('Error:', error);
+        }
+      }
+       fetchData();  
+       setActiveStep(1);
+
     };
 const retour=()=>{
   setActiveStep(0)
 }
 const suivant=()=>{
-  setActiveStep(2)
-}
+ // alert(userData.OTP)
+ var otpuser=document.getElementById('otp0').value+document.getElementById('otp1').value+document.getElementById('otp2').value+document.getElementById('otp3').value+document.getElementById('otp4').value+document.getElementById('otp5').value;
+
+ if(otpuser===userData.OTP){
+    setActiveStep(2)
+  }else{
+     toast.error("You must write the number that we sent to you Mail!")
+   }
+ }
 
     return(
         <div className='container '>
@@ -281,14 +338,13 @@ Prendre un rendez-vous médical en ligne permet de choisir facilement et rapidem
 							  <div class="col-lg-6 col-md-6 col-12">
 								  <div class="form-group">
                   <label>Services :<b style={{color:'red'}}>*</b></label>
+                  <Select
+        value={selectedOption}
+        onChange={handleChange}
+        options={options}
+      /> 										  <p style={{color:'red'}}><ErrorMessage name="Services"/></p>
 
- 								  <Select options={options} closeMenuOnSelect={false}    
-	components={animatedComponents} placeholder="Services *" class="forminput"            required
-
-   /> 
- 
- 
-															</div>
+ 															</div>
 							  </div>
 
 							  <div class="col-lg-6 col-md-6 col-12">
@@ -297,8 +353,7 @@ Prendre un rendez-vous médical en ligne permet de choisir facilement et rapidem
 								  <Field name="DateRendezVous" id="DateRendezVous" type="date"
 	 
 	 
-	  placeholderText="Date et l'heure souhaité *"
-	/>										  <p style={{color:'red'}}><ErrorMessage name="DateRendezVous"/></p>
+ 	/>										  <p style={{color:'red'}}><ErrorMessage name="DateRendezVous"/></p>
 
 								  </div>
 							  </div>
@@ -307,6 +362,12 @@ Prendre un rendez-vous médical en ligne permet de choisir facilement et rapidem
 
 							   <Field id="Email" name="Email"class="forminput" type="text" placeholder="Email "/>
 								  <p style={{color:'red'}}><ErrorMessage name="Email"/></p>
+							   </div>
+                 <div class="col-lg-6 col-md-6 col-12">
+                <label>Heure :<b style={{color:'red'}}>*</b></label>
+
+								   <Field id="Heure" name="Heure"class="forminput" type="time" placeholder="Heure *"/>
+								  <p style={{color:'red'}}><ErrorMessage name="Heure"/></p>
 							   </div>
 							  <div class="col-lg-6 col-md-6 col-12">
                 <label>Numero CNI : </label>
@@ -321,15 +382,11 @@ Prendre un rendez-vous médical en ligne permet de choisir facilement et rapidem
 								  <p style={{color:'red'}}><ErrorMessage name="NumeroSecuriteSociale"/></p>
 							   </div>
 
-                 <div class="col-lg-6 col-md-6 col-12">
-                <label>Heure :</label>
-
-								   <Field id="heure" name="heure"class="forminput" type="time" placeholder="Heure *"/>
-								  <p style={{color:'red'}}><ErrorMessage name="heure"/></p>
-							   </div>
+                
 							  <div class="col-lg-12 col-md-12 col-12">
-								  
-							  </div>
+                <Field type="checkbox" id="langage1" name="condtion" value="javascript" required/>
+        <label for="condtion " className='mx-2'>j'accepte que les informations saisies soient utilisées pour me recontacter</label><br/>
+ 							  </div>
 						  </div>
 						  <div class="row">
 							  <div class="col-lg-5 col-md-4 col-12">
@@ -367,9 +424,15 @@ Prendre un rendez-vous médical en ligne permet de choisir facilement et rapidem
 
             )}
 
-{activeStep === 2 && (    <div style={{display:'flex',flexDirection:'row',justifyContent:'center'}}> 
+{activeStep === 2 && (    <div> 
 
-<p></p>	 
+<p className='text-center'>Le rendez-vous sera automatiquement annulé s'il n'est pas honoré dans les 10 minutes.</p><br/>
+<b className='text-center'>Votre Ticket :</b>	 <br/>
+<div >
+
+</div>
+<img src="" alt="" srcset="" />
+<center><a>Télécharger Le Ticket</a></center>
 <Box>
            
             
@@ -385,6 +448,7 @@ Prendre un rendez-vous médical en ligne permet de choisir facilement et rapidem
         </React.Fragment>
       )}
     </Box>
+    <ToastContainer />
 
         </div>
     )
