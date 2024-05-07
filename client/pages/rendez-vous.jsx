@@ -27,8 +27,7 @@ export default function Home() {
  <Navbar/>
  <Rendezvous/>
 
- <QRCodeGenerator value="Hello, QR Code!" />
- 
+  
  <Footer/>
      </main>
 </>
