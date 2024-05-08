@@ -16,6 +16,7 @@ import '../components/preloader/preloader.css';
 import '../components/ehphwhy/ehphwhy.css';
 import '../components/apropos/apropos.css';
 import '../components/whyehph/whyehph.css';
+import '../components/slide/slide.css';
 
 import "@/styles/Home.module.css";
  

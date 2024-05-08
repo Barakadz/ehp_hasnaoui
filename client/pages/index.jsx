@@ -9,6 +9,7 @@ import Video from "@/components/video/video";
 import EhphWhy from "@/components/ehphwhy/ehphwhy";
 import Preloader from "@/components/preloader/preloader";
 import React, { useEffect } from 'react';
+import HeroSlider from "@/components/slide/slide";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -44,7 +45,7 @@ export default function Home() {
  <Topbar/>
 
  <Navbar/>
-
+<HeroSlider/>
 <EhphWhy/>
  <Video/>
  <Footer/>

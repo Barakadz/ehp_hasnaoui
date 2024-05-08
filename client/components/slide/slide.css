@@ -1,0 +1,33 @@
+.spanslide{
+    color:white;  
+
+-webkit-text-stroke:0.3px #23388D ;font-family: 'Poppins', sans-serif !important;
+}
+.single-slider{
+   
+    height: 600px;
+	background-size: cover;
+	background-position: center;
+	background-repeat:no-repeat;
+}
+.slid{
+    background-image:url("Slide Façade 2.jpg");
+}
+.slide{
+    background-image:url('IMG_4642.JPG')
+}
+.slideee{
+    background-image:url('medecin.jfif')
+}
+.text-e{
+	color:white !important ;text-align: center;   -webkit-text-stroke:0.3px #23388D;font-family: 'Poppins', sans-serif !important;white-space: nowrap;
+  }
+  @media (min-width:0px) and (max-width: 900px) {
+
+	.text-e{
+		 white-space:inherit;
+	  }
+      .single-slider{
+height: 300px;
+      }
+	}
