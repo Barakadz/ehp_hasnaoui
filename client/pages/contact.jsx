@@ -7,10 +7,31 @@ import Navbar from "@/components/navbar/navbar";
 import Footer from "@/components/footer/footer";
 import Breadcumbs from "@/components/breadcumbs/breadcumbs";
 import Contact from "@/components/contact/contact";
-   
+import Preloader from "@/components/preloader/preloader";
+import React, { useEffect } from 'react';
+
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  useEffect(() => {
+    const handleLoad = () => {
+      console.log('Window loaded');
+      const preloader = document.querySelector('.preloader');
+      if (preloader) {
+        preloader.classList.add('preloader-deactivate');
+      }
+    };
+
+    if (document.readyState === 'complete') {
+      handleLoad(); // If window is already loaded, execute immediately
+    } else {
+      window.addEventListener('load', handleLoad);
+    }
+
+    return () => {
+      window.removeEventListener('load', handleLoad);
+    };
+  }, []);
   return (<>
 	<Head>
 	<title>Contact - EHPHASNAOUI</title>
@@ -21,7 +42,7 @@ export default function Home() {
   <main style={{padding:'0'}}>
  
  <Topbar/>
-
+<Preloader/>
  <Navbar/>
  <Breadcumbs/>
  <Contact/>

@@ -7,10 +7,31 @@ import Navbar from "@/components/navbar/navbar";
 import Footer from "@/components/footer/footer";
 import Video from "@/components/video/video";
 import EhphWhy from "@/components/ehphwhy/ehphwhy";
-   
+import Preloader from "@/components/preloader/preloader";
+import React, { useEffect } from 'react';
+
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  useEffect(() => {
+    const handleLoad = () => {
+      console.log('Window loaded');
+      const preloader = document.querySelector('.preloader');
+      if (preloader) {
+        preloader.classList.add('preloader-deactivate');
+      }
+    };
+
+    if (document.readyState === 'complete') {
+      handleLoad(); // If window is already loaded, execute immediately
+    } else {
+      window.addEventListener('load', handleLoad);
+    }
+
+    return () => {
+      window.removeEventListener('load', handleLoad);
+    };
+  }, []);
   return (<>
 	<Head>
 	<title>EHP - HASNAOUI</title>
@@ -19,7 +40,7 @@ export default function Home() {
 	<link rel="icon" href="/logozoom.PNG" />
   </Head>
   <main style={{padding:'0'}}>
- 
+ <Preloader/>
  <Topbar/>
 
  <Navbar/>

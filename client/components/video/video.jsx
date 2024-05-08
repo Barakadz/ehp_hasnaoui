@@ -1,4 +1,7 @@
+ 
 const Video=()=>{
+	 
+
     return(
         <div>
         	<section class="video-section prelative text-center white p-8">

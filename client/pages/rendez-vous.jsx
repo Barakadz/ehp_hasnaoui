@@ -9,10 +9,31 @@ import Breadcumbs from "@/components/breadcumbs/breadcumbs";
 import Contact from "@/components/contact/contact";
 import Rendezvous from "@/components/rendez/rendez";
 import QRCodeGenerator from "@/components/qrcode";
-   
+import React, { useEffect } from 'react';
+import Preloader from "@/components/preloader/preloader";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  useEffect(() => {
+    const handleLoad = () => {
+      console.log('Window loaded');
+      const preloader = document.querySelector('.preloader');
+      if (preloader) {
+        preloader.classList.add('preloader-deactivate');
+      }
+    };
+
+    if (document.readyState === 'complete') {
+      handleLoad(); // If window is already loaded, execute immediately
+    } else {
+      window.addEventListener('load', handleLoad);
+    }
+
+    return () => {
+      window.removeEventListener('load', handleLoad);
+    };
+  }, []);
   return (<>
 	<Head>
 	<title>Rendez-vous - EHPHASNAOUI</title>
@@ -23,7 +44,7 @@ export default function Home() {
   <main style={{padding:'0'}}>
  
  <Topbar/>
-
+<Preloader/>
  <Navbar/>
  <Rendezvous/>
 
