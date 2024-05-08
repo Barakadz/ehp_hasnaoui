@@ -188,13 +188,13 @@ const Rendezvous=()=>{
       async function fetchData() {
         try {                
 
-          const response = await axios.get('http://localhost:8800/api/auth/otp'); // Replace the URL with the actual API endpoint you want to request.
+          const response = await axios.get('https://www.ehp-hasnaoui.com/api/auth/otp'); // Replace the URL with the actual API endpoint you want to request.
  
             setUserData({OTP:response.data,FirstName:values.FirstName,LastName:values.LastName,DateNaissance:values.DateNaissance,NumeroTel:values.NumeroTel,Email:values.Email,NumeroCni:values.NumeroCni,NumeroSecuriteSociale:values.NumeroSecuriteSociale,Services:values.NumeroSecuriteSociale,DateRendezVous:values.DateRendezVous,Heure:values.Heure})
 console.log(userData.OTP)
           
            //console.log('Code OTP:', response.data);
- const apiUrl = 'http://localhost:8800/api/auth/mail';
+ const apiUrl = 'https://www.ehp-hasnaoui.com/api/auth/mail';
        const requestData = {
         Email: values.Email,
         Code: response.data
