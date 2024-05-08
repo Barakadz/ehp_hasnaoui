@@ -27,14 +27,14 @@ const Navbar=()=>{
 			  
 			
 
-			  <li class="nav-item"><Link legacyBehavior href="/">
+			  <li class="nav-item mx-4"><Link legacyBehavior href="/">
 				<a  className={router.pathname === '/' ? 'nav-link active' : 'nav-link'} aria-current="page"  >Accueil</a>
 			 </Link> </li>
 			  
-			  <li class="nav-item">
+			  <li class="nav-item mx-4">
 				<a class="nav-link" href="#">A propos</a>
 			  </li>
-			  <li class="nav-item dropdown">
+			  <li class="nav-item dropdown mx-4">
 				<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 				  Services
 				</a>
@@ -45,19 +45,19 @@ const Navbar=()=>{
 				  <li><a class="dropdown-item" href="#">Something else here</a></li>
 				</ul>
 			  </li>
-			  <li class="nav-item">
+			  <li class="nav-item mx-4">
 				<a class="nav-link" aria-disabled="true">Visite vertuelle</a>
 			  </li>
-			  <li class="nav-item">
+			  <li class="nav-item mx-4">
 				<a class="nav-link" aria-disabled="true">Galerie</a>
 			  </li>
-			  <li class="nav-item">
+			  <li class="nav-item mx-4">
 				<a class="nav-link" aria-disabled="true">Actualités</a>
 			  </li>
-			  <li class="nav-item">
+			  <li class="nav-item mx-4">
 				<a class="nav-link" aria-disabled="true">Cariéres</a>
 			  </li>
-			  <li class="nav-item"><Link legacyBehavior href="/contact">
+			  <li class="nav-item mx-4"><Link legacyBehavior href="/contact">
 				<a className={router.pathname === '/contact' ? 'nav-link active' : 'nav-link'}  aria-disabled="true">Contact</a>
 				</Link>
 			  </li>  			  
