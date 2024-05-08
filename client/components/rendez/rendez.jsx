@@ -160,12 +160,8 @@ const Rendezvous=()=>{
        LastName:Yup.string().required('Il faut remplir Votre Prénom'),
 	 DateNaissance:Yup.date().required('Il faut remplir Votre Date de Naissance'),
    DateRendezVous:Yup.date().required('Il faut remplir Votre Date de rendez vous'),
-   Heure:Yup.string().required(`Il faut remplir L'Heure de rendezvous`),
-
-  NumeroCni: Yup.number().typeError('Numéro CNI doit être un nombre').test('len', 'Numéro Cni doit etre un nombre de 18 chiffres', val => val && val.toString().length === 18)
-	   ,
-		NumeroSecuriteSociale:Yup.string().required('Il faut remplir Votre Numéro Sécurité Sociale'),
-
+  
+ 
      Email:Yup.string().email('invalid Mail format').required('Il faut remplir Votre Mail'),
        NumeroTel:Yup.string()
         .matches(
@@ -230,7 +226,7 @@ const suivant=()=>{
  if(otpuser===userData.OTP){
     setActiveStep(2)
   }else{
-     toast.error("You must write the number that we sent to you Mail!")
+     toast.error("Vous devez écrire le numéro que nous vous avons envoyé par Mail !")
    }
  }
 
@@ -342,6 +338,7 @@ Prendre un rendez-vous médical en ligne permet de choisir facilement et rapidem
         value={selectedOption}
         onChange={handleChange}
         options={options}
+        required
       /> 										  <p style={{color:'red'}}><ErrorMessage name="Services"/></p>
 
  															</div>
@@ -364,7 +361,7 @@ Prendre un rendez-vous médical en ligne permet de choisir facilement et rapidem
 								  <p style={{color:'red'}}><ErrorMessage name="Email"/></p>
 							   </div>
                  <div class="col-lg-6 col-md-6 col-12">
-                <label>Heure :<b style={{color:'red'}}>*</b></label>
+                <label>Heure :</label>
 
 								   <Field id="Heure" name="Heure"class="forminput" type="time" placeholder="Heure *"/>
 								  <p style={{color:'red'}}><ErrorMessage name="Heure"/></p>

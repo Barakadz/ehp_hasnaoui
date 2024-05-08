@@ -26,10 +26,11 @@ export const register = (req, res) => {
     //Hash the password
    // const salt = bcrypt.genSaltSync(10);//method of hash
    // const hashedPassword = bcrypt.hashSync(req.body.Password, salt);
+   const confirmation='non'
     const currentDate = moment();
     const Date=currentDate.format('DD-MM-YYYY HH:mm:ss');
     const q =
-      "INSERT INTO `user`( `nom`, `prenom`, `date_naissance`, `tel`, `service`, `date_rendezvous`, `mail`, `numero_cni`, `numero_securite`, `heure`, `date`) VALUE (?)";
+      "INSERT INTO `user`( `nom`, `prenom`, `date_naissance`, `tel`, `service`, `date_rendezvous`, `mail`, `numero_cni`, `numero_securite`, `heure`, `date`,`confirmation`) VALUE (?)";
 
     const values = [
       req.body.FirstName,
@@ -43,8 +44,8 @@ export const register = (req, res) => {
       req.body.NumeroCni,
       req.body.NumeroSecuriteSociale,
       req.body.Heure,
-      Date
-      
+      Date,
+      confirmation
      ];
 
     db.query(q, [values], (err, data) => {
@@ -77,40 +78,32 @@ export const testuser = (req, res) => {
 
   const payload = { token: 'ehphasnaoui' };
   const tokenn = jwt.sign(payload,  process.env.JWT_SECRET);
-  console.log(tokenn);
-  jwt.verify('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbiI6ImVocGhhc25hb3VpIiwiaWF0IjoxNzE1MDk2NzUyfQ.1KKHw2v50FMTx9Ecvek0Agu7WntOrkX85rcS04kk6FM', process.env.JWT_SECRET, (err, decoded) => {
+  //console.log(tokenn);
+  //get token from user
+  const token = req.query.token;
+
+  jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
     if (err) {
-      console.error('JWT verification failed');
+      res.status(500).json('s verification failed');
     } else {
-      console.log('Decoded payload:', decoded);
+        // Token is valid, proceed with your existing logic to check if the user exists
+      const q = "SELECT * FROM user";
+
+      db.query(q, (err, userData) => {
+        if (err) return res.status(500).json(err);
+        if (userData.length > 0) {
+          return res.status(200).json(userData);
+        } else {
+          return res.status(404).json({ message: 'User not found' });
+        }
+      });
+  
     }
   });
   
 
 
-
-  const token = req.query.token;
-  if (!token) {
-    return res.status(403).json({ message: 'Missing Token' });
-  }
-  try {
  
-    const data = jwt.verify(token, process.env.JWT_SECRET); // Use process.env.JWT_SECRET instead of PASSWORD
-
-    // Token is valid, proceed with your existing logic to check if the user exists
-    const q = "SELECT * FROM user";
-
-    db.query(q, (err, userData) => {
-      if (err) return res.status(500).json(err);
-      if (userData.length > 0) {
-        return res.status(200).json(userData);
-      } else {
-        return res.status(404).json({ message: 'User not found' });
-      }
-    });
-  } catch (err) {
-    return res.status(403).json({ message: process.env.JWT_SECRET });
-  }
 };
 
 
@@ -135,22 +128,11 @@ export const otpGenerate = (req, res) => {
 
 export const mailSend = (req, res) => {
   var transporter = nodemailer.createTransport({
-    host:'mymail.groupe-hasnaoui.com',
-    port:'587',
-    secure:true,
-    auth:{
-      user:'admin@ehp-hasnaoui.com',
-      pass:'Azerty@123**'
-    },
-    tls: {
-      // do not fail on invalid certs
-      rejectUnauthorized: false,
-    },
-   /* service: 'gmail',
+     service: 'gmail',
     auth: {
       user: 'hasnaoui.recrutement@gmail.com',
       pass: 'iffstkiieskiwzca'
-    }*/
+    } 
   });
   
   var mailOptions = {
