@@ -10,6 +10,17 @@
 	background-position: center;
 	background-repeat:no-repeat;
 }
+.single-slider h1 {
+	color: #2C2D3F;
+	font-size: 38px;
+	font-weight: 700;
+	margin: 0;
+	padding: 0;
+	line-height: 42px;
+    -webkit-text-stroke:0.5px #23388D;
+    text-shadow: 2px 2px #23388D;
+
+}
 .slid{
     background-image:url("Slide Façade 2.jpg");
 }
@@ -18,6 +29,18 @@
 }
 .slideee{
     background-image:url('medecin.jfif')
+}
+.slide_imagerie{
+    background-image:url('Slide Imagerie.jpg')
+}
+.slidd{
+    background-image:url('Slide Salle.jpg')
+}
+.slidlab{
+    background-image:url('Slide Lab.jpg')
+}
+.slide_apropos{
+    background-image:url('apropos.jfif')
 }
 .text-e{
 	color:white !important ;text-align: center;   -webkit-text-stroke:0.3px #23388D;font-family: 'Poppins', sans-serif !important;white-space: nowrap;

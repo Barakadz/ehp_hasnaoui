@@ -84,11 +84,65 @@ const HeroSlider = () => {
 						</div>
 					</div>
 				</div>
-      
+        <div class="single-slider slide_imagerie"  >
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-7">
+								<div class="text"><br/><br/>
+						 <br/><br/><br/>
+									<h1  >  <span class="text-e">Imagerie Médicale</span></h1><br/>
+									  <h1 class="text-e">Mammographie - Echographie - Radiologie - Scanner - IRM</h1><br/>
+ 									   
+							   
+									 
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 
+        <div class="single-slider slidd"  >
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-7">
+								<div class="text "><br/><br/><br/><br/><br/><br/>
+								 
+									<h1 class="text-e">La Seule salle Hybride en Algérie dotée de la dernière technologie<br/> d'équipements médicaux </h1><br/>
+ 									 
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 
+        <div class="single-slider slidlab"  >
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-7">
+								<div class="text">
+									 <br/><br/><br/><br/><br/>
+										<h1  >  <span class="text-e">Laboratoire d'analyses</span></h1><br/>
+										<h1 class="text-e">Obtenez des résultats Fiables</h1><br/>
+ 										 
+							 
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 
-
+        <div class="single-slider slide_apropos" >
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-7">
+								<div class="text">
+									 
+							 
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 
 
 
