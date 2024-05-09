@@ -14,6 +14,24 @@
 	padding-bottom:20px;
 	margin-bottom:24px;
 }
+.choose-left {
+	margin-top: 75px !important;
+}
+@media only screen and (max-width: 767px) {
+	.choose-left {
+		margin-top: 0px !important;
+	}
+
+}
+.gg{
+	margin:0px 60px
+}
+@media only screen and (max-width: 767px) {
+	.gg{
+		margin:0px 0px
+	}
+
+}
 .why-choose .choose-left h3:before{
 	position:absolute;
 	content:"";

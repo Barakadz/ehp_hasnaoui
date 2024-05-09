@@ -8,7 +8,6 @@ import Footer from "@/components/footer/footer";
 import Breadcumbs from "@/components/breadcumbs/breadcumbs";
 import Contact from "@/components/contact/contact";
 import Rendezvous from "@/components/rendez/rendez";
-import QRCodeGenerator from "@/components/qrcode";
 import React, { useEffect } from 'react';
 import Preloader from "@/components/preloader/preloader";
 

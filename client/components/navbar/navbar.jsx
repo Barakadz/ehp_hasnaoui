@@ -31,8 +31,10 @@ const Navbar=()=>{
 				<a  className={router.pathname === '/' ? 'nav-link active mx-4' : 'nav-link mx-4'} aria-current="page"  >Accueil</a>
 			 </Link> </li>
 			  
-			  <li class="nav-item "style={{width:'60%'}} >
-				<a class="nav-link" href="#">A propos</a>
+			  <li class="nav-item "style={{width:'60%'}} ><Link legacyBehavior href="/apropos">
+			  <a className={router.pathname === '/apropos' ? 'nav-link active' : 'nav-link'}  aria-disabled="true">A propos</a>
+
+			</Link>
 			  </li>
 			  <li class="nav-item dropdown  "style={{width:'60%'}}>
 				<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

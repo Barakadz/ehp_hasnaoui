@@ -17,6 +17,10 @@ import '../components/ehphwhy/ehphwhy.css';
 import '../components/apropos/apropos.css';
 import '../components/whyehph/whyehph.css';
 import '../components/slide/slide.css';
+import '../components/breadcumbs_apropos/breadcumbs_apropos.css';
+import '../components/apropos_card/apropos_card.css';
+import '../components/chiffres_cles/chiffres_cle.css';
+import '../components/hybrid/hybrid.css';
 
 import "@/styles/Home.module.css";
  
