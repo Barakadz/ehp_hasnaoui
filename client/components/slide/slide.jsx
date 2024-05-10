@@ -84,7 +84,7 @@ const HeroSlider = () => {
 		infinite: true,
 		speed: 1500,
 		slidesToShow: 2,
-		slidesToScroll: 2,
+		slidesToScroll: 1,
 		autoplay: true,
 		autoplaySpeed: 4500,
 		arrows: true,
@@ -95,7 +95,7 @@ const HeroSlider = () => {
 				breakpoint: 900,
 				settings: {
 					slidesToShow: 2,
-					slidesToScroll: 2,
+					slidesToScroll: 1,
 				}
 			},
 			{
