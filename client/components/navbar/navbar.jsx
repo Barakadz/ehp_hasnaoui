@@ -26,18 +26,45 @@ const Navbar=()=>{
 			<ul class="navbar-nav mx-auto mb-2 ">
 			  
 			
-			<li class="nav-item">
-        <a class="nav-link mx-4" href="#">Link</a>
-      </li>
-	  <li class="nav-item">
-        <a class="nav-link mx-4" href="#">Link</a>
-      </li>
-	  <li class="nav-item">
-        <a class="nav-link mx-4" href="#">Link</a>
-      </li>
-	  <li class="nav-item">
-        <a class="nav-link mx-4" href="#">Link</a>
-      </li>
+
+			  <li class="nav-item " style={{width:'60%'}}><Link legacyBehavior href="/">
+				<a  className={router.pathname === '/' ? 'nav-link active mx-4' : 'nav-link mx-4'} aria-current="page"  >Accueil</a>
+			 </Link> </li>
+			  
+			  <li class="nav-item "style={{width:'60%'}} ><Link legacyBehavior href="/apropos">
+			  <a className={router.pathname === '/apropos' ? 'nav-link active mx-4' : 'nav-link mx-4'}  aria-disabled="true">A propos</a>
+
+			</Link>
+			  </li>
+			  <li class="nav-item dropdown  "style={{width:'60%'}}>
+				<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				  Services
+				</a>
+				<ul class="dropdown-menu">
+				  <li><a class="dropdown-item" href="#">Action</a></li>
+				  <li><a class="dropdown-item" href="#">Another action</a></li>
+				  <li><hr class="dropdown-divider"/></li>
+				  <li><a class="dropdown-item" href="#">Something else here</a></li>
+				</ul>
+			  </li>
+			  <li class="nav-item "style={{width:'60%'}}>
+				<a class="nav-link" aria-disabled="true">Visite vertuelle</a>
+			  </li>
+			  <li class="nav-item  "style={{width:'60%'}}><Link legacyBehavior href="/galerie">
+				<a className={router.pathname === '/galerie' ? 'nav-link active mx-4' : 'nav-link mx-4'}  aria-disabled="true">Galerie</a>
+				</Link>
+			  </li>  
+			  <li class="nav-item  "style={{width:'60%'}}>
+				<a class="nav-link mx-4" aria-disabled="true">Actualités</a>
+			  </li>
+			  <li class="nav-item  "style={{width:'60%'}}>
+				<a class="nav-link mx-4" aria-disabled="true">Cariéres</a>
+			  </li>
+			  <li class="nav-item  mx-4"style={{width:'60%'}}><Link legacyBehavior href="/contact">
+				<a className={router.pathname === '/contact' ? 'nav-link active' : 'nav-link'}  aria-disabled="true">Contact</a>
+				</Link>
+			  </li>  			  
+
 			</ul>
 		</div>
 			
