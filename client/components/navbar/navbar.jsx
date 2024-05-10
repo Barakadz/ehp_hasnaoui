@@ -32,7 +32,7 @@ const Navbar=()=>{
 			 </Link> </li>
 			  
 			  <li class="nav-item "style={{width:'60%'}} ><Link legacyBehavior href="/apropos">
-			  <a className={router.pathname === '/apropos' ? 'nav-link active' : 'nav-link'}  aria-disabled="true">A propos</a>
+			  <a className={router.pathname === '/apropos' ? 'nav-link active mx-4' : 'nav-link mx-4'}  aria-disabled="true">A propos</a>
 
 			</Link>
 			  </li>
