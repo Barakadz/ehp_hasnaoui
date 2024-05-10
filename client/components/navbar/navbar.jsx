@@ -27,16 +27,16 @@ const Navbar=()=>{
 			  
 			
 			<li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link mx-4" href="#">Link</a>
       </li>
 	  <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link mx-4" href="#">Link</a>
       </li>
 	  <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link mx-4" href="#">Link</a>
       </li>
 	  <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link mx-4" href="#">Link</a>
       </li>
 			</ul>
 		</div>
