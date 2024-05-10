@@ -8,30 +8,40 @@ function SampleNextArrow(props) {
   const { className, style, onClick } = props;
   return (
     <div
-      className={className}
-      style={{ ...style, display: "block", background: "#23B6EA", padding: "20px", zIndex: '4444444444', fontSize: '50px', borderRadius: '10px' }}
-      onClick={onClick}
+	className={className}
+	style={{
+
+		marginRight: "20px"
+	}}
+	onClick={onClick}
     >
-      <FaArrowRight />
-    </div>
+	<FaArrowRight color="white" size={35} style={{ padding: '9px', background: "linear-gradient(to right, #23B6EA, #66DED4)", borderRadius: '10%' }} />
+	    </div>
   );
 }
 
 function SamplePrevArrow(props) {
   const { className, style, onClick } = props;
   return (
-    <div
-      className={className}
-      style={{ ...style, display: "block", background: "#23B6EA", padding: "20px", zIndex: '4444444444', fontSize: '50px', borderRadius: '10px' }}
-      onClick={onClick}
-    >
-     </div>
+	<div
+	className={className}
+	style={{
+
+
+		marginLeft: "5px",
+
+		zIndex: "4444",
+	}}
+	onClick={onClick}
+>
+	<FaArrowLeft color="white" size={35} style={{ padding: '9px', background: "linear-gradient(to right, #23B6EA, #66DED4)", borderRadius: '10%' }} />
+</div>
   );
 }
 
 const Medecin = () => {
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 2000,
     slidesToShow: 1,
@@ -83,8 +93,8 @@ const Medecin = () => {
   return (
 	<>
     <div className='container'>
-       <div className='container'><div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style={{maxWidth: '600px'}}>
-				<h2>Notre équipe médicale</h2>
+       <div className='container'><div class="text-center mx-auto mb-2 wow fadeInUp" data-wow-delay="0.1s" style={{maxWidth: '600px'}}>
+				<h2>Notre équipe médicale :</h2>
 				<img src="section-img.png" alt="#"/>            </div>
     <Slider {...settings}>
 	
@@ -247,7 +257,7 @@ const Medecin = () => {
 							</div>
 							<div class="team-text bg-light text-center p-4">
 								<h5>Dr ATTOU Abdelkader</h5>
-								<p class="text-primary mb-4">Médecin Spécialiste En Dermatologie </p>
+								<p class="text-primary ">Médecin Spécialiste En Dermatologie </p>
 								 
 							</div>
 						</div>
@@ -340,8 +350,8 @@ const Medecin = () => {
 
 	<div className='container'>
        <div className='container'>
-	   <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style={{maxWidth: '600px'}}>
-				<h2>Médecins conventionnés</h2>
+	   <div class="text-center mx-auto mb-2 mt-2 wow fadeInUp" data-wow-delay="0.1s" style={{maxWidth: '600px'}}>
+				<h2>Médecins conventionnés :</h2>
 				<img src="section-img.png" alt="#"/>            </div>
     <Slider {...settings}>
  

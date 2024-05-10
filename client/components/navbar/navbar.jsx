@@ -50,9 +50,10 @@ const Navbar=()=>{
 			  <li class="nav-item "style={{width:'60%'}}>
 				<a class="nav-link" aria-disabled="true">Visite vertuelle</a>
 			  </li>
-			  <li class="nav-item  "style={{width:'60%'}}>
-				<a class="nav-link" aria-disabled="true">Galerie</a>
-			  </li>
+			  <li class="nav-item  "style={{width:'60%'}}><Link legacyBehavior href="/galerie">
+				<a className={router.pathname === '/galerie' ? 'nav-link active' : 'nav-link'}  aria-disabled="true">Galerie</a>
+				</Link>
+			  </li>  
 			  <li class="nav-item  "style={{width:'60%'}}>
 				<a class="nav-link" aria-disabled="true">Actualités</a>
 			  </li>

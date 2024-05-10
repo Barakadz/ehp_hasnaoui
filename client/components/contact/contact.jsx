@@ -65,7 +65,7 @@ const Contact=()=>{
 				<div class="container contact-info">
 					<div class="row">
 				 
-						<div class="col-lg-4 col-12 ">
+						<div class="col-lg-4 col-12 mb-3">
 							<div class="single-info">
 								<i class="icofont icofont-ui-call"></i>
 								<div class="content">
@@ -75,7 +75,7 @@ const Contact=()=>{
 							</div>
 						</div>
 						 
-						<div class="col-lg-4 col-12 ">
+						<div class="col-lg-4 col-12 mb-3">
 							<div class="single-info">
 								<i class="icofont-google-map"></i>
 								<div class="content">

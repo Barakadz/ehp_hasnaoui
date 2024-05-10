@@ -1,7 +1,7 @@
 const ChifresCle=()=>{
     return(
         <>
-        	<center><h3 class=" text-center">Chiffres clés</h3>
+        	<center><h3 class=" text-center">Chiffres clés :</h3>
 	<img src="section-img.png" alt="#"/> </center>
 
 
@@ -9,8 +9,8 @@ const ChifresCle=()=>{
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-3 col-md-6 col-12">
- 						<div class="single-fun">
-							<i class="icofont icofont-hospital"></i>
+ 						<div class="single-fun">							<i class="icofont icofont-hospital"></i>
+
 							<div class="content">
 								<span class="counter">1</span>
 								<p>Salle hybride Classée ISO5 </p>

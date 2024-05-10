@@ -10,6 +10,8 @@ import EhphWhy from "@/components/ehphwhy/ehphwhy";
 import Preloader from "@/components/preloader/preloader";
 import React, { useEffect } from 'react';
 import HeroSlider from "@/components/slide/slide";
+import Convention from "@/components/convention/convention";
+import Actualites from "@/components/actualites/actualites";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -48,6 +50,8 @@ export default function Home() {
 <HeroSlider/>
 <EhphWhy/>
  <Video/>
+ <Convention/>
+ <Actualites/>
  <Footer/>
      </main>
 </>

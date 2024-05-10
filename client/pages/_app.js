@@ -21,6 +21,8 @@ import '../components/breadcumbs_apropos/breadcumbs_apropos.css';
 import '../components/apropos_card/apropos_card.css';
 import '../components/chiffres_cles/chiffres_cle.css';
 import '../components/hybrid/hybrid.css';
+import '../components/convention/convention.css';
+import '../components/actualites/actualites.css';
 
 import "@/styles/Home.module.css";
  

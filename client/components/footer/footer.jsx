@@ -4,7 +4,7 @@ const Footer=()=>{
     return(
             <div  >
 				 
-            <footer id="footer" class="footer wow fadeInUp" data-wow-delay="0.6s" >
+            <footer id="footer" class="footer wow fadeInUp mt-4" data-wow-delay="0.6s" >
 			 
 			<div class="footer-top ">
 				<div class="container">
@@ -19,11 +19,12 @@ const Footer=()=>{
 											<li><a href="about.html"><i class="fa fa-caret-right" aria-hidden="true"></i>A propos</a></li>
 											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Services</a></li>
 											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Visite virtuelle</a></li>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Cariéres</a></li>	
 										</div>
 									</div>
 									<div class="col-lg-6 col-md-6 col-12">
-										<ul>
+										<ul>				
+											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Cariéres</a></li>	
+
 											<li><a href="blog.html"><i class="fa fa-caret-right" aria-hidden="true"></i>Actualités</a></li>
 											<li><a href="contact.html"><i class="fa fa-caret-right" aria-hidden="true"></i>Contact</a></li>
  									 
@@ -68,6 +69,7 @@ const Footer=()=>{
 						<div class="col-lg-12 col-md-12 col-12">
 							<div class="copyright-content">
 								<p>Copyright © 2024 Groupe des Sociétés HASNAOUI. All Rights Reserved-Designed by GSH 
+									<br></br><b style={{opacity:'0.05'}}>Développer par BARAKA ABBES IBRAHIM</b>
 								  </p>
 							</div>
 						</div>

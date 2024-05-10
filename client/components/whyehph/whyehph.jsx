@@ -14,8 +14,8 @@ const WhyEhph=()=>{
 									<i class="icofont icofont-ambulance text-primary"></i>
 								</div>
 								 <div class="ms-4">
-									 <p class="text-white mb-2 mx-2">Urgences</p>
-									 <h5 class="text-white mb-2"> </h5>
+									 <p class="text-white mb-1 mx-1">Urgences</p>
+									 <h5 class="text-white mb-1"> </h5>
 								 </div>
 							 </div>
 						 </div>
