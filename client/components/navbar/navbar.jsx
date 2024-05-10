@@ -27,8 +27,8 @@ const Navbar=()=>{
 			  
 			
 
-			  <li class="nav-item " ><Link legacyBehavior href="/">
-				<a  className={router.pathname === '/' ? 'nav-link active mx-4' : 'nav-link mx-4'} aria-current="page"  >Accueil</a>
+			  <li class="nav-item  mx-4" ><Link legacyBehavior href="/">
+				<a  className={router.pathname === '/' ? 'nav-link active' : 'nav-link '} aria-current="page"  >Accueil</a>
 			 </Link> </li>
 			  
 			  <li class="nav-item  mx-4" ><Link legacyBehavior href="/apropos">
@@ -47,7 +47,7 @@ const Navbar=()=>{
 				  <li><a class="dropdown-item" href="#">Something else here</a></li>
 				</ul>
 			  </li>
-			  <li class="nav-item ">
+			  <li class="nav-item mx-4">
 				<a class="nav-link" aria-disabled="true">Visite vertuelle</a>
 			  </li>
 			  <li class="nav-item  mx-4"><Link legacyBehavior href="/galerie">
