@@ -16,6 +16,8 @@ nav{
 font-weight: 500  ;
     text-transform: capitalize  ;
     font-size: 16px ;    transition: 0.4s all ease-in-out  ;
+    font-family: 'Poppins', sans-serif !important;
+    color: black;
 }
  
 .nav-link:hover{
@@ -41,4 +43,16 @@ font-weight: 500  ;
 .btn{
 	color:#fff;
 	background: linear-gradient(to right, #23B6EA, #66DED4);
+    transition: all 0.5s ease;
+    padding: 10px;
+}
+ 
+.btn:active {
+    transform: scale(0.97);
+  }
+  .btn:hover{
+ 
+	color:#fff;	background:#2C2D3F;
+    font-family: 'Roboto', sans-serif !important;
+    box-shadow: #23B6EA 0px 2px 9px 0px;
 }

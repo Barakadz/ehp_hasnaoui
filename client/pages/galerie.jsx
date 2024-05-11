@@ -100,9 +100,9 @@ export default function Home() {
 	<link rel="icon" href="/logozoom.PNG" />
   </Head>
   <main style={{padding:'0'}}>
- 
+ <Preloader/>
+
  <Topbar/>
-<Preloader/>
  <Navbar/>
  
 <MyLightbox images={images_pediateries} title="Pédiatries et néonatologie :"/>

@@ -63,15 +63,15 @@ const Navbar=()=>{
 			  <li class="nav-item "><Link legacyBehavior href="/contact">
 				<a className={router.pathname === '/contact' ? 'nav-link active' : 'nav-link'}  aria-disabled="true">Contact</a>
 				</Link>
-			  </li>  			  
-
+			  </li>  <div class="col-lg-2 col-12  ">				  
+<Link href="/rendez-vous"> 
+						  <button class="btn   btnmenu mt-2" style={{whiteSpace:'nowrap'}} type="submit">Prendre un Rendez-vous</button></Link>		
+</div> 
 			</ul>
 		</div>
 			
 
- 		  </div><div class="col-lg-2 col-12">	<Link href="/rendez-vous"> 
-						  <button class="btn  " type="submit">Prendre un Rendez-vous</button></Link>		
-</div>
+ 		  </div> 
 		</div>
 	  </nav></div> 
 

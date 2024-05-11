@@ -131,8 +131,8 @@ const HeroSlider = () => {
     <div class="row">
       <div class="col">
         <div class="text ">
-          <h2><span class="spanslide">Sidi bel abbes</span></h2>
-          <h2 class="text-e">Le 1er Etablissement Hospitalier Privé, vous ouvre ses portes</h2>
+          <h4><span class="spanslide">Sidi bel abbes</span></h4>
+          <h4 class="text-e">Le 1er Etablissement Hospitalier Privé, vous ouvre ses portes</h4>
         </div>
       </div>
     </div>

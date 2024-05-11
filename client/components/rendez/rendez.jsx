@@ -161,8 +161,7 @@ const Rendezvous=()=>{
 
   const handleChange = selectedOption => {
     setSelectedOption(selectedOption);
-   // setUserData({ Services:selectedOption})
-
+ 
    };
 
 
@@ -222,9 +221,9 @@ const gg=()=>{
         try {                
       //    https://www.ehp-hasnaoui.com/api/auth/otp'
 
-          const response = await axios.get('https://www.ehp-hasnaoui.com/api/auth/otp'); // Replace the URL with the actual API endpoint you want to request.
+       const response = await axios.get('https://www.ehp-hasnaoui.com/api/auth/otp'); // Replace the URL with the actual API endpoint you want to request.
  
-            setUserData({OTP:response.data,FirstName:values.FirstName,LastName:values.LastName,DateNaissance:values.DateNaissance,NumeroTel:values.NumeroTel,Email:values.Email,NumeroCni:values.NumeroCni,NumeroSecuriteSociale:values.NumeroSecuriteSociale,Services:'Cardiologie',DateRendezVous:values.DateRendezVous,Heure:values.Heure})
+            setUserData({OTP:response.data,FirstName:values.FirstName,LastName:values.LastName,DateNaissance:values.DateNaissance,NumeroTel:values.NumeroTel,Email:values.Email,NumeroCni:values.NumeroCni,NumeroSecuriteSociale:values.NumeroSecuriteSociale,Services:selectedOption.value,DateRendezVous:values.DateRendezVous,Heure:values.Heure})
            
            //console.log('Code OTP:', response.data);
  const apiUrl = 'https://www.groupe-hasnaoui.com/mail_ehph.php';
@@ -403,6 +402,7 @@ Prendre un rendez-vous médical en ligne permet de choisir facilement et rapidem
         value={selectedOption}
         onChange={handleChange}
         options={options}
+        
         required
       /> 										  <p style={{color:'red'}}><ErrorMessage name="Services"/></p>
 
