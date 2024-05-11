@@ -84,7 +84,7 @@ export const testuser = (req, res) => {
 
   jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
     if (err) {
-      res.status(500).json('s verification failed');
+      res.status(500).json('verification failed');
     } else {
         // Token is valid, proceed with your existing logic to check if the user exists
       const q = "SELECT * FROM user";

@@ -15,14 +15,43 @@ import StepLabel from '@mui/material/StepLabel';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import axios from "axios";
-
+import QRCode from 'qrcode.react';
 import { useContext } from 'react';
 import AuthContext from '../../contexts/AuthContext';
 import OTPInput from '../otp';
- 
+import html2canvas from 'html2canvas';
+import { toPng } from 'html-to-image';
+import { LayersTwoTone } from '@mui/icons-material';
 const steps = ['Les informations personnelles', 'Vérification Mail', 'Confirmation de Rendez vous'];
-
+ 
 const Rendezvous=()=>{
+  
+  const generateTicketImage = () => {
+    const node = document.getElementById('ticket-content');
+  
+    toPng(node, { backgroundColor: 'white' })
+      .then((dataUrl) => {
+        // Create a temporary anchor element
+        const link = document.createElement('a');
+        link.href = dataUrl;
+        link.download = 'ticket_ehp_hasnaoui.png'; // Set the filename for the download
+        document.body.appendChild(link);
+  
+        // Trigger the click event to start the download
+        link.click();
+  
+        // Remove the temporary anchor element
+        document.body.removeChild(link);
+      })
+      .catch((error) => {
+        console.error('Error generating image:', error);
+      });
+  };
+  
+
+
+  const currentDate = new Date();
+
 	const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set());
 
@@ -179,34 +208,43 @@ const Rendezvous=()=>{
 
       // You can handle the OTP value here (e.g., validate it against a server, etc.)
     };
- 
+const gg=()=>{
+  generateTicketImage();
+
+} 
     const onSubmit = (values) => {
 
 
 
 
       async function fetchData() {
+      
         try {                
+      //    https://www.ehp-hasnaoui.com/api/auth/otp'
 
-          const response = await axios.get('https://www.ehp-hasnaoui.com/api/auth/otp'); // Replace the URL with the actual API endpoint you want to request.
+          const response = await axios.get('http://localhost:8800/api/auth/otp'); // Replace the URL with the actual API endpoint you want to request.
  
-            setUserData({OTP:response.data,FirstName:values.FirstName,LastName:values.LastName,DateNaissance:values.DateNaissance,NumeroTel:values.NumeroTel,Email:values.Email,NumeroCni:values.NumeroCni,NumeroSecuriteSociale:values.NumeroSecuriteSociale,Services:values.NumeroSecuriteSociale,DateRendezVous:values.DateRendezVous,Heure:values.Heure})
-console.log(userData.OTP)
-          
+            setUserData({OTP:response.data,FirstName:values.FirstName,LastName:values.LastName,DateNaissance:values.DateNaissance,NumeroTel:values.NumeroTel,Email:values.Email,NumeroCni:values.NumeroCni,NumeroSecuriteSociale:values.NumeroSecuriteSociale,Services:'Cardiologie',DateRendezVous:values.DateRendezVous,Heure:values.Heure})
+           
            //console.log('Code OTP:', response.data);
- const apiUrl = 'https://www.ehp-hasnaoui.com/api/auth/mail';
+ const apiUrl = 'https://www.groupe-hasnaoui.com/mail_ehph.php';
        const requestData = {
         Email: values.Email,
-        Code: response.data
+        Code: response.data,
+        Nom:values.FirstName,
+        Prenom:values.LastName
        };
        
-       axios.post(apiUrl, requestData)
+       axios.post(apiUrl, requestData, {
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        }})
          .then(response => {
-          // console.log('POST request successful');
-          // console.log('Response data:', response.data);
+          //  console.log('POST request successful');
+         // console.log('Response data:', response.data);
          })
          .catch(error => {
-          // console.error('An error occurred:', error);
+          console.error('An error occurred:', error);
          });
         } catch (error) {
           console.error('Error:', error);
@@ -230,6 +268,33 @@ const suivant=()=>{
    }
  }
 
+ const confirmation=()=>{
+  const apiUrl = 'http://localhost:8800/api/auth/register';
+  const requestData = {
+   FirstName: userData.FirstName,
+   LastName: userData.LastName,
+   DateNaissance:userData.DateNaissance,
+   NumeroTel:userData.NumeroTel,
+   Service:userData.Services,
+   DateRendezVous:userData.DateRendezVous,
+   Email:userData.Email,
+   NumeroCni:userData.NumeroCni,
+   NumeroSecuriteSociale:userData.NumeroSecuriteSociale,
+   Heure:userData.Heure
+
+
+  };
+  
+  axios.post(apiUrl, requestData )
+    .then(response => {
+     toast.success('Rendezvous à été planifier')
+    })
+    .catch(error => {
+     console.error('An error occurred:', error);
+    });
+   }  
+
+ 
     return(
         <div className='container '>
 			<div class="row my-4">
@@ -421,23 +486,84 @@ Prendre un rendez-vous médical en ligne permet de choisir facilement et rapidem
 
             )}
 
-{activeStep === 2 && (    <div> 
+{activeStep === 2 && (   <div > <div className="borderTicket"id='ticket-content'> 
 
 <p className='text-center'>Le rendez-vous sera automatiquement annulé s'il n'est pas honoré dans les 10 minutes.</p><br/>
-<b className='text-center'>Votre Ticket :</b>	 <br/>
+<div className='container'><div className="row"><div className="col">
+<div className='d-flex'><b className='text-center' style={{fontSize:'23px'}}>  Ticket :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>	 <br/> <label></label><p style={{fontSize:'23px',fontWeight:'bold'}}> {userData.FirstName+' '+userData.LastName}</p></div>
+
 <div >
+<div>  
+ <div className='d-flex'><label>Date de Rendez vous : &nbsp;&nbsp;&nbsp; </label><p>  {userData.DateRendezVous +' '+userData.Heure}</p></div>
+ <div className='d-flex'><label>Services : &nbsp;&nbsp;&nbsp; </label><p>  {userData.Services}</p></div>
 
 </div>
-<img src="" alt="" srcset="" />
-<center><a>Télécharger Le Ticket</a></center>
-<Box>
-           
-            
-           
-           <Button onClick={handleNext} className='btn p-2'>
-                {activeStep === steps.length - 1 ? 'Envoyer' : 'Suivant'}
-              </Button> 
-            </Box>
+
+<div className="col">
+ 
+  </div></div></div> 
+   <center> <div className='codeQr'>
+   <QRCode value={'Bienvenue sur L`EHP HASNAOUI :\n'+userData.FirstName+' '+userData.LastName+'\n'+userData.DateNaissance+'\n'+userData.Email+'\n'+userData.NumeroTel+'\n'}        
+/>    
+
+      <img src="logozoom.png" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '70%', height: 'auto' ,opacity:'0.7'}} alt="logo" />
+    </div>
+</center>
+</div>
+</div>
+ <center><b>www.ehp-hasnaoui.com</b></center>
+</div><div><p>Imprimé le {currentDate.toLocaleDateString()+" "+currentDate.toLocaleTimeString()}</p></div>
+<center> 
+<button class="download-button"onClick={gg}>
+  <div class="docs">
+    <svg
+      viewBox="0 0 24 24"
+      width="20"
+      height="20"
+      stroke="currentColor"
+      stroke-width="2"
+      fill="none"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="css-i6dzq1"
+    >
+      <path
+        d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+      ></path>
+      <polyline points="14 2 14 8 20 8"></polyline>
+      <line x1="16" y1="13" x2="8" y2="13"></line>
+      <line x1="16" y1="17" x2="8" y2="17"></line>
+      <polyline points="10 9 9 9 8 9"></polyline>
+    </svg>
+    Télécharger le Ticket
+  </div>
+  <div class="download">
+    <svg
+      viewBox="0 0 24 24"
+      width="24"
+      height="24"
+      stroke="currentColor"
+      stroke-width="2"
+      fill="none"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="css-i6dzq1"
+    >
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+      <polyline points="7 10 12 15 17 10"></polyline>
+      <line x1="12" y1="15" x2="12" y2="3"></line>
+    </svg>
+  </div>
+</button>
+
+
+
+
+</center><br></br>
+<center>
+<center className=''>  <button className='btn mx-4' onClick={confirmation}>Confirmer votre Rendezvous</button></center>
+
+ </center>
 			</div>
 
             )}
