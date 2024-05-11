@@ -222,7 +222,7 @@ const gg=()=>{
         try {                
       //    https://www.ehp-hasnaoui.com/api/auth/otp'
 
-          const response = await axios.get('http://localhost:8800/api/auth/otp'); // Replace the URL with the actual API endpoint you want to request.
+          const response = await axios.get('https://www.ehp-hasnaoui.com/api/auth/otp'); // Replace the URL with the actual API endpoint you want to request.
  
             setUserData({OTP:response.data,FirstName:values.FirstName,LastName:values.LastName,DateNaissance:values.DateNaissance,NumeroTel:values.NumeroTel,Email:values.Email,NumeroCni:values.NumeroCni,NumeroSecuriteSociale:values.NumeroSecuriteSociale,Services:'Cardiologie',DateRendezVous:values.DateRendezVous,Heure:values.Heure})
            
@@ -269,7 +269,7 @@ const suivant=()=>{
  }
 
  const confirmation=()=>{
-  const apiUrl = 'http://localhost:8800/api/auth/register';
+  const apiUrl = 'https://www.ehp-hasnaoui.com/api/auth/register';
   const requestData = {
    FirstName: userData.FirstName,
    LastName: userData.LastName,
