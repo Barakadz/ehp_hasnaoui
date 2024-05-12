@@ -19,28 +19,28 @@ const Contact=()=>{
 									 
 											<div class="row">
 												<div class="col-lg-6">
-													<div class="form-group">
+													<div class="form-group mb-2">
 														<input type="text" name="name" placeholder="Nom" required=""/>
 													</div>
 												</div>
 												<div class="col-lg-6">
-													<div class="form-group">
+													<div class="form-group mb-2">
 														<input type="email" name="email" placeholder="Mail" required=""/>
 													</div>
 												</div>
 												<div class="col-lg-6">
-													<div class="form-group">
+													<div class="form-group mb-2">
 														<input type="text" name="phone" placeholder="Téléphone" required=""/>
 													</div>
 												</div>
 												<div class="col-lg-6">
-													<div class="form-group">
+													<div class="form-group mb-2">
 														<input type="text" name="subject" placeholder="Sujet" required=""/>
 													</div>
 												</div>
 												<div class="col-lg-12">
 													<div class="form-group">
-														<textarea name="message" placeholder="Message" required=""></textarea>
+														<textarea name="message" placeholder="Message" required="" rows="5"></textarea>
 													</div>
 												</div>
 												 

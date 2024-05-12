@@ -181,3 +181,50 @@ qr.toDataURL(data, (err, url) => {
 });
 
 }
+
+
+
+
+
+
+
+
+export const addAct = (req, res) => {
+ 
+     const currentDate = moment();
+    const Date=currentDate.format('DD-MM-YYYY');
+    const q =
+      "INSERT INTO `actualites`( `titre`, `description`, `date`, `image`) VALUE (?)";
+
+    const values = [
+      req.body.titre,
+      req.body.description,
+Date,
+      req.body.image,
+ 
+       
+     ];
+
+    db.query(q, [values], (err, data) => {
+      if (err) return res.status(500).json(err);
+      return res.status(200).json("Actualites has been created.");
+    });
+ 
+};
+
+export const deleteAct =(req,res)=>{
+  const token = req.cookies.access_token;
+  if (!token) return res.status(401).json("Not authenticated!");
+
+  jwt.verify(token, "jwtkey", (err, userInfo) => {
+    if (err) return res.status(403).json("Token is not valid!");
+
+    const actualitesId = req.params.id;
+    const q = "DELETE FROM actualites WHERE `id` =  ";
+
+    db.query(q, [actualitesId ], (err, data) => {
+      if (err) return res.status(500).json(err);
+      if (data.affectedRows > 0) return res.json("Actualites has been deleted!");
+     });
+  }); 
+}

@@ -14,14 +14,7 @@
 	padding: 290px 0px;
 	width: 100%;
    }
-   @media (min-width:0px) and (max-width: 900px) {
-	.image-container {
- 
-		padding: 150px 0px;
- 
-	   }
-}
-  
+   
   .overlaay {
 	transition: 2s;
 	position: absolute;
@@ -38,7 +31,7 @@
  	display: none;
 	justify-content: center;
 	align-items: center;
-	opacity: 0.8;
+	opacity: 0.9;
    }
   
   .textt {
@@ -146,4 +139,14 @@ opacity: 0;  }
 @media only screen and (max-width:990px){
     .box{ margin: 0 0 30px; }
 	.ff{margin-top: 0% !important;}
+}
+@media (min-width:0px) and (max-width: 900px) {
+	.textt {
+ 
+		font-size: 18px;
+ 
+	   }
+}
+.image-container:hover .title_hybrid{
+   opacity:  0 !important;
 }

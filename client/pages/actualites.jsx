@@ -5,14 +5,13 @@ import styles from "@/styles/Home.module.css";
 import Topbar from '../components/topbar/topbar';
 import Navbar from "@/components/navbar/navbar";
 import Footer from "@/components/footer/footer";
-import Video from "@/components/video/video";
-import EhphWhy from "@/components/ehphwhy/ehphwhy";
+import Breadcumbs from "@/components/breadcumbs/breadcumbs";
+import Contact from "@/components/contact/contact";
 import Preloader from "@/components/preloader/preloader";
 import React, { useEffect } from 'react';
-import HeroSlider from "@/components/slide/slide";
-import Convention from "@/components/convention/convention";
 import Actualites from "@/components/actualites/actualites";
-
+import  { useState } from 'react';
+import ReactPaginate from 'react-paginate';
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
@@ -35,30 +34,55 @@ export default function Home() {
       window.removeEventListener('load', handleLoad);
     };
   }, []);
+  const [currentPage, setCurrentPage] = useState(0);
+
+  const handlePageChange = ({ selected }) => {
+    setCurrentPage(selected);
+    // You can fetch new data based on the selected page
+    // For example: fetchData(selected + 1);
+  };
   return (<>
 	<Head>
-	<title>EHP - HASNAOUI</title>
+	<title>Actualités - EHPHASNAOUI</title>
 	<meta name="description" content="Ehp hasnaoui, Hopital Privée Hasnaui,Hasnaoui Private Hospital, Ehp-hasnaoui" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="icon" href="/logozoom.PNG" />
   </Head>
   <main style={{padding:'0'}}>
-  <Topbar/>
+ <Preloader/>
 
+ <Topbar/>
  <Navbar/>
-<HeroSlider/>
-<EhphWhy/>
- <Video/>
- <Convention/><center>
+ <center>
 				<div class="row">
-					<div class="col-lg-12">
+					<div class="col-lg-12 mt-4">
 						<div class="section-title">
 							<h2>Suivez nos dernières Actualités :</h2>
 							<img src="section-img.png" className="mb-3" alt="#"/>
  						</div>
 					</div>
 				</div></center>
+ <div className="mt-4">
  <Actualites/>
+ </div>
+ <div className="mt-4">
+ <Actualites/>
+ </div>
+ 
+
+ <div>
+      {/* Your data rendering logic here */}
+      
+      <ReactPaginate
+        pageCount={10} // Total number of pages
+        pageRangeDisplayed={5} // Number of pages to display in the pagination
+        marginPagesDisplayed={2} // Number of pages to display at the beginning and end of the pagination
+        onPageChange={handlePageChange} // Callback function for page change
+        containerClassName="pagination" // CSS class for the pagination container
+        activeClassName="active" // CSS class for the active page
+      />
+    </div>
+
  <Footer/>
      </main>
 </>

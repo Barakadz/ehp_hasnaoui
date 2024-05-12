@@ -109,44 +109,22 @@ const Rendezvous=()=>{
 		setDateRendezvous(date);
     };
     const options = [
-    { value: 'Consultation médecine générale', label: 'Consultation médecine générale' },
-    { value: 'gynéco-obstétrique', label: 'gynéco-obstétrique' },
-    { value: 'pédiatrie', label: 'pédiatrie' },
-	{ value: 'cardiologie', label: 'cardiologie' },
-    { value: 'dermatologie', label: 'dermatologie' },
-    { value: 'endocrinologie', label: 'endocrinologie' },
-    { value: 'traumatologie', label: 'traumatologie' },
-    { value: 'anesthésie', label: 'anesthésie' },
-    { value: 'chirurgie générale', label: 'chirurgie générale' },
-    { value: 'chirurgie cardio-vasculaire', label: 'chirurgie cardio-vasculaire' },
-    { value: 'Laboratoire d’analyses médicales', label: 'Laboratoire d’analyses médicales' },
-    { value: 'IRM', label: 'IRM' },
-    { value: 'Scanner', label: 'Scanner' },
-    { value: 'Mammographie', label: 'Mammographie' },
-    { value: 'Radiographie Standard', label: 'Radiographie Standard' },
-    { value: 'Télémétrie', label: 'Télémétrie' },
-    { value: 'Panoramique dentaire', label: 'Panoramique dentaire' },
-    { value: 'DMO', label: 'DMO' },
-    { value: 'Urgences (médicales)', label: 'Urgences (médicales)' },
-    { value: 'Urgences (chirurgicales)' , label: 'Urgences (chirurgicales)' },
-    { value: 'Réadaptation fonctionnelle', label: 'Réadaptation fonctionnelle' },
-    { value: 'gynécologie', label: 'gynécologie' },
-    { value: 'obstétrique', label: 'obstétrique' },
-    { value: 'pédiatrie', label: 'pédiatrie' },
-    { value: 'néonatologie', label: 'néonatologie' },
-    { value: 'viscérale', label: 'viscérale' },
-    { value: 'cardio-vasculaire,', label: 'cardio-vasculaire,' },
-    { value: 'cardiologie-interventionnelle', label: 'cardiologie-interventionnelle' },
-    { value: 'vasculaire', label: 'vasculaire' },
-    { value: 'neurochirurgie', label: 'neurochirurgie' },
-    { value: 'gynéco-obstétrique', label: 'gynéco-obstétrique' },
-	{ value: 'ophtalmologie', label: 'ophtalmologie' },
-    { value: 'orthopédique et traumatologique', label: 'orthopédique et traumatologique' },
-    { value: 'explorations endoscopiques', label: 'explorations endoscopiques' },
-    { value: 'stérilisation', label: 'stérilisation' },
-    { value: 'transport sanitaire', label: 'transport sanitaire' },
-    { value: 'buanderie', label: 'buanderie' },
-	{ value: 'restauration', label: 'restauration' },
+    { value: 'Médecine générale', label: 'Médecine générale' },
+    { value: 'Gynécologie', label: 'Gynécologie' },
+    { value: 'Dermatologie', label: 'Dermatologie' },
+    { value: 'Traumatologie', label: 'Traumatologie' },
+    { value: 'Endocrinologie', label: 'Endocrinologie' },
+    { value: 'Pédiatrie', label: 'Pédiatrie' },
+    { value: 'Ophtalmologie', label: 'Ophtalmologie' },
+    { value: 'Hépato-gastro-entérologie', label: 'Hépato-gastro-entérologie' },
+    { value: 'Urologie', label: 'Urologie' },
+    { value: 'Cardiologie', label: 'Cardiologie' },
+    { value: 'Cardiologie interventionnelle', label: 'Cardiologie interventionnelle' },
+    { value: 'Chirurgie Cardiovasculaire', label: 'Chirurgie Cardiovasculaire' },
+    { value: 'Chirurgie générale', label: 'Chirurgie générale' },
+    { value: 'Laboratoire : Analyses médicales', label: 'Laboratoire : Analyses médicales' },
+    { value: 'Imagerie : IRM, Échographie, Tomodensitométrie (TDM ou scanner), Radiographie', label: 'Imagerie : IRM, Échographie, Tomodensitométrie (TDM ou scanner), Radiographie' },
+
 
 
 
@@ -347,7 +325,7 @@ Prendre un rendez-vous médical en ligne permet de choisir facilement et rapidem
 							  <div class="col-lg-6 col-md-6 col-12">
                 <label>Nom :<b style={{color:'red'}}>*</b></label>
 
-									   <Field  id="FirstName" name="FirstName"class="forminput"  type="text" placeholder="Nom *"/>
+									   <Field  id="FirstName" name="FirstName"class="forminput" style={{textTransform:'uppercase'}} type="text" placeholder="Nom *"/>
 									  <p style={{color:'red'}}><ErrorMessage name="FirstName" />   </p>
 							   </div>
 							  <div class="col-lg-6 col-md-6 col-12">
@@ -398,7 +376,7 @@ Prendre un rendez-vous médical en ligne permet de choisir facilement et rapidem
         value={selectedOption}
         onChange={handleChange}
         options={options}
-        
+        isMulti
         required
       /> 										  <p style={{color:'red'}}><ErrorMessage name="Services"/></p>
 

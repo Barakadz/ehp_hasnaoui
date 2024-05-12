@@ -2,15 +2,7 @@ const Actualites=()=>{
     return(
         <>
 	<section class="blog section" id="blog">
-			<div class="container"><center>
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="section-title">
-							<h2>Suivez nos dernières Actualités :</h2>
-							<img src="section-img.png" alt="#"/>
- 						</div>
-					</div>
-				</div></center>
+			<div class="container">
 				<div class="row">
 					<div class="col-lg-4 col-md-6 col-12">
 					

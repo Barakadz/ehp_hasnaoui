@@ -8,7 +8,6 @@ import '../components/navbar/navbar.css';
 import '../components/footer/footer.css';
 
 import '../components/breadcumbs/breadcumbs.css';
-import '../components/rendez/rendez.css';
 import '../components/video/video.css';
 import '../components/preloader/preloader.css';
 
@@ -24,6 +23,8 @@ import '../components/convention/convention.css';
 import '../components/actualites/actualites.css';
 import '../components/login/login.css';
 import '../components/contact/contact.css';
+import '../components/404/404.css';
+import '../components/rendez/rendez.css';
 
 import "@/styles/Home.module.css";
  
