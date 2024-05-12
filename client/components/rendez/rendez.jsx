@@ -25,28 +25,24 @@ import { LayersTwoTone } from '@mui/icons-material';
 const steps = ['Les informations personnelles', 'Vérification Mail', 'Confirmation de Rendez vous'];
  
 const Rendezvous=()=>{
-  
   const generateTicketImage = () => {
     const node = document.getElementById('ticket-content');
   
-    toPng(node, { backgroundColor: 'white' })
-      .then((dataUrl) => {
-        // Create a temporary anchor element
+    html2canvas(node, { scrollY: -window.scrollY , backgroundColor: 'white'})
+      .then((canvas) => {
+        const dataUrl = canvas.toDataURL();
         const link = document.createElement('a');
         link.href = dataUrl;
-        link.download = 'ticket_ehp_hasnaoui.png'; // Set the filename for the download
+        link.download = 'ticket_ehp_hasnaoui.png';
         document.body.appendChild(link);
-  
-        // Trigger the click event to start the download
         link.click();
-  
-        // Remove the temporary anchor element
         document.body.removeChild(link);
       })
       .catch((error) => {
         console.error('Error generating image:', error);
       });
   };
+  
   
 
 
