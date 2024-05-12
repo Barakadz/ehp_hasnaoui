@@ -39,16 +39,18 @@ const Navbar=()=>{
 			  <li class="nav-item dropdown  ">
 				<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 				  Services
-				</a>
-				<ul class="dropdown-menu">
+				</a>   
+				
+ {/*
+				 <ul class="dropdown-menu">
 				  <li><a class="dropdown-item" href="#">Action</a></li>
 				  <li><a class="dropdown-item" href="#">Another action</a></li>
 				  <li><hr class="dropdown-divider"/></li>
 				  <li><a class="dropdown-item" href="#">Something else here</a></li>
-				</ul>
+				</ul>*/  }
 			  </li>
 			  <li class="nav-item ">
-				<a class="nav-link" aria-disabled="true">Visite vertuelle</a>
+				<a class="nav-link" aria-disabled="true">Visite virtuelle</a>
 			  </li>
 			  <li class="nav-item  "><Link legacyBehavior href="/galerie">
 				<a className={router.pathname === '/galerie' ? 'nav-link active ' : 'nav-link  '}  aria-disabled="true">Galerie</a>
