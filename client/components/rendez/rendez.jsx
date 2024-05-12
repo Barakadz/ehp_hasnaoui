@@ -182,7 +182,7 @@ const Rendezvous=()=>{
        FirstName:Yup.string().required('Il faut remplir votre Nom'),
  
        LastName:Yup.string().required('Il faut remplir Votre Prénom'),
-	 DateNaissance:Yup.date().required('Il faut remplir Votre Date de Naissance'),
+	 DateNaissance:Yup.date().required('Il faut remplir Votre Date de Naissance') .max(new Date('2010-01-01'), "l'age doit etre plus de 14 ans"),
    DateRendezVous:Yup.date().required('Il faut remplir Votre Date de rendez vous'),
   
  
@@ -482,7 +482,7 @@ Prendre un rendez-vous médical en ligne permet de choisir facilement et rapidem
 
             )}
 
-{activeStep === 2 && (   <div id='ticket-content'> <div className="borderTicket"> 
+{activeStep === 2 && (   <div > <div className="borderTicket"id='ticket-content'> 
 
 <p className='text-center'>Le rendez-vous sera automatiquement annulé s'il n'est pas honoré dans les 10 minutes.</p><br/>
 <div className='container'><div className="row"><div className="col">
