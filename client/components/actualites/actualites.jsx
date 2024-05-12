@@ -50,7 +50,7 @@ const Actualites=()=>{
 						
 						<div class="single-news  wow fadeIn" data-wow-delay="0.45s">
 							<div class="news-head">
-								<img src="actualites2.jpg" alt="#"/>
+								<img src="gg.jpg" alt="#"/>
 							</div>
 							<div class="news-body">
 								<div class="news-content">
