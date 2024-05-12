@@ -482,7 +482,7 @@ Prendre un rendez-vous médical en ligne permet de choisir facilement et rapidem
 
             )}
 
-{activeStep === 2 && (   <div > <div className="borderTicket"id='ticket-content'> 
+{activeStep === 2 && (   <div id='ticket-content'> <div className="borderTicket"> 
 
 <p className='text-center'>Le rendez-vous sera automatiquement annulé s'il n'est pas honoré dans les 10 minutes.</p><br/>
 <div className='container'><div className="row"><div className="col">
@@ -502,7 +502,7 @@ Prendre un rendez-vous médical en ligne permet de choisir facilement et rapidem
    <QRCode value={'Bienvenue sur L`EHP HASNAOUI :\n'+userData.FirstName+' '+userData.LastName+'\n'+userData.DateNaissance+'\n'+userData.Email+'\n'+userData.NumeroTel+'\n'}        
 />    
 
-      <img src="logozoom.png" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '70%', height: 'auto' ,opacity:'0.7'}} alt="logo" />
+      <img src="logozoom.PNG" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '70%', height: 'auto' ,opacity:'0.7'}} alt="logo" />
     </div>
 </center>
 </div>
