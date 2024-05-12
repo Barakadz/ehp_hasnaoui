@@ -182,7 +182,7 @@ const Rendezvous=()=>{
        FirstName:Yup.string().required('Il faut remplir votre Nom'),
  
        LastName:Yup.string().required('Il faut remplir Votre Prénom'),
-	 DateNaissance:Yup.date().required('Il faut remplir Votre Date de Naissance') .max(new Date('2010-01-01'), "l'age doit etre plus de 14 ans"),
+	 DateNaissance:Yup.date().required('Il faut remplir Votre Date de Naissance') .max(new Date('2010-01-01'), "l'age doit étre plus de 14 ans"),
    DateRendezVous:Yup.date().required('Il faut remplir Votre Date de rendez vous'),
   
  
