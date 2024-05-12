@@ -16,7 +16,7 @@ const Actualites=()=>{
 					
 						<div class="single-news wow fadeIn" data-wow-delay="0.25s">
 							<div class="news-head">
-								<img src="imagemedecin3.jfif" alt="#"/>
+								<img src="actualites1.jpg" alt="#"/>
 							</div>
 							<div class="news-body">
 								<div class="news-content">
@@ -50,7 +50,7 @@ const Actualites=()=>{
 						
 						<div class="single-news  wow fadeIn" data-wow-delay="0.45s">
 							<div class="news-head">
-								<img src="imagemedecin3.jfif" alt="#"/>
+								<img src="actualites2.jpg" alt="#"/>
 							</div>
 							<div class="news-body">
 								<div class="news-content">
@@ -83,7 +83,7 @@ const Actualites=()=>{
 						
 						<div class="single-news">
 							<div class="news-head">
-								<img src="imagemedecin3.jfif" alt="#"/>
+								<img src="actualites3.jpg" alt="#"/>
 							</div>
 							<div class="news-body">
 								<div class="news-content">
