@@ -131,8 +131,8 @@ const HeroSlider = () => {
     <div class="row">
       <div class="col">
         <div class="text ">
-          <h4><span class="spanslide">Sidi bel abbes</span></h4>
-          <h4 class="text-e">Le 1er Etablissement Hospitalier Privé, vous ouvre ses portes</h4>
+          <h1><span class="spanslide">Sidi bel abbes</span></h1>
+          <h1 class="text-e">Le 1er Etablissement Hospitalier Privé, vous ouvre ses portes</h1>
         </div>
       </div>
     </div>
@@ -148,7 +148,7 @@ const HeroSlider = () => {
 									<div class="text">
 										<div class="text "> 
 
-											<h2 class="text-e">Nous sommes disponibles pour vous servir 7 jours sur 7 et 24 /24.</h2>
+											<h1 class="text-e">Nous sommes disponibles pour vous servir 7 jours sur 7 et 24 /24.</h1>
 
 
 										</div>
@@ -173,8 +173,8 @@ const HeroSlider = () => {
 						<div class="row">
 							<div class="col-lg-7">
 								<div class="text"> 
-									<h2  >  <span class="text-e">Imagerie Médicale</span></h2> 
-									<h2 class="text-e">Mammographie - Echographie - Radiologie - Scanner - IRM</h2> 
+									<h1  >  <span class="text-e">Imagerie Médicale</span></h1> 
+									<h1 class="text-e">Mammographie - Echographie - Radiologie - Scanner - IRM</h1> 
 
 
 
@@ -189,7 +189,7 @@ const HeroSlider = () => {
 						<div class="row">
 							<div class="col-lg-7">
 								<div class="text "> 
-									<h2 class="text-e">La Seule salle Hybride en Algérie dotée de la dernière technologie<br /> d'équipements médicaux </h2>
+									<h1 class="text-e">La Seule salle Hybride en Algérie dotée de la dernière technologie<br /> d'équipements médicaux </h1>
 
 								</div>
 							</div>
@@ -203,8 +203,8 @@ const HeroSlider = () => {
 							<div class="col-lg-7">
 								<div class="text text-center">
 									 
-									<h2  >  <span class="text-e ">Laboratoire d'analyses</span></h2> 
-									<h2 class="text-e">Obtenez des résultats Fiables</h2> 
+									<h1  >  <span class="text-e ">Laboratoire d'analyses</span></h1> 
+									<h1 class="text-e">Obtenez des résultats Fiables</h1> 
 
 
 								</div>
