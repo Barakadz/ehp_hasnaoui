@@ -161,9 +161,9 @@ const Rendezvous=()=>{
  
        LastName:Yup.string().required('Il faut remplir Votre Prénom'),
 	 DateNaissance:Yup.date().required('Il faut remplir Votre Date de Naissance') .max(new Date('2010-01-01'), "l'age doit étre plus de 14 ans"),
-   DateRendezVous:Yup.date().required('Il faut remplir Votre Date de rendez vous'),
+   DateRendezVous:Yup.date()
+   .min(new Date(), "La date doit étre d'aujourd'hui ou d'une date ultérieure").required('Date is required'),
   
- 
      Email:Yup.string().email('invalid Mail format').required('Il faut remplir Votre Mail'),
        NumeroTel:Yup.string()
         .matches(

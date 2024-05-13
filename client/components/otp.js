@@ -43,6 +43,7 @@ const OTPInput = ({ length, onChange }) => {
           style={{width:'50px'}} 
            className='mx-1' id={'otp'+index}
  disabled={index}
+ required
         />
         
         <b className='mt-3'>{index==5 ? '' :'-' }</b>

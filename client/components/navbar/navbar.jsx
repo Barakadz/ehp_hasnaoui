@@ -41,7 +41,7 @@ const Navbar=()=>{
 				  Services
 				</a>   
 				
- 
+ {/* }
 				 <ul class="dropdown-menu">
 				  <li><a class="dropdown-item" href="#">Action</a></li>
 				  <li><a class="dropdown-item" href="#">Another action</a></li>
@@ -49,6 +49,7 @@ const Navbar=()=>{
 				  <li><a class="dropdown-item" href="#">Something else here</a></li>
 				  
 				</ul> 
+	{*/}
 			  </li>
 			  <li class="nav-item ">
 				<a class="nav-link" aria-disabled="true">Visite virtuelle</a>
@@ -63,7 +64,7 @@ const Navbar=()=>{
 				</Link>
 			  </li>
 			  <li class="nav-item  ">
-				<a class="nav-link " aria-disabled="true">Cariéres</a>
+				<a class="nav-link " aria-disabled="true">Carrières</a>
 			  </li>
 			  <li class="nav-item "><Link legacyBehavior href="/contact">
 				<a className={router.pathname === '/contact' ? 'nav-link active' : 'nav-link'}  aria-disabled="true">Contact</a>
