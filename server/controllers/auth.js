@@ -29,6 +29,8 @@ export const register = (req, res) => {
    const confirmation='non'
     const currentDate = moment();
     const Date=currentDate.format('DD-MM-YYYY HH:mm:ss');
+    const formattedDateRendezVous = moment(req.body.DateRendezVous).format('DD/MM/YYYY');
+
     const q =
       "INSERT INTO `user`( `nom`, `prenom`, `date_naissance`, `tel`, `service`, `date_rendezvous`, `mail`, `numero_cni`, `numero_securite`, `heure`, `date`,`confirmation`) VALUE (?)";
 
@@ -39,7 +41,7 @@ export const register = (req, res) => {
       req.body.NumeroTel,   
       req.body.Service,
 
-      req.body.DateRendezVous,
+      formattedDateRendezVous,
       req.body.Email,
       req.body.NumeroCni,
       req.body.NumeroSecuriteSociale,
@@ -86,8 +88,41 @@ export const testuser = (req, res) => {
     if (err) {
       res.status(500).json('verification failed');
     } else {
+      const last_date = req.query.last_date;
+
+if (!last_date) {
+  const q = "SELECT * FROM user";
+
+  db.query(q, (err, userData) => {
+    if (err) return res.status(500).json(err);
+    if (userData.length > 0) {
+      return res.status(200).json(userData);
+    } else {
+      return res.status(404).json({ message: 'User not found' });
+    }
+  });
+} else {
+ 
+  const last_date = req.query.last_date;
+
+
+  const q = "SELECT * FROM user WHERE date_rendezvous > ?";
+
+  db.query(q, [last_date], (err, userData) => {
+    if (err) {
+      return res.status(500).json({ message: "Erreur de base de données", error: err });
+    }
+  
+    if (userData.length > 0) {
+      return res.status(200).json(userData);
+    } else {
+      return res.status(404).json({ message: 'User not found' });
+    }
+  });
+ }
+
         // Token is valid, proceed with your existing logic to check if the user exists
-      const q = "SELECT * FROM user";
+     /* const q = "SELECT * FROM user";
 
       db.query(q, (err, userData) => {
         if (err) return res.status(500).json(err);
@@ -97,7 +132,7 @@ export const testuser = (req, res) => {
           return res.status(404).json({ message: 'User not found' });
         }
       });
-  
+  */
     }
   });
   

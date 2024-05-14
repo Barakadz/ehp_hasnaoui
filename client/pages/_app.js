@@ -25,6 +25,9 @@ import '../components/login/login.css';
 import '../components/contact/contact.css';
 import '../components/404/404.css';
 import '../components/rendez/rendez.css';
+import '../components/topbardashboard/top.css';
+import '../components/sidebar/sidebar.css';
+import '../components/card_dash/carddash.css';
 
 import "@/styles/Home.module.css";
  
