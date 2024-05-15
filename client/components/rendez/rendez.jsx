@@ -133,11 +133,17 @@ const Rendezvous=()=>{
  
   const [selectedOption, setSelectedOption] = useState(null);
 
-  const handleChange = selectedOption => {
+  const handleChange = (selectedOption) => {
     setSelectedOption(selectedOption);
- 
-   };
 
+
+  };
+  const getIndividualValues = () => {
+    if (selectedOption) {
+      return selectedOption.map(option => option.value);
+    }
+    return [];
+  };
 
   /* formik */
 
@@ -195,7 +201,7 @@ const gg=()=>{
         try {                
       //    https://www.ehp-hasnaoui.com/api/auth/otp'
 
-       const response = await axios.get('https://www.ehp-hasnaoui.com/api/auth/otp'); // Replace the URL with the actual API endpoint you want to request.
+       const response = await axios.get('http://localhost:8800/api/auth/otp'); // Replace the URL with the actual API endpoint you want to request.
  
             setUserData({OTP:response.data,FirstName:values.FirstName,LastName:values.LastName,DateNaissance:values.DateNaissance,NumeroTel:values.NumeroTel,Email:values.Email,NumeroCni:values.NumeroCni,NumeroSecuriteSociale:values.NumeroSecuriteSociale,Services:selectedOption.value,DateRendezVous:values.DateRendezVous,Heure:values.Heure})
            
@@ -224,8 +230,8 @@ const gg=()=>{
         }
       }
        fetchData();  
-       setActiveStep(1);
-
+     //  setActiveStep(1);
+alert(getIndividualValues())  
     };
 const retour=()=>{
   setActiveStep(0)
@@ -242,7 +248,7 @@ const suivant=()=>{
  }
 
  const confirmation=()=>{
-  const apiUrl = 'https://www.ehp-hasnaoui.com/api/auth/register';
+  const apiUrl = 'http://localhost:8800/api/auth/register';
   const requestData = {
    FirstName: userData.FirstName,
    LastName: userData.LastName,
@@ -378,7 +384,8 @@ Prendre un rendez-vous médical en ligne permet de choisir facilement et rapidem
         options={options}
         isMulti
         required
-      /> 										  <p style={{color:'red'}}><ErrorMessage name="Services"/></p>
+      />
+ 				  <p style={{color:'red'}}><ErrorMessage name="Services"/></p>
 
  															</div>
 							  </div>

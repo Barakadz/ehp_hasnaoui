@@ -30,6 +30,7 @@ export const register = (req, res) => {
     const currentDate = moment();
     const Date=currentDate.format('DD-MM-YYYY HH:mm:ss');
     const formattedDateRendezVous = moment(req.body.DateRendezVous).format('DD/MM/YYYY');
+    const formattedDateNaissance = moment(req.body.DateNaissance).format('DD/MM/YYYY');
 
     const q =
       "INSERT INTO `user`( `nom`, `prenom`, `date_naissance`, `tel`, `service`, `date_rendezvous`, `mail`, `numero_cni`, `numero_securite`, `heure`, `date`,`confirmation`) VALUE (?)";
@@ -37,7 +38,7 @@ export const register = (req, res) => {
     const values = [
       req.body.FirstName,
       req.body.LastName,
-      req.body.DateNaissance,
+      formattedDateNaissance,
       req.body.NumeroTel,   
       req.body.Service,
 
