@@ -206,7 +206,7 @@ const gg=()=>{
 
       const cookieValue = getCookie('EHPH');
       if (cookieValue) {
-        toast.error('jjj ');
+        toast.error('Vous avez déja réserver un Rendezvous ');
        }else{
 
 
@@ -273,7 +273,7 @@ const suivant=()=>{
  const confirmation=()=>{
   const cookieValuae = getCookie('EHPH');
       if (cookieValuae) {
-        toast.error('jjj ');
+        toast.error('Vous avez déja réserver un Rendezvous ');
        }else{
 
   for (const value of getIndividualValues()) { 
