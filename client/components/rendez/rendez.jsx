@@ -144,7 +144,18 @@ const Rendezvous=()=>{
     }
     return [];
   };
-
+  const setCookie = (name, value, minutes) => {
+    const date = new Date();
+    date.setTime(date.getTime() + (minutes * 60 * 1000));
+    const expires = `expires=${date.toUTCString()}`;
+    document.cookie = `${name}=${value};${expires};path=/`;
+  };
+  const getCookie = (name) => {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+    return null;
+  };
   /* formik */
 
     const initialValues={
@@ -193,7 +204,10 @@ const gg=()=>{
 } 
     const onSubmit = (values) => {
 
-
+      const cookieValue = getCookie('EHPH');
+      if (cookieValue) {
+        toast.error('jjj ');
+       }else{
 
 
       async function fetchData() {
@@ -201,11 +215,14 @@ const gg=()=>{
         try {                
       //    https://www.ehp-hasnaoui.com/api/auth/otp'
 
-       const response = await axios.get('http://localhost:8800/api/auth/otp'); // Replace the URL with the actual API endpoint you want to request.
+       const response = await axios.get('https://www.ehp-hasnaoui.com/api/auth/otp'); // Replace the URL with the actual API endpoint you want to request.
  
-            setUserData({OTP:response.data,FirstName:values.FirstName,LastName:values.LastName,DateNaissance:values.DateNaissance,NumeroTel:values.NumeroTel,Email:values.Email,NumeroCni:values.NumeroCni,NumeroSecuriteSociale:values.NumeroSecuriteSociale,Services:selectedOption.value,DateRendezVous:values.DateRendezVous,Heure:values.Heure})
+            setUserData({OTP:response.data,FirstName:values.FirstName,LastName:values.LastName,DateNaissance:values.DateNaissance,NumeroTel:values.NumeroTel,Email:values.Email,NumeroCni:values.NumeroCni,NumeroSecuriteSociale:values.NumeroSecuriteSociale,Services: getIndividualValues(),DateRendezVous:values.DateRendezVous,Heure:values.Heure})
            
-           //console.log('Code OTP:', response.data);
+ 
+
+
+        
  const apiUrl = 'https://www.groupe-hasnaoui.com/mail_ehph.php';
        const requestData = {
         Email: values.Email,
@@ -225,14 +242,20 @@ const gg=()=>{
          .catch(error => {
           console.error('An error occurred:', error);
          });
-        } catch (error) {
+            
+             } 
+
+      
+        
+           //console.log('Code OTP:', response.data);
+catch (error) {
           console.error('Error:', error);
         }
       }
        fetchData();  
-     //  setActiveStep(1);
-alert(getIndividualValues())  
-    };
+      setActiveStep(1);
+    }
+     };
 const retour=()=>{
   setActiveStep(0)
 }
@@ -248,13 +271,19 @@ const suivant=()=>{
  }
 
  const confirmation=()=>{
-  const apiUrl = 'http://localhost:8800/api/auth/register';
+  const cookieValuae = getCookie('EHPH');
+      if (cookieValuae) {
+        toast.error('jjj ');
+       }else{
+
+  for (const value of getIndividualValues()) { 
+  const apiUrl = 'https://www.ehp-hasnaoui.com/api/auth/register';
   const requestData = {
    FirstName: userData.FirstName,
    LastName: userData.LastName,
    DateNaissance:userData.DateNaissance,
    NumeroTel:userData.NumeroTel,
-   Service:userData.Services,
+   Service:value/*userData.Services*/,
    DateRendezVous:userData.DateRendezVous,
    Email:userData.Email,
    NumeroCni:userData.NumeroCni,
@@ -266,12 +295,17 @@ const suivant=()=>{
   
   axios.post(apiUrl, requestData )
     .then(response => {
-     toast.success('Rendezvous à été planifier')
+     toast.success('Rendezvous à été planifier pour :'+value)
     })
     .catch(error => {
      console.error('An error occurred:', error);
     });
-   }  
+   } 
+   
+   
+   setCookie('EHPH', JSON.stringify("HASNAOUI"), 5);
+  }
+  }
 
  
     return(

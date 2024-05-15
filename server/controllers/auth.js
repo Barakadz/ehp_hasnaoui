@@ -92,7 +92,7 @@ export const testuser = (req, res) => {
       const last_date = req.query.last_date;
 
 if (!last_date) {
-  const q = "SELECT * FROM user";
+  const q = "SELECT * FROM user ORDER BY id DESC";
 
   db.query(q, (err, userData) => {
     if (err) return res.status(500).json(err);
