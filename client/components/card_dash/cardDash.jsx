@@ -1,7 +1,7 @@
 const CardDashboard=()=>{
     return(
 <>
-<div className="container">
+<div className="">
 
 <div className="row">
     <div className=" cardd col-lg-3 d-flex">

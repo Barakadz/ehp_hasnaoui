@@ -20,9 +20,12 @@ export default function Home() {
 	<link rel="icon" href="/logozoom.PNG" />
   </Head>
   <main style={{padding:'0',background:"#f5f5f5"}}>
-
+<div id="viewport">
  <SideBarDashboard/>
-<CardDashboard/>
+ <CardDashboard/>
+ 
+ </div>
+
      </main>
 </>
   );
