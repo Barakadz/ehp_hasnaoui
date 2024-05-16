@@ -29,8 +29,8 @@ export const register = (req, res) => {
    const confirmation='non'
     const currentDate = moment();
     const Date=currentDate.format('DD-MM-YYYY HH:mm:ss');
-    const formattedDateRendezVous = moment(req.body.DateRendezVous).format('YYYY-mm-dd');
-    const formattedDateNaissance = moment(req.body.DateNaissance).format('YYYY-mm-dd');
+    const formattedDateRendezVous = moment(req.body.DateRendezVous).format('YYYY-MM-DD');
+    const formattedDateNaissance = moment(req.body.DateNaissance).format('YYYY-MM-DD');
 
     const q =
       "INSERT INTO `user`( `nom`, `prenom`, `date_naissance`, `tel`, `service`, `date_rendezvous`, `mail`, `numero_cni`, `numero_securite`, `heure`, `date`,`confirmation`) VALUE (?)";
