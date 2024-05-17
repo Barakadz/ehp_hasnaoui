@@ -76,6 +76,56 @@ function verifyToken(req, res, next) {
   }
 }
 
+
+export const updateConfirmation = (req, res) => {
+  const id = req.params.id;
+
+  if (!id) {
+    return res.status(400).json({ error: 'ID is required' });
+  }
+
+  const q = "UPDATE `user` SET `confirmation` = 'oui' WHERE id = ?";
+
+  db.query(q, [id], (err, userData) => {
+    if (err) {
+      console.error('Error executing query:', err);
+      return res.status(500).json({ error: 'Database error' });
+    }
+
+    if (userData.affectedRows === 0) {
+      return res.status(404).json({ error: 'Rendezvous not found' });
+    }
+
+    return res.status(200).json({ message: 'Rendezvous updated successfully' });
+  });
+};
+
+
+export const deleteRendezvous = (req, res) => {
+  const id = req.params.id;
+
+  if (!id) {
+    return res.status(400).json({ error: 'ID is required' });
+  }
+
+  const q = "DELETE FROM `user`  WHERE id = ?";
+
+  db.query(q, [id], (err, userData) => {
+    if (err) {
+      console.error('Error executing query:', err);
+      return res.status(500).json({ error: 'Database error' });
+    }
+
+    if (userData.affectedRows === 0) {
+      return res.status(404).json({ error: 'Rendezvous not found' });
+    }
+
+    return res.status(200).json({ message: 'Rendezvous deleted successfully' });
+  });
+};
+
+
+
 export const testuser = (req, res) => {  
   dotenv.config();
 

@@ -18,6 +18,7 @@ export default function Home() {
 	<meta name="description" content="Ehp hasnaoui, Hopital Privée Hasnaui,Hasnaoui Private Hospital, Ehp-hasnaoui" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="icon" href="/logozoom.PNG" />
+ 
   </Head>
   <main style={{padding:'0',background:"#f5f5f5"}}>
 <div id="viewport">

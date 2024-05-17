@@ -15,7 +15,7 @@ const Side=()=>{
                             <i class="icofont-dashboard text-white"></i> Dashboard
                         </li></Link>
 
-                        <Link legacyBehavior href="/rendez"  ><li className= {router.pathname === '/rendez' ? 'act ' : '  '}>
+                        <Link legacyBehavior href="/rendezvous"  ><li className= {router.pathname === '/rendezvous' ? 'act ' : '  '}>
                         <i class="icofont-ui-calendar text-white"></i> RendezVous
                         </li></Link>
 
