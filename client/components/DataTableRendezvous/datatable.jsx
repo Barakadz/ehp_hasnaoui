@@ -70,7 +70,7 @@ const DataTableRendezVous = () => {
         icon: 'save',
         tooltip: 'Confirmer cette rendezvous',
         onClick: (event, rowData) =>{ const id=rowData.id;
-          axios.put(`https://ehp-hasnaoui/api/auth/${id}`)
+          axios.put(`https://www.ehp-hasnaoui.com/api/auth/${id}`)
           .then(response => {
             console.log('Response:', response.data);
           })
@@ -118,7 +118,7 @@ const DataTableRendezVous = () => {
             setData([...dataDelete]);
            //id==> console.log(oldData.id)
            const id=oldData.id;
-axios.delete(`https://ehp-hasnaoui/api/auth/${id}`)
+axios.delete(`https://www.ehp-hasnaoui.com/api/auth/${id}`)
 .then(response => {
   console.log('Response:', response.data);
 })
