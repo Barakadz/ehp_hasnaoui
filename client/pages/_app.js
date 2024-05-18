@@ -22,6 +22,8 @@ import '../components/hybrid/hybrid.css';
 import '../components/convention/convention.css';
 import '../components/actualites/actualites.css';
 import '../components/login/login.css';
+import '../components/loginAdmin/loinadmin.css';
+
 import '../components/contact/contact.css';
 import '../components/404/404.css';
 import '../components/rendez/rendez.css';

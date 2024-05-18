@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import MaterialTable from 'material-table';
-import { useTheme } from '@material-ui/core/styles';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
  
 
@@ -72,10 +73,11 @@ const DataTableRendezVous = () => {
         onClick: (event, rowData) =>{ const id=rowData.id;
           axios.put(`https://www.ehp-hasnaoui.com/api/auth/${id}`)
           .then(response => {
-            console.log('Response:', response.data);
+
+            toast.success(response.data);
           })
           .catch(error => {
-            console.error('There was an error!', error);
+            toast.error( error);
           });}  
       } , {
         icon: 'refresh',
@@ -120,11 +122,10 @@ const DataTableRendezVous = () => {
            const id=oldData.id;
 axios.delete(`https://www.ehp-hasnaoui.com/api/auth/${id}`)
 .then(response => {
-  console.log('Response:', response.data);
+toast.success(response.data)
 })
 .catch(error => {
-  console.error('There was an error!', error);
-});
+toast.error(error)});
             resolve()
           }, 1000)
         }),
@@ -186,7 +187,8 @@ axios.delete(`https://www.ehp-hasnaoui.com/api/auth/${id}`)
   
     
     // Pass the theme object to the MaterialTable component
-    />  </>
+    />         <ToastContainer />
+    </>
   );
 };
 

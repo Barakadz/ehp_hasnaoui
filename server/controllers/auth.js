@@ -9,6 +9,7 @@ import moment from "moment/moment.js";
 import qr  from "qrcode";
 import fs from "fs";
 import dotenv from 'dotenv';
+import bcrypt from "bcryptjs";
 
 // Now you can access process.env.JWT_SECRET
 
@@ -314,3 +315,47 @@ export const deleteAct =(req,res)=>{
      });
   }); 
 }
+
+
+
+
+
+//generateSHA1Hash pour le password
+function generateSHA1Hash(data) {
+  const hash = crypto.createHash('sha1');
+  hash.update(data);
+  return hash.digest('hex');
+}
+
+export const login = (req, res) => {
+  const q = "SELECT * FROM admin WHERE username = ?";
+
+  db.query(q, [req.body.username], (err, data) => {
+    if (err) return res.status(500).json(err);
+    if (data.length === 0) return res.status(404).json("Admin not found!");
+   const passwordcrypti = generateSHA1Hash(req.body.password);
+   
+   
+
+    if (data[0].password!=passwordcrypti)
+      return res.status(400).json("Wrong password or username!");
+
+    const token = jwt.sign({ id: data[0].id }, "secretkey");
+
+    const { password, ...others } = data[0];
+
+    res
+      .cookie("accessTokenAdmin", token, {
+        httpOnly: true,
+      })
+      .status(200)
+      .json(others);
+  });
+};
+
+export const logout = (req, res) => {
+  res.clearCookie("accessTokenAdmin",{
+    secure:true,
+    sameSite:"none"
+  }).status(200).json("Admin has been logged out.")
+};

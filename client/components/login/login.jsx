@@ -1,6 +1,6 @@
 const Login=()=>{
     return(
-        <div class="containnner">
+        <div class="containerAdmin">
 	<div class="screen">
 		<div class="screen__content"><img src="medeci.gif" width={150} className="img-fluid" alt="" srcset="" />
 			<form class="login"><p>Connecter à votre compte</p>
