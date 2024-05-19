@@ -18,12 +18,11 @@ const Side=()=>{
                         <Link legacyBehavior href="/rendezvous"  ><li className= {router.pathname === '/rendezvous' ? 'act ' : '  '}>
                         <i class="icofont-ui-calendar text-white"></i> RendezVous
                         </li></Link>
-
+                        <Link legacyBehavior href="/act"  ><li className= {router.pathname === '/act' ? 'act ' : '  '}>
+                        <i class="icofont-ui-copy text-white"></i> Actualités
+                            </li></Link>
                      
-
-                        <Link href="/dash"><li>
-                            <i class="icofont-ui-copy text-white"></i> Actualités
-                        </li></Link>
+ 
 
                         <Link href="/dash"><li>
                             <i class="icofont-search-job text-white"></i>Offres d'emplois

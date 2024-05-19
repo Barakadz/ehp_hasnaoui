@@ -132,7 +132,7 @@ const HeroSlider = () => {
       <div class="col">
         <div class="text ">
           <h1><span class="spanslide">Sidi bel abbes</span></h1>
-          <h1 class="text-e">Le 1er Etablissement Hospitalier Privé, vous ouvre ses portes</h1>
+          <h1 class="text-e">L'établissement Hospitalier Privé HASNAOUI,  vous ouvre ses portes</h1>
         </div>
       </div>
     </div>
@@ -174,7 +174,7 @@ const HeroSlider = () => {
 							<div class="col-lg-7">
 								<div class="text"> 
 									<h1  >  <span class="text-e">Imagerie Médicale</span></h1> 
-									<h1 class="text-e">Mammographie - Echographie - Radiologie - Scanner - IRM</h1> 
+									<h1 class="text-e">Mammographie - Echographie - <br className='brbr'/>Radiologie - Scanner - IRM</h1> 
 
 
 
@@ -283,7 +283,7 @@ const HeroSlider = () => {
 											<div class="single-content">
 
 												<h4>Sécurité des Patients, des Travailleurs et de l'Environnement :</h4>
-												<p>L'EHP Hasnaoui place la sécurité et la protection de la santé de ses patients et travailleurs au cœur de ses préoccupations. En identifiant et en réduisant proactivement les risques d’incidents, d’accidents et d'impact environnemental.
+												<p >L'EHP Hasnaoui place la sécurité et la protection de la santé de ses patients et travailleurs au cœur de ses préoccupations. En identifiant et en réduisant proactivement les risques d’incidents, d’accidents et d'impact environnemental.
 												</p>
 											</div>
 										</div>

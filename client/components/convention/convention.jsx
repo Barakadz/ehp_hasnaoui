@@ -96,19 +96,19 @@ const Convention =()=>{
  
 					<div class="col-lg-12 col-md-12 col-12">   <Slider {...settings_convention}>
 						 
-							<div class="single-clients">
+							<div class="single-clients wow fadeIn" data-wow-delay="0.2s">
 								<img src="convention1.jpg" className='img-fluid' alt="#"/>
 							</div>
-							<div class="single-clients">
+							<div class="single-clients wow fadeIn" data-wow-delay="0.4s">
 								<img src="convention2.jpg" className='img-fluid'alt="#"/>
 							</div>
-							<div class="single-clients">
+							<div class="single-clients wow fadeIn" data-wow-delay="0.6s">
 								<img src="convention3.jpg"className='img-fluid' alt="#"/>
 							</div>
-							<div class="single-clients">
+							<div class="single-clients wow fadeIn" data-wow-delay="0.8s">
 								<img src="convention4.jpg" className='img-fluid'alt="#"/>
 							</div>
-							<div class="single-clients">
+							<div class="single-clients wow fadeIn" data-wow-delay="1s">
 								<img src="convention5.jpg" className='img-fluid'alt="#"/>
 							</div>
 					  </Slider>

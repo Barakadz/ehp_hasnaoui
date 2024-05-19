@@ -1,8 +1,12 @@
 import express from "express"
 import cors from "cors"
+import multer from "multer";
 
 const app =express();
 import authRoutes from "./routes/auth.js"
+import actRoutes from "./routes/act.js"
+import offreRoutes from "./routes/offres.js"
+import GalerieRoutes from "./routes/offres.js"
 
 
 app.use((req, res, next) => {
@@ -18,6 +22,31 @@ app.use((req, res, next) => {
   );
 app.use(express.json())
 app.use("/api/auth",authRoutes)
+
+app.use("/api/act",actRoutes)
+
+app.use("/api/offres",offreRoutes)
+app.use("/api/galerie",GalerieRoutes)
+
+
+//upload file
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "../client/public/images_act/");
+  },
+  filename: function (req, file, cb) {
+    cb(null,  file.originalname);
+  },
+});
+
+const upload = multer({ storage: storage });
+
+app.post("/api/upload/actualites", upload.single("file"), (req, res) => {
+  const file = req.file;
+  res.status(200).json(file.filename);
+});
+
+
 
 
 
