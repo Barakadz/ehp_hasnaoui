@@ -1,12 +1,19 @@
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
+ import 'react-quill/dist/quill.snow.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import React, { useState } from 'react';
 import axios from 'axios';
  
+// Dynamically import ReactQuill with SSR disabled
+const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
+
 
 const AddButton=()=>{
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
     
 const modules = {
     toolbar: [
@@ -47,7 +54,9 @@ const formats = [
     const handleChange = (value) => {
       setEditorContent(value);
     };
-
+    if (!isClient) {
+      return null; // Render nothing on the server
+    }
     const handleUpload = async () => {
       if(!file){
 toast.error("il faut choisir un fichier")
