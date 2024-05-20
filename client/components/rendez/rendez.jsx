@@ -4,16 +4,13 @@ const animatedComponents = makeAnimated();
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import React, { useState } from "react";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-import * as Yup from 'yup';
+ import * as Yup from 'yup';
 import {Formik,Form,Field,ErrorMessage} from 'formik';
 import Box from '@mui/material/Box';
 import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+ import Typography from '@mui/material/Typography';
 import axios from "axios";
 import QRCode from 'qrcode.react';
 import { useContext } from 'react';
@@ -21,8 +18,7 @@ import AuthContext from '../../contexts/AuthContext';
 import OTPInput from '../otp';
 import html2canvas from 'html2canvas';
 import { toPng } from 'html-to-image';
-import { LayersTwoTone } from '@mui/icons-material';
-const steps = ['Les informations personnelles', 'Vérification Mail', 'Confirmation de Rendez vous'];
+ const steps = ['Les informations personnelles', 'Vérification Mail', 'Confirmation de Rendez vous'];
  
 const Rendezvous=()=>{
   const generateTicketImage = () => {

@@ -4,6 +4,7 @@ import Head from "next/head";
 import React, { useEffect } from 'react';
 
 import SideBarDashboard from "@/components/sidebar/sidebar";
+import AdminOffres from "@/components/adminoffres/adminOffres";
    
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,7 +28,7 @@ export default function Home() {
  <SideBarDashboard/>
  
  
- 
+ <AdminOffres/>
   </div>
 
      </main>

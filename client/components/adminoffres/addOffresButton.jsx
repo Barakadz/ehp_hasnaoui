@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
  
 
-const AddGalButton=()=>{
+const AddOffresButton=()=>{
     
   //type
   const [selectedState, setSelectedState] = useState('');
@@ -142,4 +142,4 @@ toast.error("il faut choisir un fichier")
     )
 }
 
-export default AddGalButton;
+export default AddOffresButton;
