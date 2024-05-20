@@ -12,13 +12,13 @@ import React, { useEffect } from 'react';
 import HeroSlider from "@/components/slide/slide";
 import Convention from "@/components/convention/convention";
 import Actualites from "@/components/actualites/actualites";
-import 'wow.js/css/libs/animate.css';
-import WOW from 'wow.js';
-
+ 
+   
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  
   useEffect(() => {
     const handleLoad = () => {
       console.log('Window loaded');
@@ -39,16 +39,8 @@ export default function Home() {
     };
   }, []);
 
-  useEffect(() => {
-    const wow = new WOW({
-      boxClass: 'wow', // Default class name for WOW.js element
-      animateClass: 'animated', // Default class name for animation
-      offset: 0, // Distance in pixels to trigger the animation (default is 0)
-      mobile: true, // Whether to enable animations on mobile devices (default is true)
-      live: true, // Whether to add event listeners to new elements (default is true)
-    });
-    wow.init();
-  }, []);
+
+
   return (<>
 	<Head>
 	<title>EHP - HASNAOUI</title>

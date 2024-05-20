@@ -1,4 +1,19 @@
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+ 
+
 const Actualites=()=>{
+	const [data, setData] = useState([]);
+
+  useEffect(() => {
+    axios.get('http://api.example.com/items')
+      .then(response => {
+        setData(response.data);
+      })
+      .catch(error => {
+        console.error('Error fetching data: ', error);
+      });
+  }, []);
     return(
         <>
 	<section class="blog section" id="blog">

@@ -68,8 +68,10 @@ const ActualitesAdmin = () => {
     ]}
     detailPanel={rowData => {
       return (<>
-       <p><b>Description :</b></p>{rowData.description}
-      
+       <p><b>Description :</b></p> 
+       <div
+          dangerouslySetInnerHTML={{ __html: rowData.description }}
+        />
 </>
       )
     }}
