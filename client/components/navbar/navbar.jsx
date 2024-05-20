@@ -1,12 +1,29 @@
 
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 
 const Navbar=()=>{
+	const [isSticky, setIsSticky] = useState(false);
 	const router = useRouter();
-
+  
+	const handleScroll = () => {
+	  if (window.scrollY > 50) {
+		setIsSticky(true);
+	  } else {
+		setIsSticky(false);
+	  }
+	};
+  
+	useEffect(() => {
+	  window.addEventListener('scroll', handleScroll);
+	  return () => {
+		window.removeEventListener('scroll', handleScroll);
+	  };
+	}, []);
     return(<div>
-		<div><nav class="navbar navbar-expand-lg bg-white">
+		<div>
+		<nav className={`navbar navbar-expand-lg bg-white ${isSticky ? 'fixed-top' : ''}`}>
 		<div class="container-fluid  ">
 		<div class="col-lg-3 col-md-4 col-12 ">
 			<div className="d-flex justify-content-between">

@@ -1,0 +1,172 @@
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import React, { useState } from 'react';
+import axios from 'axios';
+ 
+
+const AddGalButton=()=>{
+    
+const modules = {
+    toolbar: [
+      [{ header: '1'}, { header: '2'}, { font: [] }],
+      [{ size: [] }],
+      ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+      [{ list: 'ordered'}, { list: 'bullet' }],
+      ['link', 'image'],
+      ['clean'],
+      [{ 'align': [] }],
+      [{ 'color': [] }, { 'background': [] }],
+      ['code-block'],                                      
+    ],
+  };
+  
+const formats = [
+    'header', 'font', 'size',
+    'bold', 'italic', 'underline', 'strike', 'blockquote',
+    'list', 'bullet',
+    'link', 'image',
+    'align',
+    'color', 'background',
+    'code-block',
+  ];
+  //titre
+  const [titre, setTitre] = useState('');
+  const handleInputChangeTitre = (e) => {
+    setTitre(e.target.value);
+  };
+  //image
+  const [file, setFile] = useState(null);
+
+  const handleFileChange = (e) => {
+    setFile(e.target.files[0]);
+  };
+    const [editorContent, setEditorContent] = useState('');
+
+    const handleChange = (value) => {
+      setEditorContent(value);
+    };
+
+    const handleUpload = async () => {
+      if(!file){
+toast.error("il faut choisir un fichier")
+      }else if(titre==''){
+        toast.error("il faut remplir votre titre")
+ 
+      }else if(editorContent==''){
+        toast.error("il faut remplir votre contenu")
+ 
+      }
+      else{
+
+     
+        const formData = new FormData();
+         formData.append('file',file);
+ 
+
+        try {
+          const response = await axios.post('http://localhost:8800/api/upload/actualites', formData);
+          } catch (error) {
+          toast.error(error);
+        }
+
+ 
+  const apiUrl = 'http://localhost:8800/api/act/add';
+  const requestData = {
+    titre: titre,
+    description: editorContent,
+   image:file.name,
+   
+ 
+
+
+  };
+  
+  axios.post(apiUrl, requestData )
+    .then(response => {
+     toast.success('Actualités à été bien Ajouté')
+    })
+    .catch(error => {
+     console.error('An error occurred:', error);
+    });
+
+ 
+  }
+      };
+    return(
+        <>
+        <center>
+        <button type="button" class="btn btn-primary p-2 m-2"  data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Ajouter Galerie
+</button>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog  modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Ajouter Galerie</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+            <form   encType="multipart/form-data"  >
+       
+            <div class="form-group">
+
+
+
+<label for="exampleInputEmail1" style={{float:'left'}} >Type<span  style={{color:'red'}}>*</span>:</label>
+
+<div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1"><i class="icofont-presentation-alt"></i></span>
+<select>
+    <option value="Pédiatries et néonatologie">Pédiatries et néonatologie</option>
+    <option value="Salle opératoire">Salle opératoire</option>
+    <option value="Stérilisation">Stérilisation</option>
+    <option value="Laboratoire">Laboratoire</option>
+    <option value="Imagerie">Imagerie</option>
+    <option value="Hospitalisation">Hospitalisation</option>
+    <option value="Les urgences">Les urgences</option>
+ 
+</select>
+    <input type="text" class="form-control" id="nom" name="nom"   placeholder="Enter Votre Titre" value={titre}  onChange={handleInputChangeTitre}  required/>
+</div>
+
+<ToastContainer />
+
+
+</div>
+<label style={{float:'left'}}> Discription : <b style={{color:'red'}}>*</b></label><br></br>
+      <ReactQuill value={editorContent} onChange={handleChange}  modules={modules}
+        formats={formats} 
+        placeholder="Discription de l'actualités" required/>
+
+<div class="form-group">
+
+<label for="exampleInputEmail1" className='mt-4' style={{float:'left'}} >Image<span  style={{color:'red'}}>*</span>:</label>
+
+<div class="input-group mb-3">
+ <input type="file" onChange={handleFileChange} class="form-control" accept="image/*"/>
+
+</div>
+
+
+
+</div>
+
+            </form>
+      </div>
+      <div class="modal-footer">
+         <button type="submit"  class="btn btn-primary" onClick={handleUpload}>Ajouter</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+        </center>
+        </>
+    )
+}
+
+export default AddGalButton;
