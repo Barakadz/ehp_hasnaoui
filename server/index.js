@@ -6,7 +6,7 @@ const app =express();
 import authRoutes from "./routes/auth.js"
 import actRoutes from "./routes/act.js"
 import offreRoutes from "./routes/offres.js"
-import GalerieRoutes from "./routes/offres.js"
+import GalerieRoutes from "./routes/galerie.js"
 
 
 app.use((req, res, next) => {
@@ -46,6 +46,22 @@ app.post("/api/upload/actualites", upload.single("file"), (req, res) => {
   res.status(200).json(file.filename);
 });
 
+//upload Galerie
+const storage_gal = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "../client/public/galerie/");
+  },
+  filename: function (req, file, cb) {
+    cb(null,  file.originalname);
+  },
+});
+
+const uploadd = multer({ storage: storage_gal });
+
+app.post("/api/upload/galerie", uploadd.single("file"), (req, res) => {
+  const file = req.file;
+  res.status(200).json(file.filename);
+});
 
 
 

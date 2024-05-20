@@ -24,9 +24,10 @@ const Side=()=>{
                             
  
 
-                        <Link href="/dash"><li>
-                            <i class="icofont-search-job text-white"></i>Offres d'emplois
-                        </li></Link>
+                            <Link legacyBehavior href="/offres"  ><li className= {router.pathname === '/offres' ? 'act ' : '  '}>
+                        <i class="icofont-ui-copy text-white"></i> Offres d'emploi
+
+                            </li></Link>
 
                         <Link legacyBehavior href="/admingalerie"  ><li className= {router.pathname === '/admingalerie' ? 'act ' : '  '}>
                         <i class="icofont-ui-copy text-white"></i> Galerie
