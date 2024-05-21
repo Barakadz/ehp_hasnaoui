@@ -50,13 +50,10 @@ app.post("/api/upload/actualites", upload.single("file"), (req, res) => {
 const storage_gal = multer.diskStorage({
   destination: function (req, file, cb) {
     //ficheir
-    console.log('Saving file to /var/www/uploads/'); // Debug log
     cb(null, "/var/www/uploads/");
   },
   filename: function (req, file, cb) {
-    const filename = file.fieldname + '-' + Date.now() + path.extname(file.originalname);
-    console.log('Generated filename:', filename); // Debug log
-    cb(null, filename);
+    cb(null,  file.originalname);
   },
 });
 
@@ -64,8 +61,6 @@ const uploadd = multer({ storage: storage_gal });
 
 app.post("/api/upload/galerie", uploadd.single("file"), (req, res) => {
   const file = req.file;
-  console.log('File uploaded:', req.file); // Debug log
-
   res.status(200).json(file.filename);
 });
 
