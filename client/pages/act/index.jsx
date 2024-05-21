@@ -3,6 +3,7 @@ import Head from "next/head";
  
 import React, { useEffect } from 'react';
 import SideBarDashboard from "@/components/sidebar/sidebar";
+import ActualitesAdmin from "@/components/actualitesadmin/actualitesadmin";
     
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,7 +25,7 @@ export default function Home() {
   <main style={{padding:'0',background:"#f5f5f5"}}>
 <div id="viewport">
  <SideBarDashboard/>
-  
+ <ActualitesAdmin/> 
  </div>
 
      </main>
