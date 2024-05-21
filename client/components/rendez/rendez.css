@@ -26,7 +26,7 @@
 }
 .appointment .form .form-group{}
   .forminput {
-    text-transform: capitalize !important;
+    text-transform:initial !important;
 	width: 100%;
 	height: 50px;
 	border: 1px solid #eee;
@@ -162,13 +162,22 @@ input[type="number"]::-webkit-outer-spin-button {
 	display: inline-block;
 	margin-top: 0;
    }
+ 
+   .textwrap{
+	cursor: pointer;
+	white-space: nowrap;
+   }
+  
    @media only screen and (max-width: 900px) {
+ 
 	.codeQr{
 		position: relative;
 		display: inline-block;
 		margin-top: 47px;
 	   }
 
+	   .textwrap{
+white-space:initial;	   }
    }
 
 
@@ -242,3 +251,23 @@ input[type="number"]::-webkit-outer-spin-button {
 	}
   }
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

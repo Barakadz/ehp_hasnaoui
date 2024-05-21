@@ -3,7 +3,7 @@ import makeAnimated from 'react-select/animated';
 const animatedComponents = makeAnimated();
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
  import * as Yup from 'yup';
 import {Formik,Form,Field,ErrorMessage} from 'formik';
 import Box from '@mui/material/Box';
@@ -16,29 +16,25 @@ import QRCode from 'qrcode.react';
 import { useContext } from 'react';
 import AuthContext from '../../contexts/AuthContext';
 import OTPInput from '../otp';
-import html2canvas from 'html2canvas';
-import { toPng } from 'html-to-image';
- const steps = ['Les informations personnelles', 'Vérification Mail', 'Confirmation de Rendez vous'];
+ 
+ const steps = ['Les informations personnelles', 'Vérification Mail' ];
  
 const Rendezvous=()=>{
-  const generateTicketImage = () => {
-    const node = document.getElementById('ticket-content');
-  
-    html2canvas(node, { scrollY: -window.scrollY , backgroundColor: 'white'})
-      .then((canvas) => {
-        const dataUrl = canvas.toDataURL();
-        const link = document.createElement('a');
-        link.href = dataUrl;
-        link.download = 'ticket_ehp_hasnaoui.png';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-      })
-      .catch((error) => {
-        console.error('Error generating image:', error);
-      });
-  };
-  
+ 
+  const [maxDate, setMaxDate] = useState('');
+
+  useEffect(() => {
+    // Set the maximum date to the end of 2009
+    const endOf2009 = '2010-12-31';
+    setMaxDate(endOf2009);
+  }, []); 
+  const [minDate, setMinDate] = useState('');
+
+  useEffect(() => {
+    // Get today's date in YYYY-MM-DD format
+    const today = new Date().toISOString().split('T')[0];
+    setMinDate(today);
+  }, []); 
   
 
 
@@ -174,8 +170,7 @@ const Rendezvous=()=>{
  
        LastName:Yup.string().required('Il faut remplir Votre Prénom'),
 	 DateNaissance:Yup.date().required('Il faut remplir Votre Date de Naissance') .max(new Date('2010-01-01'), "l'age doit étre plus de 14 ans"),
-   DateRendezVous:Yup.date()
-   .min(new Date(), "La date doit étre d'aujourd'hui ou d'une date ultérieure").required('Date is required'),
+   DateRendezVous:Yup.date().required('Date is required'),
   
      Email:Yup.string().email('invalid Mail format').required('Il faut remplir Votre Mail'),
        NumeroTel:Yup.string()
@@ -261,46 +256,48 @@ const suivant=()=>{
 
  if(otpuser===userData.OTP){
     setActiveStep(2)
+
+    const cookieValuae = getCookie('EHPH');
+    if (cookieValuae) {
+      toast.error('Vous avez déja réserver un Rendezvous ');
+     }else{
+
+for (const value of getIndividualValues()) { 
+const apiUrl = 'https://www.ehp-hasnaoui.com/api/auth/register';
+const requestData = {
+ FirstName: userData.FirstName,
+ LastName: userData.LastName,
+ DateNaissance:userData.DateNaissance,
+ NumeroTel:userData.NumeroTel,
+ Service:value/*userData.Services*/,
+ DateRendezVous:userData.DateRendezVous,
+ Email:userData.Email,
+ NumeroCni:userData.NumeroCni,
+ NumeroSecuriteSociale:userData.NumeroSecuriteSociale,
+ Heure:userData.Heure
+
+
+};
+
+axios.post(apiUrl, requestData )
+  .then(response => {
+   toast.success('Rendezvous à été planifier pour :'+value)
+  })
+  .catch(error => {
+   console.error('An error occurred:', error);
+  });
+ } 
+ 
+ 
+ setCookie('EHPH', JSON.stringify("HASNAOUI"), 5);
+}
   }else{
      toast.error("Vous devez écrire le numéro que nous vous avons envoyé par Mail !")
    }
  }
 
  const confirmation=()=>{
-  const cookieValuae = getCookie('EHPH');
-      if (cookieValuae) {
-        toast.error('Vous avez déja réserver un Rendezvous ');
-       }else{
-
-  for (const value of getIndividualValues()) { 
-  const apiUrl = 'https://www.ehp-hasnaoui.com/api/auth/register';
-  const requestData = {
-   FirstName: userData.FirstName,
-   LastName: userData.LastName,
-   DateNaissance:userData.DateNaissance,
-   NumeroTel:userData.NumeroTel,
-   Service:value/*userData.Services*/,
-   DateRendezVous:userData.DateRendezVous,
-   Email:userData.Email,
-   NumeroCni:userData.NumeroCni,
-   NumeroSecuriteSociale:userData.NumeroSecuriteSociale,
-   Heure:userData.Heure
-
-
-  };
-  
-  axios.post(apiUrl, requestData )
-    .then(response => {
-     toast.success('Rendezvous à été planifier pour :'+value)
-    })
-    .catch(error => {
-     console.error('An error occurred:', error);
-    });
-   } 
-   
-   
-   setCookie('EHPH', JSON.stringify("HASNAOUI"), 5);
-  }
+ 
   }
 
  
@@ -382,6 +379,8 @@ Prendre un rendez-vous médical en ligne permet de choisir facilement et rapidem
                 name="DateNaissance"
                  
                type="date"
+
+               max={maxDate}
               />
 
                  <p style={{ color: 'red' }}>
@@ -425,7 +424,7 @@ Prendre un rendez-vous médical en ligne permet de choisir facilement et rapidem
                     <label>Date de Rendezvous :<b style={{color:'red'}}>*</b></label>
 								  <Field name="DateRendezVous" id="DateRendezVous" type="date"
 	 
-	 
+	 min={minDate}
  	/>										  <p style={{color:'red'}}><ErrorMessage name="DateRendezVous"/></p>
 
 								  </div>
@@ -456,12 +455,11 @@ Prendre un rendez-vous médical en ligne permet de choisir facilement et rapidem
 							   </div>
 
                 
-							  <div class="col-lg-12 col-md-12 col-12">
-                <Field type="checkbox" id="langage1" name="condtion" value="javascript" required/>
-        <label for="condtion " className='mx-2'>j'accepte que les informations saisies soient utilisées pour me recontacter</label><br/>
- 							  </div>
-						  </div>
-						  <div class="row">
+                 <div class="col-lg-12 col-md-12 col-12 d-flex mb-2">
+  <Field type="checkbox" className="custom-checkbox" id="langage1" name="langage1" value="javascript"min="2024-05-01" required/>
+<label for="langage1"className='mx-2 textwrap'  >  &nbsp;&nbsp;j'accepte que les informations saisies soient utilisées pour me recontacter</label><br/>
+  </div>
+ </div>						  <div class="row">
 							  <div class="col-lg-5 col-md-4 col-12">
 								  <div class="form-group">
 									  							   <button type='submit' className='btn' >Suivant</button>
