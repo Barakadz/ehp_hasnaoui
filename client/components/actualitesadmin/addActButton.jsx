@@ -77,13 +77,13 @@ toast.error("il faut choisir un fichier")
  
 
         try {
-          const response = await axios.post('http://localhost:8800/api/upload/actualites', formData);
+          const response = await axios.post('https://www.ehp-hasnaoui.com/api/upload/actualites', formData);
           } catch (error) {
           toast.error(error);
         }
 
  
-  const apiUrl = 'http://localhost:8800/api/act/add';
+  const apiUrl = 'https://www.ehp-hasnaoui.com/api/act/add';
   const requestData = {
     titre: titre,
     description: editorContent,

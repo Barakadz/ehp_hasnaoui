@@ -12,7 +12,7 @@ const AdminOffres = () => {
 
  const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:8800/api/offres/');  
+        const response = await axios.get('https://www.ehp-hasnaoui.com/api/offres/');  
         setData(response.data);
        } catch (error) {
         console.error('Error fetching data: ', error);
@@ -103,7 +103,7 @@ const AdminOffres = () => {
             setData([...dataDelete]);
            //id==> console.log(oldData.id)
            const id=oldData.id;
-axios.delete(`http://localhost:8800/api/galerie/${id}`)
+axios.delete(`https://www.ehp-hasnaoui.com/api/galerie/${id}`)
 .then(response => {
 toast.success(response.data)
 })
