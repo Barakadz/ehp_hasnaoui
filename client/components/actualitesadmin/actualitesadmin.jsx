@@ -32,7 +32,7 @@ const ActualitesAdmin = () => {
     { field: 'date', title: 'Description',hidden:true },
 
     { field: 'date', title: 'Date' },
-    { field: 'image', title: 'Image',      render: rowData => <img src={`/images_act/${rowData.image}`}  alt="user" style={{ width: 100, borderRadius: '3%' }} />  },
+    { field: 'image', title: 'Image',      render: rowData => <img src={`${rowData.image}`}  alt="user" style={{ width: 100, borderRadius: '3%' }} />  },
     
    ];
  
