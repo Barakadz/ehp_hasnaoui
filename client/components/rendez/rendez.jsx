@@ -25,7 +25,7 @@ const Rendezvous=()=>{
 
   useEffect(() => {
     // Set the maximum date to the end of 2009
-    const endOf2009 = '2009-12-31';
+    const endOf2009 = '2010-12-31';
     setMaxDate(endOf2009);
   }, []); 
   const [minDate, setMinDate] = useState('');
@@ -189,7 +189,10 @@ const Rendezvous=()=>{
 
       // You can handle the OTP value here (e.g., validate it against a server, etc.)
     };
- 
+const gg=()=>{
+  generateTicketImage();
+
+} 
     const onSubmit = (values) => {
 
       const cookieValue = getCookie('EHPH');
@@ -293,7 +296,10 @@ axios.post(apiUrl, requestData )
    }
  }
 
+ const confirmation=()=>{
  
+  }
+
  
     return(
         <div className='container '>
@@ -476,7 +482,101 @@ Prendre un rendez-vous médical en ligne permet de choisir facilement et rapidem
 
             )}
 
+{activeStep === 1 && (    <div class="  ">
+<p className='text-center'>Nous allons envoyer un Code OTP à l'email {userData.Email}</p>
+	<div class="d-flex "   style={{display:'flex',flexDirection:'row',justifyContent:'center'}}>
+  <OTPInput length={6} onChange={handleOTPChange} />
+
+			</div>
+            <center className='mt-4'><button className='btn mx-4' onClick={retour}>Retour</button> <button className='btn mx-4' onClick={suivant}>Suivant</button></center>
+
+
+			</div>
+
+            )}
+
+{activeStep === 2 && (   <div > <div className="borderTicket"id='ticket-content'> 
+
+<p className='text-center'>Le rendez-vous sera automatiquement annulé s'il n'est pas honoré dans les 10 minutes.</p><br/>
+<div className='container'><div className="row"><div className="col">
+<div className='d-flex'><b className='text-center' style={{fontSize:'23px'}}>  Ticket :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>	 <br/> <label></label><p style={{fontSize:'23px',fontWeight:'bold'}}> {userData.FirstName+' '+userData.LastName}</p></div>
+
+<div >
+<div>  
+ <div className='d-flex'><label>Date de Rendez vous : &nbsp;&nbsp;&nbsp; </label><p>  {userData.DateRendezVous +' '+userData.Heure}</p></div>
+ <div className='d-flex'><label>Services : &nbsp;&nbsp;&nbsp; </label><p>  {userData.Services}</p></div>
+
+</div>
+
+<div className="col">
  
+  </div></div></div> 
+   <center> <div className='codeQr'>
+   <QRCode value={'Bienvenue sur L`EHP HASNAOUI :\n'+userData.FirstName+' '+userData.LastName+'\n'+userData.DateNaissance+'\n'+userData.Email+'\n'+userData.NumeroTel+'\n'}        
+/>    
+
+      <img src="logozoom.PNG" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '70%', height: 'auto' ,opacity:'0.7'}} alt="logo" />
+    </div>
+</center>
+</div>
+</div>
+ <center><b>www.ehp-hasnaoui.com</b></center>
+</div><div><p>Imprimé le {currentDate.toLocaleDateString()+" "+currentDate.toLocaleTimeString()}</p></div>
+<center> 
+<button class="download-button"onClick={gg}>
+  <div class="docs">
+    <svg
+      viewBox="0 0 24 24"
+      width="20"
+      height="20"
+      stroke="currentColor"
+      stroke-width="2"
+      fill="none"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="css-i6dzq1"
+    >
+      <path
+        d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+      ></path>
+      <polyline points="14 2 14 8 20 8"></polyline>
+      <line x1="16" y1="13" x2="8" y2="13"></line>
+      <line x1="16" y1="17" x2="8" y2="17"></line>
+      <polyline points="10 9 9 9 8 9"></polyline>
+    </svg>
+    Télécharger le Ticket
+  </div>
+  <div class="download">
+    <svg
+      viewBox="0 0 24 24"
+      width="24"
+      height="24"
+      stroke="currentColor"
+      stroke-width="2"
+      fill="none"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="css-i6dzq1"
+    >
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+      <polyline points="7 10 12 15 17 10"></polyline>
+      <line x1="12" y1="15" x2="12" y2="3"></line>
+    </svg>
+  </div>
+</button>
+
+
+
+
+</center><br></br>
+<center>
+<center className=''>  <button className='btn mx-4' onClick={confirmation}>Confirmer votre Rendezvous</button></center>
+
+ </center>
+			</div>
+
+            )}
+         
         </React.Fragment>
       )}
     </Box>

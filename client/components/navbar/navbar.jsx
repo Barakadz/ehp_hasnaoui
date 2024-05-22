@@ -80,9 +80,21 @@ const Navbar=()=>{
 				<a className={router.pathname === '/actualites' ? 'nav-link active ' : 'nav-link  '}  aria-disabled="true">Actualités</a>
 				</Link>
 			  </li>
-			  <li class="nav-item  ">
-				<a class="nav-link " aria-disabled="true">Carrières</a>
+			  <li class="nav-item dropdown  ">
+				<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				Carrières
+				</a>   
+				
+ 
+				 <ul class="dropdown-menu">
+				  <li><a class="dropdown-item" href="#">Offres d'emplois</a></li>
+				  <li><a class="dropdown-item" href="#">Candidature spontanée</a></li>
+ 				  <li><a class="dropdown-item" href="#">Demande de stage</a></li>
+				  
+				</ul> 
+	 
 			  </li>
+			 
 			  <li class="nav-item "><Link legacyBehavior href="/contact">
 				<a className={router.pathname === '/contact' ? 'nav-link active' : 'nav-link'}  aria-disabled="true">Contact</a>
 				</Link>
