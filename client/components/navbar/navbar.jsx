@@ -23,7 +23,7 @@ const Navbar=()=>{
 	}, []);
     return(<div>
 		<div>
-		<nav className={`navbar navbar-expand-lg bg-white ${isSticky ? 'fixed-top' : ''}`}>
+		<nav className={`navbar navbar-expand-lg bg-white ${isSticky ? 'fixed-top' : ''}`} style={{zIndex:'555555555555555555555'}}>
 		<div class="container-fluid  ">
 		<div class="col-lg-3 col-md-4 col-12 ">
 			<div className="d-flex justify-content-between">
