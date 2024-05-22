@@ -81,15 +81,14 @@ const Navbar=()=>{
 				</Link>
 			  </li>
 			  <li class="nav-item dropdown  ">
-				<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-				Carrières
-				</a>   
+			 
 				
- 
+				<a className={router.pathname === '/emploi' || router.pathname === '/candidature' || router.pathname === '/stage' ? 'nav-link active ' : 'nav-link  '}  aria-disabled="true">Carrières <i class="icofont-rounded-down "></i></a>
+
 				 <ul class="dropdown-menu">
-				  <li><a class="dropdown-item" href="#">Offres d'emplois</a></li>
-				  <li><a class="dropdown-item" href="#">Candidature spontanée</a></li>
- 				  <li><a class="dropdown-item" href="#">Demande de stage</a></li>
+				 <Link  href="/emploi"><li class="dropdown-item"  >Offres d'emplois</li></Link> 
+				 <Link  href="/candidature"><li class="dropdown-item" >Candidature spontanée</li></Link> 
+				 <Link  href="/stage"> <li class="dropdown-item" >Demande de stage</li></Link>
 				  
 				</ul> 
 	 

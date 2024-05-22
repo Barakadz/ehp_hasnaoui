@@ -23,7 +23,7 @@ import Link from "next/link";
 					<div className="col-lg-4 col-md-4 col-12  ">
 						<div className="d-flex infocontact">
 						 <Link legacyBehavior href="/login">
-											<div className="center"><a><i class="icofont-user-alt-2"></i>Mon compte</a></div>		 
+											 <a className="center"><i class="icofont-user-alt-2"></i>Mon compte</a> 	 
 
 							</Link>
 						</div>
