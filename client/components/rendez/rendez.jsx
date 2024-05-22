@@ -205,7 +205,7 @@ const Rendezvous=()=>{
 
        const response = await axios.get('https://www.ehp-hasnaoui.com/api/auth/otp'); // Replace the URL with the actual API endpoint you want to request.
  
-            setUserData({OTP:response.data,FirstName:'bbbbb',LastName:values.LastName,DateNaissance:values.DateNaissance,NumeroTel:values.NumeroTel,Email:values.Email,NumeroCni:values.NumeroCni,NumeroSecuriteSociale:values.NumeroSecuriteSociale,Services: getIndividualValues(),DateRendezVous:values.DateRendezVous,Heure:values.Heure})
+            setUserData({OTP:response.data,FirstName:values.FirstName,LastName:values.LastName,DateNaissance:values.DateNaissance,NumeroTel:values.NumeroTel,Email:values.Email,NumeroCni:values.NumeroCni,NumeroSecuriteSociale:values.NumeroSecuriteSociale,Services: getIndividualValues(),DateRendezVous:values.DateRendezVous,Heure:values.Heure})
            
  
 
