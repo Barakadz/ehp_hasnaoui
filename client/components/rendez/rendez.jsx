@@ -25,7 +25,7 @@ const Rendezvous=()=>{
 
   useEffect(() => {
     // Set the maximum date to the end of 2009
-    const endOf2009 = '2010-12-31';
+    const endOf2009 = '2009-12-31';
     setMaxDate(endOf2009);
   }, []); 
   const [minDate, setMinDate] = useState('');
