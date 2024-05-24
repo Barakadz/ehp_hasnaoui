@@ -32,7 +32,7 @@ app.use("/api/galerie",GalerieRoutes)
 //upload file
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "/var/www/uploads/");
+    cb(null, "../../uploads/");
   },
   filename: function (req, file, cb) {
     cb(null,  file.originalname);
@@ -50,7 +50,7 @@ app.post("/api/upload/actualites", upload.single("file"), (req, res) => {
 const storage_gal = multer.diskStorage({
   destination: function (req, file, cb) {
     //ficheir
-    cb(null, "/var/www/uploads/");
+    cb(null, "../../uploads/");
   },
   filename: function (req, file, cb) {
     cb(null,  file.originalname);
