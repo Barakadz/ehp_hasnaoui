@@ -12,17 +12,12 @@ import React, { useEffect } from 'react';
 import HeroSlider from "@/components/slide/slide";
 import Convention from "@/components/convention/convention";
 import Actualites from "@/components/actualites/actualites";
-import BackToTop from "@/components/backToTop/backtotop";
-  
-
+ 
+   
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-
- 
-
-  
   
   useEffect(() => {
     const handleLoad = () => {
@@ -52,21 +47,18 @@ export default function Home() {
 	<meta name="description" content="Ehp hasnaoui, Hopital Privée Hasnaui,Hasnaoui Private Hospital, Ehp-hasnaoui" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="icon" href="/logozoom.PNG" />
- 
   </Head>
   <main style={{padding:'0'}}>
-  <Topbar/><BackToTop/>
+  <Topbar/>
 
  <Navbar/>
 <HeroSlider/>
 <EhphWhy/>
  <Video/>
- <Convention/>
- 
- <center>
+ <Convention/><center>
 				<div class="row">
 					<div class="col-lg-12">
-						<div class="section-title wow fadeIn" data-wow-delay="0.5s">
+						<div class="section-title">
 							<h2>Suivez nos dernières Actualités :</h2>
 							<img src="section-img.png" className="mb-3" alt="#"/>
  						</div>

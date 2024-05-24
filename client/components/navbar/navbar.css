@@ -73,14 +73,6 @@ margin-left:120px
 }
 
 
- .dropdown:hover .dropdown-menu{
+ .dropdown:hover .dropdownmenu{
     display: block;
-
-}
-.nav-link i{
-    color: black;
-}
-.nav-link:hover i{
-    transition: 1s;
-    color: #23B6EA !important;
-}
+ }

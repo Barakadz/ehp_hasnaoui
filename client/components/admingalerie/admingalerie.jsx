@@ -30,15 +30,7 @@ const AdminGalerie = () => {
     { field: 'id', title: 'id' },
     { field: 'type', title: 'Type' },
   
-    { field: 'image', title: 'Image',     
-    render: rowData => (
-      <img 
-          src={`https://www.ehp-hasnaoui.com/uploads/${rowData.image}`} 
-          alt="user" 
-          style={{ width: 100, borderRadius: '3%' }} 
-      />
-  )   
-  },
+    { field: 'image', title: 'Image',      render: rowData => <img src={`${rowData.image}`}  alt="user" style={{ width: 100, borderRadius: '3%' }} />  },
     
    ];
  

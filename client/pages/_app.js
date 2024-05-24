@@ -30,7 +30,6 @@ import '../components/rendez/rendez.css';
 import '../components/topbardashboard/top.css';
 import '../components/sidebar/sidebar.css';
 import '../components/card_dash/carddash.css';
-import '../components/actualitesPlus/actualitesplus.css';
 
 import "@/styles/Home.module.css";
  
