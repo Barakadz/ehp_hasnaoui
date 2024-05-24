@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Link from 'next/link';
  
 
 const Actualites=()=>{
@@ -30,7 +31,7 @@ const Actualites=()=>{
 									<div class="date">02 mars 2024</div>
 									<h2><a  >  L'Etablissement Hospitalier Privé HASNAOUI A Eu L’honneur De Conclure Un Accord Avec La Fédération Nationale .</a></h2>
 									<p class="text">L'Etablissement Hospitalier Privé HASNAOUI a eu l’honneur de conclure un accord avec la Fédération nationale  ...</p>
-									<a   class="buttonn">
+					 	<a   class="buttonn"href="/actualitesdetail">	
 										<p>Lire la suite</p>
 										<svg
 										  xmlns="http://www.w3.org/2000/svg"
@@ -46,7 +47,8 @@ const Actualites=()=>{
 											d="M14 5l7 7m0 0l-7 7m7-7H3"
 										  ></path>
 										</svg>
-									</a>
+									
+								</a> 
 									  
 								</div>
 							</div>
@@ -64,7 +66,7 @@ const Actualites=()=>{
 									<div class="date">25 Féverier, 2024</div>
 									<h2><a  >L'Hôpital Privé Hasnaoui Honoré la Visite de Son Excellence l'Ambassadeur du Zimbabwe en Algérie.</a></h2>
 									<p class="text">L’hôpital privé HASNAOUI a eu le privilège d’accueillir Son Excellence l’Ambassadeur du Zimbabwe en Algérie...</p>
-									<a  class="buttonn">
+							 	<a href="/actualitesdetail"  class="buttonn">
 										<p>Lire la suite</p>
 										<svg
 										  xmlns="http://www.w3.org/2000/svg"
@@ -80,7 +82,8 @@ const Actualites=()=>{
 											d="M14 5l7 7m0 0l-7 7m7-7H3"
 										  ></path>
 										</svg>
-									</a>
+									
+									</a> 
 								</div>
 							</div>
 						</div>
@@ -97,7 +100,7 @@ const Actualites=()=>{
 									<div class="date">17 féverier, 2024</div>
 									<h2><a  >Souvenirs du Dernier Jour à la Première Édition du Salon Clinica_expo</a></h2>
 									<p class="text mb-2">Retour en images sur le dernier jour de notre participation à la première édition du salon Clinica_expo , l'Etablissement ...</p>
-									<a   class="buttonn">
+							 	<a  href="/actualitesdetail" class="buttonn">	
 										<p>Lire la suite</p>
 										<svg
 										  xmlns="http://www.w3.org/2000/svg"
@@ -113,7 +116,7 @@ const Actualites=()=>{
 											d="M14 5l7 7m0 0l-7 7m7-7H3"
 										  ></path>
 										</svg>
-									</a>
+									</a> 
 								</div>
 							</div>
 						</div>

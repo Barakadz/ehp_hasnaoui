@@ -1,29 +1,15 @@
 import Head from "next/head";
-import Image from "next/image";
-import { Inter } from "next/font/google";
-import styles from "@/styles/Home.module.css";
-import Topbar from '../components/topbar/topbar';
+ import { Inter } from "next/font/google";
+ import Topbar from '../components/topbar/topbar';
 import Navbar from "@/components/navbar/navbar";
 import Footer from "@/components/footer/footer";
-import Video from "@/components/video/video";
-import EhphWhy from "@/components/ehphwhy/ehphwhy";
-import Preloader from "@/components/preloader/preloader";
+  import Preloader from "@/components/preloader/preloader";
 import React, { useEffect } from 'react';
-import HeroSlider from "@/components/slide/slide";
-import Convention from "@/components/convention/convention";
-import Actualites from "@/components/actualites/actualites";
-import BackToTop from "@/components/backToTop/backtotop";
-  
-
-
+ import  { useState } from 'react';
+ import Actualitesplus from "@/components/actualitesPlus/actualitesplus";
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home() {
-
- 
-
-  
-  
+export default function ActualitesDetaill() {
   useEffect(() => {
     const handleLoad = () => {
       console.log('Window loaded');
@@ -43,36 +29,27 @@ export default function Home() {
       window.removeEventListener('load', handleLoad);
     };
   }, []);
+  const [currentPage, setCurrentPage] = useState(0);
 
-
-
+  const handlePageChange = ({ selected }) => {
+    setCurrentPage(selected);
+    // You can fetch new data based on the selected page
+    // For example: fetchData(selected + 1);
+  };
   return (<>
 	<Head>
-	<title>EHP - HASNAOUI</title>
+	<title>Actualités - EHPHASNAOUI</title>
 	<meta name="description" content="Ehp hasnaoui, Hopital Privée Hasnaui,Hasnaoui Private Hospital, Ehp-hasnaoui" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="icon" href="/logozoom.PNG" />
- 
   </Head>
   <main style={{padding:'0'}}>
-  <Topbar/><BackToTop/>
+ <Preloader/>
 
+ <Topbar/>
  <Navbar/>
-<HeroSlider/>
-<EhphWhy/>
- <Video/>
- <Convention/>
- 
- <center>
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="section-title wow fadeIn" data-wow-delay="0.5s">
-							<h2>Suivez nos dernières Actualités :</h2>
-							<img src="section-img.png" className="mb-3" alt="#"/>
- 						</div>
-					</div>
-				</div></center>
- <Actualites/>
+ <Actualitesplus/>
+
  <Footer/>
      </main>
 </>

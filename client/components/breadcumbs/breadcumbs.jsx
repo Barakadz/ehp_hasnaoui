@@ -1,3 +1,7 @@
+import 'animate.css';
+
+
+
 const Breadcumbs=()=>{
     return(
 		<div>
@@ -7,7 +11,7 @@ const Breadcumbs=()=>{
 					<div class="row">
 						<div class="col-12 position-relative">
 							<div class=""></div>
-							<h2 class="text-white position-relative z-index-1">Contact</h2>
+							<h2 class="text-white position-relative z-index-1  animate__animated animate__flipInX animate__slow">Contact</h2>
 						</div>
 					</div>
 				</div>

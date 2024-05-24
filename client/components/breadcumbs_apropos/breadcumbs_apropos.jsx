@@ -1,3 +1,6 @@
+import 'animate.css';
+
+
 const BreadcumbsApropos=()=>{
     return(
         <div>
@@ -5,8 +8,8 @@ const BreadcumbsApropos=()=>{
 			<div class="container">
 				<div class="bread-inner">
 					<div class="row">
-						<div class="col-12 position-relative">
-						 							<h2>A propos </h2>
+						<div class="col-12 position-relative ">
+						 							<h2 className="animate__animated animate__flipInX animate__slow">A propos </h2>
 
 						</div>
 					</div>
