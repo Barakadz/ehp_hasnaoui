@@ -46,6 +46,7 @@ toast.error("il faut choisir un fichier")
 
         try {
           const response = await axios.post('https://www.ehp-hasnaoui.com/api/upload/galerie', formData);
+          alert(response.data)
           } catch (error) {
           toast.error(error);
         }

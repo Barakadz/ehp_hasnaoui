@@ -4,6 +4,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import 'animate.css';
 
 function SampleNextArrow({ className, onClick }) {
 	return (
@@ -30,7 +31,7 @@ function SamplePrevArrow(props) {
 
 				marginLeft: "40px",
 
-				zIndex: "4444",
+				zIndex: "110",
 			}}
 			onClick={onClick}
 		>
@@ -57,7 +58,7 @@ function SamplePrevArrowQalite(props) {
 	return (
 		<div
 			className={className}
-			style={{ zIndex: '4444', marginRight: '130px' }}
+			style={{ zIndex: '110', marginRight: '130px' }}
 			onClick={onClick}
 		>
 			<FaChevronLeft color="white" size={40} style={{ padding: '9px', background: "linear-gradient(to right, #23B6EA, #66DED4)", borderRadius: '10%' }} />
@@ -126,12 +127,12 @@ const HeroSlider = () => {
 			<Slider {...settings}>
 
 				<div >
-				<div class="single-slider slid">
+				<div class="single-slider slid ">
   <div class="container d-flex align-items-center justify-content-center h-100">
     <div class="row">
       <div class="col">
-        <div class="text ">
-          <h1><span class="spanslide">Sidi bel abbes</span></h1>
+        <div class="text animate__animated animate__fadeInUp animate__slow ">
+          <h1><span class="spanslide  ">Sidi bel abbes</span></h1>
           <h1 class="text-e">L'établissement Hospitalier Privé HASNAOUI,  vous ouvre ses portes</h1>
         </div>
       </div>
@@ -141,18 +142,16 @@ const HeroSlider = () => {
 
 				</div>
 				<div>
-					<div class="single-slider slide"  >
+					<div class="single-slider slide  "  >
 					<div class="container d-flex align-items-center justify-content-center h-100">
 							<div class="row">
 								<div class="col-lg-7">
-									<div class="text">
-										<div class="text "> 
-
+									<div class="text animate__animated animate__fadeInUp animate__slow animate__repeat-3">
+ 
 											<h1 class="text-e">Nous sommes disponibles pour vous servir 7 jours sur 7 et 24 /24.</h1>
 
 
-										</div>
-									</div>
+ 									</div>
 								</div>
 							</div>
 						</div>
@@ -172,7 +171,7 @@ const HeroSlider = () => {
 				<div class="container d-flex align-items-center justify-content-center h-100">
 						<div class="row">
 							<div class="col-lg-7">
-								<div class="text"> 
+								<div class="text animate__animated animate__fadeInUp animate__slow"> 
 									<h1  >  <span class="text-e">Imagerie Médicale</span></h1> 
 									<h1 class="text-e">Mammographie - Echographie - <br className='brbr'/>Radiologie - Scanner - IRM</h1> 
 
@@ -188,7 +187,7 @@ const HeroSlider = () => {
 				<div class="container d-flex align-items-center justify-content-center h-100">
 						<div class="row">
 							<div class="col-lg-7">
-								<div class="text "> 
+								<div class="text animate__animated animate__fadeInUp animate__slow"> 
 									<h1 class="text-e">La Seule salle Hybride en Algérie dotée de la dernière technologie<br /> d'équipements médicaux </h1>
 
 								</div>
@@ -201,7 +200,7 @@ const HeroSlider = () => {
 				<div class="container d-flex align-items-center justify-content-center h-100">
 						<div class="row">
 							<div class="col-lg-7">
-								<div class="text text-center">
+								<div class="text animate__animated animate__fadeInUp animate__slow animate__repeat-2">
 									 
 									<h1  >  <span class="text-e ">Laboratoire d'analyses</span></h1> 
 									<h1 class="text-e">Obtenez des résultats Fiables</h1> 

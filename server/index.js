@@ -47,13 +47,15 @@ app.post("/api/upload/actualites", upload.single("file"), (req, res) => {
 });
 
 //upload Galerie
+var xx=''
 const storage_gal = multer.diskStorage({
   destination: function (req, file, cb) {
     //ficheir
     cb(null, "../client/public/");
   },
   filename: function (req, file, cb) {
-    cb(null,  file.originalname);
+     xx+= Date.now() +file.originalname
+    cb(null, xx);
   },
 });
 
@@ -61,7 +63,7 @@ const uploadd = multer({ storage: storage_gal });
 
 app.post("/api/upload/galerie", uploadd.single("file"), (req, res) => {
   const file = req.file;
-  res.status(200).json(file.filename);
+  res.status(200).json(xx);
 });
 
 

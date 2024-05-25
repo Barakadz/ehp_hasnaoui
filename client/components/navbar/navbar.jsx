@@ -23,7 +23,7 @@ const Navbar=()=>{
 	}, []);
     return(<div>
 		<div>
-		<nav className={`navbar navbar-expand-lg bg-white ${isSticky ? 'fixed-top' : ''}`}>
+		<nav className={`navbar navbar-expand-lg bg-white ${isSticky ? 'fixed-top' : ''}`} style={{zIndex:'111'}}>
 		<div class="container-fluid  ">
 		<div class="col-lg-3 col-md-4 col-12 ">
 			<div className="d-flex justify-content-between">
@@ -80,9 +80,20 @@ const Navbar=()=>{
 				<a className={router.pathname === '/actualites' ? 'nav-link active ' : 'nav-link  '}  aria-disabled="true">Actualités</a>
 				</Link>
 			  </li>
-			  <li class="nav-item  ">
-				<a class="nav-link " aria-disabled="true">Carrières</a>
+			  <li class="nav-item dropdown  ">
+			 
+				
+				<a className={router.pathname === '/emploi' || router.pathname === '/candidature' || router.pathname === '/stage' ? 'nav-link active ' : 'nav-link  '}  aria-disabled="true">Carrières <i class="icofont-rounded-down "></i></a>
+
+				 <ul class="dropdown-menu">
+				 <Link  href="/emploi"><li class="dropdown-item"  >Offres d'emplois</li></Link> 
+				 <Link  href="/candidature"><li class="dropdown-item" >Candidature spontanée</li></Link> 
+				 <Link  href="/stage"> <li class="dropdown-item" >Demande de stage</li></Link>
+				  
+				</ul> 
+	 
 			  </li>
+			 
 			  <li class="nav-item "><Link legacyBehavior href="/contact">
 				<a className={router.pathname === '/contact' ? 'nav-link active' : 'nav-link'}  aria-disabled="true">Contact</a>
 				</Link>
