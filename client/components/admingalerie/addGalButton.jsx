@@ -48,8 +48,7 @@ toast.error("il faut choisir un fichier")
         try {
           const response = await axios.post('https://www.ehp-hasnaoui.com/api/upload/galerie', formData);
            xx+=response.data
-          alert(response.data)
-          } catch (error) {
+           } catch (error) {
           toast.error(error);
         }
 
@@ -69,7 +68,7 @@ toast.error("il faut choisir un fichier")
      toast.success('Galerie à été bien Ajouté')
      setTimeout(function() {
       location.reload();
-  }, 2000); 
+  }, 4000); 
     })
     .catch(error => {
      console.error('An error occurred:', error);
