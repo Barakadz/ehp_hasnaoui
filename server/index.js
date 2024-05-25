@@ -63,6 +63,9 @@ const uploadd = multer({ storage: storage_gal });
 
 app.post("/api/upload/galerie", uploadd.single("file"), (req, res) => {
   const file = req.file;
+  if (!file) {
+    return res.status(400).json({ error: 'Erreur lors du téléversement du fichier' });
+  }
   res.status(200).json(xx);
 });
 
