@@ -25,7 +25,7 @@ const AddGalButton=()=>{
   };
   //image
   const [file, setFile] = useState(null);
-
+var xx=''
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
   };
@@ -47,8 +47,8 @@ toast.error("il faut choisir un fichier")
 
         try {
           const response = await axios.post('https://www.ehp-hasnaoui.com/api/upload/galerie', formData);
-           setFileNameUpload(response.data)
-          alert(fileNameUpload)
+           xx+=response.data
+          alert(response.data)
           } catch (error) {
           toast.error(error);
         }
@@ -57,7 +57,7 @@ toast.error("il faut choisir un fichier")
   const apiUrl = 'https://www.ehp-hasnaoui.com/api/galerie/add';
   const requestData = {
     type: selectedState,
-   image:fileNameUpload,
+   image:xx,
    
  
 
