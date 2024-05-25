@@ -125,7 +125,18 @@ export const UpdateGalerie = (req, res) => {
     if (!id) {
       return res.status(400).json({ error: 'ID is required' });
     }
-  
+
+    //delete file 
+    const filePath = path.join(__dirname, '../client/public/', req.body.imagePrecedent);
+
+    // Delete the file
+    fs.unlink(filePath, (err) => {
+      if (err) {
+        console.error('Error deleting the file:', err);
+      } else {
+        console.log('File deleted successfully');
+      }
+    });
     const q = "UPDATE `galerie` SET `image` = ?, `type` = ?  WHERE id = ?";
   
     db.query(q,[req.body.image,req.body.type,id], (err, userData) => {

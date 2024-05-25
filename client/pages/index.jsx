@@ -13,12 +13,11 @@ import HeroSlider from "@/components/slide/slide";
 import Convention from "@/components/convention/convention";
 import Actualites from "@/components/actualites/actualites";
  
-   
-
+ 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  
+ 
   useEffect(() => {
     const handleLoad = () => {
       console.log('Window loaded');

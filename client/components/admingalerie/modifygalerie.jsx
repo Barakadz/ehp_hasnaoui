@@ -1,15 +1,17 @@
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
  
+const ModifyGalerie=({id,image,type})=>{
+   var typee = type.replace(/"/g,'' );
 
-const AddGalButton=()=>{
-    
   //type
-  const [selectedState, setSelectedState] = useState('');
+  const [selectedItem, setItem] = useState(typee);
  
-  const states = [
+ 
+
+  const statess = [
     'Pédiatries et néonatologie',
     'Salle opératoire',
     'Stérilisation',
@@ -20,8 +22,8 @@ const AddGalButton=()=>{
 
   ];
 
-  const handleChange = (event) => {
-    setSelectedState(event.target.value);
+  const handleChangeItem = (event) => {
+    setItem(event.target.value);
   };
   //image
   const [file, setFile] = useState(null);
@@ -34,7 +36,7 @@ var xx=''
     const handleUpload = async () => {
       if(!file){
 toast.error("il faut choisir un fichier")
-      } else if(selectedState==''){
+      } else if(selectedItem==''){
         toast.error("il faut remplir votre contenu")
  
       }
@@ -68,7 +70,7 @@ toast.error("il faut choisir un fichier")
   
   axios.post(apiUrl, requestData )
     .then(response => {
-     toast.success('Galerie à été bien Ajouté')
+     toast.success('Galerie à été bien Modified')
      setTimeout(function() {
       location.reload();
   }, 4000); 
@@ -81,8 +83,8 @@ toast.error("il faut choisir un fichier")
   }
       };
 
-      const handleCloseModalClick = () => {
-        const modal = document.getElementById('exampleModal');
+      const handleCloseModalClickk = () => {
+        const modal = document.getElementById('exampleModall');
         if (modal) {
           modal.classList.remove('show');
           modal.style.display = 'none';
@@ -94,12 +96,12 @@ toast.error("il faut choisir un fichier")
      
 
 
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModall" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog  modal-xl">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Ajouter Galerie</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={handleCloseModalClick}></button>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modifier Galerie {id}</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={handleCloseModalClickk}></button>
       </div>
       <div class="modal-body">
             <form   encType="multipart/form-data"  >
@@ -112,13 +114,13 @@ toast.error("il faut choisir un fichier")
 
 <div class="input-group mb-3">
     <span class="input-group-text" id="basic-addon1"><i class="icofont-shield-alt"></i></span>
-    <select id="state-select" value={selectedState} onChange={handleChange}className='form-select' required>
-        <option value="">--choisir un type --</option>
-        {states.map((state) => (
-          <option key={state} value={state}>
-            {state}
-          </option>
-        ))}
+    <select id="stateselect" value={selectedItem} onChange={handleChangeItem}className='form-select' required>
+    {statess.map((statOption) => (
+  <option key={statOption} value={statOption}  >
+    {statOption }
+  </option>
+))}
+
       </select>
  
  </div>
@@ -144,9 +146,9 @@ toast.error("il faut choisir un fichier")
 
             </form>
       </div>
-      <div class="modal-footer">         <button type="submit"  class="btn btn-primary" onClick={handleUpload}>Ajouter</button>
+      <div class="modal-footer">         <button type="submit"  class="btn btn-primary"  >Modifier</button>
 
-      <button type="button" className=" btn btn-primary" style={{background:"#000"}}data-bs-dismiss="modal" onClick={handleCloseModalClick}>Fermer</button>
+      <button type="button" className=" btn btn-primary" style={{background:"#000"}}data-bs-dismiss="modal" onClick={handleCloseModalClickk}>Fermer</button>
 
       </div>
     </div>
@@ -158,4 +160,4 @@ toast.error("il faut choisir un fichier")
     )
 }
 
-export default AddGalButton;
+export default ModifyGalerie;

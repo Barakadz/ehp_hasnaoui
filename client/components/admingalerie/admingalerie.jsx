@@ -4,15 +4,21 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 import AddGalButton from './addGalButton';
+import ModifyGalerie from './modifygalerie';
   
-
+ 
 
 const AdminGalerie = () => {
-   const [data, setData] = useState([]);
+  const [ImageGal, setImage] = useState('');
+  const [TypeGal, setType] = useState('');
+  const [IdGal, setId] = useState('');
+
+  const [data, setData] = useState([]);
 
  const fetchData = async () => {
       try {
-        const response = await axios.get('https://www.ehp-hasnaoui.com/api/galerie/');  
+        //https://www.ehp-hasnaoui.com/api/galerie/
+        const response = await axios.get('http://localhost:8800/api/galerie/');  
         setData(response.data);
        } catch (error) {
         console.error('Error fetching data: ', error);
@@ -33,7 +39,9 @@ const AdminGalerie = () => {
     { field: 'image', title: 'Image',     
     render: rowData => (
       <img 
-          src={`https://www.ehp-hasnaoui.com/uploads/${rowData.image}`} 
+      //          src={`https://www.ehp-hasnaoui.com/uploads/${rowData.image}`} 
+
+          src={`${rowData.image}`} 
           alt="user" 
           style={{ width: 100, borderRadius: '3%' }} 
       />
@@ -42,10 +50,31 @@ const AdminGalerie = () => {
     
    ];
  
+   const handleAddUserClick = () => {
+    // Logique pour afficher le modal
+    const modal = document.getElementById('exampleModal');
+    if (modal) {
+      modal.classList.add('show');
+      modal.style.display = 'block';
+    }
+  };
 
+  const ModiyGalerie = (id,image,type) => {
+    setImage(image)
+    setType(type)
+    setId(id)
+      // Logique pour afficher le modal
+    const modal = document.getElementById('exampleModall');
+    if (modal) {
+      modal.classList.add('show');
+      modal.style.display = 'block';
+    }
+  };
   return (
     <> 
-<AddGalButton/>
+   
+    
+<AddGalButton/><ModifyGalerie id={IdGal} image={ImageGal} type={TypeGal}/>
      <ToastContainer />    
     <MaterialTable
     title="La liste Des Galeries"
@@ -64,13 +93,25 @@ const AdminGalerie = () => {
     }} 
 
     actions={[
-    
+      {
+        icon: 'add',
+        tooltip: 'Ajouter Galerie',
+        isFreeAction: true,
+        onClick: handleAddUserClick,
+      },
       {
         icon: 'refresh',
         tooltip: 'Refresh Data',
         isFreeAction: true,
         onClick: () => fetchData(),
       }
+      ,
+      {
+        icon: 'edit',
+        tooltip: 'Modifier Galerie',
+        isFreeAction: false,
+        onClick: (event, rowData) => ModiyGalerie(JSON.stringify(rowData.id),JSON.stringify(rowData.image),JSON.stringify(rowData.type)),
+      } 
     ]}
    
 
@@ -79,17 +120,7 @@ const AdminGalerie = () => {
 
     editable={{
      
-      onRowUpdate: (newData, oldData) =>
-        new Promise((resolve, reject) => {
-          setTimeout(() => {
-            const dataUpdate = [...data];
-            const index = oldData.tableData.id;
-            dataUpdate[index] = newData;
-            setData([...dataUpdate]);
-
-            resolve();
-          }, 1000)
-        }),
+      
       onRowDelete: oldData =>
         new Promise((resolve, reject) => {
           setTimeout(() => {
@@ -99,7 +130,9 @@ const AdminGalerie = () => {
             setData([...dataDelete]);
            //id==> console.log(oldData.id)
            const id=oldData.id;
-axios.delete(`https://www.ehp-hasnaoui.com/api/galerie/${id}`)
+           //axios.delete(`https://www.ehp-hasnaoui.com/api/galerie/${id}`)
+
+axios.delete(`http://localhost:8800/api/galerie/${id}`)
 .then(response => {
 toast.success(response.data)
 })
@@ -110,9 +143,7 @@ toast.error(error)});
         }),
     }}
 
-
-
-
+ 
 
     localization={{
       body: {

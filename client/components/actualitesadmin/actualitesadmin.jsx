@@ -12,7 +12,9 @@ const ActualitesAdmin = () => {
 
  const fetchData = async () => {
       try {
-        const response = await axios.get('https://www.ehp-hasnaoui.com/api/act/');  
+        //        const response = await axios.get('https://www.ehp-hasnaoui.com/api/act/');  
+
+        const response = await axios.get('http://localhost:8800/api/act/');  
         setData(response.data);
        } catch (error) {
         console.error('Error fetching data: ', error);
@@ -23,7 +25,14 @@ const ActualitesAdmin = () => {
     fetchData();
   }, []);
 
-   
+  const handleAddUserClick = () => {
+    // Logique pour afficher le modal
+    const modal = document.getElementById('exampleModal');
+    if (modal) {
+      modal.classList.add('show');
+      modal.style.display = 'block';
+    }
+  };
  
 
   const columns = [
@@ -32,8 +41,17 @@ const ActualitesAdmin = () => {
     { field: 'date', title: 'Description',hidden:true },
 
     { field: 'date', title: 'Date' },
-    { field: 'image', title: 'Image',      render: rowData => <img src={`${rowData.image}`}  alt="user" style={{ width: 100, borderRadius: '3%' }} />  },
+    { field: 'image', title: 'Image',   
     
+    render: rowData => (
+      <img 
+          src={`https://www.ehp-hasnaoui.com/uploads/images_act/${rowData.image}`} 
+          alt="Actualites" 
+          style={{ width: 100, borderRadius: '3%' }} 
+      />
+  ) 
+    
+  },
    ];
  
 
@@ -57,41 +75,36 @@ const ActualitesAdmin = () => {
  
     }} 
 
+   
+
     actions={[
-    
+      {
+        icon: 'add',
+        tooltip: 'Ajouter un Actualites',
+        isFreeAction: true,
+        onClick: handleAddUserClick,
+      },
       {
         icon: 'refresh',
         tooltip: 'Refresh Data',
         isFreeAction: true,
         onClick: () => fetchData(),
       }
+      ,
+      {
+        icon: 'edit',
+        tooltip: 'Modifier cette Actualité',
+        isFreeAction: false,
+        onClick: (event, rowData) => ModiyAct(JSON.stringify(rowData.id),JSON.stringify(rowData.titre),JSON.stringify(rowData.date),JSON.stringify(rowData.image))
+      } 
     ]}
-    detailPanel={rowData => {
-      return (<>
-       <p><b>Description :</b></p> 
-       <div
-          dangerouslySetInnerHTML={{ __html: rowData.description }}
-        />
-</>
-      )
-    }}
-
+   
 
 
 
     editable={{
      
-      onRowUpdate: (newData, oldData) =>
-        new Promise((resolve, reject) => {
-          setTimeout(() => {
-            const dataUpdate = [...data];
-            const index = oldData.tableData.id;
-            dataUpdate[index] = newData;
-            setData([...dataUpdate]);
-
-            resolve();
-          }, 1000)
-        }),
+       
       onRowDelete: oldData =>
         new Promise((resolve, reject) => {
           setTimeout(() => {
@@ -101,7 +114,9 @@ const ActualitesAdmin = () => {
             setData([...dataDelete]);
            //id==> console.log(oldData.id)
            const id=oldData.id;
-axios.delete(`https://www.ehp-hasnaoui.com/api/act/${id}`)
+           //axios.delete(`https://www.ehp-hasnaoui.com/api/act/${id}`)
+
+axios.delete(`http://localhost:8800/api/act/${id}`)
 .then(response => {
 toast.success(response.data)
 })
@@ -112,7 +127,15 @@ toast.error(error)});
         }),
     }}
 
-
+    detailPanel={rowData => {
+      return (<>
+       <p><b>Description :</b></p> 
+       <div
+          dangerouslySetInnerHTML={{ __html: rowData.description }}
+        />
+</>
+      )
+    }}
 
 
 

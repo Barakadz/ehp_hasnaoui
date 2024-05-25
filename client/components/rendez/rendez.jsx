@@ -25,7 +25,7 @@ const Rendezvous=()=>{
 
   useEffect(() => {
     // Set the maximum date to the end of 2009
-    const endOf2009 = '2010-12-31';
+    const endOf2009 = '2009-12-31';
     setMaxDate(endOf2009);
   }, []); 
   const [minDate, setMinDate] = useState('');
@@ -303,9 +303,9 @@ axios.post(apiUrl, requestData )
  
     return(
         <div className='container '>
-			<div class="row my-4">
-					<div class="col-lg-12">
-						<div class="section-title text-center">
+			<div className="row my-4">
+					<div className="col-lg-12">
+						<div className="section-title text-center">
 							<h2>Prendre un Rendez-vous
 </h2>
 							<img src="section-img.png" alt="#"/>
@@ -345,33 +345,33 @@ Prendre un rendez-vous médical en ligne permet de choisir facilement et rapidem
         <React.Fragment>
           <Typography sx={{ mt: 2, mb: 1 }}>Step {activeStep + 1}</Typography>
 		  {activeStep === 0 && (
-          <section class="appointment">
-		  <div class="container">
+          <section className="appointment">
+		  <div className="container">
 			  
-			  <div class="row">
-				  <div class="col-lg-6 col-md-12 col-12">
+			  <div className="row">
+				  <div className="col-lg-6 col-md-12 col-12">
 				  <Formik initialValues={userData} validationSchema={validationSchema}   onSubmit={onSubmit} validateOnMount>
 	  <Form >
 
 
-						  <div class="row">
-							  <div class="col-lg-6 col-md-6 col-12">
+						  <div className="row">
+							  <div className="col-lg-6 col-md-6 col-12">
                 <label>Nom :<b style={{color:'red'}}>*</b></label>
 
-									   <Field  id="FirstName" name="FirstName"class="forminput" style={{textTransform:'uppercase'}} type="text" placeholder="Nom *"/>
+									   <Field  id="FirstName" name="FirstName"className="forminput" style={{textTransform:'uppercase'}} type="text" placeholder="Nom *"/>
 									  <p style={{color:'red'}}><ErrorMessage name="FirstName" />   </p>
 							   </div>
-							  <div class="col-lg-6 col-md-6 col-12">
+							  <div className="col-lg-6 col-md-6 col-12">
                 <label>Prénom :<b style={{color:'red'}}>*</b></label>
 
-								  <div class="form-group">
-									  <Field id="LastName" name="LastName"class="forminput" type="text" placeholder="Prénom *"/>
+								  <div className="form-group">
+									  <Field id="LastName" name="LastName"className="forminput" type="text" placeholder="Prénom *"/>
 									  <p style={{color:'red'}}><ErrorMessage name="LastName"/></p>
 
 								  </div>
 							  </div>
-							  <div class="col-lg-6 col-md-6 col-12">
-								  <div class="form-group">
+							  <div className="col-lg-6 col-md-6 col-12">
+								  <div className="form-group">
                   <label>Date de naissance :<b style={{color:'red'}}>*</b></label>
 
                   <Field
@@ -394,18 +394,18 @@ Prendre un rendez-vous médical en ligne permet de choisir facilement et rapidem
  		  
 								  </div>
 							  </div>
-							  <div class="col-lg-6 col-md-6 col-12">
-								  <div class="form-group">
+							  <div className="col-lg-6 col-md-6 col-12">
+								  <div className="form-group">
                   <label>Numéro de Téléphone :<b style={{color:'red'}}>*</b></label>
 
-								  <Field id="NumeroTel" name="NumeroTel"class="forminput" type="text" placeholder="Numéro de téléphone *"/>
+								  <Field id="NumeroTel" name="NumeroTel"className="forminput" type="text" placeholder="Numéro de téléphone *"/>
 								  <p style={{color:'red'}}><ErrorMessage name="NumeroTel"/></p>
 
 									   
 								  </div>
 							  </div>
-							  <div class="col-lg-6 col-md-6 col-12">
-								  <div class="form-group">
+							  <div className="col-lg-6 col-md-6 col-12">
+								  <div className="form-group">
                   <label>Services :<b style={{color:'red'}}>*</b></label>
                   <Select
         value={selectedOption}
@@ -419,8 +419,8 @@ Prendre un rendez-vous médical en ligne permet de choisir facilement et rapidem
  															</div>
 							  </div>
 
-							  <div class="col-lg-6 col-md-6 col-12">
-								  <div class="form-group">
+							  <div className="col-lg-6 col-md-6 col-12">
+								  <div className="form-group">
                     <label>Date de Rendezvous :<b style={{color:'red'}}>*</b></label>
 								  <Field name="DateRendezVous" id="DateRendezVous" type="date"
 	 
@@ -429,39 +429,39 @@ Prendre un rendez-vous médical en ligne permet de choisir facilement et rapidem
 
 								  </div>
 							  </div>
-							  <div class="col-lg-6 col-md-6 col-12">
+							  <div className="col-lg-6 col-md-6 col-12">
                 <label>Mail :<b style={{color:'red'}}>*</b></label>
 
-							   <Field id="Email" name="Email"class="forminput" type="text" placeholder="Email "/>
+							   <Field id="Email" name="Email"className="forminput" type="text" placeholder="Email "/>
 								  <p style={{color:'red'}}><ErrorMessage name="Email"/></p>
 							   </div>
-                 <div class="col-lg-6 col-md-6 col-12">
+                 <div className="col-lg-6 col-md-6 col-12">
                 <label>Heure :</label>
 
-								   <Field id="Heure" name="Heure"class="forminput" type="time" placeholder="Heure *"/>
+								   <Field id="Heure" name="Heure"className="forminput" type="time" placeholder="Heure *"/>
 								  <p style={{color:'red'}}><ErrorMessage name="Heure"/></p>
 							   </div>
-							  <div class="col-lg-6 col-md-6 col-12">
+							  <div className="col-lg-6 col-md-6 col-12">
                 <label>Numero CNI : </label>
 
-								  <Field id="NumeroCni" name="NumeroCni"class="forminput" type="text" placeholder="Numéro de CNI "/>
+								  <Field id="NumeroCni" name="NumeroCni"className="forminput" type="text" placeholder="Numéro de CNI "/>
 								  <p style={{color:'red'}}><ErrorMessage name="NumeroCni"/></p>
 							   </div>
-							  <div class="col-lg-6 col-md-6 col-12">
+							  <div className="col-lg-6 col-md-6 col-12">
                 <label>Numéro de sécurité sociale :</label>
 
-								   <Field id="NumeroSecuriteSociale" name="NumeroSecuriteSociale"class="forminput" type="text" placeholder="Numéro de sécurité sociale *"/>
+								   <Field id="NumeroSecuriteSociale" name="NumeroSecuriteSociale"className="forminput" type="text" placeholder="Numéro de sécurité sociale *"/>
 								  <p style={{color:'red'}}><ErrorMessage name="NumeroSecuriteSociale"/></p>
 							   </div>
 
                 
-                 <div class="col-lg-12 col-md-12 col-12 d-flex mb-2">
-  <Field type="checkbox" className="custom-checkbox" id="langage1" name="langage1" value="javascript"min="2024-05-01" required/>
+                 <div className="col-lg-12 col-md-12 col-12 d-flex mb-2">
+  <Field type="checkbox" className="form-check-input" id="langage1" name="langage1" value="javascript"min="2024-05-01" required/>
 <label for="langage1"className='mx-2 textwrap'  >  &nbsp;&nbsp;j'accepte que les informations saisies soient utilisées pour me recontacter</label><br/>
   </div>
- </div>						  <div class="row">
-							  <div class="col-lg-5 col-md-4 col-12">
-								  <div class="form-group">
+ </div>						  <div className="row">
+							  <div className="col-lg-5 col-md-4 col-12">
+								  <div className="form-group">
 									  							   <button type='submit' className='btn' >Suivant</button>
 
 								  </div>
@@ -469,9 +469,9 @@ Prendre un rendez-vous médical en ligne permet de choisir facilement et rapidem
 						  </div>
 						  </Form></Formik>
 				  </div>
-				  <div class="col-lg-6 col-md-12 ">
+				  <div className="col-lg-6 col-md-12 ">
 					  <div >
-						  <img src="rendez.jfif"  class="appointment-image"  alt="#"/>
+						  <img src="rendez.jfif"  className="appointment-image"  alt="#"/>
 					  </div>
 				  </div>
 			  </div>
@@ -482,9 +482,9 @@ Prendre un rendez-vous médical en ligne permet de choisir facilement et rapidem
 
             )}
 
-{activeStep === 1 && (    <div class="  ">
+{activeStep === 1 && (    <div className="  ">
 <p className='text-center'>Nous allons envoyer un Code OTP à l'email {userData.Email}</p>
-	<div class="d-flex "   style={{display:'flex',flexDirection:'row',justifyContent:'center'}}>
+	<div className="d-flex "   style={{display:'flex',flexDirection:'row',justifyContent:'center'}}>
   <OTPInput length={6} onChange={handleOTPChange} />
 
 			</div>
@@ -523,8 +523,8 @@ Prendre un rendez-vous médical en ligne permet de choisir facilement et rapidem
  <center><b>www.ehp-hasnaoui.com</b></center>
 </div><div><p>Imprimé le {currentDate.toLocaleDateString()+" "+currentDate.toLocaleTimeString()}</p></div>
 <center> 
-<button class="download-button"onClick={gg}>
-  <div class="docs">
+<button className="download-button"onClick={gg}>
+  <div className="docs">
     <svg
       viewBox="0 0 24 24"
       width="20"
@@ -534,7 +534,7 @@ Prendre un rendez-vous médical en ligne permet de choisir facilement et rapidem
       fill="none"
       stroke-linecap="round"
       stroke-linejoin="round"
-      class="css-i6dzq1"
+      className="css-i6dzq1"
     >
       <path
         d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
@@ -546,7 +546,7 @@ Prendre un rendez-vous médical en ligne permet de choisir facilement et rapidem
     </svg>
     Télécharger le Ticket
   </div>
-  <div class="download">
+  <div className="download">
     <svg
       viewBox="0 0 24 24"
       width="24"
@@ -556,7 +556,7 @@ Prendre un rendez-vous médical en ligne permet de choisir facilement et rapidem
       fill="none"
       stroke-linecap="round"
       stroke-linejoin="round"
-      class="css-i6dzq1"
+      className="css-i6dzq1"
     >
       <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
       <polyline points="7 10 12 15 17 10"></polyline>

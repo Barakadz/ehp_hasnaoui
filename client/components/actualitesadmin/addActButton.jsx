@@ -76,13 +76,17 @@ toast.error("il faut choisir un fichier")
  
 
         try {
-          const response = await axios.post('https://www.ehp-hasnaoui.com/api/upload/actualites', formData);
+          //          const response = await axios.post('https://www.ehp-hasnaoui.com/api/upload/actualites', formData);
+
+          const response = await axios.post('http://localhost:8800/api/upload/actualites', formData);
           } catch (error) {
           toast.error(error);
         }
 
  
-  const apiUrl = 'https://www.ehp-hasnaoui.com/api/act/add';
+        //  const apiUrl = 'https://www.ehp-hasnaoui.com/api/act/add';
+
+  const apiUrl = 'http://localhost:8800/api/act/add';
   const requestData = {
     titre: titre,
     description: editorContent,
@@ -96,6 +100,9 @@ toast.error("il faut choisir un fichier")
   axios.post(apiUrl, requestData )
     .then(response => {
      toast.success('Actualités à été bien Ajouté')
+     setTimeout(function() {
+      location.reload();
+  }, 4000); 
     })
     .catch(error => {
      console.error('An error occurred:', error);
@@ -104,12 +111,17 @@ toast.error("il faut choisir un fichier")
  
   }
       };
+      const handleCloseModalClick = () => {
+        const modal = document.getElementById('exampleModal');
+        if (modal) {
+          modal.classList.remove('show');
+          modal.style.display = 'none';
+        }
+      };
     return(
         <>
         <center>
-        <button type="button" class="btn btn-primary p-2 m-2"  data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Ajouter une Actualité
-</button>
+         
 
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -117,7 +129,7 @@ toast.error("il faut choisir un fichier")
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="exampleModalLabel">Ajouter une Actualités</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"onClick={handleCloseModalClick}></button>
       </div>
       <div class="modal-body">
             <form   encType="multipart/form-data"  >
@@ -160,6 +172,8 @@ toast.error("il faut choisir un fichier")
       </div>
       <div class="modal-footer">
          <button type="submit"  class="btn btn-primary" onClick={handleUpload}>Ajouter</button>
+         <button type="button" className=" btn btn-primary" style={{background:"#000"}}data-bs-dismiss="modal" onClick={handleCloseModalClick}>Fermer</button>
+
       </div>
     </div>
   </div>
