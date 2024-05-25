@@ -8,6 +8,7 @@ const AddGalButton=()=>{
     
   //type
   const [selectedState, setSelectedState] = useState('');
+  const [fileNameUpload, setFileNameUpload] = useState('');
 
   const states = [
     'Pédiatries et néonatologie',
@@ -46,7 +47,8 @@ toast.error("il faut choisir un fichier")
 
         try {
           const response = await axios.post('https://www.ehp-hasnaoui.com/api/upload/galerie', formData);
-          alert(response.data)
+           setFileNameUpload(response.data)
+          
           } catch (error) {
           toast.error(error);
         }
@@ -55,7 +57,7 @@ toast.error("il faut choisir un fichier")
   const apiUrl = 'https://www.ehp-hasnaoui.com/api/galerie/add';
   const requestData = {
     type: selectedState,
-   image:file.name,
+   image:fileNameUpload,
    
  
 
@@ -65,6 +67,9 @@ toast.error("il faut choisir un fichier")
   axios.post(apiUrl, requestData )
     .then(response => {
      toast.success('Galerie à été bien Ajouté')
+     setTimeout(function() {
+      location.reload();
+  }, 2000); 
     })
     .catch(error => {
      console.error('An error occurred:', error);
