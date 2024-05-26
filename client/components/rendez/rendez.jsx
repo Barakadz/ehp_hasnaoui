@@ -280,17 +280,17 @@ const suivant=()=>{
 for (const value of getIndividualValues()) { 
 const apiUrl = 'https://www.ehp-hasnaoui.com/api/auth/register';
 const requestData = {
- FirstName: userData.FirstName,
- LastName: userData.LastName,
- DateNaissance:userData.DateNaissance,
- NumeroTel:userData.NumeroTel,
- Service:value/*userData.Services*/,
- DateRendezVous:userData.DateRendezVous,
- Email:userData.Email,
- NumeroCni:userData.NumeroCni,
- NumeroSecuriteSociale:userData.NumeroSecuriteSociale,
- Heure:userData.Heure
- 
+ FirstName: 'userData.FirstName',
+ LastName: 'userData.LastName',
+ DateNaissance:'userData.DateNaissance',
+ NumeroTel:'userData.NumeroTel',
+ Service:'value'/*userData.Services*/,
+ DateRendezVous:'userData.DateRendezVous',
+ Email:'userData.Email',
+ NumeroCni:'userData.NumeroCni',
+ NumeroSecuriteSociale:'userData.NumeroSecuriteSociale',
+ Heure:'userData.Heure'
+
 
 
 };
