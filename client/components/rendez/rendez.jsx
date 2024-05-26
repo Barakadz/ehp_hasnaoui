@@ -350,7 +350,7 @@ Prendre un rendez-vous médical en ligne permet de choisir facilement et rapidem
 			  
 			  <div className="row">
 				  <div className="col-lg-6 col-md-12 col-12">
-				  <Formik initialValues={userData} validationSchema={validationSchema}   onSubmit={onSubmit} validateOnMount>
+				  <Formik initialValues={initialValues} validationSchema={validationSchema}   onSubmit={onSubmit} validateOnMount>
 	  <Form >
 
 
