@@ -295,7 +295,10 @@ const requestData = {
 
 };
 
-axios.post(apiUrl, requestData )
+axios.post(apiUrl, requestData , {
+  headers: {
+      'Content-Type': 'application/x-www-form-urlencoded'
+  }})
   .then(response => {
    toast.success('Rendezvous à été planifier pour :'+value)
   })
