@@ -278,33 +278,40 @@ const suivant=()=>{
      }else{
 
 for (const value of getIndividualValues()) { 
-const apiUrl = 'https://www.ehp-hasnaoui.com/api/auth/register';
-const requestData = {
- FirstName: 'userData.FirstName',
- LastName: 'userData.LastName',
- DateNaissance:'userData.DateNaissance',
- NumeroTel:'userData.NumeroTel',
- Service:'value'/*userData.Services*/,
- DateRendezVous:'userData.DateRendezVous',
- Email:'userData.Email',
- NumeroCni:'userData.NumeroCni',
- NumeroSecuriteSociale:'userData.NumeroSecuriteSociale',
- Heure:'userData.Heure'
-
-
-
-};
-
-axios.post(apiUrl, requestData , {
-  headers: {
-      'Content-Type': 'application/x-www-form-urlencoded'
-  }})
-  .then(response => {
-   toast.success('Rendezvous à été planifier pour :'+value)
+  const apiUrl = 'https://www.ehp-hasnaoui.com/api/auth/register';
+  const requestData = {
+    FirstName: userData.FirstName,
+    LastName: userData.LastName,
+    DateNaissance: userData.DateNaissance,
+    NumeroTel: userData.NumeroTel,
+    Service: value, // or userData.Services if you meant to use that
+    DateRendezVous: userData.DateRendezVous,
+    Email: userData.Email,
+    NumeroCni: userData.NumeroCni,
+    NumeroSecuriteSociale: userData.NumeroSecuriteSociale,
+    Heure: userData.Heure
+  };
+  
+  fetch(apiUrl, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(requestData),
   })
-  .catch(error => {
-   console.error('An error occurred:', error);
-  });
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(data => {
+      toast.success('Rendezvous à été planifié pour : ' + value);
+    })
+    .catch(error => {
+      console.error('An error occurred:', error);
+    });
+  
  } 
  
  
