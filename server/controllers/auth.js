@@ -158,7 +158,7 @@ if (!last_date) {
   const last_date = req.query.last_date;
 
 
-  const q = "SELECT * FROM user WHERE date_rendezvous > ?";
+  const q = "SELECT * FROM user WHERE date >  ?";
 
   db.query(q, [last_date], (err, userData) => {
     if (err) {
