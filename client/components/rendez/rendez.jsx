@@ -395,7 +395,7 @@ Prendre un rendez-vous médical en ligne permet de choisir facilement et rapidem
     <label htmlFor="FirstName">Prénom :<b style={{color:'red'}}>*</b></label>
     <div className="input-group">
         <span className="input-group-text"><AiTwotoneContacts /></span>
-        <Field id="LastName" name="LastName" className="form-control"  type="text" placeholder="Nom *" />
+        <Field id="LastName" name="LastName" className="form-control"  type="text" placeholder="Prénom *" />
     </div>
     <p style={{color:'red'}}><ErrorMessage name="LastName" /></p>
 </div>

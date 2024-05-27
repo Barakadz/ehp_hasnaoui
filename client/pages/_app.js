@@ -35,8 +35,9 @@ import "@/styles/Home.module.css";
  
 import { useEffect } from 'react';
 import { AuthProvider } from '../contexts/AuthContext';
+import { AuthProviderAdmin } from '../contexts/AdminContext';
  
- 
+
 export default function App({ Component, pageProps }) {
   useEffect(() => {
     import('bootstrap/dist/js/bootstrap.min.js');
@@ -44,9 +45,10 @@ export default function App({ Component, pageProps }) {
   return (
   
     <AuthProvider>
-
+<AuthProviderAdmin> 
   <Component {...pageProps} />
+  </AuthProviderAdmin>  
   </AuthProvider>
-  
+
   ) ;
 }
