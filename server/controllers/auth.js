@@ -158,9 +158,9 @@ if (!last_date) {
   const last_date = req.query.last_date;
 
 
-  const q = "SELECT * FROM user WHERE date >  ?";
+  const q = "SELECT * FROM user WHERE date >  ? and date != ?";
 
-  db.query(q, [last_date], (err, userData) => {
+  db.query(q, [last_date,last_date], (err, userData) => {
     if (err) {
       return res.status(500).json({ message: "Erreur de base de données", error: err });
     }
