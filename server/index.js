@@ -5,10 +5,17 @@ import multer from "multer";
 const app = express();
 import authRoutes from "./routes/auth.js";
 import actRoutes from "./routes/act.js";
-import offreRoutes from "./routes/offres.js";
+ import offreRoutes from "./routes/offres.js";
 import GalerieRoutes from "./routes/galerie.js";
 
-const allowedOrigins = ["http://localhost:3000", "https://ehp-hasnaoui.com"];
+
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Credentials", true);
+    next();
+  });
+
+
+const allowedOrigins = ["*", "*"];
 
 const corsOptions = {
   origin: function (origin, callback) {
@@ -22,14 +29,15 @@ const corsOptions = {
   credentials: true,
 };
 
-app.use(cors(corsOptions));
-
-app.use(express.json());
-
+app.use(cors({
+origin:'*',
+}));
+app.use(express.json())
 app.use("/api/auth", authRoutes);
 app.use("/api/act", actRoutes);
 app.use("/api/offres", offreRoutes);
 app.use("/api/galerie", GalerieRoutes);
+
 
 // Upload file
 const storage = multer.diskStorage({
@@ -45,6 +53,9 @@ const upload = multer({ storage: storage });
 
 app.post("/api/upload/actualites", upload.single("file"), (req, res) => {
   const file = req.file;
+  if (!file) {
+    return res.status(400).json({ error: 'Erreur lors du téléversement du fichier' });
+  }
   res.status(200).json(file.filename);
 });
 
@@ -68,6 +79,12 @@ app.post("/api/upload/galerie", uploadd.single("file"), (req, res) => {
     return res.status(400).json({ error: 'Erreur lors du téléversement du fichier' });
   }
   res.status(200).json(xx);
+});
+
+// Error handling middleware
+app.use((err, req, res, next) => {
+  console.error('Unhandled error:', err);
+  res.status(500).json({ error: 'Internal Server Error' });
 });
 
 app.listen(8800, () => {
