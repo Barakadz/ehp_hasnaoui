@@ -343,7 +343,7 @@ export const login = (req, res) => {
     const token = jwt.sign({ id: data[0].id }, "secretkey");
 
     const { password, ...others } = data[0];
-
+ 
     res
       .cookie("accessTokenAdmin", token, {
         httpOnly: true,

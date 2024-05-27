@@ -7,6 +7,7 @@ import authRoutes from "./routes/auth.js";
 import actRoutes from "./routes/act.js";
  import offreRoutes from "./routes/offres.js";
 import GalerieRoutes from "./routes/galerie.js";
+import cookieParser from "cookie-parser";
 
 
 app.use((req, res, next) => {
@@ -33,6 +34,13 @@ app.use(cors({
 origin:'*',
 }));
 app.use(express.json())
+
+//pour inserer les cookie 
+app.use(cookieParser());
+
+
+
+
 app.use("/api/auth", authRoutes);
 app.use("/api/act", actRoutes);
 app.use("/api/offres", offreRoutes);
