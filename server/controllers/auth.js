@@ -150,7 +150,7 @@ if (!last_date) {
     if (userData.length > 0) {
       return res.status(200).json(userData);
     } else {
-      return res.status(404).json({ message: 'User not found' });
+      return res.status(404).json();
     }
   });
 } else {
@@ -168,7 +168,7 @@ if (!last_date) {
     if (userData.length > 0) {
       return res.status(200).json(userData);
     } else {
-      return res.status(404).json({ message: 'User not found' });
+      return res.status(404).json();
     }
   });
  }
