@@ -30,6 +30,7 @@ import '../components/rendez/rendez.css';
 import '../components/topbardashboard/top.css';
 import '../components/sidebar/sidebar.css';
 import '../components/card_dash/carddash.css';
+import '../components/visitevirtelle/visite.css';
 
 import "@/styles/Home.module.css";
  

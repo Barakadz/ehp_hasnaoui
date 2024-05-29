@@ -29,7 +29,15 @@ export const register = (req, res) => {
    // const hashedPassword = bcrypt.hashSync(req.body.Password, salt);
    const confirmation='non'
     const currentDate = moment();
-    const Date=currentDate.format('DD-MM-YYYY HH:mm:ss');
+
+// Add one hour to the current date
+const newDate = currentDate.add(1, 'hour');
+
+// Format the date
+const Date = newDate.format('YYYY-MM-DD HH:mm:ss');
+ 
+
+
     const formattedDateRendezVous = moment(req.body.DateRendezVous).format('YYYY-MM-DD');
     const formattedDateNaissance = moment(req.body.DateNaissance).format('YYYY-MM-DD');
 
@@ -150,7 +158,7 @@ if (!last_date) {
     if (userData.length > 0) {
       return res.status(200).json(userData);
     } else {
-      return res.status(404).json();
+      return res.status(404).json([]);
     }
   });
 } else {
@@ -168,7 +176,7 @@ if (!last_date) {
     if (userData.length > 0) {
       return res.status(200).json(userData);
     } else {
-      return res.status(404).json();
+      return res.status(404).json([]);
     }
   });
  }

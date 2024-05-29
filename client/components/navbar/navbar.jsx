@@ -71,6 +71,15 @@ const Navbar=()=>{
 			  <li class="nav-item ">
 				<a class="nav-link" aria-disabled="true">Visite virtuelle</a>
 			  </li>
+
+
+			  <li class="nav-item  " ><Link legacyBehavior href="/visitevirtuelle">
+				<a  className={router.pathname === '/visitevirtuelle' ? 'nav-link active' : 'nav-link '} aria-current="page"  >Visite virtuelle</a>
+			 </Link> </li>
+
+
+
+
 			  <li class="nav-item  "><Link legacyBehavior href="/galerie">
 				<a className={router.pathname === '/galerie' ? 'nav-link active ' : 'nav-link  '}  aria-disabled="true">Galerie</a>
 				</Link>
