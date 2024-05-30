@@ -1,7 +1,13 @@
 const Visite=()=>{
     return(
         <>
-     
+      <center>
+     		<div class="section-title mt-4 ">
+			<h2>Laboratoire, pharmacie, consultation, accueil ,les urgences :</h2>
+			<img src="section-img.png" alt="#"/>
+ 		</div></center>
+               <div className="container"> <iframe width="100%"  className="visite"  src='https://panoraven.com/fr/embed/0Vjc3YcYoF' frameborder='0' allowfullscreen allow='xr-spatial-tracking'></iframe></div>
+<br/>
  <center>
      		<div class="section-title mt-4 ">
 			<h2 className="mt-4">Imagerie :</h2>
@@ -9,13 +15,7 @@ const Visite=()=>{
  		</div></center>
                <div className="container"> <iframe width="100%"  className="visite" src=' https://panoraven.com/fr/embed/AzriZMYDOq' frameborder='0' allowfullscreen allow='xr-spatial-tracking'></iframe></div>
 <br/> 
-               <center>
-     		<div class="section-title mt-4 ">
-			<h2>Laboratoire, pharmacie, consultation, accueil ,les urgences :</h2>
-			<img src="section-img.png" alt="#"/>
- 		</div></center>
-               <div className="container"> <iframe width="100%"  className="visite"  src='https://panoraven.com/fr/embed/0Vjc3YcYoF' frameborder='0' allowfullscreen allow='xr-spatial-tracking'></iframe></div>
-<br/>
+              
                <center>
      		<div class="section-title mt-4 ">
 			<h2>Hébergement  :</h2>
