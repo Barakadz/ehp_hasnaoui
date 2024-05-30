@@ -3,7 +3,7 @@ const Hybrid=()=>{
         <div>
 
 <div class="image-container">
-		<center>	<h4 className="title_hybrid">la seule salle hybride en Algérie dotée de la dernière technologie d'équipements médicaux</h4></center>
+		<center>	<h4 className="title_hybrid">La première salle hybride dans le privé en Algérie dotée de la dernière  technologie  d'équipements médicaux</h4></center>
 		<div class="overlaay">
 			
 			<p class="textt" style={{color:'white;'}}>L'EHPH s'est muni d'un bloc operatoire hybride, afin de repousser les limites médicales et cela en combinant un bloc opératoire avec plusieurs systèmes d'imagerie. Ainsi, il est désormais possible d'effectuer une multitude d'interventions interdisciplinaires ainsi que des interventions conventionnnelles, ce qui le rend polyvalent. il améliore également les résultats sur le patient en réduisant le besoin d'étre transféré entre plusieurs services et équipes. </p>
