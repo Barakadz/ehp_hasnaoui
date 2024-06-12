@@ -7,6 +7,8 @@ import authRoutes from "./routes/auth.js";
 import actRoutes from "./routes/act.js";
  import offreRoutes from "./routes/offres.js";
 import GalerieRoutes from "./routes/galerie.js";
+import AppMobileRoutes from "./routes/usermobile.js";
+
 import cookieParser from "cookie-parser";
 
 
@@ -46,6 +48,7 @@ app.use("/api/act", actRoutes);
 app.use("/api/offres", offreRoutes);
 app.use("/api/galerie", GalerieRoutes);
 
+app.use("/api/appmobile", AppMobileRoutes);
 
 // Upload file
 const storage = multer.diskStorage({
