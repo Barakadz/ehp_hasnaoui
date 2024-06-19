@@ -18,24 +18,12 @@ app.use((req, res, next) => {
   });
 
 
-const allowedOrigins = ["*", "*"];
 
-const corsOptions = {
-  origin: function (origin, callback) {
-    if (!origin) return callback(null, true); // Allow requests with no origin (like mobile apps or curl)
-    if (allowedOrigins.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-  credentials: true,
-};
+app.use(express.json())
 
 app.use(cors({
 origin:'*',
 }));
-app.use(express.json())
 
 //pour inserer les cookie 
 app.use(cookieParser());
@@ -74,7 +62,7 @@ app.post("/api/upload/actualites", upload.single("file"), (req, res) => {
 let xx = "";
 const storage_gal = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "../client/public/");
+    cb(null, "../client/public/galerie");
   },
   filename: function (req, file, cb) {
     xx = Date.now() + file.originalname;

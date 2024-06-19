@@ -336,6 +336,32 @@ function generateSHA1Hash(data) {
 }
 
 export const login = (req, res) => {
+
+  const q = "SELECT * FROM  admin WHERE username = ?";
+
+  db.query(q, [req.body.username], (err, data) => {
+    if (err) return res.status(500).json(err);
+    if (data.length === 0) return res.status(404).json("User not found!");
+    const passwordcrypti = generateSHA1Hash(req.body.password);
+
+    if (data[0].password!=passwordcrypti)
+      return res.status(400).json("Wrong password or username!");
+    const token = jwt.sign({ id: data[0].id }, "secretkey");
+//gela3na password mel others, others raha fiha les informatin nta3e user sauf password
+    const { password,date, ...others } = data[0];
+
+    res
+      .cookie("accessToken", token, {
+        httpOnly: true,
+      })
+      .status(200)
+      .json(others);
+  });
+
+
+
+/*
+
   const q = "SELECT * FROM admin WHERE username = ?";
 
   db.query(q, [req.body.username], (err, data) => {
@@ -358,7 +384,7 @@ export const login = (req, res) => {
       })
       .status(200)
       .json(others);
-  });
+  });*/
 };
  
 

@@ -31,13 +31,12 @@ var xx=''
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
   };
-  const [fileNameUpload, setFileNameUpload] = useState('');
-
+ 
     const handleUpload = async () => {
       if(!file){
 toast.error("il faut choisir un fichier")
       } else if(selectedItem==''){
-        toast.error("il faut remplir votre contenu")
+        toast.error("il faut remplir choisir un type")
  
       }
       else{
@@ -55,20 +54,21 @@ toast.error("il faut choisir un fichier")
            } catch (error) {
           toast.error(error);
         }
+ image = image.replace(/"/g, '');
 
  //  const apiUrl = 'https://www.ehp-hasnaoui.com/api/galerie/add';
-
-  const apiUrl = 'http://localhost:8800/api/galerie/add';
+   const apiUrl = `http://localhost:8800/api/galerie/${id}`;
   const requestData = {
-    type: selectedState,
+    type: selectedItem,
    image:xx,
-   
+   imagePrecedent:image,
+ 
  
 
 
   };
   
-  axios.post(apiUrl, requestData )
+  axios.put(apiUrl, requestData )
     .then(response => {
      toast.success('Galerie à été bien Modified')
      setTimeout(function() {
@@ -100,7 +100,7 @@ toast.error("il faut choisir un fichier")
   <div class="modal-dialog  modal-xl">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modifier Galerie {id}</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modifier Galerie de l'id {id}</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={handleCloseModalClickk}></button>
       </div>
       <div class="modal-body">
@@ -146,9 +146,9 @@ toast.error("il faut choisir un fichier")
 
             </form>
       </div>
-      <div class="modal-footer">         <button type="submit"  class="btn btn-primary"  >Modifier</button>
+      <div class="modal-footer">         <button type="submit"  class="btn btn-primary"  onClick={handleUpload}>Modifier</button>
 
-      <button type="button" className=" btn btn-primary" style={{background:"#000"}}data-bs-dismiss="modal" onClick={handleCloseModalClickk}>Fermer</button>
+      <button type="button" className=" btn btn-primary" style={{background:"#000"}}data-bs-dismiss="modal" onClick={handleCloseModalClickk} >Fermer</button>
 
       </div>
     </div>

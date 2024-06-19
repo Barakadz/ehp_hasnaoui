@@ -56,7 +56,35 @@ export const DeleteGalerie = (req, res) => {
     if (!id) {
       return res.status(400).json({ error: 'ID is required' });
     }
+  // select file from bdd
+  const qq = "SELECT image FROM galerie WHERE id = ?";
+
+  db.query(qq, [id], (err, userData) => {
+    if (err) {
+      return res.status(500).json({ message: "Erreur de base de données", error: err });
+    }
   
+    if (userData.length > 0) {
+      const imagePath = userData[0].image;
+  
+      // Remove file
+      fs.unlink(`../client/public/galerie/${imagePath}`, (err) => {
+        if (err) {
+          console.error('Error deleting the file:', err);
+          return res.status(500).json({ message: 'Error deleting the file', error: err });
+        }
+        console.log('File deleted successfully');
+        return res.status(200).json({ message: 'File deleted successfully', userData });
+      });
+    } else {
+      return res.status(404).json({ message: 'Galerie not found' });
+    }
+  });
+  
+
+
+
+//remove from bdd
     const q = "DELETE FROM `galerie`  WHERE id = ?";
   
     db.query(q, [id], (err, userData) => {
@@ -126,17 +154,17 @@ export const UpdateGalerie = (req, res) => {
       return res.status(400).json({ error: 'ID is required' });
     }
 
-    //delete file 
-    const filePath = path.join(__dirname, '../client/public/', req.body.imagePrecedent);
-
+  
     // Delete the file
-    fs.unlink(filePath, (err) => {
+    fs.unlink(`../client/public/galerie/${req.body.imagePrecedent}`, (err) => {
       if (err) {
         console.error('Error deleting the file:', err);
-      } else {
-        console.log('File deleted successfully');
+        return;
       }
+      console.log('File deleted successfully');
     });
+    
+    
     const q = "UPDATE `galerie` SET `image` = ?, `type` = ?  WHERE id = ?";
   
     db.query(q,[req.body.image,req.body.type,id], (err, userData) => {

@@ -39,7 +39,7 @@ const AdminGalerie = () => {
     { field: 'image', title: 'Image',     
     render: rowData => (
       <img 
-      //          src={`https://www.ehp-hasnaoui.com/uploads/${rowData.image}`} 
+      //          src={`https://www.ehp-hasnaoui.com/uploads/galerie/${rowData.image}`} 
 
           src={`${rowData.image}`} 
           alt="user" 
@@ -155,7 +155,7 @@ toast.error(error)});
               filterTooltip: 'Filtrer'
           },
           editRow: {
-              deleteText: 'Voulez-vous supprimer cette Actualites?',
+              deleteText: 'Voulez-vous supprimer cette Galerie?',
               cancelTooltip: 'Annuler',
               saveTooltip: 'Enregistrer'
           }

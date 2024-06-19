@@ -21,40 +21,40 @@ const LoginAdmin = () => {
     password: Yup.string().required('Il faut remplir Votre Password'),
   });
 
-  const onSubmit = async (values) => {
+  const onSubmit = async (e,values) => {
+    e.preventDefault();
+
     setUserAdmin({ username: values.username, password: values.password });
+    try {      //https://ehp-hasnaoui.com/api/auth/login
+      const requestData = {
+        username: values.username,
+        password: values.password,
+      };
+      await axios.post("http://localhost:8800/api/auth/login", requestData);
+      router.push('/admin');
+    } catch (err) {
+      setErr(err.response.data);
+    }
+   
+  };
 
+
+  const login = async (inputs) => {
+    const res = await axios.post("http://localhost:8800/api/auth/login", inputs, {
+      withCredentials: true,
+    });
+
+    setCurrentUser(res.data)
+  };
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
     try {
-        const apiUrl = 'https://ehp-hasnaoui.com/api/auth/login';
-        const requestData = {
-          username: values.username,
-          password: values.password,
-        };
-  
-        const response = await fetch(apiUrl, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(requestData),
-        });
-  
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-  
-        const data = await response.json();
-        console.log('POST request successful');
-        console.log('Response data:', data);
-  
-        // Traitez la réponse ici (par exemple, en stockant le token d'authentification ou en redirigeant l'utilisateur)
-       // toast.success('Login successful!');
-
-        router.push('/admin'); // Redirection après connexion réussie
-      } catch (error) {
-        console.error('An error occurred:', error);
-        toast.error('Username or Password');
-      }
+      await login(inputs);
+      navigate("/")
+    } catch (err) {
+      setErr(err.response.data);
+    }
   };
 
   return (
