@@ -162,7 +162,7 @@ toast.error(error)});
               filterTooltip: 'Filtrer'
           },
           editRow: {
-              deleteText: 'Voulez-vous supprimer cette Galerie?',
+              deleteText: 'Voulez-vous supprimer cette Medecin?',
               cancelTooltip: 'Annuler',
               saveTooltip: 'Enregistrer'
           }
