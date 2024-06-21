@@ -4,6 +4,25 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
  
 const ModifyMedecin=({id,image,type})=>{
+    
+  const [usernamee, setUsernamee] = useState('');
+
+  const handleInputUsernamee = (event) => {
+     setUsernamee(event.target.value);
+ };
+
+
+ const [valeurr, setValeurr] = useState('');
+
+  const handleInputValeurr = (event) => {
+     setValeurr(event.target.value);
+ };
+
+ const [postee, setPostee] = useState('');
+
+ const handlePostee = (event) => {
+     setPostee(event.target.value);
+};
    var typee = type.replace(/"/g,'' );
 
   //type
@@ -12,13 +31,9 @@ const ModifyMedecin=({id,image,type})=>{
  
 
   const statess = [
-    'Pédiatries et néonatologie',
-    'Salle opératoire',
-    'Stérilisation',
-    'Laboratoire',
-    'Imagerie',
-    'Hospitalisation',
-    'Les urgences' 
+    'Médecins non conventionnés',
+    'Médecins conventionnés',
+     
 
   ];
 
@@ -49,7 +64,7 @@ toast.error("il faut choisir un fichier")
         try {
          // const response = await axios.post('https://www.ehp-hasnaoui.com/api/upload/galerie', formData);
 
-          const response = await axios.post('https://www.ehp-hasnaoui.com/api/upload/galerie', formData);
+          const response = await axios.post('https://www.ehp-hasnaoui.com/api/upload/medecin', formData);
            xx+=response.data
            } catch (error) {
           toast.error(error);
@@ -57,8 +72,11 @@ toast.error("il faut choisir un fichier")
  image = image.replace(/"/g, '');
 
  //  const apiUrl = 'https://www.ehp-hasnaoui.com/api/galerie/add';
-   const apiUrl = `https://www.ehp-hasnaoui.com/api/galerie/${id}`;
+   const apiUrl = `https://www.ehp-hasnaoui.com/api/medecin/${id}`;
   const requestData = {
+    username:usernamee,
+    valeur:valeurr,
+    poste:postee,
     type: selectedItem,
    image:xx,
    imagePrecedent:image,
@@ -70,7 +88,7 @@ toast.error("il faut choisir un fichier")
   
   axios.put(apiUrl, requestData )
     .then(response => {
-     toast.success('Galerie à été bien Modified')
+     toast.success('Medecin à été bien Modified')
      setTimeout(function() {
       location.reload();
   }, 4000); 
@@ -100,12 +118,59 @@ toast.error("il faut choisir un fichier")
   <div class="modal-dialog  modal-xl">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modifier Galerie de l'id {id}</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modifier Medecin de l'id {id}</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={handleCloseModalClickk}></button>
       </div>
       <div class="modal-body">
             <form   encType="multipart/form-data"  >
-       
+
+            <div class="form-group">
+
+<label for="exampleInputEmail1" className='mt-4' style={{float:'left'}} >Nom & Prénom<span  style={{color:'red'}}>*</span>:</label>
+
+<div class="input-group mb-3">
+ <input type="text" value={usernamee} onChange={handleInputUsernamee} class="form-control" accept="image/*"/>
+
+</div>
+</div>
+<div class="form-group">
+
+<label for="exampleInputEmail1" className='mt-4' style={{float:'left'}} >Poste<span  style={{color:'red'}}>*</span>:</label>
+
+<div class="input-group mb-3">
+ <input type="text" value={postee} onChange={handlePostee} class="form-control" accept="image/*"/>
+
+</div>
+
+
+</div>
+<div class="form-group">
+
+<label for="exampleInputEmail1" className='mt-4' style={{float:'left'}} >Valeur<span  style={{color:'red'}}>*</span>:</label>
+
+<div class="input-group mb-3">
+ <input type="text" value={valeurr} onChange={handleInputValeurr} class="form-control" accept="image/*"/>
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             <div class="form-group">
 
 

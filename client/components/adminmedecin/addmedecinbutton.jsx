@@ -46,10 +46,13 @@ var xx=''
   const [fileNameUpload, setFileNameUpload] = useState('');
 
     const handleUpload = async () => {
-      if(!file){
+        if(selectedState=='Médecins non conventionnés'){
+   if(!file){
 toast.error("il faut choisir un fichier")
-      } else if(selectedState==''){
-        toast.error("il faut remplir votre contenu")
+      }
+        }
+     else if(selectedState==''){
+        toast.error("il faut choisir le type")
  
       }
       else{
