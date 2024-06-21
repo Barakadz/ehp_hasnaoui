@@ -7,6 +7,8 @@ import authRoutes from "./routes/auth.js";
 import actRoutes from "./routes/act.js";
  import offreRoutes from "./routes/offres.js";
 import GalerieRoutes from "./routes/galerie.js";
+import MedecinRoutes from "./routes/medecin.js";
+
 import AppMobileRoutes from "./routes/usermobile.js";
 
 import cookieParser from "cookie-parser";
@@ -35,6 +37,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/act", actRoutes);
 app.use("/api/offres", offreRoutes);
 app.use("/api/galerie", GalerieRoutes);
+app.use("/api/medecin", MedecinRoutes);
 
 app.use("/api/appmobile", AppMobileRoutes);
 
@@ -73,6 +76,28 @@ const storage_gal = multer.diskStorage({
 const uploadd = multer({ storage: storage_gal });
 
 app.post("/api/upload/galerie", uploadd.single("file"), (req, res) => {
+  const file = req.file;
+  if (!file) {
+    return res.status(400).json({ error: 'Erreur lors du téléversement du fichier' });
+  }
+  res.status(200).json(xx);
+});
+
+// Upload Medecin
+let xxx = "";
+const storage_Med = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "../client/public/medecin");
+  },
+  filename: function (req, file, cb) {
+    xx = Date.now() + file.originalname;
+    cb(null, xx);
+  },
+});
+
+const uploaddd = multer({ storage: storage_Med });
+
+app.post("/api/upload/medecin", uploadd.single("file"), (req, res) => {
   const file = req.file;
   if (!file) {
     return res.status(400).json({ error: 'Erreur lors du téléversement du fichier' });

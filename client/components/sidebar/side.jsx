@@ -33,7 +33,9 @@ const Side=()=>{
                         <i class="icofont-ui-copy text-white"></i> Galerie
                             </li></Link>
 
-
+                            <Link legacyBehavior href="/adminmedecin"  ><li className= {router.pathname === '/adminmedecin' ? 'act ' : '  '}>
+                        <i class="icofont-ui-copy text-white"></i> Medecin
+                            </li></Link>
 
                     </ul>
                 </div>
