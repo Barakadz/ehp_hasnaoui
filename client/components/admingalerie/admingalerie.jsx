@@ -18,7 +18,7 @@ const AdminGalerie = () => {
  const fetchData = async () => {
       try {
         //https://www.ehp-hasnaoui.com/api/galerie/
-        const response = await axios.get('http://localhost:8800/api/galerie/');  
+        const response = await axios.get('https://www.ehp-hasnaoui.com/api/galerie/');  
         setData(response.data);
        } catch (error) {
         console.error('Error fetching data: ', error);
@@ -41,7 +41,7 @@ const AdminGalerie = () => {
       <img 
       //          src={`https://www.ehp-hasnaoui.com/uploads/galerie/${rowData.image}`} 
 
-          src={`${rowData.image}`} 
+      src={`https://www.ehp-hasnaoui.com/uploads/galerie/${rowData.image}`} 
           alt="user" 
           style={{ width: 100, borderRadius: '3%' }} 
       />
@@ -132,7 +132,7 @@ const AdminGalerie = () => {
            const id=oldData.id;
            //axios.delete(`https://www.ehp-hasnaoui.com/api/galerie/${id}`)
 
-axios.delete(`http://localhost:8800/api/galerie/${id}`)
+           axios.delete(`https://www.ehp-hasnaoui.com/api/galerie/${id}`)
 .then(response => {
 toast.success(response.data)
 })

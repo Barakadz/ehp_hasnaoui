@@ -49,7 +49,7 @@ toast.error("il faut choisir un fichier")
         try {
          // const response = await axios.post('https://www.ehp-hasnaoui.com/api/upload/galerie', formData);
 
-          const response = await axios.post('http://localhost:8800/api/upload/galerie', formData);
+          const response = await axios.post('https://www.ehp-hasnaoui.com/api/upload/galerie', formData);
            xx+=response.data
            } catch (error) {
           toast.error(error);
@@ -57,7 +57,7 @@ toast.error("il faut choisir un fichier")
  image = image.replace(/"/g, '');
 
  //  const apiUrl = 'https://www.ehp-hasnaoui.com/api/galerie/add';
-   const apiUrl = `http://localhost:8800/api/galerie/${id}`;
+   const apiUrl = `https://www.ehp-hasnaoui.com/api/galerie/${id}`;
   const requestData = {
     type: selectedItem,
    image:xx,
