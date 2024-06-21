@@ -102,7 +102,7 @@ const AdminMedecin = () => {
     actions={[
       {
         icon: 'add',
-        tooltip: 'Ajouter Galerie',
+        tooltip: 'Ajouter Medecin',
         isFreeAction: true,
         onClick: handleAddUserClick,
       },
@@ -115,7 +115,7 @@ const AdminMedecin = () => {
       ,
       {
         icon: 'edit',
-        tooltip: 'Modifier Galerie',
+        tooltip: 'Modifier Medecin',
         isFreeAction: false,
         onClick: (event, rowData) => ModiyGalerie(JSON.stringify(rowData.id),JSON.stringify(rowData.image),JSON.stringify(rowData.type)),
       } 
