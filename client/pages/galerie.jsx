@@ -76,7 +76,7 @@ export default function Home() {
       'IMG_4795.JPG'
 
      ]
-     const [data, setData] = useState({});
+     const [data, setData] = useState([]);
      const [loading, setLoading] = useState(true);
      const [error, setError] = useState(null);
   useEffect(() => {
