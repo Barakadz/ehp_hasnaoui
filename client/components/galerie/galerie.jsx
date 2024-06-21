@@ -98,7 +98,7 @@ const MyLightbox = ({ images,title }) => {
       </div>
       {isOpen && (
         <Lightbox
-          mainSrc={images[photoIndex]}
+          mainSrc={`https://www.ehp-hasnaoui.com/uploads/galerie/${images[photoIndex]}`}
           nextSrc={images[(photoIndex + 1) % images.length]}
           prevSrc={images[(photoIndex + images.length - 1) % images.length]}
           onCloseRequest={closeLightbox}
