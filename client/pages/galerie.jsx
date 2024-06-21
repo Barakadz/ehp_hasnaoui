@@ -3,14 +3,17 @@ import { Inter } from "next/font/google";
 import Topbar from '../components/topbar/topbar';
 import Navbar from "@/components/navbar/navbar";
 import Footer from "@/components/footer/footer";
- 
-import Preloader from "@/components/preloader/preloader";
-import React, { useEffect } from 'react';
- import MyLightbox from "@/components/galerie/galerie";
 
+import Preloader from "@/components/preloader/preloader";
+import React, { useEffect,useState } from 'react';
+ import MyLightbox from "@/components/galerie/galerie";
+import axios from "axios";
+ 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+
+
   const images_pediateries = [
     '1I9A0113.JPG',
     '1I9A0114.JPG',
@@ -73,7 +76,21 @@ export default function Home() {
       'IMG_4795.JPG'
 
      ]
+     const [data, setData] = useState({});
+     const [loading, setLoading] = useState(true);
+     const [error, setError] = useState(null);
   useEffect(() => {
+
+axios.get('https://www.ehp-hasnaoui.com/api/galerie')
+.then(response => {
+  setData(response.data);
+  setLoading(false);
+  console.log(JSON.stringify(data))
+})
+.catch(error => {
+  setError(error);
+  setLoading(false);
+});
     const handleLoad = () => {
       console.log('Window loaded');
       const preloader = document.querySelector('.preloader');
@@ -92,6 +109,17 @@ export default function Home() {
       window.removeEventListener('load', handleLoad);
     };
   }, []);
+ // Group images by type
+ const imagesByType = data.reduce((acc, item) => {
+  if (!acc[item.type]) {
+    acc[item.type] = [];
+  }
+  acc[item.type].push(item.image);
+  return acc;
+}, {});
+    // Extract unique types
+    const uniqueTypes = Array.from(new Set(data.map(item => item.type)));
+
   return (<>
 	<Head>
 	<title>Galerie - EHPHASNAOUI</title>
@@ -105,15 +133,10 @@ export default function Home() {
  <Topbar/>
  <Navbar/>
  
-<MyLightbox images={images_pediateries} title="Pédiatries et néonatologie :"/>
- 
-<MyLightbox images={images_saleOperatoires} title="Salle opératoire :" />
-<MyLightbox images={images_sterilisation} title="Stérilisation :" />
-<MyLightbox images={images_laboratoires} title="Laboratoire :" />
+      {uniqueTypes.map((type, index) => (
 
-<MyLightbox images={images_imageries} title="Imagerie :" />
-<MyLightbox images={images_hospitalisation} title="Hospitalisation :" />
-<MyLightbox images={images_urences} title="Les urgences :" />
+<MyLightbox key={index} images={imagesByType[type]}  title={type}/>
+         ))}
 
 
  <Footer/>

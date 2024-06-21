@@ -69,7 +69,7 @@ const MyLightbox = ({ images,title }) => {
 				<div class="row ">
 					<div class="col">
 						<div class=" text-center mt-4">
-							<h2>{title}</h2>
+							<h2>{title + ' :'}</h2>
 							<img src="section-img.png" alt="#"/>
  						</div>
 					</div>
@@ -79,7 +79,7 @@ const MyLightbox = ({ images,title }) => {
         {images.map((image, index) => (<div className='mx-4'>
           <img
             key={index}
-            src={image}
+            src={`https://www.ehp-hasnaoui.com/uploads/galerie/${image}`}
             alt={`Image ${index}`}
             className=''
             onClick={() => openLightbox(index)}
