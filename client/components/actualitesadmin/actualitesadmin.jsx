@@ -14,7 +14,7 @@ const ActualitesAdmin = () => {
       try {
         //        const response = await axios.get('https://www.ehp-hasnaoui.com/api/act/');  
 
-        const response = await axios.get('http://localhost:8800/api/act/');  
+        const response = await axios.get('https://www.ehp-hasnaoui.com/api/act/');  
         setData(response.data);
        } catch (error) {
         console.error('Error fetching data: ', error);
@@ -116,7 +116,7 @@ const ActualitesAdmin = () => {
            const id=oldData.id;
            //axios.delete(`https://www.ehp-hasnaoui.com/api/act/${id}`)
 
-axios.delete(`http://localhost:8800/api/act/${id}`)
+           axios.delete(`https://www.ehp-hasnaoui.com/api/act/${id}`)
 .then(response => {
 toast.success(response.data)
 })
