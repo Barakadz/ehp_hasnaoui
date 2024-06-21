@@ -97,7 +97,7 @@ const storage_Med = multer.diskStorage({
 
 const uploaddd = multer({ storage: storage_Med });
 
-app.post("/api/upload/medecin", uploadd.single("file"), (req, res) => {
+app.post("/api/upload/medecin", uploaddd.single("file"), (req, res) => {
   const file = req.file;
   if (!file) {
     return res.status(400).json({ error: 'Erreur lors du téléversement du fichier' });
