@@ -1,5 +1,18 @@
 import Link from "next/link";
 import { useRouter } from 'next/router';
+import { FaUser } from "react-icons/fa";
+import { FaHospital } from "react-icons/fa";
+import { FaImages } from "react-icons/fa";
+import { MdMedicalInformation } from "react-icons/md";
+import { FaNewspaper } from "react-icons/fa6";
+import { FaCalendarAlt } from "react-icons/fa";
+import { RiDashboard3Line } from "react-icons/ri";
+import { IoMdNotifications } from "react-icons/io";
+import { FaGooglePlay } from "react-icons/fa";
+import { FaAmbulance } from "react-icons/fa";
+import { FaMedal } from "react-icons/fa6";
+
+
 const Side=()=>{
     const router = useRouter();
 
@@ -12,34 +25,59 @@ const Side=()=>{
                     <ul class="nav ">
                     
                         <Link legacyBehavior href="/admin"  ><li className= {router.pathname === '/admin' ? 'act ' : '  '}>
-                            <i class="icofont-dashboard text-white"></i> Dashboard
+                        <RiDashboard3Line  color="white" fontSize={20} className="mx-2"/>
+                        Dashboard
                         </li></Link>
 
                         <Link legacyBehavior href="/rendezvous"  ><li className= {router.pathname === '/rendezvous' ? 'act ' : '  '}>
-                        <i class="icofont-ui-calendar text-white"></i> RendezVous
+                        <FaCalendarAlt color="white" fontSize={20} className="mx-2"/>
+RendezVous
                         </li></Link>
                         <Link legacyBehavior href="/act"  ><li className= {router.pathname === '/act' ? 'act ' : '  '}>
-                        <i class="icofont-ui-copy text-white"></i> Actualités
+                        <FaNewspaper  color="white" fontSize={20} className="mx-2"/>
+Actualités
                             </li></Link>
                             
  
 
                             <Link legacyBehavior href="/offres"  ><li className= {router.pathname === '/offres' ? 'act ' : '  '}>
-                        <i class="icofont-ui-copy text-white"></i> Offres d'emploi
+                            <MdMedicalInformation color="white" fontSize={20} className="mx-2"/>
+
+                        Offres d'emploi
 
                             </li></Link>
 
                         <Link legacyBehavior href="/admingalerie"  ><li className= {router.pathname === '/admingalerie' ? 'act ' : '  '}>
-                        <i class="icofont-ui-copy text-white"></i> Galerie
+                        <FaImages color="white" fontSize={20} className="mx-2"/>
+ Galerie
                             </li></Link>
 
                             <Link legacyBehavior href="/adminmedecin"  ><li className= {router.pathname === '/adminmedecin' ? 'act ' : '  '}>
-                        <i class="icofont-ui-copy text-white"></i> Medecin
+                            <FaHospital color="white" fontSize={20} className="mx-2"/>
+                            Medecin
                             </li></Link>
-<h4 className="text-white mx-3 mt-2">Application Mobile :</h4>
+                            <Link legacyBehavior href="/adminmedecin"  ><li className= {router.pathname === '/adminmedecin' ? 'act ' : '  '}>
+                            <FaMedal color="white" fontSize={20} className="mx-2"/>
+                            Remises médicales
+                            </li></Link>
+<h5 className="text-white mx-4 mt-2">Application Mobile :</h5>
                             <Link legacyBehavior href="/adminusermobile"  ><li className= {router.pathname === '/adminusermobile' ? 'act ' : '  '}>
-                        <i class="icofont-ui-copy text-white"></i> Utilisateurs
+                            <FaUser color="white" fontSize={20} className="mx-2"/>
+                            Utilisateurs
                             </li></Link>
+                            <Link legacyBehavior href="/notifications"  ><li className= {router.pathname === '/notifications' ? 'act ' : '  '}>
+                            <IoMdNotifications         color="white" fontSize={20} className="mx-2"/>
+                            Notifications
+                            </li></Link>
+                            <Link legacyBehavior href="/version"  ><li className= {router.pathname === '/version' ? 'act ' : '  '}>
+                            <FaGooglePlay  color="white" fontSize={20} className="mx-2"/>
+                            Version App
+                            </li></Link>
+                            <Link legacyBehavior href="/ambulance"  ><li className= {router.pathname === '/ambulance' ? 'act ' : '  '}>
+                            <FaAmbulance  color="white" fontSize={20} className="mx-2"/>
+                            Ambulance Routes
+                            </li></Link>
+                         
                     </ul>
                 </div>
                 <div id=" ">
