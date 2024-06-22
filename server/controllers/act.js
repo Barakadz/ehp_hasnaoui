@@ -31,11 +31,13 @@ export const AddActualites = (req, res) => {
     const Date=currentDate.format('DD/MM/YYYY');
   
     const q =
-      "INSERT INTO `actualites`( `titre`, `description`, `date`, `image`)  VALUE (?)";
+      "INSERT INTO `actualites`( `titre`, `description`, `type`, `date`, `image`)  VALUE (?)";
 
     const values = [
       req.body.titre,
       req.body.description,
+      req.body.type,
+
       Date,
       req.body.image
 
@@ -146,6 +148,7 @@ export const UpdateActualites = (req, res) => {
         req.body.description,
         req.body.date,
         req.body.image,
+        req.body.type,
         id
   
        ];
@@ -154,9 +157,9 @@ export const UpdateActualites = (req, res) => {
       return res.status(400).json({ error: 'ID is required' });
     }
   
-    const q = "UPDATE `actualites` SET `titre` = ?, `description` = ?, `date` = ?, `image` = ? WHERE id = ?";
+    const q = "UPDATE `actualites` SET `titre` = ?, `description` = ?, `date` = ?, `image` = ? , `type` = ? WHERE id = ?";
   
-    db.query(q,[req.body.titre,req.body.description,req.body.date, req.body.image,id], (err, userData) => {
+    db.query(q,[req.body.titre,req.body.description,req.body.date, req.body.image, req.body.type,id], (err, userData) => {
       if (err) {
         console.error('Error executing query:', err);
         return res.status(500).json({ error: 'Database error' });

@@ -3,15 +3,45 @@ import MaterialTable from 'material-table';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
-import AddOffresButton from './addOffresButton';
-   
 
+
+ import AddOffresButton from './addOffresButton';
+import ModifyOffres from './modifyoffres';
+  
 
 const AdminOffres = () => {
-   const [data, setData] = useState([]);
+  const [titre, setTitre] = useState('');
+  const [lieu, setLieu] = useState('');
+  const [poste, setPoste] = useState('');
+  const [secteur, setSecteur] = useState('');
+  const [diplome, setDiplome] = useState('');
+  const [nbrposte, setNbrposte] = useState('');
+  const [contrat, setContrat] = useState('');
+  const [description, setDescription] = useState('');
+  const [id, setId] = useState('');
 
+  const [data, setData] = useState([]);
+  const ModiyOffress = (id,titre,lieu,poste,secteur,diplome,nbrposte,contrat,description) => {
+    setTitre(titre)
+    setLieu(lieu)
+    setPoste(poste)
+    setSecteur(secteur)
+    setDiplome(diplome)
+    setNbrposte(nbrposte)
+    setContrat(contrat)
+    setDescription(description)
+
+     setId(id)
+      // Logique pour afficher le modal
+    const modal = document.getElementById('exampleModall');
+    if (modal) {
+      modal.classList.add('show');
+      modal.style.display = 'block';
+    }
+  };
  const fetchData = async () => {
       try {
+        //https://www.ehp-hasnaoui.com/api/galerie/
         const response = await axios.get('https://www.ehp-hasnaoui.com/api/offres/');  
         setData(response.data);
        } catch (error) {
@@ -38,15 +68,30 @@ const AdminOffres = () => {
     { field: 'description', title: 'Description',hidden:true },
     { field: 'date', title: 'Date' },
  
+ 
+    
    ];
  
+   const handleAddUserClick = () => {
+    // Logique pour afficher le modal
+    const modal = document.getElementById('exampleModal');
+    if (modal) {
+      modal.classList.add('show');
+      modal.style.display = 'block';
+    }
+  };
 
+ 
   return (
     <> 
-<AddOffresButton/>
+   
+    
+<AddOffresButton/>< ModifyOffres
+ id={id} titree={titre} lieuu={lieu}postee={poste} secteurr={secteur} diplomee={diplome} 
+ contratt={contrat} nbrpostee={nbrposte} descriptionn={description} />
      <ToastContainer />    
     <MaterialTable
-    title="La liste Des Offred'emplois"
+    title="La liste Des Offres d'emplois"
     columns={columns}
     data={data}
     options={{
@@ -62,38 +107,36 @@ const AdminOffres = () => {
     }} 
 
     actions={[
-    
+      {
+        icon: 'add',
+        tooltip: 'Ajouter Offres',
+        isFreeAction: true,
+        onClick: handleAddUserClick,
+      },
       {
         icon: 'refresh',
         tooltip: 'Refresh Data',
         isFreeAction: true,
         onClick: () => fetchData(),
       }
+      ,
+      {
+        icon: 'edit',
+        tooltip: 'Modifier offres',
+        isFreeAction: false,
+        onClick: (event, rowData) => ModiyOffress(JSON.stringify(rowData.id),JSON.stringify(rowData.titre),JSON.stringify(rowData.lieu),
+        JSON.stringify(rowData.niveau_poste),JSON.stringify(rowData.secteur),JSON.stringify(rowData.diplome),
+        JSON.stringify(rowData.nombre_poste),JSON.stringify(rowData.contrat),JSON.stringify(rowData.description)),
+      } 
     ]}
    
 
-    detailPanel={rowData => {
-        return (<>
-         <p><b>Description :</b>{rowData.description}</p>
-      
-  </>
-        )
-      }}
+
 
 
     editable={{
      
-      onRowUpdate: (newData, oldData) =>
-        new Promise((resolve, reject) => {
-          setTimeout(() => {
-            const dataUpdate = [...data];
-            const index = oldData.tableData.id;
-            dataUpdate[index] = newData;
-            setData([...dataUpdate]);
-
-            resolve();
-          }, 1000)
-        }),
+      
       onRowDelete: oldData =>
         new Promise((resolve, reject) => {
           setTimeout(() => {
@@ -103,7 +146,9 @@ const AdminOffres = () => {
             setData([...dataDelete]);
            //id==> console.log(oldData.id)
            const id=oldData.id;
-axios.delete(`https://www.ehp-hasnaoui.com/api/galerie/${id}`)
+           //axios.delete(`https://www.ehp-hasnaoui.com/api/galerie/${id}`)
+
+           axios.delete(`https://www.ehp-hasnaoui.com/api/offres/${id}`)
 .then(response => {
 toast.success(response.data)
 })
@@ -112,11 +157,19 @@ toast.error(error)});
             resolve()
           }, 1000)
         }),
-    }}
-
-
-
-
+      }}
+  
+      detailPanel={rowData => {
+        return (<>
+         <p><b>Description :</b></p> 
+         <div
+            dangerouslySetInnerHTML={{ __html: rowData.description }}
+          />
+  </>
+        )
+      }}
+  
+ 
 
     localization={{
       body: {
@@ -128,7 +181,7 @@ toast.error(error)});
               filterTooltip: 'Filtrer'
           },
           editRow: {
-              deleteText: 'Voulez-vous supprimer cette Actualites?',
+              deleteText: 'Voulez-vous supprimer cette offres?',
               cancelTooltip: 'Annuler',
               saveTooltip: 'Enregistrer'
           }

@@ -10,9 +10,13 @@ import ModifyMedecin from './modifymedecin';
   
 
 const AdminMedecin = () => {
-  const [ImageGal, setImage] = useState('');
-  const [TypeGal, setType] = useState('');
-  const [IdGal, setId] = useState('');
+  const [username, setUsername] = useState('');
+  const [poste, setPoste] = useState('');
+  const [valeur, setValeur] = useState('');
+  const [type, setType] = useState('');
+  const [image, setImage] = useState('');
+
+  const [id, setId] = useState('');
 
   const [data, setData] = useState([]);
 
@@ -65,9 +69,13 @@ const AdminMedecin = () => {
     }
   };
 
-  const ModiyGalerie = (id,image,type) => {
+  const ModiyMedcinn = (id,username,poste,valeur,type,image,) => {
     setImage(image)
+    setUsername(username)
+    setPoste(poste)
+    setValeur(valeur)
     setType(type)
+
     setId(id)
       // Logique pour afficher le modal
     const modal = document.getElementById('exampleModall');
@@ -81,7 +89,7 @@ const AdminMedecin = () => {
    
     
 <AddMedecinButton/>< ModifyMedecin
- id={IdGal} image={ImageGal} type={TypeGal}/>
+ id={id} image={image} usernameee={username} posteee={poste} valeurrr={valeur} type={type} />
      <ToastContainer />    
     <MaterialTable
     title="La liste Des Medecin"
@@ -117,7 +125,9 @@ const AdminMedecin = () => {
         icon: 'edit',
         tooltip: 'Modifier Medecin',
         isFreeAction: false,
-        onClick: (event, rowData) => ModiyGalerie(JSON.stringify(rowData.id),JSON.stringify(rowData.image),JSON.stringify(rowData.type)),
+        onClick: (event, rowData) => ModiyMedcinn(JSON.stringify(rowData.id),JSON.stringify(rowData.username),JSON.stringify(rowData.poste),
+        JSON.stringify(rowData.valeur),JSON.stringify(rowData.type),JSON.stringify(rowData.image),
+      ),
       } 
     ]}
    

@@ -4,11 +4,16 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 import AddButton from './addActButton';
+import ModifyActualites from './modifyAct';
   
  
 
 const ActualitesAdmin = () => {
-   const [data, setData] = useState([]);
+  const [ImageAct, setImage] = useState('');
+  const [TypeAct, setType] = useState('');
+  const [IdGal, setId] = useState('');
+
+  const [data, setData] = useState([]);
 
  const fetchData = async () => {
       try {
@@ -51,13 +56,25 @@ const ActualitesAdmin = () => {
       />
   ) 
     
-  },
+  },    { field: 'type', title: 'Type' },
+
    ];
- 
+   const ModiyAct = (id,image,type) => {
+    setImage(image)
+    setType(type)
+    setId(id)
+      // Logique pour afficher le modal
+    const modal = document.getElementById('exampleModall');
+    if (modal) {
+      modal.classList.add('show');
+      modal.style.display = 'block';
+    }
+  };
 
   return (
     <> 
-<AddButton/>
+<AddButton/>< ModifyActualites
+ id={IdGal} image={ImageAct} type={TypeAct}/>
      <ToastContainer />    
     <MaterialTable
     title="La liste Des Actualités"
@@ -95,7 +112,7 @@ const ActualitesAdmin = () => {
         icon: 'edit',
         tooltip: 'Modifier cette Actualité',
         isFreeAction: false,
-        onClick: (event, rowData) => ModiyAct(JSON.stringify(rowData.id),JSON.stringify(rowData.titre),JSON.stringify(rowData.date),JSON.stringify(rowData.image))
+        onClick: (event, rowData) => ModiyAct(JSON.stringify(rowData.id),JSON.stringify(rowData.image),JSON.stringify(rowData.type),JSON.stringify(rowData.titre),JSON.stringify(rowData.date))
       } 
     ]}
    

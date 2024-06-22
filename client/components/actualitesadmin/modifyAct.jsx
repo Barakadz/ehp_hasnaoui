@@ -1,51 +1,64 @@
+import 'react-quill/dist/quill.snow.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
- 
-const ModifyMedecin=({id,image,type,usernameee,posteee,valeurrr})=>{
+import dynamic from 'next/dynamic';
+
+ // Dynamically import ReactQuill with SSR disabled
+const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
+
+const ModifyActualites=({id,image,type})=>{
+  const [isClient, setIsClient] = useState(false);
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
     
-  const [usernamee, setUsernamee] = useState(usernameee);
+  const [titree, setTitree] = useState('');
 
-  const handleInputUsernamee = (event) => {
-     setUsernamee(event.target.value);
+  const handleTitree = (event) => {
+    setTitree(event.target.value);
  };
+  
+ const modules = {
+  toolbar: [
+    [{ header: '1'}, { header: '2'}, { font: [] }],
+    [{ size: [] }],
+    ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+    [{ list: 'ordered'}, { list: 'bullet' }],
+    ['link', 'image'],
+    ['clean'],
+    [{ 'align': [] }],
+    [{ 'color': [] }, { 'background': [] }],
+    ['code-block'],                                      
+  ],
+};
 
+const formats = [
+  'header', 'font', 'size',
+  'bold', 'italic', 'underline', 'strike', 'blockquote',
+  'list', 'bullet',
+  'link', 'image',
+  'align',
+  'color', 'background',
+  'code-block',
+];
+const [editorContent, setEditorContent] = useState('');
 
- const [valeurr, setValeurr] = useState(valeurrr);
+const handleChange = (value) => {
+  setEditorContent(value);
+};
+if (!isClient) {
+  return null; // Render nothing on the server
+}
+ 
 
-  const handleInputValeurr = (event) => {
-     setValeurr(event.target.value);
- };
-
- const [postee, setPostee] = useState(posteee);
-
- const handlePostee = (event) => {
-     setPostee(event.target.value);
+ 
+ const handleTypee = (event) => {
+  setTypee(event.target.value);
 };
    var typee = type.replace(/"/g,'' );
-
-  //type
-  const [selectedItem, setItem] = useState(typee);
  
- 
-
-  const statess = [
-    'Médecins non conventionnés',
-    'Médecins conventionnés',
-     
-
-  ];
-
-  const handleChangeItem = (event) => {
-    setItem(event.target.value);
-  };
-  //image
-  const [file, setFile] = useState(null);
-var xx=''
-  const handleFileChange = (e) => {
-    setFile(e.target.files[0]);
-  };
  
     const handleUpload = async () => {
       if(!file){
@@ -124,21 +137,13 @@ toast.error("il faut choisir un fichier")
       <div class="modal-body">
             <form   encType="multipart/form-data"  >
 
-            <div class="form-group">
-
-<label for="exampleInputEmail1" className='mt-4' style={{float:'left'}} >Nom & Prénom<span  style={{color:'red'}}>*</span>:</label>
-
-<div class="input-group mb-3">
- <input type="text" value={usernamee} onChange={handleInputUsernamee} class="form-control" accept="image/*"/>
-
-</div>
-</div>
+           
 <div class="form-group">
 
-<label for="exampleInputEmail1" className='mt-4' style={{float:'left'}} >Poste<span  style={{color:'red'}}>*</span>:</label>
+<label for="exampleInputEmail1" className='mt-4' style={{float:'left'}} >Titre<span  style={{color:'red'}}>*</span>:</label>
 
 <div class="input-group mb-3">
- <input type="text" value={postee} onChange={handlePostee} class="form-control" accept="image/*"/>
+ <input type="text" value={titree} onChange={handleTitree} class="form-control" accept="image/*"/>
 
 </div>
 
@@ -146,54 +151,35 @@ toast.error("il faut choisir un fichier")
 </div>
 <div class="form-group">
 
-<label for="exampleInputEmail1" className='mt-4' style={{float:'left'}} >Valeur<span  style={{color:'red'}}>*</span>:</label>
+<label for="exampleInputEmail1" className='mt-4' style={{float:'left'}} >Type<span  style={{color:'red'}}>*</span>:</label>
 
 <div class="input-group mb-3">
- <input type="text" value={valeurr} onChange={handleInputValeurr} class="form-control" accept="image/*"/>
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            <div class="form-group">
-
-
-
-<label for="exampleInputEmail1" style={{float:'left'}} >Type<span  style={{color:'red'}}>*</span>:</label>
-
-<div class="input-group mb-3">
-    <span class="input-group-text" id="basic-addon1"><i class="icofont-shield-alt"></i></span>
-    <select id="stateselect" value={selectedItem} onChange={handleChangeItem}className='form-select' required>
-    {statess.map((statOption) => (
-  <option key={statOption} value={statOption}  >
-    {statOption }
-  </option>
-))}
-
-      </select>
  
- </div>
-
-<ToastContainer />
+</div>
 
 
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<label style={{float:'left'}}> Discription : <b style={{color:'red'}}>*</b></label><br></br>
+      <ReactQuill value={editorContent} onChange={handleChange}  modules={modules}
+        formats={formats} 
+        placeholder="Discription de l'actualités" required/>
+
+           
      
 
 <div class="form-group">
@@ -201,8 +187,7 @@ toast.error("il faut choisir un fichier")
 <label for="exampleInputEmail1" className='mt-4' style={{float:'left'}} >Image<span  style={{color:'red'}}>*</span>:</label>
 
 <div class="input-group mb-3">
- <input type="file" onChange={handleFileChange} class="form-control" accept="image/*"/>
-
+ 
 </div>
 
 
@@ -225,4 +210,4 @@ toast.error("il faut choisir un fichier")
     )
 }
 
-export default ModifyMedecin;
+export default ModifyActualites;

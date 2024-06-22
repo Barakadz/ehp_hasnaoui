@@ -11,7 +11,11 @@ const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 
 const AddButton=()=>{
   const [isClient, setIsClient] = useState(false);
+  const [type, setIsType] = useState('');
 
+  const handleType = (event) => {
+    setIsType(event.target.value);
+  };
   useEffect(() => {
     setIsClient(true);
   }, []);
@@ -91,6 +95,7 @@ toast.error("il faut choisir un fichier")
     titre: titre,
     description: editorContent,
    image:file.name,
+   type:type
    
  
 
@@ -134,6 +139,7 @@ toast.error("il faut choisir un fichier")
       <div class="modal-body">
             <form   encType="multipart/form-data"  >
        
+        
             <div class="form-group">
 
 
@@ -167,7 +173,21 @@ toast.error("il faut choisir un fichier")
 
 
 </div>
+<div class="form-group">
 
+
+
+<label for="exampleInputEmail1" style={{float:'left'}} >Type<span  style={{color:'red'}}>*</span>:</label>
+
+<div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1"><i class="icofont-presentation-alt"></i></span>
+
+    <input type="text" class="form-control" id="type" name="type"   placeholder="Enter Votre Type" value={type}  onChange={handleType}  required/>
+</div>
+
+ 
+
+</div>
             </form>
       </div>
       <div class="modal-footer">

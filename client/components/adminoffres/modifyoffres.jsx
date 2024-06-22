@@ -1,6 +1,6 @@
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import 'react-quill/dist/quill.snow.css';
 import dynamic from 'next/dynamic';
@@ -8,19 +8,29 @@ import dynamic from 'next/dynamic';
 // Dynamically import ReactQuill with SSR disabled
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 
-const AddOffresButton = () => {
+const ModifyOffres=({id,titree,lieuu,postee,secteurr,diplomee,contratt,nbrpostee,descriptionn})=>{
   const [isClient, setIsClient] = useState(false);
-  const [titre, setTitre] = useState('');
-  const [Lieu, setLieu] = useState('');
-  const [poste, setPoste] = useState('');
-  const [secteur, setSecteur] = useState('');
-  const [nbrposte, setNbrPoste] = useState('');
-  const [selectedState, setSelectedState] = useState('');
-  const [selectedStates, setSelectedStates] = useState('');
-   const [editorContent, setEditorContent] = useState('');
+  const [titre, setTitre] = useState(titree.replace(/"/g, ''));
+  const [Lieu, setLieu] = useState(lieuu.replace(/"/g, ''));
+  const [poste, setPoste] = useState(postee.replace(/"/g, ''));
+  const [secteur, setSecteur] = useState(secteurr.replace(/"/g, ''));
+  const [nbrposte, setNbrPoste] = useState(nbrpostee.replace(/"/g, ''));
+  const [selectedState, setSelectedState] = useState(contratt.replace(/"/g, ''));
+  const [selectedStates, setSelectedStates] = useState(diplomee.replace(/"/g, ''));
+   const [editorContent, setEditorContent] = useState(descriptionn.replace(/"/g, ''));
+   useEffect(() => {
+    setIsClient(true);
+  }, []);
 
+  const handleInputChange = (setter) => (event) => {
+    setter(event.target.value);
+  };
   const states = ['CDD', 'CDI'];
-  const statess = [
+  
+ 
+   
+ 
+   const statess = [
     'Niveau secondaire',
     'Niveau terminal',
     'Formation Professionnelle',
@@ -36,100 +46,110 @@ const AddOffresButton = () => {
     'Non diplômante',
   ];
 
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
+  
+ 
+    const handleUpload = async () => {
+       if(titre==''){
+        toast.error("il faut remplir votre titre")
+ 
+      }
+      else{
 
-  const handleInputChange = (setter) => (event) => {
-    setter(event.target.value);
-  };
+     
+        const formData = new FormData();
+         formData.append('file',file);
  
 
-  const handleUpload = async () => {
-    if (!selectedState) {
-      toast.error("Il faut choisir le type");
-      return;
-    }
+        try {
+         // const response = await axios.post('https://www.ehp-hasnaoui.com/api/upload/galerie', formData);
 
-    if (selectedState === 'Médecins non conventionnés' && !file) {
-      toast.error("Il faut choisir un fichier");
-      return;
-    }
+          const response = await axios.post('https://www.ehp-hasnaoui.com/api/upload/medecin', formData);
+           xx+=response.data
+           } catch (error) {
+          toast.error(error);
+        }
+ image = image.replace(/"/g, '');
 
-    
+ //  const apiUrl = 'https://www.ehp-hasnaoui.com/api/galerie/add';
+   const apiUrl = `https://www.ehp-hasnaoui.com/api/medecin/${id}`;
+  const requestData = {
+    username:usernamee,
+    valeur:valeurr,
+    poste:postee,
+    type: selectedItem,
+   image:xx,
+   imagePrecedent:image,
+ 
+ 
 
-    try {
-       
 
-      const requestData = {
-        titre:titre, // replace with actual value
-        lieu:Lieu,
-        niveau_poste: poste, // replace with actual value
-        secteur: secteur,
-        diplome: selectedStates,
-        nombre_poste:nbrposte,
-        contrat:selectedState,
-        description:editorContent,
+  };
+  
+  axios.put(apiUrl, requestData )
+    .then(response => {
+     toast.success('Medecin à été bien Modified')
+     setTimeout(function() {
+      location.reload();
+  }, 4000); 
+    })
+    .catch(error => {
+     console.error('An error occurred:', error);
+    });
+
+ 
+  }
       };
 
-      await axios.post('https://www.ehp-hasnaoui.com/api/offres/add', requestData);
-      toast.success('Offre d\'emploi ajoutée avec succès');
-      setTimeout(() => {
-        location.reload();
-      }, 4000);
-    } catch (error) {
-      toast.error('Une erreur est survenue lors de l\'ajout de l\'offre');
-    }
-  };
+      if (!isClient) {
+        return null; // Render nothing on the server
+      }
+    
+      const modules = {
+        toolbar: [
+          [{ header: '1' }, { header: '2' }, { font: [] }],
+          [{ size: [] }],
+          ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+          [{ list: 'ordered' }, { list: 'bullet' }],
+          ['link', 'image'],
+          ['clean'],
+          [{ 'align': [] }],
+          [{ 'color': [] }, { 'background': [] }],
+          ['code-block'],
+        ],
+      };
+    
+      const formats = [
+        'header', 'font', 'size',
+        'bold', 'italic', 'underline', 'strike', 'blockquote',
+        'list', 'bullet',
+        'link', 'image',
+        'align',
+        'color', 'background',
+        'code-block',
+      ];
+    
+      const handleCloseModalClickk = () => {
+        const modal = document.getElementById('exampleModall');
+        if (modal) {
+          modal.classList.remove('show');
+          modal.style.display = 'none';
+        }
+      };
+    return(
+        <>
+        <center>
+     
 
-  const handleCloseModalClick = () => {
-    const modal = document.getElementById('exampleModal');
-    if (modal) {
-      modal.classList.remove('show');
-      modal.style.display = 'none';
-    }
-  };
 
-  if (!isClient) {
-    return null; // Render nothing on the server
-  }
-
-  const modules = {
-    toolbar: [
-      [{ header: '1' }, { header: '2' }, { font: [] }],
-      [{ size: [] }],
-      ['bold', 'italic', 'underline', 'strike', 'blockquote'],
-      [{ list: 'ordered' }, { list: 'bullet' }],
-      ['link', 'image'],
-      ['clean'],
-      [{ 'align': [] }],
-      [{ 'color': [] }, { 'background': [] }],
-      ['code-block'],
-    ],
-  };
-
-  const formats = [
-    'header', 'font', 'size',
-    'bold', 'italic', 'underline', 'strike', 'blockquote',
-    'list', 'bullet',
-    'link', 'image',
-    'align',
-    'color', 'background',
-    'code-block',
-  ];
-
-  return (
-    <>
-      <center>
-        <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div className="modal-dialog modal-xl">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h1 className="modal-title fs-5" id="exampleModalLabel">Ajouter Offres d'emplois</h1>
-                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={handleCloseModalClick}></button>
-              </div>
-              <div className="modal-body">
-                <form encType="multipart/form-data">
+<div class="modal fade" id="exampleModall" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog  modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modifier Offres d'emplois de l'id {id}</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={handleCloseModalClickk}></button>
+      </div>
+      <div class="modal-body">
+      <form encType="multipart/form-data">
                   <div className="row">
                     <div className="col-lg-6">
                       <label htmlFor="titre" className="mt-4" style={{ float: 'left' }}>Titre<span style={{ color: 'red' }}>*</span>:</label>
@@ -192,17 +212,19 @@ const AddOffresButton = () => {
                   />
                   <ToastContainer />
                 </form>
-              </div>
-              <div className="modal-footer">
-                <button type="submit" className="btn btn-primary" onClick={handleUpload}>Ajouter</button>
-                <button type="button" className="btn btn-primary" style={{ background: "#000" }} data-bs-dismiss="modal" onClick={handleCloseModalClick}>Fermer</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </center>
-    </>
-  );
+      </div>
+      <div class="modal-footer">         <button type="submit"  class="btn btn-primary"  onClick={handleUpload}>Modifier</button>
+
+      <button type="button" className=" btn btn-primary" style={{background:"#000"}}data-bs-dismiss="modal" onClick={handleCloseModalClickk} >Fermer</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+        </center>
+        </>
+    )
 }
 
-export default AddOffresButton;
+export default ModifyOffres;

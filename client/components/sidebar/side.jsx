@@ -36,7 +36,10 @@ const Side=()=>{
                             <Link legacyBehavior href="/adminmedecin"  ><li className= {router.pathname === '/adminmedecin' ? 'act ' : '  '}>
                         <i class="icofont-ui-copy text-white"></i> Medecin
                             </li></Link>
-
+<h4 className="text-white mx-3 mt-2">Application Mobile :</h4>
+                            <Link legacyBehavior href="/adminusermobile"  ><li className= {router.pathname === '/adminusermobile' ? 'act ' : '  '}>
+                        <i class="icofont-ui-copy text-white"></i> Utilisateurs
+                            </li></Link>
                     </ul>
                 </div>
                 <div id=" ">

@@ -127,7 +127,7 @@ toast.error("il faut choisir un fichier")
 
 <label for="exampleInputEmail1" className='mt-4' style={{float:'left'}} >Nom & Prénom<span  style={{color:'red'}}>*</span>:</label>
 
-<div class="input-group mb-3">
+<div class="input-group ">
  <input type="text" value={username} onChange={handleInputUsername} class="form-control" accept="image/*"/>
 
 </div>
@@ -136,7 +136,7 @@ toast.error("il faut choisir un fichier")
 
 <label for="exampleInputEmail1" className='mt-4' style={{float:'left'}} >Poste<span  style={{color:'red'}}>*</span>:</label>
 
-<div class="input-group mb-3">
+<div class="input-group ">
  <input type="text" value={poste} onChange={handlePoste} class="form-control" accept="image/*"/>
 
 </div>
@@ -147,7 +147,7 @@ toast.error("il faut choisir un fichier")
 
 <label for="exampleInputEmail1" className='mt-4' style={{float:'left'}} >Valeur<span  style={{color:'red'}}>*</span>:</label>
 
-<div class="input-group mb-3">
+<div class="input-group  ">
  <input type="text" value={valeur} onChange={handleInputValeur} class="form-control" accept="image/*"/>
 
 </div>
@@ -164,7 +164,7 @@ toast.error("il faut choisir un fichier")
          
 <label for="exampleInputEmail1" style={{float:'left'}} >Type<span  style={{color:'red'}}>*</span>:</label>
 
-<div class="input-group mb-3">
+<div class="input-group  ">
     <span class="input-group-text" id="basic-addon1"><i class="icofont-shield-alt"></i></span>
     <select id="state-select" value={selectedState} onChange={handleChange}className='form-select' required>
         <option value="">--choisir un type --</option>
