@@ -39,7 +39,7 @@ app.use("/api/offres", offreRoutes);
 app.use("/api/galerie", GalerieRoutes);
 app.use("/api/medecin", MedecinRoutes);
 
-app.use("/api/appmobile", AppMobileRoutes);
+app.use("/api/usermobile", AppMobileRoutes);
 
 // Upload file
 const storage = multer.diskStorage({

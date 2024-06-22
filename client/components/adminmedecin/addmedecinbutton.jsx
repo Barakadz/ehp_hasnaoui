@@ -6,23 +6,23 @@ import axios from 'axios';
 
 const AddMedecinButton=()=>{
     
-    const [username, setUsername] = useState('');
+    const [usernameMed, setUsernameMed] = useState('');
 
      const handleInputUsername = (event) => {
-        setUsername(event.target.value);
+        setUsernameMed(event.target.value);
     };
 
  
-    const [valeur, setValeur] = useState('');
+    const [valeurMed, setValeurMed] = useState('');
 
      const handleInputValeur = (event) => {
-        setValeur(event.target.value);
+        setValeurMed(event.target.value);
     };
 
-    const [poste, setPoste] = useState('');
+    const [posteMed, setPosteMed] = useState('');
 
     const handlePoste = (event) => {
-        setPoste(event.target.value);
+        setPosteMed(event.target.value);
    };
   //type
   const [selectedState, setSelectedState] = useState('');
@@ -75,9 +75,9 @@ toast.error("il faut choisir un fichier")
 
  const apiUrl = 'https://www.ehp-hasnaoui.com/api/medecin/add';
   const requestData = {
-    username:username,
-    poste:poste,
-    valeur:valeur,
+    username:usernameMed,
+    poste:posteMed,
+    valeur:valeurMed,
     type: selectedState,
    image:xx 
    
@@ -128,7 +128,7 @@ toast.error("il faut choisir un fichier")
 <label for="exampleInputEmail1" className='mt-4' style={{float:'left'}} >Nom & Prénom<span  style={{color:'red'}}>*</span>:</label>
 
 <div class="input-group ">
- <input type="text" value={username} onChange={handleInputUsername} class="form-control" accept="image/*"/>
+ <input type="text" value={usernameMed} onChange={handleInputUsername} class="form-control" accept="image/*"/>
 
 </div>
 </div>
@@ -137,7 +137,7 @@ toast.error("il faut choisir un fichier")
 <label for="exampleInputEmail1" className='mt-4' style={{float:'left'}} >Poste<span  style={{color:'red'}}>*</span>:</label>
 
 <div class="input-group ">
- <input type="text" value={poste} onChange={handlePoste} class="form-control" accept="image/*"/>
+ <input type="text" value={posteMed} onChange={handlePoste} class="form-control" accept="image/*"/>
 
 </div>
 
@@ -148,7 +148,7 @@ toast.error("il faut choisir un fichier")
 <label for="exampleInputEmail1" className='mt-4' style={{float:'left'}} >Valeur<span  style={{color:'red'}}>*</span>:</label>
 
 <div class="input-group  ">
- <input type="text" value={valeur} onChange={handleInputValeur} class="form-control" accept="image/*"/>
+ <input type="text" value={valeurMed} onChange={handleInputValeur} class="form-control" accept="image/*"/>
 
 </div>
 

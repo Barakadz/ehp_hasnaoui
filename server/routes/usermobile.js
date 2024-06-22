@@ -1,11 +1,14 @@
 import express from "express";
-import {  AddUser } from "../controllers/usermobile.js";
+import {  AdduserMobile,DeleteuserMobile,UpdateuserMobile,userMobile,getByIduserMobile} from "../controllers/usermobile.js";
 
 const router = express.Router()
 
  
-router.post("/add", AddUser)
- 
+router.post("/add", AdduserMobile)
+router.delete("/:id", DeleteuserMobile)
+router.put("/:id", UpdateuserMobile)
+router.get("/", userMobile)
+router.get("/:id", getByIduserMobile)
 
 
 export default router
