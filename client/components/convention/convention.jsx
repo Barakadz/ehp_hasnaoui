@@ -13,7 +13,7 @@ function SampleNextArrow({ className, onClick }) {
 				marginRight: "0px"
 			}}
 			onClick={onClick}
-		>	<FaChevronRight color="white" size={35} style={{ padding: '9px', background: "linear-gradient(to right, #23B6EA, #66DED4)", borderRadius: '10%' }} />
+		>	<FaChevronRight color="white" size={35} style={{ padding: '9px', background: "linear-gradient(to right, #23B6EA, #66DED4)", borderRadius: '10%', zIndex:'-1'  }} />
 		</div>
 
 	);
@@ -33,7 +33,7 @@ function SamplePrevArrow(props) {
 			}}
 			onClick={onClick}
 		>
-			<FaChevronLeft color="white" size={35} style={{ padding: '9px', background: "linear-gradient(to right, #23B6EA, #66DED4)", borderRadius: '10%' }} />
+			<FaChevronLeft color="white" size={35} style={{ padding: '9px', background: "linear-gradient(to right, #23B6EA, #66DED4)", borderRadius: '10%'}} />
 		</div>
 
 	);

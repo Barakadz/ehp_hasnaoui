@@ -6,8 +6,9 @@ import "@/styles/globals.css";
 import '../components/topbar/topbar.css';
 import '../components/navbar/navbar.css';
 import '../components/footer/footer.css';
-
 import '../components/breadcumbs/breadcumbs.css';
+
+import '../components/actualites_detail/actdetail.css';
 import '../components/video/video.css';
 import '../components/preloader/preloader.css';
 

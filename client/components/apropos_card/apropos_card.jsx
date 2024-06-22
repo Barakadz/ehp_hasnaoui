@@ -3,7 +3,7 @@ const AproposCard=()=>{
         <>
         <div class="container my-4 " >
 		<div class="row gg" >
-			<div class="col-md-4 col-sm-6 wow fadeIn" data-wow-delay="0.2s">
+			<div class="col-lg-4 col-sm-6 wow fadeIn" data-wow-delay="0.2s">
 				<div class="serviceBox">
 					<div class="service-icon">
 						<span><i class="icofont-briefcase-1" style={{color:'white',fontSize:'40px'}}></i></span>
@@ -13,7 +13,7 @@ const AproposCard=()=>{
  				</p>
                 </div>
 			</div>
-			<div class="col-md-4 col-sm-6 wow fadeIn" data-wow-delay="0.4s">
+			<div class="col-lg-4 col-sm-6 wow fadeIn" data-wow-delay="0.4s">
 				<div class="serviceBox orange">
 					<div class="service-icon">
 						<span><i class="icofont-eye-alt"style={{color:'white',fontSize:'40px'}}></i></span>
@@ -22,7 +22,7 @@ const AproposCard=()=>{
 		</p><br/>
 					 				</div>
 			</div>
-			<div class="col-md-4 col-sm-6 wow fadeIn" data-wow-delay="0.6s">
+			<div class="col-lg-4 col-sm-6 wow fadeIn" data-wow-delay="0.6s">
 				<div class="serviceBox">
 					<div class="service-icon">
 						<span><i class="icofont-badge"style={{color:'white',fontSize:'40px'}}></i></span>
