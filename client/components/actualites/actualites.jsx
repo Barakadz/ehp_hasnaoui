@@ -7,7 +7,7 @@ const Actualites=()=>{
 	const [data, setData] = useState([]);
 
   useEffect(() => {
-    axios.get('http://www.ehp-hasnaoui.com/api/act')
+    axios.get('http://www.ehp-hasnaoui.com/api/act/dertroisact')
       .then(response => {
         setData(response.data);
       })

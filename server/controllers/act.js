@@ -118,6 +118,29 @@ export const derActualites = (req, res) => {
 
 
 }
+
+export const derTroisActualites = (req, res) => {
+
+  
+
+
+  const q = "SELECT * FROM actualites  order by id desc limit 3";
+
+  db.query(q, (err, userData) => {
+    if (err) {
+      return res.status(500).json({ message: "Erreur de base de données", error: err });
+    }
+  
+    if (userData.length > 0) {
+      return res.status(200).json(userData);
+    } else {
+      return res.status(404).json({ message: 'Actualites not found' });
+    }
+  });
+
+
+}
+
 export const getByIdActualites = (req, res) => {
 
   
