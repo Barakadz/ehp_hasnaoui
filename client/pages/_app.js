@@ -1,6 +1,5 @@
 
-import '@/public/icofont.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+ import 'bootstrap/dist/css/bootstrap.min.css';
 import "@/styles/globals.css";
 
 import '../components/topbar/topbar.css';

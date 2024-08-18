@@ -4,6 +4,8 @@
   --primarycolor: #23B6EA;
   --secondarycolor:#66DED4;
 }
+ 
+
 ::selection{
   background-color: #23B6EA;
   color: white;
