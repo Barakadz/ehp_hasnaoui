@@ -1,0 +1,7 @@
+.top{
+    border-bottom: 2px solid #eee;
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

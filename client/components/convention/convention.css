@@ -1,0 +1,8 @@
+.containner{
+margin: 0 140px;
+}
+@media only screen and (max-width: 767px) {
+.containner{
+    margin: 0 50px;
+}
+}

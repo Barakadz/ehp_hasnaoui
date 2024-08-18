@@ -1,0 +1,10 @@
+.pop{
+    background: linear-gradient(to right, #23B6EA, #66DED4);
+}
+.rr{
+ width: fit-content; height: 55px;padding: 16px;   
+}
+
+.tt{
+    object-fit: cover;
+}

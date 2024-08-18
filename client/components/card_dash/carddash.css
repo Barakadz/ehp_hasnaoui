@@ -1,0 +1,11 @@
+.cardd{
+    padding: 20px;
+    margin: 5px;
+    background-color: white;
+    border: 1.2px solid rgb(212, 208, 208);
+    border-radius: 10px;
+}
+.iconn i{
+    font-size: 70px;
+    margin-right: 20px;
+}

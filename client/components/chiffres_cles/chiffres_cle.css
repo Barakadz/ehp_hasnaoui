@@ -1,0 +1,67 @@
+.fun-facts{
+	position:relative;
+}
+.fun-facts.section{
+	padding:60px 0;
+}
+.fun-facts{
+	background:url('fun-bg.jpg');
+	background-size:cover;
+	background-repeat:no-repeat;
+}
+.fun-video{
+	position:relative;
+}
+.fun-vedo.section{
+	padding:100px 0;
+}
+.fun-vedeo{
+ 	background-size:cover;
+	background-repeat:no-repeat;
+}
+.video-overlay{
+	background: linear-gradient(to left, rgba(9, 30, 62, .7), rgba(9, 30, 62, .7));
+ padding: 200px;
+}
+@media (min-width:0px) and (max-width: 1000px) {
+	.video-overlay{
+ 	 padding: 20px;
+	}	
+}
+.fun-facts .single-fun {
+	
+}
+.fun-facts .single-fun i {
+ 
+}
+.fun-facts .single-fun:hover i{
+ 
+}
+.fun-facts .single-fun .content {
+	padding-left: 80px;
+}
+.fun-facts .single-fun span, .fun-facts .single-fun p{
+	color: #fff;
+	font-weight: 600;
+	font-size: 30px;
+	position: relative;
+	display: block;
+	-webkit-transition: all 0.4s ease;
+	-moz-transition: all 0.4s ease;
+	transition: all 0.4s eas;
+	display: block;
+	margin-bottom: 7px;
+}
+.fun-facts .single-fun p{
+	color:#fff;
+	font-size:15px;
+}
+/*===================
+	End Fun Facts
+=====================*/
+
+/*===================
+	Why choose CSS
+=====================*/
+ 
+ 

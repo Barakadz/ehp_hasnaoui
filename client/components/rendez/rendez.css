@@ -1,0 +1,277 @@
+.appointment{
+	background:#fff;
+	padding-top:30px;
+}
+.appointment.single-page {
+	background: #fff;
+	padding-top: 100px 0;
+	padding: 0;
+	padding: 100px 0;
+}
+.appointment.single-page .appointment-inner {
+	padding: 40px;
+	box-shadow: 0px 0px 10px #00000024;
+	border-radius: 5px;
+}
+input[type="checkbox"]:hover{
+cursor: pointer;
+}
+.appointment.single-page .title{}
+.appointment.single-page .title h3 {
+	font-size: 25px;
+	display: block;
+	margin-bottom: 10px;
+	font-weight:600;
+}
+.appointment.single-page .title p{}
+.appointment .form{
+	margin-top:30px;
+}
+.appointment .form .form-group{}
+  .forminput {
+	
+    text-transform:initial !important;
+	width: 100%;
+	height: 50px;
+	border: 1px solid #eee;
+ 	padding: 20px 18px;
+	color: #555;
+	font-size: 14px;
+	font-weight:400;
+	border-radius:0;
+	border-radius: 4px;
+}
+input[type="text"],input[type="date"]{
+	width: 100%;
+	height: 50px;
+	border: 1px solid #eee;
+ 	padding: 20px 18px;
+	color: #555;
+	font-size: 14px;
+	font-weight:400;
+	border-radius:0;
+	border-radius: 4px;
+}
+
+.appointment .form textarea{
+	width: 100%;
+	height:200px;
+    padding: 18px;
+	border:1px solid #eee;
+	text-transform:capitalize;
+	resize:none;
+	border-radius: 4px;
+}
+ 
+.appointment .form-group .list{
+	border-radius: 4px;
+}
+.appointment .form-group .list li{
+	color:#757575;
+	border-radius:0;
+}
+.appointment .form-group .list li.selected{
+	color:#757575;
+	font-weight:400;
+}
+.appointment .form-group .list li:hover {
+	color:#fff;
+	background: #1A76D1;
+}
+.appointment .appointment-image{}
+.appointment.single-page .button .btn{
+	width:100%;
+}
+.appointment .button .btn{
+	font-weight:500;
+}
+.appointment .button .btn:hover{
+	color:#fff;
+}
+.appointment .form p{
+	margin-top: 10px;
+	color:#868686;
+}
+.appointment.single-page .work-hour{
+	background:#1A76D1;
+	padding: 40px;
+	box-shadow: 0px 0px 10px #00000024;
+	border-radius: 5px;
+}
+.appointment.single-page .work-hour h3 {
+	font-size: 25px;
+	display: block;
+	font-weight:600;
+	margin-bottom: 20px;
+	color:#fff;
+}
+.appointment.single-page .time-sidual{
+	margin-top:15px;
+}
+.appointment.single-page .time-sidual{
+	overflow:hidden;
+}
+.appointment.single-page .time-sidual li {
+	display: block;
+	color: #fff;
+	width: 100%;
+	margin-bottom: 10px;
+}
+.appointment.single-page .time-sidual li span{
+	display:inline-block;
+	float:right;
+}
+.appointment.single-page .day-head .time {
+	font-weight: 400;
+	float: right;
+}
+
+.appointment-image{
+    width: 100%;
+	height: 100%;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+.borderTicket {
+	position: relative;
+  }
+  
+  .borderTicket::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-image: url('logo_back.png');
+	background-position:center;
+	background-repeat: no-repeat;
+	background-size:contain;
+	opacity: 0.15; /* 0.4 is the opacity value (range: 0 to 1) */
+	z-index: -1;
+  }
+  
+  .borderTicket {
+	/* Your existing styles for the content */
+	border: 3px solid #000;
+	padding: 15px;
+  }
+   .codeQr{
+	position: relative;
+	display: inline-block;
+	margin-top: 0;
+   }
+ 
+   .textwrap{
+	cursor: pointer;
+	white-space: nowrap;
+   }
+  
+   @media only screen and (max-width: 900px) {
+ 
+	.codeQr{
+		position: relative;
+		display: inline-block;
+		margin-top: 47px;
+	   }
+
+	   .textwrap{
+white-space:initial;	   }
+   }
+
+
+   .download-button {
+	position: relative;
+	border-width: 0;
+	color: rgb(19, 19, 19);
+	font-size: 15px;
+	font-weight: 600;
+	border-radius: 4px;
+	z-index: 1;
+  }
+  
+  .download-button .docs {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10px;
+	min-height: 40px;
+	padding: 0 10px;
+	border-radius: 4px;
+	z-index: 1;color: #fff;
+	background-color: #000;
+	border: solid 1px #e8e8e82d;
+	transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+  }
+  
+  .download-button:hover {
+	box-shadow: rgba(233, 233, 233, 0.555) 0px 54px 55px,
+	  rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+	  rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  }
+  
+  .download {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 90%;
+	margin: 0 auto;
+	z-index: -1;
+	border-radius: 0px 0px 4px 4px;
+	transform: translateY(0%);
+	background-color: #01e056;
+	border: solid 1px #01e0572d;
+	transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+	cursor: pointer;
+  }
+  
+  .download-button:hover .download {
+	transform: translateY(100%);
+  }
+  
+  .download svg polyline,
+  .download svg line {
+	animation: docs 1s infinite;
+  }
+  
+  @keyframes docs {
+	0% {
+	  transform: translateY(0%);
+	}
+  
+	50% {
+	  transform: translateY(-15%);
+	}
+  
+	100% {
+	  transform: translateY(0%);
+	}
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

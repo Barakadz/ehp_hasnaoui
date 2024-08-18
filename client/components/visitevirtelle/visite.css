@@ -1,0 +1,11 @@
+.visite{
+    height: 500px;
+}
+@media only screen and (max-width: 767px) {
+    .visite{
+        height: 390px;
+    }
+
+
+}
+
