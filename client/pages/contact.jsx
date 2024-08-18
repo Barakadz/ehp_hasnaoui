@@ -38,6 +38,12 @@ export default function Home() {
 	<meta name="description" content="Ehp hasnaoui, Hopital Privée Hasnaui,Hasnaoui Private Hospital, Ehp-hasnaoui" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="icon" href="/logozoom.PNG" />
+  <script src="
+https://cdn.jsdelivr.net/npm/icofont@1.0.0/main.min.js
+"></script>
+<link href="
+https://cdn.jsdelivr.net/npm/icofont@1.0.0/dist/icofont.min.css
+" rel="stylesheet"/>
   </Head>
   <main style={{padding:'0'}}>
  <Preloader/>
