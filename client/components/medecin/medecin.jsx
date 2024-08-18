@@ -534,7 +534,7 @@ const Medecin = () => {
 						<div class="team-item position-relative rounded overflow-hidden">
 							 
 							<div class="team-text bg-light text-center p-4">
-							<h5>Dr. SOULIMANE Amine</h5>
+							<h5>Dr.  SOULIMANE Amine</h5>
 								<p class="text-primary ">Gynécologie Obstétrique </p>
 								 
 							</div>
