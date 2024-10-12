@@ -21,7 +21,7 @@ const ActDetail=({id})=>{
   }, []);
     return(
         <>
- 
+<div> 
 {data.map((item, index) => (
        
 
@@ -188,7 +188,7 @@ const ActDetail=({id})=>{
 		</section>
  
 ))}
-
+</div>
         </>
     )
 }

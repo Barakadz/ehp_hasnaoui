@@ -5,6 +5,11 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import 'animate.css';
+import { LiaFirstAidSolid } from "react-icons/lia";
+import { BsPrescription2 } from "react-icons/bs";
+import { MdOutlineSecurity } from "react-icons/md";
+import { FaMedal } from "react-icons/fa6";
+import { FaHospitalUser } from "react-icons/fa";
 
 function SampleNextArrow({ className, onClick }) {
 	return (
@@ -244,10 +249,8 @@ const HeroSlider = () => {
 
 									<div class="single-schedule first mx-2">
 										<div class="inner">
-											<div class="icon">
-												<i class="icofont-aids"></i>
-											</div>
-											<div class="single-content">
+ 											<LiaFirstAidSolid color='white' size={50}/>
+ 											<div class="single-content">
 												<h4>Satisfaction des parties intéressées :</h4>
 												<p class="">Notre priorité absolue est d’assurer la satisfaction de nos patients en fournissant des services de qualité, efficaces et personnalisés. Nous tenons à établir une relation de confiance avec nos patients, en restant à leur écoute, en respectant leur dignité et leur confidentialité tout en répondant à leurs besoins individuels.</p>
 											</div>
@@ -258,10 +261,8 @@ const HeroSlider = () => {
 
 									<div class="single-schedule middle mx-2">
 										<div class="inner">
-											<div class="icon">
-												<i class="icofont-prescription"></i>
-											</div>
-											<div class="single-content">
+										<FaHospitalUser color='white' size={50}/>
+										<div class="single-content">
 
 												<h4>Respect des exigences réglementaires  :</h4>
 												<p>Nous nous engageons à respecter toutes les exigences légales, réglementaires et professionnelles applicables à notre domaine d’activité. Nous maintenons nos connaissances à jour et nous nous conformons aux normes et réglementations en vigueur dans le secteur de la santé.
@@ -275,9 +276,7 @@ const HeroSlider = () => {
 
 									<div class="single-schedule middle mx-2">
 										<div class="inner">
-											<div class="icon">
-												<i class="icofont-first-aid"></i>
-											</div>
+											 <MdOutlineSecurity color='white' size={50}/>
 
 											<div class="single-content">
 
@@ -291,9 +290,7 @@ const HeroSlider = () => {
 								<div class="col-lg-12 col-md-6 col-12  wow fadeIn" data-wow-delay="0.7s">
 									<div class="single-schedule middle mx-2">
 										<div class="inner">
-											<div class="icon">
-												<i class="icofont-hospital"></i>
-											</div>
+											 <FaMedal color='white' size={50}/>
 											<div class="single-content">
 
 												<h4>Amélioration continue :</h4>
