@@ -12,6 +12,7 @@ import React, { useEffect } from 'react';
 import HeroSlider from "@/components/slide/slide";
 import Convention from "@/components/convention/convention";
 import Actualites from "@/components/actualites/actualites";
+import Qalite from "@/components/qalite/qalite";
  
  
 const inter = Inter({ subsets: ["latin"] });
@@ -71,6 +72,7 @@ https://cdn.jsdelivr.net/npm/icofont@1.0.0/dist/icofont.min.css
 					</div>
 				</div></center>
  <Actualites/>
+ <Qalite/>
  <Footer/>
      </main>
 </>

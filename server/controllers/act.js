@@ -100,8 +100,6 @@ export const Actualites = (req, res) => {
 export const derActualites = (req, res) => {
 
   
-
-
   const q = "SELECT * FROM actualites  order by id desc limit 1";
 
   db.query(q, (err, userData) => {
@@ -117,12 +115,12 @@ export const derActualites = (req, res) => {
   });
 
 
+
 }
 
 export const derTroisActualites = (req, res) => {
 
   
-
 
   const q = "SELECT * FROM actualites  order by id desc limit 3";
 
@@ -137,6 +135,8 @@ export const derTroisActualites = (req, res) => {
       return res.status(404).json({ message: 'Actualites not found' });
     }
   });
+
+
 
 
 }

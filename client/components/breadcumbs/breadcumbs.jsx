@@ -1,4 +1,4 @@
-const Breadcumbs=()=>{
+const Breadcumbs=({text})=>{
     return(
 		<div>
 		<div class="breadcrumbs mb-4 overlay">
@@ -7,7 +7,7 @@ const Breadcumbs=()=>{
 					<div class="row">
 						<div class="col-12 position-relative">
 							<div class=""></div>
-							<h2 class="text-white position-relative z-index-1">Contact</h2>
+							<h2 class="text-white position-relative z-index-1">{text}</h2>
 						</div>
 					</div>
 				</div>
