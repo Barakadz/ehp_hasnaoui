@@ -3,6 +3,93 @@
   padding: 0;
   box-sizing: border-box;
  }
+ .icon {
+  width: 20px;
+  margin-right: 10px;
+  border-radius: 50%;
+  height: 20px;
+  display: block;
+   border: 1.4px solid #66DED4;
+  background-color: transparent !important;
+ }
+ .textChifreCle{
+  font-size: 2rem;
+  color:#66ded4  !important;
+
+ }
+ .textChifreCleD{
+  font-size: 1rem;
+
+ }
+ .chif{
+  position: relative;
+  width: 23%;
+  background: white;
+   border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2)
+ }
+ @media screen and (max-width: 800px) {
+  .chif{ width: 80%;
+  }
+ }
+ .textvert{
+  color:#23B6EA  
+
+ }
+ .description.collapsed {
+  max-height: 0;
+}
+
+.description.expanded {
+  max-height: 400px; /* Adjust as needed */
+}
+
+.description {
+  transition: max-height 0.3s ease;
+}
+
+ .service-section {
+ 	background-size: cover;
+	overflow: hidden;
+}
+.elementskit-infobox {
+  background-color: #FFFFFF;
+  padding: 40px 40px 40px 40px;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+  border-style: solid;
+  border-width: 1px 1px 1px 1px;
+  border-color: #FFFFFF38;
+  border-radius: 0px 0px 0px 0px;
+}
+ 
+.service-overlay {
+    padding: 10px;
+	background-color: #e5eafb  ;
+}
+ .hover-icon {
+  color: #66DED4;
+  transition: color 0.3s ease; /* Smooth transition */
+}
+
+.hover-icon:hover {
+  color: #23B6EA; /* Change to your desired hover color */
+  cursor: pointer;
+}
+ .chift{
+  
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(to left, #66DED4, #23B6EA);  border-left: 3px solid #23B6EA;
+display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+position:absolute;
+border:2px solid white;
+top:-40px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+ }
 :root{
   ---primaryColorBackground : #23B6EA ;
    ---bgColor : #d7d7d7de;
@@ -124,7 +211,7 @@
   justify-content: center;
   align-items: center;
 }
-.box,.director{
+ .director{
   background-color: rgb(32, 198, 198);
   color: white;
   width: 200px;
@@ -202,11 +289,8 @@
   background-color: green;
   border-radius: 50%;
 }
-input {
-  position: absolute;
-  opacity: 0;
-  z-index: -1;
-}
+
+
 .accordion-wrapper {
   border-radius: 8px;
   overflow: hidden;
@@ -281,8 +365,7 @@ input:checked ~ .accordion-content {
 }
 
 .blocsDef {
-  background: linear-gradient(60deg, #66DED4, #23B6EA);
- 
+  background-color: #3eb8d6 ;
   color: var(---primaryColor);
   padding: 10px;
   text-align: left;
@@ -489,85 +572,69 @@ i{
   vertical-align:bottom;
   margin-right: 3px;
 }
+.testimonials-container {
+  background-color: #0d1b2a; /* Dark background color */
+}
 
-
-/* From Uiverse.io by jamik-dev */ 
-.Download-button {
-  display: flex;
-  align-items: center;
-  font-family: inherit;
-  font-weight: 500;
-  font-size: 17px;
-  padding: 12px 20px;
-  color: white;
-  background: linear-gradient(144deg, #af40ff, #23B6EA 50%, #66ded4);
-  border: none;
-  box-shadow: 0 0.7em 1.5em -0.5em rgba(59, 48, 78, 0.527);
-  letter-spacing: 0.05em;
+.testimonial-card {
+  background-color: #ffffff;
+  color: #333333;
   border-radius: 8px;
-  cursor: pointer;
-  position: relative;
-  transition: all 0.2s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.Download-button svg {
-  margin-right: 8px;
-  width: 25px;
+.rating {
+  color: #ffc107; /* Gold color for stars */
 }
 
-.Download-button:hover {
-  box-shadow: 0 0.5em 1.5em -0.5em #3b82f6;
-  border-top-left-radius: 40px;
-  border-bottom-right-radius: 40px;
+.user-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
 }
 
-.Download-button:active {
-  box-shadow: 0 0.3em 1em -0.5em #3b82f6;
+.happy-patients i {
+  font-size: 2rem;
+  color: #17a2b8;
 }
 
-.Download-button::before {
-  content: "";
-  width: 4px;
-  height: 40%;
-  background-color: white;
-  position: absolute;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-  left: 0;
-  transition: all 0.2s;
+.indicator {
+  width: 10px;
+  height: 10px;
+  background-color: #888;
+  border-radius: 50%;
+  margin: 0 5px;
+  display: inline-block;
 }
 
-.Download-button::after {
-  content: "";
-  width: 4px;
-  height: 40%;
-  background-color: white;
-  position: absolute;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-  right: 0;
-  transition: all 0.2s;
+.indicator.active {
+  background-color: #17a2b8;
+}
+.testimonials-carousel-container {
+  background-color: #0d1b2a; /* Dark background color */
 }
 
-.Download-button:hover::before,
-.Download-button:hover::after {
-  height: 60%;
+.testimonial-card {
+  background-color: #ffffff;
+  color: #333333;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
 }
 
-.Download-button:hover::before {
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-  border-top-right-radius: 0px;
-  border-bottom-right-radius: 0px;
-  transform: translate(5px, -15px) rotate(45deg);
+.rating {
+  color: #ffc107; /* Gold color for stars */
 }
 
-.Download-button:hover::after {
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-  border-top-left-radius: 0px;
-  border-bottom-left-radius: 0px;
-  transform: translate(-5px, 15px) rotate(45deg);
+.user-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
 }
 
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(1); /* Makes carousel controls white */
+}
 
+ 

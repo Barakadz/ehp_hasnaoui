@@ -9,9 +9,9 @@ const Bloc=()=>{
                     <div className="row">
                     <div class="blocs">
                 <div class="blocsPic">
-                    <img src="chirurgie.jpg" alt="chirugie"/>
+                    <img src="IMG_4779.JPG" alt="chirugie"/>
                 </div>
-                <div class="blocsDef">
+                <div class="blocsDef p-3">
                 <p class="title text-white">Salles Opératoires Classées ISO 7:</p>
                 <p className="text-white">Nos salles opératores sont classées 1907, garantissant un environnement istenie et contrôlé pour des interventions chirurgicales süres et efficaces. Voici quelques points clés de nos installations</p>
                 <p className="text-white"><span>Environnement Contrôlé: </span>La classification 1507 assure une faible concentration de particules en suspension dans lait, réduisant les risques d'infection poist-opératoire</p>

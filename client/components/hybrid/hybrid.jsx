@@ -1,6 +1,6 @@
 const Hybrid=()=>{
     return(
-        <div>
+        <div className="container mt-4">
 
 <div class="image-container">
 		<center>	<h4 className="title_hybrid">La première salle hybride dans le privé en Algérie dotée de la dernière  technologie  d'équipements médicaux</h4></center>
@@ -12,30 +12,50 @@ const Hybrid=()=>{
 	  
 	  <br/><br/>
 
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12 col-sm-6"  >
-			<center><h2>Notre Engagement en Stérilisation pour la Santé de nos Patients</h2>
-				<img src="section-img.png" alt="#"/> 
- </center>	
-</div></div></div>
-<div class="container  wow fadeInUp" data-wow-delay="0.4s">
-	<div class="col-md-12 " style={{padding: '0 !important;'}}>
-		<div class="box">
-			<img src="strec.jfif" alt="" srcset=""  />
-			<div class="box-content">
-				<span class="post text-uppercase"  >Dans notre service de stérilisation, nous nous engageons à assurer la sécurité et la qualité des instruments médicaux conformément aux normes ISO-14937, ISO-17665 ISO-15883 et ISO-11140. Cette assurance passe par une organisation méticuleuse en quatre zones distinctes - pré-désinfection, zone propre, zone de conditionnement et zone de stérilisation - répondant ainsi aux normes. Nous veillons à ce que chaque instrument soit soumis à des procédures rigoureuses, garantissant leur stérilisation selon les normes les plus strictes et répondant aux exigences de sécurité et de protection des patients. De plus, nous sommes fiers de souligner que l'impact environnemental de nos opérations est jugé non significatif, témoignant de notre engagement envers la qualité, la sécurité et l’environnement.</span>
-	
-			</div>
-		</div>
-	</div>
-</div>
+	 
 
+
+<section className="video-sectione   white p-8">
+        <div className="  video-overlay">
+          <div className="row items-center">
+            {/* Text Content */}
+            <div className="text-white  lg:mb-0" style={{marginTop:'6%'}}>
+			<h2 style={{
+        fontSize: '2rem', 
+        fontWeight: 'bold', 
+        textAlign: 'center', 
+        color: 'white', 
+        marginBottom: '20px', 
+        lineHeight: '1.5'
+      }}>
+        Notre Engagement en Stérilisation pour la Santé de nos Patients
+      </h2>
+      <p style={{
+        fontSize: '1.1rem', 
+        lineHeight: '1.8', 
+        color: 'white', 
+        padding: '0 20px', 
+        textAlign: 'justify'
+      }}>
+        Dans notre service de stérilisation, nous nous engageons à assurer la sécurité et la qualité des instruments médicaux
+        conformément aux normes <strong>ISO-14937, ISO-17665, ISO-15883</strong> et <strong>ISO-11140</strong>. Cette assurance passe par une organisation
+        méticuleuse en quatre zones distinctes - pré-désinfection, zone propre, zone de conditionnement et zone de stérilisation - répondant ainsi aux normes.
+        Nous veillons à ce que chaque instrument soit soumis à des procédures rigoureuses, garantissant leur stérilisation selon les normes les plus strictes et répondant
+        aux exigences de sécurité et de protection des patients. De plus, nous sommes fiers de souligner que l'impact environnemental de nos opérations est jugé non significatif,
+        témoignant de notre engagement envers la qualité, la sécurité et l’environnement.
+      </p>
+            </div>
+
+           
+          </div>
+        </div>
+      </section>
+ 
 
  <br/><br/>
 	<div class="container">
 		<div class="row">
-			<div class="col-md-4 col-sm-6  wow fadeIn" data-wow-delay="0.3s">
+			<div class="col-md-4 col-sm-6   " >
 				<div class="box">
 					<img src="ssza.jfif"/>
 					<div class="box-content">

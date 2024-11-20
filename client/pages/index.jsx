@@ -13,6 +13,8 @@ import HeroSlider from "@/components/slide/slide";
 import Convention from "@/components/convention/convention";
 import Actualites from "@/components/actualites/actualites";
 import Qalite from "@/components/qalite/qalite";
+import Avis from "@/components/avis/avis";
+import ChatBubble from "@/components/tel/tel";
  
  
 const inter = Inter({ subsets: ["latin"] });
@@ -62,6 +64,7 @@ https://cdn.jsdelivr.net/npm/icofont@1.0.0/dist/icofont.min.css
 <HeroSlider/>
 <EhphWhy/>
  <Video/>
+ <Avis/>
  <Convention/><center>
 				<div class="row">
 					<div class="col-lg-12">
@@ -74,6 +77,7 @@ https://cdn.jsdelivr.net/npm/icofont@1.0.0/dist/icofont.min.css
  <Actualites/>
  <Qalite/>
  <Footer/>
+ <ChatBubble/>
      </main>
 </>
   );

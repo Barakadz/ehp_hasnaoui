@@ -48,12 +48,24 @@ opacity: 0;  }
 	display: flex;
   }
   
-
+  .video-sectione {
+	background: url('/strec.jfif') no-repeat fixed center ;
+	background-size: cover;
+	overflow: hidden;
+}
+ 
+ 
+.video-overlaye {
+    padding: 10px;
+	background: linear-gradient(to left, rgba(9, 30, 62, .8), rgba(9, 30, 62, .8));
+}
 
 
   
  
 .box{
+    width: 100%;
+    height: fit-content;
     color: #fff;
     background: linear-gradient(#23B6EA, #23B6EA, #66DED4, #66DED4);
     font-family: 'Amaranth', sans-serif;

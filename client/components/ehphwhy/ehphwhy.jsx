@@ -6,7 +6,7 @@ const EhphWhy=()=>{
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="section-title ">
-							<h2  class="wow fadeIn text-center tracking-in-expand-fwd" data-wow-delay="0.2s">La Qualité Au Cœur De Nos Soins</h2>
+							<h2  class="wow fadeIn text-center " data-wow-delay="0.2s">La Qualité Au Cœur De Nos Soins</h2>
 							<center><img src="section-img.png" alt="#"/></center>
 							<p className="text-center">L’établissement Hospitalier Privé, par abréviation "EHP HASNAOUI" doté d'une capacité d'accueil de 81 lits est réalisé au chef-lieu de wilaya <br/> de Sidi Bel Abbès dans le quartier dit "Makam Chahid ".</p>
 						</div>

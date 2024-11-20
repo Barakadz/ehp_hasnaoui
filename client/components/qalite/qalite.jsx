@@ -1,40 +1,58 @@
-const Qalite=()=>{
-    const downloadFiles = () => {
-        const files = [
-          '/Politique QSE- EHPH AR.pdf',
-          '/Politique QSE- EHPH FR.pdf',
-          '/Politique QSE- EHPH EN.pdf'
-        ];
-    
-        files.forEach(file => {
-          const link = document.createElement('a');
-          link.href = file;
-          link.download = file.split('/').pop();
-          document.body.appendChild(link);
-          link.click();
-          document.body.removeChild(link);
-        });
-      };
-    return(
-        <>
-        <center>
- <button class="Download-button"   onClick={downloadFiles} >
-  <svg
-    viewBox="0 0 640 512"
-    width="20"
-    height="16"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      fill="white"
-      d="M144 480C64.5 480 0 415.5 0 336c0-62.8 40.2-116.2 96.2-135.9c-.1-2.7-.2-5.4-.2-8.1c0-88.4 71.6-160 160-160c59.3 0 111 32.2 138.7 80.2C409.9 102 428.3 96 448 96c53 0 96 43 96 96c0 12.2-2.3 23.8-6.4 34.6C596 238.4 640 290.1 640 352c0 70.7-57.3 128-128 128H144zm79-167l80 80c9.4 9.4 24.6 9.4 33.9 0l80-80c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-39 39V184c0-13.3-10.7-24-24-24s-24 10.7-24 24V318.1l-39-39c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9z"
-    ></path>
-  </svg>
+import React from "react";
+import { AiOutlineCloudDownload } from "react-icons/ai";
+
+const Qalite = () => {
+  const downloadFiles = () => {
+    const files = [
+      '/Politique QSE- EHPH AR.pdf',
+      '/Politique QSE- EHPH FR.pdf',
+      '/Politique QSE- EHPH EN.pdf'
+    ];
+
+    files.forEach(file => {
+      const link = document.createElement('a');
+      link.href = file;
+      link.download = file.split('/').pop();
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
+  };
+
+  return (
+    <div style={styles.container}>
+     <button style={styles.button}    onClick={downloadFiles} >
+     <AiOutlineCloudDownload style={styles.icon} size={25} color="black" />
+
   <span>Notre politique Qalité</span>
 </button>
-</center>
-        </>
-    )
-}
+    </div>
+  );
+};
+
+const styles = {
+  container: {
+    position: "fixed",
+    left: "0",
+    top: "50%",
+    transform: "translateY(-50%)",
+    zIndex: 1000,
+  },
+  button: {
+    writingMode: "vertical-rl",
+    transform: "rotate(180deg)",
+    background: "#f5f5f5",
+    color: "#333",
+    border: "1px solid #ddd",
+    padding: "10px",
+    borderRadius: "8px 0px 0px 8px",
+    boxShadow: "0 4px 6px rgba(0,0,0,0.1)",
+    cursor: "pointer",
+    fontSize: "16px",
+  },
+  icon: {
+    transform: "rotate(90deg)", // Rotates the icon by 30 degrees
+  },
+};
 
 export default Qalite;

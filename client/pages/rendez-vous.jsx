@@ -10,6 +10,8 @@ import Contact from "@/components/contact/contact";
 import Rendezvous from "@/components/rendez/rendez";
 import React, { useEffect } from 'react';
 import Preloader from "@/components/preloader/preloader";
+import Qalite from "@/components/qalite/qalite";
+import ChatBubble from "@/components/tel/tel";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -47,8 +49,9 @@ export default function Home() {
  <Navbar/>
  <Rendezvous/>
 
-  
+ <Qalite/>
  <Footer/>
+ <ChatBubble/>
      </main>
 </>
   );

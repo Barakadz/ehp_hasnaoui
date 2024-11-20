@@ -16,6 +16,8 @@ import Hybrid from "@/components/hybrid/hybrid";
 import Medecin from "@/components/medecin/medecin";
 import { useEffect } from "react";
 import Preloader from "@/components/preloader/preloader";
+import Qalite from "@/components/qalite/qalite";
+import ChatBubble from "@/components/tel/tel";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -66,7 +68,9 @@ https://cdn.jsdelivr.net/npm/icofont@1.0.0/dist/icofont.min.css
 
 <WhyEhph/>
 <Medecin/>
+<Qalite/>
  <Footer/>
+ <ChatBubble/>
      </main>
 </>
   );

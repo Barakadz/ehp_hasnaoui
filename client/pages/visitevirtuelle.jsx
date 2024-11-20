@@ -7,6 +7,8 @@ import { useEffect } from "react";
 import Preloader from "@/components/preloader/preloader";
 import Visite from "@/components/visitevirtelle/visite";
 import BreadcumbsVisite from "@/components/breadcumbs_visite/breadcumbs";
+import ChatBubble from "@/components/tel/tel";
+import Qalite from "@/components/qalite/qalite";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -47,8 +49,9 @@ export default function Home() {
 
  <Visite/>
 
-  <Footer/>
-     </main>
+ <Qalite/>
+ <Footer/>
+ <ChatBubble/>     </main>
 </>
   );
 }

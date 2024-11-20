@@ -8,6 +8,8 @@ import Preloader from "@/components/preloader/preloader";
 import React, { useEffect,useState } from 'react';
  import MyLightbox from "@/components/galerie/galerie";
 import axios from "axios";
+import Qalite from "@/components/qalite/qalite";
+import ChatBubble from "@/components/tel/tel";
  
 const inter = Inter({ subsets: ["latin"] });
 
@@ -145,8 +147,9 @@ https://cdn.jsdelivr.net/npm/icofont@1.0.0/dist/icofont.min.css
          ))}
 
 
+<Qalite/>
  <Footer/>
-     </main>
+ <ChatBubble/>     </main>
 </>
   );
 }

@@ -9,6 +9,8 @@ import Breadcumbs from "@/components/breadcumbs/breadcumbs";
 import Contact from "@/components/contact/contact";
 import Preloader from "@/components/preloader/preloader";
 import React, { useEffect } from 'react';
+import Qalite from "@/components/qalite/qalite";
+import ChatBubble from "@/components/tel/tel";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -52,7 +54,9 @@ https://cdn.jsdelivr.net/npm/icofont@1.0.0/dist/icofont.min.css
  <Navbar/>
  <Breadcumbs/>
  <Contact/>
+ <Qalite/>
  <Footer/>
+ <ChatBubble/>
      </main>
 </>
   );
