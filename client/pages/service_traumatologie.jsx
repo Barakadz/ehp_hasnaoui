@@ -100,11 +100,17 @@ Prise en charge des affections de la main, des tendinites et des fractures, ains
 Traitement des pathologies de la colonne vertébrale, telles que les hernies discales, scolioses et douleurs chroniques, avec des techniques modernes et peu invasives.    `,   logo:"/chirurgie__i.png"
                       },   
                       {
-                        title: "6.	Traumatologie du Sport",
+                        title: "Traumatologie du Sport",
                         description:
                         `
-    Traitement des pathologies de la colonne vertébrale, telles que les hernies discales, scolioses et douleurs chroniques, avec des techniques modernes et peu invasives.    `,   logo:"/chirurgie__i.png"
-                          },    
+ Soins spécialisés pour les blessures sportives, y compris les fractures, déchirures ligamentaires, tendinites et entorses, avec l'objectif de permettre une reprise rapide des activités physiques.  `,   logo:"/chirurgie__i.png"
+                          }, 
+                          {
+                            title: "Arthrite et Maladies Articulaires",
+                            description:
+                            `
+Traitement des pathologies inflammatoires des articulations, telles que l'arthrite rhumatoïde, pour soulager la douleur et améliorer la fonction articulaire.     `,   logo:"/chirurgie__i.png"
+                              },    
 ];
 
   return (<>
