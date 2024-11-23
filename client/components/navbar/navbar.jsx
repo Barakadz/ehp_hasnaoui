@@ -90,9 +90,9 @@ const Navbar = () => {
                             {[
                               { icon: '/neurone.png', text: 'Urologie',href:'/service_urlogie' },
                               { icon: '/pediatrie.png', text: 'Pédiatrie-Néonatalogie',href:'service_pediaterie'},
-                              { icon: '/cardiologie.png', text: 'Cardiologie Interventionnelle',href:'' },
+                             /* { icon: '/cardiologie.png', text: 'Cardiologie Interventionnelle',href:'' },*/
                               { icon: '/os.png', text: 'Traumatologie-Orthopédie',href:'/service_traumatologie.jsx' },
-                              { icon: '/gastro-enterologie.png', text: 'Hepato-Gastro-Entérologie',href:'' }
+                              { icon: '/gastro-enterologie.png', text: 'Hepato-Gastro-Entérologie',href:'/service_gastro' }
                             ].map((item, index) => (
                               <Link href={item.href} key={index} className="list-group-item list-group-item-action border-0 ">
                                 <div className="d-flex align-items-center text-nowrap">
@@ -106,11 +106,10 @@ const Navbar = () => {
                         <div className="col-md-4 mb-3 mb-md-0">
                           <div className="list-group list-group-flush">
                             {[
-                              { icon: '/cardiologiee.png', text: 'Cardiologie Clinique',href:'' },
+                              { icon: '/cardiologiee.png', text: 'Cardiologie Clinique',href:'/service_cardioloie_clinique' },
                               { icon: '/gynecologie.png', text: 'Gynécologie Obstétrique' ,href:'/service_gynecologie'},
-                              { icon: '/reanimateur.png', text: 'Réanimation-Anesthésie' ,href:''},
+                              { icon: '/reanimateur.png', text: 'Réanimation-Anesthésie' ,href:'/service_reanimation'},
                               { icon: '/tomodensitometrieee.png', text: 'Imagerie' ,href:'/service_imagerie'},
-                              { icon: '/dermatologie.png', text: 'Dermatologie' ,href:''}
                             ].map((item, index) => (
                               <Link href={item.href} key={index} className="list-group-item list-group-item-action border-0">
                                 <div className="d-flex align-items-center">
@@ -125,8 +124,10 @@ const Navbar = () => {
                           <div className="list-group list-group-flush">
                             {[
                               { icon: '/cardiologiez.png', text: 'Chirurgie Cardio-Vasculaire',href:'/service_cardiovasculaire'  },
-                              { icon: '/rapport-scientifique.png', text: 'Laboratoire d\'analyses',href:'/'  },
-                              { icon: '/equipe-medicale.png', text: 'Chirurgie Générale & Viscérale',href:'/service_chirugie' }
+                              { icon: '/rapport-scientifique.png', text: 'Laboratoire d\'analyses',href:'/service_laboratoireanalyse'  },
+                              { icon: '/equipe-medicale.png', text: 'Chirurgie Générale & Viscérale',href:'/service_chirugie' },
+                              { icon: '/dermatologie.png', text: 'Consultation Générale' ,href:'/service_consultation'}
+
                             ].map((item, index) => (
                               <Link href={item.href} key={index} className="list-group-item list-group-item-action border-0">
                                 <div className="d-flex align-items-center">
