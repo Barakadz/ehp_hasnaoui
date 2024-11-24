@@ -5,7 +5,7 @@ const nextConfig = {
   env: {
     BASE_URL:   'http://localhost:4000',
   },
-  output: 'export',
+ // output: 'export',
   reactStrictMode: true,
   
   images: {
