@@ -2,21 +2,12 @@
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
-  apps: [
-    {
-      name: 'frontend',
-      script: 'npm',
-      args: 'start',
-      env: {
-        PORT: 3001,
-      },
-    },
-  ],
+  env: {
+    BASE_URL:   'http://localhost:4000',
+  },
   output: 'export',
   reactStrictMode: true,
-  env: {
-    BASE_URL:   'http://localhost:3001',
-  },
+  
   images: {
     unoptimized: true,
   }
