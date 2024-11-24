@@ -89,9 +89,9 @@ const Navbar = () => {
                           <div className="list-group list-group-flush">
                             {[
                               { icon: '/neurone.png', text: 'Urologie',href:'/service_urlogie' },
-                              { icon: '/pediatrie.png', text: 'Pédiatrie-Néonatalogie',href:'service_pediaterie'},
+                              { icon: '/pediatrie.png', text: 'Pédiatrie-Néonatalogie',href:'/service_pediaterie'},
                              /* { icon: '/cardiologie.png', text: 'Cardiologie Interventionnelle',href:'' },*/
-                              { icon: '/os.png', text: 'Traumatologie-Orthopédie',href:'/service_traumatologie.jsx' },
+                              { icon: '/os.png', text: 'Traumatologie-Orthopédie',href:'/service_traumatologie' },
                               { icon: '/gastro-enterologie.png', text: 'Hepato-Gastro-Entérologie',href:'/service_gastro' }
                             ].map((item, index) => (
                               <Link href={item.href} key={index} className="list-group-item list-group-item-action border-0 ">
@@ -125,8 +125,9 @@ const Navbar = () => {
                             {[
                               { icon: '/cardiologiez.png', text: 'Chirurgie Cardio-Vasculaire',href:'/service_cardiovasculaire'  },
                               { icon: '/rapport-scientifique.png', text: 'Laboratoire d\'analyses',href:'/service_laboratoireanalyse'  },
+                              { icon: '/dermatologie.png', text: 'Consultation Générale' ,href:'/service_consultation'},
                               { icon: '/equipe-medicale.png', text: 'Chirurgie Générale & Viscérale',href:'/service_chirugie' },
-                              { icon: '/dermatologie.png', text: 'Consultation Générale' ,href:'/service_consultation'}
+
 
                             ].map((item, index) => (
                               <Link href={item.href} key={index} className="list-group-item list-group-item-action border-0">

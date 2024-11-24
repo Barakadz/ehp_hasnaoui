@@ -25,28 +25,26 @@ const Footer=()=>{
 <h2>Info :</h2>
 						</div> 
 						<p>L'établissement Hospitalier Privé Hasnaoui vise à développer de vrais pôles d'excellence en s'appuyant sur des valeurs fortes. Il concourt à être parmi les meilleurs établissements de référence pluridisciplinaire.</p>
-<div className="d-flex flex-row gap-4 ">
+<Link href="https://www.google.com/maps/place/Etablissement+Hospitalier+Priv%C3%A9+HASNAOUI/@35.1791377,-0.6318223,15z/data=!4m2!3m1!1s0x0:0x23bae99ee4007340?sa=X&ved=1t:2428&ictx=111"><div className="d-flex flex-row gap-4 ">
 <RiMapPinLine color="white"  size="30"/>
 <p>
 Bloc J05 MakamEl Chahid
 Sidi Bel Abbes</p>
 
-</div>
-<div className="d-flex flex-row gap-4 mt-1 ">
-<BsTelephone 
+</div></Link><Link href="tel:0560602829">
+<div className="d-flex flex-row gap-4 mt-1 "><BsTelephone 
 color="white"  size="26"/>
 <p>
 
 048 77 14 41 / 05 60 60 28 29</p>
 
-</div>
-<div className="d-flex flex-row gap-4 ">
+</div></Link>
+<Link href="mailto:info@ehp-hasnaoui.com"><div className="d-flex flex-row gap-4 ">
 <IoMailOpenOutline color="white"  size="26"/>
 <p>
-Bloc J05 MakamEl Chahid
-Sidi Bel Abbes</p>
+info@ehp-hasnaoui.com</p>
 
-</div>					
+</div>	</Link>				
 
 							 </div><br/> 
  							 
@@ -64,24 +62,23 @@ Sidi Bel Abbes</p>
 
 						<div class="col-lg-6 col-md-6 col-12">
 										<div>
-										<Link href="/">	<div className="d-flex flex-row gap-2"><MdKeyboardDoubleArrowRight size="30" color="white"/><p>Urgences Médico Chirurgicals</p></div></Link>
-										<Link href="/">	<div className="d-flex flex-row gap-2"><MdKeyboardDoubleArrowRight size="30" color="white"/><p>Pédiaterie-Néonatalogie</p></div></Link>
-										<Link href="/">	<div className="d-flex flex-row gap-2"><MdKeyboardDoubleArrowRight size="30" color="white"/><p>Cardiologie Interventionnelle</p></div></Link>
-										<Link href="/">	<div className="d-flex flex-row gap-2"><MdKeyboardDoubleArrowRight size="30" color="white"/><p>Traumatologie-Orthopédie</p></div></Link>
-										<Link href="/">	<div className="d-flex flex-row gap-2"><MdKeyboardDoubleArrowRight size="30" color="white"/><p>Hepato-Gastro-Entérologie</p></div></Link>
-										<Link href="/">	<div className="d-flex flex-row gap-2"><MdKeyboardDoubleArrowRight size="30" color="white"/><p>Laboratoire d'analyses</p></div></Link>
-										<Link href="/">	<div className="d-flex flex-row gap-2"><MdKeyboardDoubleArrowRight size="30" color="white"/><p>Chirugie Générale & Viscérale</p></div></Link>
-
+										<Link href="/service_urlogie">	<div className="d-flex flex-row gap-2"><MdKeyboardDoubleArrowRight size="30" color="white"/><p>Urologie</p></div></Link>
+										<Link href="/service_pediaterie">	<div className="d-flex flex-row gap-2"><MdKeyboardDoubleArrowRight size="30" color="white"/><p>Pédiatrie-Néonatalogie</p></div></Link>
+										<Link href="/service_traumatologie">	<div className="d-flex flex-row gap-2"><MdKeyboardDoubleArrowRight size="30" color="white"/><p>Traumatologie-Orthopédie</p></div></Link>
+										<Link href="/service_gastro">	<div className="d-flex flex-row gap-2"><MdKeyboardDoubleArrowRight size="30" color="white"/><p>Hepato-Gastro-Entérologie</p></div></Link>
+										<Link href="/service_cardioloie_clinique">	<div className="d-flex flex-row gap-2"><MdKeyboardDoubleArrowRight size="30" color="white"/><p>Cardiologie Clinique</p></div></Link>
+										<Link href="/service_gynecologie">	<div className="d-flex flex-row gap-2"><MdKeyboardDoubleArrowRight size="30" color="white"/><p>Gynécologie Obstétrique</p></div></Link>
+ 
 										</div>
 									</div>
 									<div class="col-lg-6 col-md-6 col-12">
 									 				
-									<Link href="/">	<div className="d-flex flex-row gap-2"><MdKeyboardDoubleArrowRight size="30" color="white"/><p>Cardiologie Clinique</p></div></Link>
-										<Link href="/">	<div className="d-flex flex-row gap-2"><MdKeyboardDoubleArrowRight size="30" color="white"/><p>Chirugie Cardio-Vasculaire</p></div></Link>
-										<Link href="/">	<div className="d-flex flex-row gap-2"><MdKeyboardDoubleArrowRight size="30" color="white"/><p>Gynécologie Obstétrique</p></div></Link>
-										<Link href="/">	<div className="d-flex flex-row gap-2"><MdKeyboardDoubleArrowRight size="30" color="white"/><p>Réanimation-Anesthésie</p></div></Link>
-										<Link href="/">	<div className="d-flex flex-row gap-2"><MdKeyboardDoubleArrowRight size="30" color="white"/><p>Imagerie</p></div></Link>
-										<Link href="/">	<div className="d-flex flex-row gap-2"><MdKeyboardDoubleArrowRight size="30" color="white"/><p>Dermatologie</p></div></Link>
+									<Link href="/service_reanimation">	<div className="d-flex flex-row gap-2"><MdKeyboardDoubleArrowRight size="30" color="white"/><p>Réanimation-Anesthésie</p></div></Link>
+										<Link href="/service_imagerie">	<div className="d-flex flex-row gap-2"><MdKeyboardDoubleArrowRight size="30" color="white"/><p>Imagerie</p></div></Link>
+										<Link href="/service_cardiovasculaire">	<div className="d-flex flex-row gap-2"><MdKeyboardDoubleArrowRight size="30" color="white"/><p>Chirurgie Cardio-Vasculaire</p></div></Link>
+										<Link href="/service_laboratoireanalyse">	<div className="d-flex flex-row gap-2"><MdKeyboardDoubleArrowRight size="30" color="white"/><p>Laboratoire d\'analyses</p></div></Link>
+										<Link href="/service_consultation">	<div className="d-flex flex-row gap-2"><MdKeyboardDoubleArrowRight size="30" color="white"/><p>Consultation Générale</p></div></Link>
+										<Link href="/service_chirugie">	<div className="d-flex flex-row gap-2"><MdKeyboardDoubleArrowRight size="30" color="white"/><p>Chirurgie Générale & Viscérale</p></div></Link>
 										
 									</div>
 						</div>

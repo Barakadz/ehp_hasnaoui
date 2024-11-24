@@ -175,7 +175,7 @@ https://cdn.jsdelivr.net/npm/icofont@1.0.0/dist/icofont.min.css
 
  <Topbar/>
  <Navbar/>
- <Breadcumbs text="Service Cardio-Vasculaire"/>
+ <Breadcumbs text="Service Hépatologie et Gastro-entérologie"/>
 
  <PresentationService title="Présentation de service Hépatologie et Gastro-entérologie" description="Notre service d'hépatologie et gastro-entérologie propose une prise en charge complète et spécialisée des maladies du foie, du tube digestif et des organes associés. Grâce à notre équipe de spécialistes expérimentés et à un plateau technique de pointe, nous vous offrons des soins adaptés à chaque pathologie, qu’elle soit bénigne ou complexe. "/>
   

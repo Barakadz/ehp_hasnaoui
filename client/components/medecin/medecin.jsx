@@ -1,45 +1,73 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
+import axios from 'axios'; // Import axios
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'; // Import your arrow icons
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
   return (
     <div
-	className={className}
-	style={{
-
-		marginRight: "20px"
-	}}
-	onClick={onClick}
+      className={className}
+      style={{ marginRight: '20px' }}
+      onClick={onClick}
     >
-	<FaArrowRight color="white" size={35} style={{ padding: '9px', background: "linear-gradient(to right, #23B6EA, #66DED4)", borderRadius: '10%' }} />
-	    </div>
+      <FaArrowRight
+        color="white"
+        size={35}
+        style={{
+          padding: '9px',
+          background: 'linear-gradient(to right, #23B6EA, #66DED4)',
+          borderRadius: '10%',
+        }}
+      />
+    </div>
   );
 }
 
 function SamplePrevArrow(props) {
   const { className, style, onClick } = props;
   return (
-	<div
-	className={className}
-	style={{
-
-
-		marginLeft: "5px",
-
-		zIndex: "4444",
-	}}
-	onClick={onClick}
->
-	<FaArrowLeft color="white" size={35} style={{ padding: '9px', background: "linear-gradient(to right, #23B6EA, #66DED4)", borderRadius: '10%' }} />
-</div>
+    <div
+      className={className}
+      style={{ marginLeft: '5px', zIndex: '4444' }}
+      onClick={onClick}
+    >
+      <FaArrowLeft
+        color="white"
+        size={35}
+        style={{
+          padding: '9px',
+          background: 'linear-gradient(to right, #23B6EA, #66DED4)',
+          borderRadius: '10%',
+        }}
+      />
+    </div>
   );
 }
 
 const Medecin = () => {
+  const [medecins, setMedecins] = useState([]); // State to hold API data
+  const [loading, setLoading] = useState(true); // State to show loading indicator
+  const [error, setError] = useState(null); // State for error handling
+
+  useEffect(() => {
+    // Fetch data from API
+    const fetchMedecins = async () => {
+      try {
+        const response = await axios.get('http://localhost:8800/api/medecin/');
+        setMedecins(response.data); // Save data in state
+        setLoading(false);
+      } catch (err) {
+        setError('Failed to fetch data');
+        setLoading(false);
+      }
+    };
+
+    fetchMedecins();
+  }, []);
+
   const settings = {
     dots: false,
     infinite: true,
@@ -52,271 +80,49 @@ const Medecin = () => {
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
     responsive: [
-      {
-        breakpoint: 2000,
-        settings: {
-          slidesToShow: 4,
-          slidesToScroll: 4,
-        }
-      },
-      {
-        breakpoint: 1100,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-        }
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        }
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        }
-      },
-      {
-        breakpoint: 300,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        }
-      }
-    ]
+      { breakpoint: 2000, settings: { slidesToShow: 4, slidesToScroll: 4 } },
+      { breakpoint: 1100, settings: { slidesToShow: 2, slidesToScroll: 2 } },
+      { breakpoint: 768, settings: { slidesToShow: 1, slidesToScroll: 1 } },
+      { breakpoint: 480, settings: { slidesToShow: 1, slidesToScroll: 1 } },
+      { breakpoint: 300, settings: { slidesToShow: 1, slidesToScroll: 1 } },
+    ],
   };
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>{error}</div>;
+  }
 
   return (
 	<>
-    <div className='container'>
-       <div className='container'><div class="text-center mx-auto mb-2 wow fadeInUp" data-wow-delay="0.1s" style={{maxWidth: '600px'}}>
-				<h2>Notre équipe médicale :</h2>
-				<img src="section-img.png" alt="#"/>            </div>
-    <Slider {...settings}>
-	
-      <div>
-      <div class="single-pf"><div class="mx-2 wow fadeInUp" data-wow-delay="0.1s">
-						<div class="team-item position-relative rounded overflow-hidden">
-							<div class="overflow-hidden">
-								<img class="img-fluid" src="imagemedecin1.jfif" alt=""/>
-							</div>
-							<div class="team-text bg-light text-center p-4">
-								<h5>Dr YOUSFI Asmaa</h5>
-								<p class="text-primary mb-4 text-uppercase" >Medecin Généraliste </p>
-								 
-							</div>
-						</div>
-					</div></div>   
+    <div className="container">
+      <div className="text-center mx-auto mb-2 wow fadeInUp" data-wow-delay="0.1s" style={{ maxWidth: '600px' }}>
+        <h2>Notre équipe médicale :</h2>
+        <img src="section-img.png" alt="#" />
       </div>
-      
-      <div>
-      <div class="single-pf"><div class="mx-2 wow fadeInUp" data-wow-delay="0.1s">
-						<div class="team-item position-relative rounded overflow-hidden">
-							<div class="overflow-hidden">
-								<img class="img-fluid" src="bentouch_omar.jfif" alt=""/>
-							</div>
-							<div class="team-text bg-light text-center p-4">
-								<h5>Dr BENATTOUCHE Omar Farouk</h5>
-								<p class="text-primary mb-4">Pharmacien </p>
-								 
-							</div>
-						</div>
-					</div></div>   
-      </div>
-      
-      <div>
-      <div class="single-pf"><div class="mx-2 wow fadeInUp" data-wow-delay="0.1s">
-						<div class="team-item position-relative rounded overflow-hidden">
-							<div class="overflow-hidden">
-								<img class="img-fluid" src="imagemedecin5.jfif" alt=""/>
-							</div>
-							<div class="team-text bg-light text-center p-4">
-                            <h5>Dr. Ikhlaf Wassila</h5>	
-							<p class="text-primary mb-4">Pharmacienne </p>
-								 
-							</div>
-						</div>
-					</div></div>   
-      </div>
-      
-       <div>
-      <div class="single-pf"><div class="mx-2 wow fadeInUp" data-wow-delay="0.1s">
-						<div class="team-item position-relative rounded overflow-hidden">
-							<div class="overflow-hidden">
-								<img class="img-fluid" src="IMG_9317.JPG" alt=""/>
-							</div>
-							<div class="team-text bg-light text-center p-4">
-							<h5>Dr ABBAD Soufyane</h5>
-								<p class="text-primary mb-4">Médecin Spécialiste en Pédiatrie et néonatologie </p>
-								 
-							</div>
-						</div>
-					</div></div>   
-      </div>
-      
-
-      <div>
-      <div class="single-pf"><div class="mx-2 wow fadeInUp" data-wow-delay="0.1s">
-						<div class="team-item position-relative rounded overflow-hidden">
-							<div class="overflow-hidden">
-								<img class="img-fluid" src="IMG_9308.JPG" alt=""/>
-							</div>
-							<div class="team-text bg-light text-center p-4">
-								<h5>Dr. Hasnaoui Amina</h5>
-								<p class="text-primary mb-4">Réanimation-Anesthésie </p>
-								 
-							</div>
-						</div>
-					</div></div>   
-      </div>
-  
-       
-      <div>
-      <div class="single-pf"><div class="mx-2 wow fadeInUp" data-wow-delay="0.1s">
-						<div class="team-item position-relative rounded overflow-hidden">
-							<div class="overflow-hidden">
-								<img class="img-fluid" src="imagemedecin2.jfif" alt=""/>
-							</div>
-							<div class="team-text bg-light text-center p-4">
-								<h5>Dr. NEGADI Hadjer</h5>
-								<p class="text-primary mb-4">Médecin généraliste </p>
-								 
-							</div>
-						</div>
-					</div></div>   
-      </div>
-	  
-      <div>
-      <div class="single-pf"><div class="mx-2 wow fadeInUp" data-wow-delay="0.1s">
-						<div class="team-item position-relative rounded overflow-hidden">
-							<div class="overflow-hidden">
-								<img class="img-fluid" src="benali.JPG" alt=""/>
-							</div>
-							<div class="team-text bg-light text-center p-4">
-								<h5>Dr BENALI Asmaa</h5>
-								<p class="text-primary mb-4">Médecin spécialiste en Cardiologie</p>
-								 
-							</div>
-						</div>
-					</div></div>   
-      </div>
-	  
-      <div>
-      <div class="single-pf"><div class="mx-2 wow fadeInUp" data-wow-delay="0.1s">
-						<div class="team-item position-relative rounded overflow-hidden">
-							<div class="overflow-hidden">
-								<img class="img-fluid" src="lakhel.jpg" alt=""/>
-							</div>
-							<div class="team-text bg-light text-center p-4">
-								<h5>Dr LEKHAL Ahmed Malik</h5>
-								<p class="text-primary mb-4">Chirurgien Cardio Vasculaire </p>
-								 
-							</div>
-						</div>
-					</div></div>   
-      </div>
-	  
-      <div>
-      <div class="single-pf"><div class="mx-2 wow fadeInUp" data-wow-delay="0.1s">
-						<div class="team-item position-relative rounded overflow-hidden">
-							<div class="overflow-hidden">
-								<img class="img-fluid" src="atou.jfif" alt=""/>
-							</div>
-							<div class="team-text bg-light text-center p-4">
-								<h5>Dr ATTOU Abdelkader</h5>
-								<p class="text-primary ">Médecin Spécialiste En Dermatologie </p>
-								 
-							</div>
-						</div>
-					</div></div>   
-      </div>
-	  
-      <div>
-      <div class="single-pf"><div class="mx-2 wow fadeInUp" data-wow-delay="0.1s">
-						<div class="team-item position-relative rounded overflow-hidden">
-							<div class="overflow-hidden">
-								<img class="img-fluid" src="IMG_9267.JPG" alt=""/>
-							</div>
-							<div class="team-text bg-light text-center p-4">
-							<h5>Dr HAMMAD Salim</h5>
-								<p class="text-primary mb-4">Médecin Spécialste en Imagérie Médicale et Radiologie </p>
-								 
-							</div>
-						</div>
-					</div></div>   
-      </div>    
-     
-      <div>
-      <div class="single-pf"><div class="mx-2 wow fadeInUp" data-wow-delay="0.1s">
-						<div class="team-item position-relative rounded overflow-hidden">
-							<div class="overflow-hidden">
-								<img class="img-fluid" src="IMG_9279.JPG" alt=""/>
-							</div>
-							<div class="team-text bg-light text-center p-4">
-								<h5>Dr LAZZAZ Anes</h5>
-								<p class="text-primary mb-4">Pharmcien Spécialiste En Biologie Médicale </p>
-								 
-							</div>
-						</div>
-					</div></div>   
-      </div>    
-	  <div>
-      <div class="single-pf"><div class="mx-2 wow fadeInUp" data-wow-delay="0.1s">
-						<div class="team-item position-relative rounded overflow-hidden">
-							<div class="overflow-hidden">
-								<img class="img-fluid" src="IMG_9283.JPG" alt=""/>
-							</div>
-							<div class="team-text bg-light text-center p-4">
-							<h5>Dr HASNAOUI Ahmed </h5>
-								<p class="text-primary mb-4">Médecin Spécialiste en Gynécologie obstétrique </p>
-								 
-							</div>
-						</div>
-					</div></div>   
-      </div>    
-	  <div>
-      <div class="single-pf"><div class="mx-2 wow fadeInUp" data-wow-delay="0.1s">
-						<div class="team-item position-relative rounded overflow-hidden">
-							<div class="overflow-hidden">
-								<img class="img-fluid" src="IMG_9322.JPG" alt=""/>
-							</div>
-							<div class="team-text bg-light text-center p-4">
-								<h5>DR SAOULI Tarik</h5>
-								<p class="text-primary mb-4">Chiriurgien Général </p>
-								 
-							</div>
-						</div>
-					</div></div>   
-      </div>    
-	  <div>
-      <div class="single-pf"><div class="mx-2 wow fadeInUp" data-wow-delay="0.1s">
-						<div class="team-item position-relative rounded overflow-hidden">
-							<div class="overflow-hidden">
-								<img class="img-fluid" src="IMG_9288.JPG" alt=""/>
-							</div>
-							<div class="team-text bg-light text-center p-4">
-							<h5>Dr BENSAID Zouaouia </h5>
-								<p class="text-primary mb-4">Médecin Spécialiste en Gynécologie obstétrique</p>
-								 
-							</div>
-						</div>
-					</div></div>   
-      </div>    
-	  
-        
-
-     
-
-
-
-    </Slider></div>
-    </div>
-
-
+      <Slider {...settings}>
+        {medecins.map((medecin, index) => (
+          <div key={index}>
+            <div className="single-pf">
+              <div className="mx-2 wow fadeInUp" data-wow-delay="0.1s">
+                <div className="team-item position-relative rounded overflow-hidden">
+                  <div className="overflow-hidden">
+                    <img className="img-fluid" src={`./medecin/${medecin.image} `}alt={medecin.username} />
+                  </div>
+                  <div className="team-text bg-light text-center p-4">
+                    <h5>{medecin.username}</h5>
+                    <p className="text-primary mb-4">{medecin.poste}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </Slider>
+    
 
 
 	<div className='container'>
@@ -570,7 +376,7 @@ const Medecin = () => {
 					</div></div>   
       </div>
     </Slider></div>
-    </div>
+    </div></div>
 </>	
   );
 };

@@ -70,7 +70,7 @@ export const DeleteMedecin = (req, res) => {
       const imagePath = userData[0].image;
   
       // Remove file
-      fs.unlink(`../client/public/medecin/${imagePath}`, (err) => {
+      fs.unlink(`../../client/public/medecin/${imagePath}`, (err) => {
         if (err) {
           console.error('Error deleting the file:', err);
           return res.status(500).json({ message: 'Error deleting the file', error: err });
