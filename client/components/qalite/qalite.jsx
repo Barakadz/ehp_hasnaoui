@@ -21,11 +21,10 @@ const Qalite = () => {
 
   return (
     <div style={styles.container}>
-     <button style={styles.button}    onClick={downloadFiles} >
-     <AiOutlineCloudDownload style={styles.icon} size={25} color="black" />
-
-  <span>Notre politique Qalité</span>
-</button>
+      <button style={styles.button} onClick={downloadFiles}>
+        <AiOutlineCloudDownload style={styles.icon} size={25} color="black" />
+        <span style={styles.text}>Notre politique Qualité</span>
+      </button>
     </div>
   );
 };
@@ -49,9 +48,43 @@ const styles = {
     boxShadow: "0 4px 6px rgba(0,0,0,0.1)",
     cursor: "pointer",
     fontSize: "16px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    transition: "all 0.3s ease",
   },
   icon: {
-    transform: "rotate(90deg)", // Rotates the icon by 30 degrees
+    marginBottom: "8px",
+  },
+  text: {
+    fontSize: "14px",
+    textAlign: "center",
+  },
+  "@media (max-width: 768px)": {
+    button: {
+      fontSize: "14px",
+      padding: "8px",
+      borderRadius: "6px 0px 0px 6px",
+    },
+    icon: {
+      size: "20px",
+    },
+    text: {
+      fontSize: "12px",
+    },
+  },
+  "@media (max-width: 480px)": {
+    button: {
+      fontSize: "12px",
+      padding: "6px",
+      borderRadius: "4px 0px 0px 4px",
+    },
+    icon: {
+      size: "18px",
+    },
+    text: {
+      fontSize: "10px",
+    },
   },
 };
 

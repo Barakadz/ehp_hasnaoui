@@ -66,7 +66,7 @@ Acquisition par Syngo Angio Package : Le système Syngo Angio permet une visuali
 Mesure FFR par Sensis Vibe : La mesure de la réserve de flux fractionnaire (FFR) aide à déterminer la sévérité des sténoses coronariennes. Cette technique permet aux cardiologues de décider de manière plus précise quand une angioplastie ou un stent est nécessaire, optimisant ainsi les résultats pour les patients.
 
       `,
-      logo:"/chirurgie__i.png"
+       logo:"/cardiologies.png"
         },
   {
       title: "Procédures Hybrides",
@@ -76,7 +76,7 @@ Cardiologie
 Procédure TAVI (Remplacement Valvulaire Aortique par Transcathéter) : Cette procédure mini-invasive permet de remplacer une valve aortique défectueuse sans avoir recours à une chirurgie à cœur ouvert. C'est particulièrement bénéfique pour les patients à haut risque chirurgical.
 Fermeture de l’Auricule Gauche : Pour les patients souffrant de fibrillation auriculaire, cette intervention réduit le risque d'accidents vasculaires cérébraux en fermant l'auricule gauche du cœur, où des caillots sanguins peuvent se former.
 Procédure MitraClip : Utilisée pour traiter les fuites mitrales sévères, cette technique permet de réparer la valve mitrale par une approche percutanée, réduisant ainsi le besoin de chirurgie ouverte et favorisant une récupération plus rapide.
-      `,    logo:"/chirurgie__i.png"
+      `,      logo:"/cardiologies.png"
         },
   {
       title: "Procédures Endovasculaires",
@@ -86,7 +86,7 @@ Procédure MitraClip : Utilisée pour traiter les fuites mitrales sévères, cet
 Fusion d’Image Scannographique : La technologie de fusion d'image permet de superposer des images scannographiques en temps réel, offrant une vue précise et détaillée des structures vasculaires. Cela facilite le placement des endoprothèses avec une grande précision.
 Contrôle Après Déploiement : Après la mise en place de l'endoprothèse, un contrôle rigoureux est effectué pour s'assurer que l'anévrisme est correctement exclu de la circulation sanguine, minimisant les risques de complications post-opératoires.
 
-      `,   logo:"/chirurgie__i.png"
+      `,   logo:"/cardiologies.png"
         },
   
 ];

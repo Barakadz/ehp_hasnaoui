@@ -249,7 +249,7 @@ const HeroSlider = () => {
 
 									<div class="single-schedule first mx-2">
 										<div class="inner">
- 											<LiaFirstAidSolid color='white' size={50}/>
+ 											<LiaFirstAidSolid color='white' size={34}/>
  											<div class="single-content">
 												<h4>Satisfaction des parties intéressées :</h4>
 												<p class="">Notre priorité absolue est d’assurer la satisfaction de nos patients en fournissant des services de qualité, efficaces et personnalisés. Nous tenons à établir une relation de confiance avec nos patients, en restant à leur écoute, en respectant leur dignité et leur confidentialité tout en répondant à leurs besoins individuels.</p>
@@ -261,7 +261,7 @@ const HeroSlider = () => {
 
 									<div class="single-schedule middle mx-2">
 										<div class="inner">
-										<FaHospitalUser color='white' size={50}/>
+										<FaHospitalUser color='white' size={34}/>
 										<div class="single-content">
 
 												<h4>Respect des exigences réglementaires  :</h4>
@@ -276,7 +276,7 @@ const HeroSlider = () => {
 
 									<div class="single-schedule middle mx-2">
 										<div class="inner">
-											 <MdOutlineSecurity color='white' size={50}/>
+											 <MdOutlineSecurity color='white' size={34}/>
 
 											<div class="single-content">
 
@@ -290,7 +290,7 @@ const HeroSlider = () => {
 								<div class="col-lg-12 col-md-6 col-12  wow fadeIn" data-wow-delay="0.7s">
 									<div class="single-schedule middle mx-2">
 										<div class="inner">
-											 <FaMedal color='white' size={50}/>
+											 <FaMedal color='white' size={34}/>
 											<div class="single-content">
 
 												<h4>Amélioration continue :</h4>

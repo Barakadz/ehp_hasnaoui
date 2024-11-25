@@ -80,7 +80,7 @@ const servicesData = [
 •	Transplantation hépatique : Prise en charge des candidats à la transplantation hépatique, du diagnostic à la préparation à l’intervention.
 
       `,
-      logo:"/chirurgie__i.png"
+      logo:"/gastro-enterologie (2).png"
         },
   {
       title: "Prise en Charge des Pathologies Digestives (Gastro-entérologie)",
@@ -92,7 +92,7 @@ Nous traitons une large gamme de pathologies du système digestif, qu’elles so
 •	Gastrite et ulcère gastrique : Traitement des troubles inflammatoires de l’estomac et du duodénum, y compris les infections à Helicobacter pylori et les ulcères associés.
 •	Reflux gastro-œsophagien (RGO) : Prise en charge des symptômes liés au reflux acide et des complications associées, comme l’œsophagite ou le cancer de l’œsophage.
 •	Cancer gastro-intestinal : Dépistage, diagnostic précoce et traitement des cancers du côlon, de l'estomac, de l'œsophage, du foie, et du pancréas.
-      `,    logo:"/chirurgie__i.png"
+      `,     logo:"/gastro-enterologie (2).png"
         },
   {
       title: "Endoscopie Digestive",
@@ -104,7 +104,7 @@ Nous traitons une large gamme de pathologies du système digestif, qu’elles so
 •	Endoscopie biliaire et pancréatique (CPRE) : Technique utilisée pour examiner les voies biliaires et pancréatiques, traiter les calculs biliaires ou les sténoses des canaux biliaires.
 •	Sigmoïdoscopie : Examen de la partie inférieure du côlon pour diagnostiquer les troubles intestinaux.
 
-      `,   logo:"/chirurgie__i.png"
+      `,    logo:"/gastro-enterologie (2).png"
         },
   
 
@@ -121,7 +121,7 @@ Nous traitons une large gamme de pathologies du système digestif, qu’elles so
 •	Dyspepsie fonctionnelle : Traitement des troubles digestifs récurrents comme les douleurs gastriques, les ballonnements et les nausées sans cause organique apparente.
 •	Troubles du transit : Prise en charge de la constipation chronique ou de la diarrhée, et optimisation du traitement en fonction des résultats diagnostiques.
   
-            `,   logo:"/chirurgie__i.png"
+            `,   logo:"/gastro-enterologie (2).png"
               },
               {
                 title: "Prise en Charge de l’Obésité et Troubles Métaboliques",
@@ -132,7 +132,7 @@ Nous traitons une large gamme de pathologies du système digestif, qu’elles so
 •	Traitements nutritionnels et comportementaux : Accompagnement diététique et soutien psychologique pour aider les patients à perdre du poids et à maintenir une hygiène de vie saine.
 •	Chirurgie bariatrique : Pour les cas d’obésité sévère, nous proposons des solutions chirurgicales comme la bypass gastrique ou la sleeve gastrectomie, afin de réduire le poids corporel et prévenir les complications liées à l’obésité.
 
-                `,   logo:"/chirurgie__i.png"
+                `,    logo:"/gastro-enterologie (2).png"
                   },
                   {
                     title: "Prise en Charge des Pathologies Pancréatiques",
@@ -143,18 +143,18 @@ Nous traitons une large gamme de pathologies du système digestif, qu’elles so
 •	Pancréatite chronique : Surveillance et traitement des douleurs chroniques, des troubles de la digestion et de l'insuffisance pancréatique.
 •	Cancer du pancréas : Dépistage précoce, diagnostic par imagerie et biopsie, traitement chirurgical et suivi post-opératoire.
 
-                    `,   logo:"/chirurgie__i.png"
+                    `,   logo:"/gastro-enterologie (2).png"
                       },
                       {
                         title: "Consultations Spécialisées",
-                        description:
-                        `
-                   Nos consultations spécialisées permettent une prise en charge complète et personnalisée des patients. Nous proposons des bilans de santé, des dépistages de maladies digestives et hépatiques, ainsi qu'un suivi adapté pour les pathologies chroniques.
-•	Consultations de prévention : Pour dépister les troubles hépatiques et gastro-intestinaux, en particulier pour les personnes à risque (antécédents familiaux, hépatite virale, etc.).
-•	Suivi des pathologies chroniques : Prise en charge des maladies chroniques du foie (cirrhose, hépatite chronique) et des maladies inflammatoires de l’intestin avec une approche individualisée.
-
-                        `,   logo:"/chirurgie__i.png"
-                          },
+                        description: `
+                      Nos consultations spécialisées permettent une prise en charge complète et personnalisée des patients. Nous proposons des bilans de santé, des dépistages de maladies digestives et hépatiques, ainsi qu'un suivi adapté pour les pathologies chroniques.
+                      • Consultations de prévention : Pour dépister les troubles hépatiques et gastro-intestinaux, en particulier pour les personnes à risque (antécédents familiaux, hépatite virale, etc.).
+                      • Suivi des pathologies chroniques : Prise en charge des maladies chroniques du foie (cirrhose, hépatite chronique) et des maladies inflammatoires de l’intestin avec une approche individualisée.
+                      `,
+                        logo: "/gastro-enterologie (2).png",
+                      }
+                      
 ];
 
   return (<>

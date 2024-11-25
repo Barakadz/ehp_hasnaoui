@@ -14,48 +14,48 @@ const Faq = ({ faqs }) => {
   };
 
   return (
-    <>
-      <div className="presentation">
-        <h2>FAQ</h2>
-        <img src="section-img.png" alt="section img" />
+    <div className="presentation">
+      <h2>FAQ</h2>
+      <img src="section-img.png" alt="section img" />
 
-        {faqs.map((faq, index) => {
-          const panelId = `panel${index + 1}`;
-          return (
-            <Accordion
-              key={index}
-              expanded={expanded === panelId}
-              onChange={handleChange(panelId)}
-              sx={{
-                backgroundColor: '#e5eafb',
-                color: 'black',
-              }}
+      {faqs.map((faq, index) => {
+        const panelId = `panel${index + 1}`;
+        return (
+          <Accordion
+            key={index}
+            expanded={expanded === panelId}
+            onChange={handleChange(panelId)}
+            sx={{
+              backgroundColor: '#e5eafb',
+              color: 'black',
+            }}
+          >
+            <AccordionSummary
+              expandIcon={
+                expanded === panelId ? (
+                  <CiCircleMinus style={{ color: 'blue' }} size="30" />
+                ) : (
+                  <CiCirclePlus style={{ color: 'blue' }} size="30" />
+                )
+              }
+              aria-controls={`${panelId}a-content`}
+              id={`${panelId}a-header`}
             >
-              <AccordionSummary
-                expandIcon={
-                  expanded === panelId ? (
-                    <CiCircleMinus style={{ color: 'blue' }} size="30" />
-                  ) : (
-                    <CiCirclePlus style={{ color: 'blue' }} size="30" />
-                  )
-                }
-                aria-controls={`${panelId}a-content`}
-                id={`${panelId}a-header`}
-              >
-                <Typography className="text-black">
-                  {faq.question}
-                </Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Typography>
-                  {faq.answer}
-                </Typography>
-              </AccordionDetails>
-            </Accordion>
-          );
-        })}
-      </div>
-    </>
+              <Typography className="text-black">
+                {faq.question}
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography
+                dangerouslySetInnerHTML={{
+                  __html: faq.answer.replace(/\n/g, "<br />"),
+                }}
+              />
+            </AccordionDetails>
+          </Accordion>
+        );
+      })}
+    </div>
   );
 };
 

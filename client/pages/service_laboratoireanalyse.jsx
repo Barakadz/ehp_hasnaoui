@@ -58,36 +58,35 @@ export default function Home() {
 
 const servicesData = [
   {
-      title: "Cardiologie Interventionnelle",
+      title: "Hématologie",
       description:
       `
-   Cathétérisme Cardiaque et Angioplastie Coronaire :
-Acquisition par Syngo Angio Package : Le système Syngo Angio permet une visualisation détaillée et précise des artères coronaires, ce qui est crucial pour diagnostiquer et traiter les obstructions. Cette technologie avancée améliore la précision des interventions et réduit le risque de complications.
-Mesure FFR par Sensis Vibe : La mesure de la réserve de flux fractionnaire (FFR) aide à déterminer la sévérité des sténoses coronariennes. Cette technique permet aux cardiologues de décider de manière plus précise quand une angioplastie ou un stent est nécessaire, optimisant ainsi les résultats pour les patients.
-
+   Analyse des composants du sang (globules rouges, globules blancs, plaquettes) pour diagnostiquer des maladies telles que l'anémie, les troubles de la coagulation, et les maladies sanguines comme les leucémies.
       `,
       logo:"/chirurgie__i.png"
         },
   {
-      title: "Procédures Hybrides",
+      title: "Biochimie",
       description:
       `
-Cardiologie
-Procédure TAVI (Remplacement Valvulaire Aortique par Transcathéter) : Cette procédure mini-invasive permet de remplacer une valve aortique défectueuse sans avoir recours à une chirurgie à cœur ouvert. C'est particulièrement bénéfique pour les patients à haut risque chirurgical.
-Fermeture de l’Auricule Gauche : Pour les patients souffrant de fibrillation auriculaire, cette intervention réduit le risque d'accidents vasculaires cérébraux en fermant l'auricule gauche du cœur, où des caillots sanguins peuvent se former.
-Procédure MitraClip : Utilisée pour traiter les fuites mitrales sévères, cette technique permet de réparer la valve mitrale par une approche percutanée, réduisant ainsi le besoin de chirurgie ouverte et favorisant une récupération plus rapide.
-      `,    logo:"/chirurgie__i.png"
+Étude des substances chimiques présentes dans le sang, l'urine et d'autres liquides corporels pour évaluer la fonction des organes (foie, reins, cœur), détecter les déséquilibres métaboliques et surveiller diverses pathologies.
+  `,    logo:"/chirurgie__i.png"
         },
   {
-      title: "Procédures Endovasculaires",
+      title: "Hormonologie",
       description:
       `
-   EVAR (Réparation Endovasculaire de l'Aneurysme)
-Fusion d’Image Scannographique : La technologie de fusion d'image permet de superposer des images scannographiques en temps réel, offrant une vue précise et détaillée des structures vasculaires. Cela facilite le placement des endoprothèses avec une grande précision.
-Contrôle Après Déploiement : Après la mise en place de l'endoprothèse, un contrôle rigoureux est effectué pour s'assurer que l'anévrisme est correctement exclu de la circulation sanguine, minimisant les risques de complications post-opératoires.
+ Analyse des hormones dans le corps pour diagnostiquer et suivre des troubles hormonaux tels que les dysfonctionnements thyroïdiens, les troubles de la reproduction, ou les maladies liées aux glandes endocrines.
 
       `,   logo:"/chirurgie__i.png"
         },
+        {
+          title: "Immunotransfusion",
+          description:
+          `
+ Tests de compatibilité sanguine, y compris les groupes sanguins et les examens de transfusion, afin de garantir la sécurité et l'efficacité des transfusions sanguines, ainsi que le suivi des traitements immunitaires.
+          `,   logo:"/chirurgie__i.png"
+            },
   
 ];
 

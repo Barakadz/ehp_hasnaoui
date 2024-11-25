@@ -57,43 +57,43 @@ const servicesData = [
       title: "Chirurgie Endocrinienne",
       description:
           "Nous offrons des interventions spécialisées pour les pathologies de la thyroide et des glandes parathyroïdes. Nos procédures sont conçues pour gérer les troubles hormonaux et les anomalies glandulaires, visant à restaurer l'équilibre hormonal et améliorer la qualité de vie des patients",
- logo:"/chirurgie__i.png"
+ logo:"/chirurgieg.png"
         },
   {
       title: "Chirurgie de la Paroi",
       description:
           "Nos chirurgiens interviennent dans la réparation des hernies abdominales, une condition pouvant causer douleur et complications. Grâce à des techniques avancées, nous assurons une correction efficace des défauts de la paroi abdominale, réduisant les risques de récidive et favorisant une récupération rapide",
-          logo:"/chirurgie__i.png"
+          logo:"/chirurgieg.png"
         },
   {
       title: "Chirurgie Oncologique",
       description:
           "Nous proposons des traitements spécialisés pour les cancers, utilisant des approches chirurgicales adaptées à chaque type de cancer. Notre objectif est d'éliminer les tumeurs tout en préservant la fonction organique et en maximisant le confort du patient pendant le traitement",
-          logo:"/chirurgie__i.png"
+          logo:"/chirurgieg.png"
         },
   {
       title: "Chirurgie Proctologique",
       description:
           "Nous traitons les affections de l'anus et du rectum, telles que les hémorroïdes, les fissures et les fistules, en utilisant des techniques modernes. Nos interventions visent à soulager les symptômes, corriger les troubles et améliorer la qualité de vie de nos patients de manière efficace et délicate",
-          logo:"/chirurgie__i.png"
+          logo:"/chirurgieg.png"
         },
   {
       title: "Chirurgie Digestive",
       description:
           "Nous intervenons sur l'appareil digestif pour traiter diverses pathologies, des maladies inflammatoires aux troubles fonctionnels. Notre approche est centrée sur la restauration de la fonction digestive et le soulagement des symptômes, avec des techniques adaptées et des soins personnalisés.",
-          logo:"/chirurgie__i.png"
+          logo:"/chirurgieg.png"
         },
   {
       title: "Chirurgie Métabolique et de l'Obésité",
       description:
           "Nous proposons des solutions chirurgicales pour la gestion de l'obésité et la perte de poids, comme la gastrectomie verticale ou le by-pass gastrique. Ces interventions aident nos patients à atteindre et maintenir un poids corporel sain, tout en améliorant leur bien-être général et leur qualité de vie",
-          logo:"/chirurgie__i.png"
+          logo:"/chirurgieg.png"
         },
   {
       title: "Chirurgie Laparoscopique",
       description:
           "Nous utilisons des techniques mini-invasives pour réaliser diverses interventions chirurgicales. La chirurgie laparoscopique permet de pratiquer des procédures avec de petites incisions, réduisant la douleur post-opératoire, le risque d'infection et le temps de récupération, tout en offrant des résultats optimaux",
-          logo:"/chirurgie__i.png"
+          logo:"/chirurgieg.png"
         },
 ];
 

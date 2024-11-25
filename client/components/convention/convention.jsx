@@ -29,11 +29,11 @@ function SamplePrevArrow(props) {
 
 				marginLeft: "0px",
 
-				zIndex: "4444",
+				zIndex: "1",
 			}}
 			onClick={onClick}
 		>
-			<FaChevronLeft color="white" size={35} style={{ padding: '9px', background: "linear-gradient(to right, #23B6EA, #66DED4)", borderRadius: '10%'}} />
+			<FaChevronLeft color="white" size={35} style={{ padding: '9px', background: "linear-gradient(to right, #23B6EA, #66DED4)", borderRadius: '10%', zIndex:'-1'}} />
 		</div>
 
 	);

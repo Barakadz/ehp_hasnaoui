@@ -64,8 +64,8 @@
  
 .service-overlay {
     padding: 10px;
-	background-color: #e5eafb  ;
-}
+    background: linear-gradient(to left, #0d1b2a, #265b94);
+  }
  .hover-icon {
   color: #66DED4;
   transition: color 0.3s ease; /* Smooth transition */

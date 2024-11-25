@@ -74,7 +74,7 @@ const servicesData = [
       title: "Chirurgie de la Prostate",
       description:
           `Nous proposons plusieurs techniques de prise en charge pour l'hypertrophie bénigne de la prostate (HBP), adaptées à chaque patient. Selon l’indication et l'état de santé du patient, nos options vont de la chirurgie classique à la chirurgie endoscopique mini-invasive. Nous utilisons également des technologies avancées pour offrir une solution rapide et moins invasive.
-•	Prostatectomie totale : Traitement du cancer de la prostate, avec une approche chirurgicale qui permet une résection complète de la glande prostatique.
+\n <br/>•	Prostatectomie totale : Traitement du cancer de la prostate, avec une approche chirurgicale qui permet une résection complète de la glande prostatique.
 •	Biopsie prostatique : Un examen essentiel pour poser un diagnostic de cancer prostatique, effectué sous anesthésie locale ou générale, selon le cas.
 `,
  logo:"/chirurgie__i.png"
@@ -119,8 +119,8 @@ logo:"/chirurgie__i.png"
       title: "Consultations Spécialisées",
       description:
       `Nos consultations spécialisées couvrent tous les domaines de l’urologie, qu’il s’agisse de suivi, de diagnostic ou de traitement. Nos urologues sont à l'écoute de vos besoins pour vous orienter vers la meilleure prise en charge possible.
-•	Consultations de prévention et dépistage : pour surveiller la santé urologique (cancer de la prostate, infections urinaires, etc.).
-•	Suivi personnalisé : pour les patients ayant subi une chirurgie urologique ou pour ceux nécessitant des traitements à long terme.
+\n•	Consultations de prévention et dépistage : pour surveiller la santé urologique (cancer de la prostate, infections urinaires, etc.).
+\n•	Suivi personnalisé : pour les patients ayant subi une chirurgie urologique ou pour ceux nécessitant des traitements à long terme.
 `,     logo:"/chirurgie__i.png"
         },
   {

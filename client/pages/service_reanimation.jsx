@@ -72,7 +72,7 @@ const servicesData = [
 o	Anesthésie pour interventions chirurgicales programmées ou d'urgence.
 o	Anesthésie locale, locorégionale (péridurale, spinale) selon les besoins du patient.
       `,
-      logo:"/chirurgie__i.png"
+      logo:"/hopital.png"
         },
   {
       title: "Réanimation polyvalente",
@@ -81,7 +81,8 @@ o	Anesthésie locale, locorégionale (péridurale, spinale) selon les besoins du
 o	Prise en charge des patients en état critique nécessitant des soins intensifs.
 o	Surveillance 24/7 dans des unités de soins intensifs équipées des dernières technologies médicales.
 o	Réanimation après intervention chirurgicale lourde.
- `,    logo:"/chirurgie__i.png"
+ `,          logo:"/hopital.png"
+
         },
   {
       title: "Soins post-opératoires en salle de réveil",
@@ -89,7 +90,8 @@ o	Réanimation après intervention chirurgicale lourde.
       `
 o	Surveillance post-chirurgicale immédiate après une anesthésie générale.
 o	Gestion de la douleur postopératoire, incluant des traitements personnalisés pour chaque patient.
-      `,   logo:"/chirurgie__i.png"
+      `,         logo:"/hopital.png"
+
         },
         {
             title: "Prise en charge des urgences vitales",
@@ -97,7 +99,8 @@ o	Gestion de la douleur postopératoire, incluant des traitements personnalisés
             `
       o	Réanimation en cas de défaillance cardio-respiratoire aiguë.
 o	Soins d’urgence pour des patients dans un état critique, avec une surveillance et une gestion spécifiques.
- `,   logo:"/chirurgie__i.png"
+ `,         logo:"/hopital.png"
+
               },
               {
                 title: "Anesthésie pour patients à risque",
@@ -106,13 +109,15 @@ o	Soins d’urgence pour des patients dans un état critique, avec une surveilla
           o	Anesthésie adaptée pour des patients ayant des antécédents médicaux complexes (maladies cardiaques, respiratoires, etc.).
 o	Consultation pré-anesthésique pour évaluer les risques et définir un plan de soins personnalisé.
 
-                 `,   logo:"/chirurgie__i.png"
+                 `,         logo:"/hopital.png"
+
                   },
                   {
                     title: "Suivi et réhabilitation post-réanimation",
                     description:
                     `
-o	Suivi personnalisé en post-réanimation pour aider à la récupération après une prise en charge intensive                     `,   logo:"/chirurgie__i.png"
+o	Suivi personnalisé en post-réanimation pour aider à la récupération après une prise en charge intensive                     `,         logo:"/hopital.png"
+
                       },
                       
 ];

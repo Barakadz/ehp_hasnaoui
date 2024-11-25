@@ -1,11 +1,11 @@
 
 .breadcrumbs {
-	background-image: url('blockqoute-bg.jpg');
+	background-image: url('ciyu.jpg');
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
 	position: relative;
-	padding: 100px 0px;
+	padding: 150px 0px;
 }
 .breadcrumbs .bread-inner{
 	z-index:22;
@@ -36,7 +36,7 @@
 	height:100%;
 	width:100%;
 	background: linear-gradient(to right, #23B6EA, #66DED4);
-	opacity:0.8;
+	opacity:0.6;
 }
 
 

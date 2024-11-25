@@ -78,13 +78,7 @@ const servicesData = [
 
        `,    logo:"/chirurgie__i.png"
         },
-  {
-      title: "Échographie Doppler cardiaque adulte",
-      description:
-      `
-   Utilisation du Doppler pour visualiser le cœur et évaluer son fonctionnement, en particulier pour diagnostiquer des problèmes des valves cardiaques, de la fonction ventriculaire ou des anomalies du flux sanguin.
-      `,   logo:"/chirurgie__i.png"
-        },
+  
         {
             title: "Dermatologie",
             description:

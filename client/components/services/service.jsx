@@ -16,21 +16,17 @@ const Services = ({ services }) => {
         <section className="service-section prelative white p-8">
             <div className="section-padding service-overlay">
                 <div className="row justify-content-center text-center presentation">
-                    <h2 style={{ color: "#071939", fontWeight: "bold" }}>
+                    <h2 style={{ color: "white", fontWeight: "bold" }}>
                         Nos spécialités
                     </h2>
-                    <p>
-                        À l'Établissement Hospitalier Privé Hasnaoui, nous
-                        proposons une expertise chirurgicale diversifiée, adaptée
-                        aux besoins spécifiques de nos patients et réalisée avec
-                        une précision et un professionnalisme exemplaires.
-                    </p>
-                    <div className="container">
+                   <br/>
+                    <div className="container" >
                         <div className="row justify-content-center">
                             {services.map((service, index) => (
                                 <div
                                     key={index}
-                                    className="col-lg-3 col-md-6 col-12 d-flex flex-column align-items-center text-center mx-2 p-4 chif my-4"
+                                    className="col-lg-3 col-md-6 col-12 d-flex flex-column align-items-center text-center mx-2 p-4 chif my-4 " 
+                                    style={{position:'relative'}}
                                 >
                                     <div className="chift">
                                         <img
@@ -54,17 +50,20 @@ const Services = ({ services }) => {
                                         {service.title}
                                     </span>
                                     <p
-                                        style={{
-                                            fontSize: "1.09rem",
-                                            lineHeight: "1.5",
-                                            color: "black",
-                                            textAlign: "justify",
-                                        }}
-                                    >
-                                        {expandedIndex === index
-                                            ? service.description
-                                            : truncateText(service.description, 80)}
-                                    </p>
+    style={{
+        fontSize: "1.09rem",
+        lineHeight: "1.5",
+        color: "black",
+        textAlign: "justify",
+    }}
+    dangerouslySetInnerHTML={{
+        __html:
+            expandedIndex === index
+                ? service.description.replace(/\n/g, "<br />")
+                : truncateText(service.description, 80).replace(/\n/g, "<br />"),
+    }}
+></p>
+
                                     <button
                                         onClick={() => toggleDescription(index)}
                                         style={{
@@ -74,9 +73,9 @@ const Services = ({ services }) => {
                                         }}
                                     >
                                         {expandedIndex === index ? (
-                                            <FaRegSquareMinus color="black" size="30" />
+                                            <FaRegSquareMinus color="black" size="30" style={{position:'absolute',bottom:'15px',right:'15px'}}/>
                                         ) : (
-                                            <FaRegSquarePlus color="black" size="30" />
+                                            <FaRegSquarePlus color="black" size="30" style={{position:'absolute',bottom:'15px',right:'15px'}}/>
                                         )}
                                     </button>
                                 </div>

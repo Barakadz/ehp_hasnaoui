@@ -71,42 +71,48 @@ const servicesData = [
       title: "Radiologie Conventionnelle : ",
       description:
           `Nous utilisons des équipements modernes pour réaliser des radiographies conventionnelles, qui permettent de visualiser les structures osseuses et organiques afin de détecter les anomalies telles que fractures, infections et autres pathologies.`,
- logo:"/chirurgie__i.png"
+          logo:"/imagerie-thermique.png"
+
         },
   {
       title: "Scanner (CT)",
       description:
       `Notre scanner haute résolution fournit des images détaillées en coupe transversale, offrant une vue précise des structures internes du corps. Cet examen est crucial pour le diagnostic des maladies complexes et le suivi post-traitement.`,
-   logo:"/chirurgie__i.png"
+      logo:"/imagerie-thermique.png"
+
         },
   {
       title: "Imagerie par Résonance Magnétique (IRM) ",
       description:
       `L’IRM utilise des champs magnétiques puissants et des ondes radio pour obtenir des images très détaillées des tissus mous et des organes. Elle est particulièrement utile pour évaluer les tissus neurologiques, musculaires et articulaires.
-`,    logo:"/chirurgie__i.png"
+`,               logo:"/imagerie-thermique.png"
+
         },
   {
       title: "Échographie ",
       description:
       `Cette technique non invasive utilise des ondes sonores pour produire des images en temps réel des organes internes, des tissus mous et des structures corporelles. L’échographie est souvent utilisée pour surveiller la grossesse, diagnostiquer des troubles abdominaux et guider les procédures médicales.`, 
-logo:"/chirurgie__i.png"
+      logo:"/imagerie-thermique.png"
+
 },
   {
       title: "Mammographie",
       description:
       `Spécialisée dans le dépistage et le diagnostic des anomalies mammaires, la mammographie utilise des rayons X pour examiner les tissus mammaires et détecter les signes précoces de cancer du sein.
-`,  logo:"/chirurgie__i.png"
+`,             logo:"/imagerie-thermique.png"
+
         },
   {
       title: "Densitométrie Osseuse (DME)",
       description:
-      `La DME mesure la densité minérale osseuse pour évaluer le risque d'ostéoporose et d'autres troubles osseux. Cet examen est essentiel pour le diagnostic précoce et le suivi des maladies osseuses.`,     logo:"/chirurgie__i.png"
+      `La DME mesure la densité minérale osseuse pour évaluer le risque d'ostéoporose et d'autres troubles osseux. Cet examen est essentiel pour le diagnostic précoce et le suivi des maladies osseuses.`,                 logo:"/imagerie-thermique.png"
+
         },
   {
       title: "Radiographie Panoramique ",
       description:
       `Utilisée principalement en dentisterie, la radiographie panoramique fournit une vue d'ensemble complète des structures dentaires et maxillaires. Elle est essentielle pour le diagnostic des pathologies dentaires, des malformations et des fractures.`,
-            logo:"/chirurgie__i.png"
+            logo:"/imagerie-thermique.png"
         },
 ];
 

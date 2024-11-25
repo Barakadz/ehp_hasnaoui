@@ -65,51 +65,51 @@ const servicesData = [
       `
   Traitement des fractures, luxations et blessures traumatiques, avec une approche personnalisée pour chaque type de traumatisme.
       `,
-      logo:"/chirurgie__i.png"
+      logo:"/les-articulations.png"
         },
   {
-      title: "2.	Chirurgie Prothétique (PTH, PTG, PTE)",
+      title: "Chirurgie Prothétique (PTH, PTG, PTE)",
       description:
       `
-Remplacement articulaire pour traiter l'arthrose et les pathologies des articulations majeures, y compris la prothèse totale de hanche (PTH), la prothèse totale de genou (PTG) et la prothèse totale d'épaule (PTE).    `,    logo:"/chirurgie__i.png"
+Remplacement articulaire pour traiter l'arthrose et les pathologies des articulations majeures, y compris la prothèse totale de hanche (PTH), la prothèse totale de genou (PTG) et la prothèse totale d'épaule (PTE).    `,      logo:"/les-articulations.png"
         },
   {
       title: "Chirurgie Arthroscopique du Genou et de l'Épaule",
       description:
       `
 Intervention mini-invasive pour traiter les lésions du cartilage, des ligaments et des tendons, offrant des avantages tels qu'une récupération plus rapide et moins de douleur postopératoire.
-      `,   logo:"/chirurgie__i.png"
+      `,    logo:"/les-articulations.png"
         },
         {
             title: "Chirurgie Arthroscopique du Genou et de l'Épaule",
             description:
             `
       Intervention mini-invasive pour traiter les lésions du cartilage, des ligaments et des tendons, offrant des avantages tels qu'une récupération plus rapide et moins de douleur postopératoire.
-            `,   logo:"/chirurgie__i.png"
+            `,     logo:"/les-articulations.png"
               },
               {
                 title: "Chirurgie de la Main et Microchirurgie des Nerfs",
                 description:
                 `
-Prise en charge des affections de la main, des tendinites et des fractures, ainsi que des réparations nerveuses avec des techniques de microchirurgie pour une récupération optimale.                `,   logo:"/chirurgie__i.png"
+Prise en charge des affections de la main, des tendinites et des fractures, ainsi que des réparations nerveuses avec des techniques de microchirurgie pour une récupération optimale.                `,     logo:"/les-articulations.png"
                   },
                   {
                     title: "Chirurgie du Rachis (Colonne Vertébrale)",
                     description:
                     `
-Traitement des pathologies de la colonne vertébrale, telles que les hernies discales, scolioses et douleurs chroniques, avec des techniques modernes et peu invasives.    `,   logo:"/chirurgie__i.png"
+Traitement des pathologies de la colonne vertébrale, telles que les hernies discales, scolioses et douleurs chroniques, avec des techniques modernes et peu invasives.    `,     logo:"/les-articulations.png"
                       },   
                       {
                         title: "Traumatologie du Sport",
                         description:
                         `
- Soins spécialisés pour les blessures sportives, y compris les fractures, déchirures ligamentaires, tendinites et entorses, avec l'objectif de permettre une reprise rapide des activités physiques.  `,   logo:"/chirurgie__i.png"
+ Soins spécialisés pour les blessures sportives, y compris les fractures, déchirures ligamentaires, tendinites et entorses, avec l'objectif de permettre une reprise rapide des activités physiques.  `,    logo:"/les-articulations.png"
                           }, 
                           {
                             title: "Arthrite et Maladies Articulaires",
                             description:
                             `
-Traitement des pathologies inflammatoires des articulations, telles que l'arthrite rhumatoïde, pour soulager la douleur et améliorer la fonction articulaire.     `,   logo:"/chirurgie__i.png"
+Traitement des pathologies inflammatoires des articulations, telles que l'arthrite rhumatoïde, pour soulager la douleur et améliorer la fonction articulaire.     `,     logo:"/les-articulations.png"
                               },    
 ];
 

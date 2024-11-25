@@ -83,45 +83,45 @@ const servicesData = [
       title: "Consultations pédiatriques ",
       description:
           `
-Nous proposons des consultations régulières pour les enfants de tous âges, afin de prévenir, diagnostiquer et traiter une variété de conditions médicales. Que ce soit pour des suivis de croissance, des vaccinations ou la gestion de maladies courantes, nos pédiatres sont là pour offrir des soins de qualité adaptés à chaque situation.`,logo:"/chirurgie__i.png"
+Nous proposons des consultations régulières pour les enfants de tous âges, afin de prévenir, diagnostiquer et traiter une variété de conditions médicales. Que ce soit pour des suivis de croissance, des vaccinations ou la gestion de maladies courantes, nos pédiatres sont là pour offrir des soins de qualité adaptés à chaque situation.`,logo:"/pediatried.png"
         },
   {
       title: "Photothérapie intensive",
       description:
       `
-La photothérapie intensive est utilisée dans le traitement de l'hyperbilirubinémie néonatale (jaunisse chez les nouveau-nés). Cette technique, réalisée sous surveillance médicale, permet de réduire efficacement le taux de bilirubine dans le sang des bébés en utilisant des lumières spécifiques.`,logo:"/chirurgie__i.png"
+La photothérapie intensive est utilisée dans le traitement de l'hyperbilirubinémie néonatale (jaunisse chez les nouveau-nés). Cette technique, réalisée sous surveillance médicale, permet de réduire efficacement le taux de bilirubine dans le sang des bébés en utilisant des lumières spécifiques.`,logo:"/pediatried.png"
         },
   {
       title: "Photothérapie conventionnelle  ",
       description:
       `
-En complément de la photothérapie intensive, nous proposons également la photothérapie conventionnelle, qui est utilisée pour traiter les cas moins graves de jaunisse néonatale. Elle permet de normaliser progressivement le taux de bilirubine de façon sécuritaire.`,    logo:"/chirurgie__i.png"
+En complément de la photothérapie intensive, nous proposons également la photothérapie conventionnelle, qui est utilisée pour traiter les cas moins graves de jaunisse néonatale. Elle permet de normaliser progressivement le taux de bilirubine de façon sécuritaire.`,    logo:"/pediatried.png"
         },
   {
       title: "Couveuse   ",
       description:
       `
 Pour les nourrissons prématurés ou ayant besoin d'un suivi particulier, nous disposons de couveuses modernes permettant de maintenir une température optimale, d’assurer une oxygénation et un soutien vital adapté jusqu’à ce que le bébé soit prêt à être accueilli dans des conditions normales.      `, 
-logo:"/chirurgie__i.png"
+logo:"/pediatried.png"
 },
   {
       title: "Vaccins à la naissance  ",
       description:
       `
-Afin de protéger les nouveau-nés dès leur arrivée, nous assurons l'administration des premiers vaccins nécessaires. Nos équipes respectent les protocoles sanitaires pour garantir la sécurité et la santé des nourrissons.`,  logo:"/chirurgie__i.png"
+Afin de protéger les nouveau-nés dès leur arrivée, nous assurons l'administration des premiers vaccins nécessaires. Nos équipes respectent les protocoles sanitaires pour garantir la sécurité et la santé des nourrissons.`,  logo:"/pediatried.png"
         },
   {
       title: "Hospitalisation  ",
       description:
       `
-En cas de pathologies plus complexes, nous offrons des services d’hospitalisation, permettant un suivi médical quotidien et une prise en charge continue dans un environnement adapté aux jeunes patients. `,     logo:"/chirurgie__i.png"  },
+En cas de pathologies plus complexes, nous offrons des services d’hospitalisation, permettant un suivi médical quotidien et une prise en charge continue dans un environnement adapté aux jeunes patients. `,     logo:"/pediatried.png"  },
   {
       title: "Bili Check   ",
       description:
       `
 Le BiliCheck est un test non invasif pour mesurer le taux de bilirubine dans la peau du nouveau-né, permettant ainsi de détecter rapidement une jaunisse et de déterminer la nécessité de traitements supplémentaires comme la photothérapie.
 `,
-            logo:"/chirurgie__i.png"
+            logo:"/pediatried.png"
         },
         {
             title: "Suivi des maladies chroniques pédiatriques   ",
@@ -130,7 +130,7 @@ Le BiliCheck est un test non invasif pour mesurer le taux de bilirubine dans la 
 Nous proposons un suivi de qualité pour les enfants souffrant de maladies chroniques, comme l'asthme, le diabète ou d'autres conditions à long terme. Grâce à un suivi personnalisé, nous aidons à la gestion optimale de ces maladies pour améliorer la qualité de vie des jeunes patients.
 `
       ,
-                  logo:"/chirurgie__i.png"
+                  logo:"/pediatried.png"
               },
               {
                 title: "CPAP (Pression Positive Continue des Voies Respiratoires)    ",
@@ -138,7 +138,7 @@ Nous proposons un suivi de qualité pour les enfants souffrant de maladies chron
                 `
 Le CPAP est utilisé pour aider les bébés souffrant de difficultés respiratoires, en particulier ceux nés prématurément. Cet appareil aide à maintenir les voies respiratoires ouvertes en fournissant un flux constant d’air, garantissant ainsi une meilleure oxygénation.    `
           ,
-                      logo:"/chirurgie__i.png"
+                      logo:"/pediatried.png"
                   },
             ];
 
