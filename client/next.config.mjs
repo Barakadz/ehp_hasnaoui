@@ -10,6 +10,10 @@ const nextConfig = {
   
   images: {
     unoptimized: true,
+    domains: ['ehp-hasnaoui.com'],
+  },
+  experimental: {
+    serverActions: true
   }
   }
    
