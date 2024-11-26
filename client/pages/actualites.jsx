@@ -12,6 +12,7 @@ import React, { useEffect } from 'react';
 import Actualites from "@/components/actualites/actualites";
 import  { useState } from 'react';
 import ReactPaginate from 'react-paginate';
+import ActualitesPage from "@/components/actualites/actualites_page";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
@@ -69,26 +70,12 @@ https://cdn.jsdelivr.net/npm/icofont@1.0.0/dist/icofont.min.css
 					</div>
 				</div></center>
  <div className="mt-4">
- <Actualites/>
- </div>
- <div className="mt-4">
- <Actualites/>
+ <ActualitesPage/>
  </div>
  
+ 
 
- <div>
-      {/* Your data rendering logic here */}
-      
-      <ReactPaginate
-        pageCount={10} // Total number of pages
-        pageRangeDisplayed={5} // Number of pages to display in the pagination
-        marginPagesDisplayed={2} // Number of pages to display at the beginning and end of the pagination
-        onPageChange={handlePageChange} // Callback function for page change
-        containerClassName="pagination" // CSS class for the pagination container
-        activeClassName="active" // CSS class for the active page
-      />
-    </div>
-
+  
  <Footer/>
      </main>
 </>

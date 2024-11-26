@@ -4,12 +4,29 @@ import { RiMapPinLine } from "react-icons/ri";
 import { IoMailOpenOutline } from "react-icons/io5";
 import { MdOutlineMedicalServices } from "react-icons/md";
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
-import { MdOutlineImage } from "react-icons/md";
+import { AiOutlineCloudDownload } from "react-icons/ai";
 import { AiOutlineAppstore } from "react-icons/ai";
 
 import { BsTelephone } from "react-icons/bs";
 
 const Footer=()=>{
+	const downloadFiles = () => {
+		const files = [
+		  '/Politique QSE- EHPH AR.pdf',
+		  '/Politique QSE- EHPH FR.pdf',
+		  '/Politique QSE- EHPH EN.pdf'
+		];
+	
+		files.forEach(file => {
+		  const link = document.createElement('a');
+		  link.href = file;
+		  link.download = file.split('/').pop();
+		  document.body.appendChild(link);
+		  link.click();
+		  document.body.removeChild(link);
+		});
+	  };
+	
     return(
             <div  >
 				 
@@ -106,7 +123,10 @@ info@ehp-hasnaoui.com</p>
  							 
 							<Link href="/rendez-vous"><button  class="btn"  
                             >Prendre Rendez-vous</button></Link>
-					 
+					  <button  onClick={downloadFiles} className="p-2 mt-3">
+        <AiOutlineCloudDownload   size={25} color="black" />
+        <span  >Notre politique Qualité</span>
+      </button>
 					</div>
 				</div>
 

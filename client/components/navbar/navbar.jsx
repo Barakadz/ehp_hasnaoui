@@ -28,7 +28,7 @@ const Navbar = () => {
           <div className="col-lg-3 col-md-4 col-12">
             <div className="d-flex justify-content-between">
               <Link href="/" className="navbar-brand">
-                <img src="logo.png" width={240} alt="Logo" />
+                <img src="logo.png" width={200} alt="Logo" />
               </Link>
 
               <button 

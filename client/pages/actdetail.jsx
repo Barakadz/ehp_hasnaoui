@@ -19,15 +19,16 @@ import ActDetail from "@/components/actualites_detail/actdetail";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-    const router = useRouter();
-    const { id } = router.query;
-    const [itemId, setItemId] = useState(null);
-  
-    useEffect(() => {
-      if (id) {
-        setItemId(id);
-      }
-    }, [id]);
+  const router = useRouter();
+  const { id } = router.query;
+  const [itemId, setItemId] = useState(null);
+
+  useEffect(() => {
+    if (id) {
+      setItemId(id);
+      console.log("Received ID:", id); // Add this line to log the ID
+    }
+  }, [id]);
 
   useEffect(() => {
     const handleLoad = () => {
@@ -70,7 +71,7 @@ export default function Home() {
 
 <BreadcumbsAct/>
  
- <ActDetail id={id}/>
+{id && <ActDetail id={id}/>}   
  
  <Footer/>
      </main>

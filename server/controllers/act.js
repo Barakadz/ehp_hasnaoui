@@ -97,10 +97,12 @@ export const Actualites = (req, res) => {
 
 }
 
-export const derActualites = (req, res) => {
-
+export const tousActualites = (req, res) => {
+ 
   
-  const q = "SELECT * FROM actualites  order by id desc limit 1";
+
+
+  const q = "SELECT * FROM actualites  order by id desc  ";
 
   db.query(q, (err, userData) => {
     if (err) {

@@ -1,196 +1,145 @@
 import axios from "axios";
-import { useState,useEffect } from "react";
-
- 
+import { useState, useEffect } from "react";
 import { MdDateRange } from "react-icons/md";
 import { FaSearch } from "react-icons/fa";
+import Link from "next/link";
 
-
-const ActDetail=({id})=>{
-    const [data, setData] = useState([]);
+const ActDetail = ({ id }) => {
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios.get('http://www.ehp-hasnaoui.com/api/act/'+id)
-      .then(response => {
-        setData(response.data);
-      })
-      .catch(error => {
-        console.error('Error fetching data: ', error);
-      });
-	   
-  }, []);
-    return(
-        <>
-<div> 
-{data.map((item, index) => (
-       
+    const fetchActualiteDetail = async () => {
+      // Reset states when id changes
+      setLoading(true);
+      setError(null);
 
+      // Only proceed if id exists
+      if (!id) {
+        setLoading(false);
+        return;
+      }
 
+      try {
+        const response = await axios.get(`https://ehp-hasnaoui.com/api/act/${id}`);
+        
+        // Check if data is received
+        if (response.data && response.data.length > 0) {
+          setData(response.data);
+        } else {
+          setError(new Error("No data found"));
+        }
+        
+        setLoading(false);
+      } catch (err) {
+        console.error('Error fetching actualité details:', err);
+        setError(err);
+        setLoading(false);
+      }
+    };
 
-            
- 		<section class="news-single section"key={index}>
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-8 col-12">
-						<div class="row">
-							<div class="col-12">
-								<div class="single-main">
- 									<div class="news-head">
-										<img src={`https://www.ehp-hasnaoui.com/uploads/images_act/${item.image}`}  alt="#"/>
-									</div>
- 									<h2 class="news-title"> {item.titre}  </h2>
- 									<div class="meta">
-										<div class="meta-left">
- 											<span class="date"><MdDateRange color='#65ddd5' size={25} className="mx-2"/>
-                                             {item.date}</span>
-										</div>
-										{/*<div class="meta-right">
-											<span class="comments"><a href="#"><i class="fa fa-comments"></i>05 Comments</a></span>
-											<span class="views"><i class="fa fa-eye"></i>33K Views</span>
-										</div>*/}
-									</div>
- 									<div class="news-text">
-										 
-                                     <p 
-             
-              dangerouslySetInnerHTML={{ 
-                __html: item.description 
-              }}
-            /> 									</div>
-									{/*<div class="blog-bottom">
- 										<ul class="social-share">
-											<li class="facebook"><a href="#"><i class="fa fa-facebook"></i><span>Facebook</span></a></li>
-											<li class="twitter"><a href="#"><i class="fa fa-twitter"></i><span>Twitter</span></a></li>
-											<li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
-											<li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
-											<li class="pinterest"><a href="#"><i class="fa fa-pinterest"></i></a></li>
-										</ul>
- 										<ul class="prev-next">
-											<li class="prev"><a href="#"><i class="fa fa-angle-double-left"></i></a></li>
-											<li class="next"><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
-										</ul>
- 									</div>*/}
-								</div>
-							</div>
-							{/*<div class="col-12">
-								<div class="blog-comments">
-									<h2>All Comments</h2>
-									<div class="comments-body">
- 										<div class="single-comments">
-											<div class="main">
-												<div class="head">
-													<img src="img/author1.jpg" alt="#"/>
-												</div>
-												<div class="body">
-													<h4>Afsana Mimi</h4>
-													<div class="comment-meta"><span class="meta"><i class="fa fa-calendar"></i>March 05, 2019</span><span class="meta"><i class="fa fa-clock-o"></i>03:38 AM</span></div>
-													<p>Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas</p>
-													<a href="#"><i class="fa fa-reply"></i>replay</a>
-												</div>
-											</div>
-										</div>		
-									 
-										<div class="single-comments left">
-											<div class="main">
-												<div class="head">
-													<img src="img/author2.jpg" alt="#"/>
-												</div>
-												<div class="body">
-													<h4>Naimur Rahman</h4>
-													<div class="comment-meta"><span class="meta"><i class="fa fa-calendar"></i>March 05, 2019</span><span class="meta"><i class="fa fa-clock-o"></i>03:38 AM</span></div>
-													<p>Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas</p>
-													<a href="#"><i class="fa fa-reply"></i>replay</a>
-												</div>
-											</div>
-										</div>		
-									 
-										<div class="single-comments">
-											<div class="main">
-												<div class="head">
-													<img src="img/author3.jpg" alt="#"/>
-												</div>
-												<div class="body">
-													<h4>Suriya Molharta</h4>
-													<div class="comment-meta"><span class="meta"><i class="fa fa-calendar"></i>March 05, 2019</span><span class="meta"><i class="fa fa-clock-o"></i>03:38 AM</span></div>
-													<p>Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas</p>
-													<a href="#"><i class="fa fa-reply"></i>replay</a>
-												</div>
-											</div>
-										</div>		
- 									</div>
-								</div>
-							</div>
-							<div class="col-12">
-								<div class="comments-form">
-									<h2>Leave Comments</h2>
- 									<form class="form" method="post" action="mail/mail.php">
-										<div class="row">
-											<div class="col-lg-4 col-md-4 col-12">
-												<div class="form-group">
-													<i class="fa fa-user"></i>
-													<input type="text" name="first-name" placeholder="First name" required="required"/>
-												</div>
-											</div>
-											<div class="col-lg-4 col-md-4 col-12">
-												<div class="form-group">
-													<i class="fa fa-envelope"></i>
-													<input type="text" name="last-name" placeholder="Last name" required="required"/>
-												</div>
-											</div>
-											<div class="col-lg-4 col-md-4 col-12">
-												<div class="form-group">
-													<i class="fa fa-envelope"></i>
-													<input type="email" name="email" placeholder="Your Email" required="required"/>
-												</div>
-											</div>
-											<div class="col-12">
-												<div class="form-group message">
-													<i class="fa fa-pencil"></i>
-													<textarea name="message" rows="7" placeholder="Type Your Message Here" ></textarea>
-												</div>
-											</div>
-											<div class="col-12">
-												<div class="form-group button">	
-													<button type="submit" class="btn primary"><i class="fa fa-send"></i>Submit Comment</button>
-												</div>
-											</div>
-										</div>
-									</form>
- 								</div>
-							</div>*/}
-						</div>
-					</div>
-					<div class="col-lg-4 col-12">
-						<div class="main-sidebar">
- 							<div class="single-widget search">
-								<div class="form">
-									<input type="text" placeholder="Rechercher..."/>
-									<a class="button" href="#"><FaSearch color="white"/>
-                                    </a>
-								</div>
-							</div>
-							 
-							<div class="single-widget category">
-								<h3 class="title">Nos Services :</h3>
-								<ul class="categor-list">
-									<li><a href="#">Men's Apparel</a></li>
-									<li><a href="#">Women's Apparel</a></li>
-									<li><a href="#">Bags Collection</a></li>
-									<li><a href="#">Accessories</a></li>
-									<li><a href="#">Sun Glasses</a></li>
-								</ul>
-							</div>
-						   
- 						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+    fetchActualiteDetail();
+  }, [id]);
+
+  // Loading state
+  if (loading) {
+    return (
+      <div className="text-center py-10">
+        <p>Chargement...</p>
+      </div>
+    );
+  }
+
+  // Error state
+  if (error) {
+    return (
+      <div className="text-center py-10 text-red-500">
+        <p>Erreur de chargement : {error.message}</p>
+      </div>
+    );
+  }
+
+  // No data state
+  if (data.length === 0) {
+    return (
+      <div className="text-center py-10">
+        <p>Aucune actualité trouvée</p>
+      </div>
+    );
+  }
+
+  return (
+    <>
+      {data.map((item, index) => (
+        <section className="news-single section" key={index}>
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-8 col-12">
+                <div className="row">
+                  <div className="col-12">
+                    <div className="single-main">
+                      <div className="news-head">
+                        <img 
+                          src={`https://ehp-hasnaoui.com/images_act/${item.image}`} 
+                          alt={item.titre || "Image de l'actualité"}
+                          onError={(e) => {
+                            e.target.onerror = null; 
+                            e.target.src = '/placeholder-image.jpg'; // Fallback image
+                          }}
+                          className="w-full h-auto object-cover"
+                        />
+                      </div>
+                      <h2 className="news-title">{item.titre}</h2>
+                      <div className="meta">
+                        <div className="meta-left">
+                          <span className="date flex items-center">
+                            <MdDateRange color='#65ddd5' size={25} className="mx-2"/>
+                            {item.date}
+                          </span>
+                        </div>
+                      </div>
+                      <div className="news-text">
+                        <p 
+                          dangerouslySetInnerHTML={{ 
+                            __html: item.description 
+                          }}
+                        /> 
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-lg-4 col-12">
+                <div className="main-sidebar">
+                 
+                  <div className="single-widget category">
+                    <h3 className="title">Nos Services :</h3>
+                    <ul className="categor-list">
+					<Link href="/service_urlogie">	<div className="d-flex flex-row gap-2"><img src="/neurone.png"className="h-50" alt="" srcset="" /><p className="mt-2">Urologie</p></div></Link>
+										<Link href="/service_pediaterie">	<div className="d-flex flex-row gap-2"><img src="/pediatrie.png" alt=""className="h-50" srcset="" /><p className="mt-2">Pédiatrie-Néonatalogie</p></div></Link>
+										<Link href="/service_traumatologie">	<div className="d-flex flex-row gap-2"><img src="/os.png"className="h-50" alt="" srcset="" /><p className="mt-2">Traumatologie-Orthopédie</p></div></Link>
+										<Link href="/service_gastro">	<div className="d-flex flex-row gap-2"><img src="/gastro-enterologie.png"className="h-50" alt="" srcset="" /><p className="mt-2">Hepato-Gastro-Entérologie</p></div></Link>
+										<Link href="/service_cardioloie_clinique">	<div className="d-flex flex-row gap-2"><img src="/cardiologiee.png"className="h-50" alt="" srcset="" /><p className="mt-2">Cardiologie Clinique</p></div></Link>
+										<Link href="/service_gynecologie">	<div className="d-flex flex-row gap-2"><img src="/gynecologie.png"className="h-50" alt="" srcset="" /><p className="mt-2">Gynécologie Obstétrique</p></div></Link>
  
-))}
-</div>
-        </>
-    )
+										<Link href="/service_reanimation">	<div className="d-flex flex-row gap-2"><img src="/reanimateur.png" className="h-50"alt="" srcset="" /><p className="mt-2">Réanimation-Anesthésie</p></div></Link>
+										<Link href="/service_imagerie">	<div className="d-flex flex-row gap-2"><img src="/tomodensitometrieee.png"className="h-50" alt="" srcset="" /><p className="mt-2">Imagerie</p></div></Link>
+										<Link href="/service_cardiovasculaire">	<div className="d-flex flex-row gap-2"><img src="/cardiologiez.png"className="h-50" alt="" srcset="" /><p className="mt-2">Chirurgie Cardio-Vasculaire</p></div></Link>
+										<Link href="/service_laboratoireanalyse">	<div className="d-flex flex-row gap-2"><img src="/rapport-scientifique.png"className="h-50" alt="" srcset="" /><p className="mt-2">Laboratoire d\'analyses</p></div></Link>
+										<Link href="/service_consultation">	<div className="d-flex flex-row gap-2"><img src="/dermatologie.png"className="h-50" alt="" srcset="" /><p className="mt-2">Consultation Générale</p></div></Link>
+										<Link href="/service_chirugie">	<div className="d-flex flex-row gap-2"><img src="/equipe-medicale.png" alt="" srcset="" className="h-50" /><p className="mt-2">Chirurgie Générale & Viscérale</p></div></Link>
+										
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      ))}
+    </>
+  );
 }
 
 export default ActDetail;

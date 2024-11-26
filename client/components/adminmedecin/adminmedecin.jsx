@@ -23,7 +23,7 @@ const AdminMedecin = () => {
  const fetchData = async () => {
       try {
         //https://www.ehp-hasnaoui.com/api/galerie/
-        const response = await axios.get('http://localhost:8800/api/medecin/');  
+        const response = await axios.get('https://ehp-hasnaoui.com/api/medecin/');  
         setData(response.data);
        } catch (error) {
         console.error('Error fetching data: ', error);
@@ -149,7 +149,7 @@ const AdminMedecin = () => {
            const id=oldData.id;
            //axios.delete(`https://www.ehp-hasnaoui.com/api/galerie/${id}`)
 
-           axios.delete(`http://localhost:8800/api/medecin/${id}`)
+           axios.delete(`https://ehp-hasnaoui.com/api/medecin/${id}`)
 .then(response => {
 toast.success(response.data)
 })

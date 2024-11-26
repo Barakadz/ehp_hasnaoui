@@ -65,7 +65,7 @@ toast.error("il faut choisir un fichier")
         try {
          // const response = await axios.post('https://www.ehp-hasnaoui.com/api/upload/galerie', formData);
 
-         const response = await axios.post('http://localhost:8800/api/upload/medecin', formData);
+         const response = await axios.post('https://ehp-hasnaoui.com/api/upload/medecin', formData);
            xx+=response.data
            } catch (error) {
           toast.error(error);
@@ -73,7 +73,7 @@ toast.error("il faut choisir un fichier")
 
  //  const apiUrl = 'https://www.ehp-hasnaoui.com/api/galerie/add';
 
- const apiUrl = 'http://localhost:8800/api/medecin/add';
+ const apiUrl = 'https://ehp-hasnaoui.com/api/medecin/add';
   const requestData = {
     username:usernameMed,
     poste:posteMed,

@@ -56,7 +56,7 @@ const Medecin = () => {
     // Fetch data from API
     const fetchMedecins = async () => {
       try {
-        const response = await axios.get('http://localhost:8800/api/medecin/');
+        const response = await axios.get('https://ehp-hasnaoui.com/api/medecin/');
         setMedecins(response.data); // Save data in state
         setLoading(false);
       } catch (err) {

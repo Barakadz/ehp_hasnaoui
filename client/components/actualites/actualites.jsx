@@ -7,7 +7,7 @@ const Actualites=()=>{
 	const [data, setData] = useState([]);
 
   useEffect(() => {
-    axios.get('http://www.ehp-hasnaoui.com/api/act/')
+    axios.get('https://ehp-hasnaoui.com/api/act/')
       .then(response => {
         setData(response.data);
       })
@@ -32,7 +32,7 @@ const Actualites=()=>{
 					
 		  <div class="single-news wow fadeIn" data-wow-delay="0.25s">
 			  <div class="news-head">
-				  <img src={`https://www.ehp-hasnaoui.com/uploads/images_act/${item.image}`} alt="#"/>
+				  <img src={`https://ehp-hasnaoui.com/images_act/${item.image}`} alt="#"/>
 			  </div>
 			  <div class="news-body">
 				  <div class="news-content">

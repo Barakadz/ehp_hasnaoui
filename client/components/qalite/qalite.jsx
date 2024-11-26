@@ -20,12 +20,7 @@ const Qalite = () => {
   };
 
   return (
-    <div style={styles.container}>
-      <button style={styles.button} onClick={downloadFiles}>
-        <AiOutlineCloudDownload style={styles.icon} size={25} color="black" />
-        <span style={styles.text}>Notre politique Qualité</span>
-      </button>
-    </div>
+     <></>
   );
 };
 
