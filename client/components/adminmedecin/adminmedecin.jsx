@@ -51,7 +51,7 @@ const AdminMedecin = () => {
       <img 
       //          src={`https://www.ehp-hasnaoui.com/uploads/galerie/${rowData.image}`} 
 
-      src={`./medecin/${rowData.image}`} 
+      src={`https://www.ehp-hasnaoui.com/medecin/${rowData.image}`} 
           alt="user" 
           style={{ width: 100, borderRadius: '3%' }} 
       />

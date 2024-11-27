@@ -19,7 +19,7 @@ const ActualitesAdmin = () => {
       try {
         //        const response = await axios.get('https://www.ehp-hasnaoui.com/api/act/');  
 
-        const response = await axios.get('http://localhost:8800/api/act/tous/');  
+        const response = await axios.get('https://ehp-hasnaoui.com/api/act/tous/');  
         setData(response.data);
        } catch (error) {
         console.error('Error fetching data: ', error);
@@ -50,7 +50,7 @@ const ActualitesAdmin = () => {
     
     render: rowData => (
       <img 
-          src={`http://localhost:4000/images_act/${rowData.image}`} 
+          src={`https://ehp-hasnaoui.com/images_act/${rowData.image}`} 
           alt="Actualites" 
           style={{ width: 100, borderRadius: '3%' }} 
       />
