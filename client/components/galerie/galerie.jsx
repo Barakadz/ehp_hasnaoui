@@ -79,7 +79,7 @@ const MyLightbox = ({ images,title }) => {
         {images.map((image, index) => (<div className='mx-4'>
           <img
             key={index}
-            src={`https://www.ehp-hasnaoui.com/uploads/galerie/${image}`}
+            src={`https://www.ehp-hasnaoui.com/galerie/${image}`}
             alt={`Image ${index}`}
             className=''
             onClick={() => openLightbox(index)}
@@ -98,7 +98,7 @@ const MyLightbox = ({ images,title }) => {
       </div>
       {isOpen && (
         <Lightbox
-          mainSrc={`https://www.ehp-hasnaoui.com/uploads/galerie/${images[photoIndex]}`}
+          mainSrc={`https://www.ehp-hasnaoui.com/galerie/${images[photoIndex]}`}
           nextSrc={images[(photoIndex + 1) % images.length]}
           prevSrc={images[(photoIndex + images.length - 1) % images.length]}
           onCloseRequest={closeLightbox}

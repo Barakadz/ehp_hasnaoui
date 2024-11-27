@@ -31,7 +31,7 @@ function SamplePrevArrow(props) {
   return (
     <div
       className={className}
-      style={{ marginLeft: '5px', zIndex: '4444' }}
+      style={{ marginLeft: '5px', zIndex: '1' }}
       onClick={onClick}
     >
       <FaArrowLeft
