@@ -11,6 +11,14 @@ const nextConfig = {
   images: {
     unoptimized: true,
     domains: ['ehp-hasnaoui.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'ehp-hasnaoui.com',
+        port: '',
+        pathname: '/images_act/**',
+      },
+    ],
   },
   experimental: {
     serverActions: true
